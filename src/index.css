@@ -425,8 +425,31 @@ ul {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none; /* In a real app, add a hamburger menu */
+  .mobile-menu-icon {
+    display: block !important;
+  }
+  .nav-wrapper {
+    display: none !important;
+  }
+  .nav-wrapper.mobile-open {
+    display: flex !important;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    flex-direction: column;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 999;
+    align-items: center;
+  }
+  .nav-wrapper.mobile-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
   }
   .hero h1 { font-size: 2.5rem; }
   .slide-title { font-size: 2.5rem !important; }
