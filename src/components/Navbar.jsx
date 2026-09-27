@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="logo"><Link to="/" onClick={closeMenu}>JB Healthcare</Link></div>
         
         <div className="mobile-menu-icon" onClick={toggleMenu} style={{ display: 'none', cursor: 'pointer', zIndex: 1000 }}>
-          {isMobileMenuOpen ? <X size={28} color="var(--primary)" /> : <Menu size={28} color={scrolled ? "var(--primary)" : "var(--primary)"} />}
+          {isMobileMenuOpen ? <X size={28} color="var(--white)" /> : <Menu size={28} color="var(--white)" />}
         </div>
 
         <div className={`nav-wrapper ${isMobileMenuOpen ? 'mobile-open' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
