@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,6 +9,17 @@ const Footer = () => {
           <div>
             <h3 className="logo" style={{color: 'var(--white)'}}>JB Healthcare</h3>
             <p>Providing exceptional healthcare services with a focus on patient well-being and advanced medical treatments.</p>
+            <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
+              <a href="https://www.facebook.com/100095190337849/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--white)', backgroundColor: 'var(--accent)', padding: '10px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Facebook size={20} />
+              </a>
+              <a href="https://www.instagram.com/jb.healthcare.sivakasi/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--white)', backgroundColor: 'var(--accent)', padding: '10px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Instagram size={20} />
+              </a>
+              <a href="https://wa.me/919345510905?text=Hi,%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" style={{ color: 'var(--white)', backgroundColor: 'var(--accent)', padding: '10px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <MessageCircle size={20} />
+              </a>
+            </div>
           </div>
           <div>
             <h3>Quick Links</h3>
