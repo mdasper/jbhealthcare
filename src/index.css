@@ -173,6 +173,14 @@ ul {
   margin-bottom: 10px;
 }
 
+.footer-contact-links a {
+  transition: var(--transition);
+}
+
+.footer-contact-links a:hover {
+  color: var(--accent) !important;
+}
+
 .footer-bottom {
   text-align: center;
   padding-top: 20px;

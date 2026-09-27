@@ -34,10 +34,25 @@ const Footer = () => {
           </div>
           <div>
             <h3>Contact Info</h3>
-            <ul>
-              <li style={{display: 'flex', gap: '10px'}}><MapPin size={18}/> 2/571A, Bharathi Nagar, Reserve line, Vasantham Nagar, Rengapa Shyam Nagar, Anaiyur, Tamil Nadu 626124</li>
-              <li style={{display: 'flex', gap: '10px'}}><Phone size={18}/> 093455 10905</li>
-              <li style={{display: 'flex', gap: '10px'}}><Mail size={18}/> info@jbhealthcare.com</li>
+            <ul className="footer-contact-links">
+              <li style={{display: 'flex', gap: '10px'}}>
+                <MapPin size={18} style={{ flexShrink: 0, marginTop: '4px' }}/>
+                <a href="https://maps.google.com/?q=2/571A,+Bharathi+Nagar,+Reserve+line,+Vasantham+Nagar,+Rengapa+Shyam+Nagar,+Anaiyur,+Tamil+Nadu+626124" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                  2/571A, Bharathi Nagar, Reserve line, Vasantham Nagar, Rengapa Shyam Nagar, Anaiyur, Tamil Nadu 626124
+                </a>
+              </li>
+              <li style={{display: 'flex', gap: '10px'}}>
+                <Phone size={18} style={{ flexShrink: 0 }}/>
+                <a href="https://wa.me/919345510905" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                  093455 10905
+                </a>
+              </li>
+              <li style={{display: 'flex', gap: '10px'}}>
+                <Mail size={18} style={{ flexShrink: 0 }}/>
+                <a href="mailto:info@jbhealthcare.com" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                  info@jbhealthcare.com
+                </a>
+              </li>
             </ul>
           </div>
         </div>
