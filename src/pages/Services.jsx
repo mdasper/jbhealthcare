@@ -93,7 +93,7 @@ const Services = () => {
               <Link to="/contact" className="btn btn-accent mt-4">Enquire About Packages</Link>
             </div>
             <div data-aos="fade-left">
-              <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5fe3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Health Packages" style={{ width: '100%', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
+              <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Health Packages" style={{ width: '100%', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
             </div>
           </div>
         </div>
