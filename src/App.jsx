@@ -43,7 +43,7 @@ function App() {
   if (loading) {
     return (
       <div style={{ height: '100vh', width: '100vw', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'var(--primary)' }}>
-        <Activity size={64} color="var(--accent)" className="pulse-animation" />
+        <img src="/logo.jpg" alt="JB Healthcare Logo" className="pulse-animation" style={{ width: '120px', height: '120px', borderRadius: '50%', backgroundColor: 'white', padding: '5px' }} />
         <h2 style={{ color: 'var(--white)', marginTop: '20px', letterSpacing: '2px', animation: 'fadeIn 1.5s infinite alternate' }}>JB HEALTHCARE</h2>
       </div>
     );
