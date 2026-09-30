@@ -7,7 +7,10 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <h3 className="logo" style={{color: 'var(--white)'}}>JB Healthcare</h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
+              <img src="/logo.jpg" alt="JB Healthcare Logo" style={{ height: '60px', borderRadius: '50%', backgroundColor: 'white', padding: '3px' }} />
+              <h3 className="logo" style={{color: 'var(--white)', margin: 0}}>JB Healthcare</h3>
+            </div>
             <p>Providing exceptional healthcare services with a focus on patient well-being and advanced medical treatments.</p>
             <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
               <a href="https://www.facebook.com/100095190337849/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--white)', backgroundColor: '#1877F2', padding: '10px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

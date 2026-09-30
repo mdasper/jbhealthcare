@@ -30,7 +30,12 @@ const Navbar = () => {
   return (
     <nav className="navbar" style={{ padding: scrolled ? '15px 0' : '25px 0' }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div className="logo"><Link to="/" onClick={closeMenu}>JB Healthcare</Link></div>
+        <div className="logo">
+          <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <img src="/logo.jpg" alt="JB Healthcare Logo" style={{ height: '50px', borderRadius: '50%', backgroundColor: 'white', padding: '2px' }} />
+            JB Healthcare
+          </Link>
+        </div>
         
         <div className="mobile-menu-icon" onClick={toggleMenu} style={{ display: 'none', cursor: 'pointer', zIndex: 1000 }}>
           {isMobileMenuOpen ? <X size={28} color="var(--white)" /> : <Menu size={28} color="var(--white)" />}
