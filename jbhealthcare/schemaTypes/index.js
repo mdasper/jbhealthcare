@@ -4,5 +4,6 @@ import siteSettings from './siteSettings'
 import homePage from './homePage'
 import aboutPage from './aboutPage'
 import testimonial from './testimonial'
+import event from './event'
 
-export const schemaTypes = [siteSettings, homePage, aboutPage, service, doctor, testimonial]
+export const schemaTypes = [siteSettings, homePage, aboutPage, service, doctor, testimonial, event]
