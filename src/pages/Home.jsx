@@ -48,10 +48,10 @@ const Home = () => {
   }, []);
 
   // Use Sanity data if available, otherwise fallback to default slides
-  const displaySlides = homeData?.heroSliders?.length > 0 ? homeData.heroSliders.map(slide => ({
+  const displaySlides = homeData?.heroSliders?.length > 0 ? homeData.heroSliders.map((slide, index) => ({
     title: slide.title,
     subtitle: slide.subtitle,
-    image: slide.image ? urlFor(slide.image).url() : slides[0].image
+    image: slide.image ? urlFor(slide.image).url() : slides[index % slides.length].image
   })) : slides;
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % displaySlides.length);
