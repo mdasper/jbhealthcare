@@ -1,4 +1,19 @@
+import { useState, useEffect } from 'react';
+import { client } from '../sanity';
+
 const Contact = () => {
+  const [settings, setSettings] = useState(null);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "siteSettings"][0]`).then((data) => {
+      setSettings(data);
+    }).catch(console.error);
+  }, []);
+
+  const address = settings?.address || "2/571A, Bharathi Nagar, Reserve line, Anaiyur, Tamil Nadu 626124";
+  const phone = settings?.phone || "093455 10905";
+  const email = settings?.email || "info@jbhealthcare.com";
+
   return (
     <div className="page-transition" style={{ paddingTop: '80px' }}>
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
@@ -24,7 +39,7 @@ const Contact = () => {
                 <div>
                   <h4 style={{ color: 'var(--primary)', margin: 0, fontSize: '1.1rem' }}>Location</h4>
                   <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}>
-                    2/571A, Bharathi Nagar, Reserve line, Anaiyur, Tamil Nadu 626124
+                    {address}
                   </p>
                 </div>
               </div>
@@ -35,7 +50,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 style={{ color: 'var(--primary)', margin: 0, fontSize: '1.1rem' }}>Call Us</h4>
-                  <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}>093455 10905</p>
+                  <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}>{phone}</p>
                 </div>
               </div>
               
@@ -45,7 +60,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 style={{ color: 'var(--primary)', margin: 0, fontSize: '1.1rem' }}>Email Us</h4>
-                  <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}>info@jbhealthcare.com</p>
+                  <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}>{email}</p>
                 </div>
               </div>
             </div>

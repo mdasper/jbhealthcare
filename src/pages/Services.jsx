@@ -1,7 +1,16 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Stethoscope, HeartPulse, ShieldPlus, Baby, Brain, Bone, Eye, Activity, ClipboardList, Clock, PhoneCall } from 'lucide-react';
+import { Activity, ClipboardList, Clock, PhoneCall } from 'lucide-react';
+import { client } from '../sanity';
 
 const Services = () => {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "service"]`).then((data) => {
+      setServices(data);
+    }).catch(console.error);
+  }, []);
   return (
     <div className="page-transition" style={{ paddingTop: '80px' }}>
       
@@ -25,41 +34,15 @@ const Services = () => {
           
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
             
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="100" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)', textAlign: 'left' }}>
-              <HeartPulse size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.6rem' }}>Cardiology</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>Comprehensive cardiac care including ECG, Echocardiogram, TMT, and non-invasive diagnostic procedures. We provide expert management for hypertension and heart failure.</p>
-            </div>
-
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="200" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)', textAlign: 'left' }}>
-              <Stethoscope size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.6rem' }}>General Medicine</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>Expert diagnosis and treatment for infectious diseases, chronic lifestyle disorders like Diabetes and Thyroid issues, and routine adult health concerns.</p>
-            </div>
-
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="300" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)', textAlign: 'left' }}>
-              <Baby size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.6rem' }}>Pediatrics</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>Dedicated child care services ranging from newborn assessments and immunizations to managing complex childhood illnesses with utmost compassion.</p>
-            </div>
-
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="400" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)', textAlign: 'left' }}>
-              <Bone size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.6rem' }}>Orthopedics</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>Advanced bone and joint care, fracture management, arthritis treatment, and physiotherapy services for faster and painless rehabilitation.</p>
-            </div>
-
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="500" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)', textAlign: 'left' }}>
-              <Brain size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.6rem' }}>Neurology</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>Specialized care for headaches, migraines, stroke prevention, and neurological disorders utilizing the latest diagnostic imaging.</p>
-            </div>
-
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="600" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)', textAlign: 'left' }}>
-              <ShieldPlus size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.6rem' }}>Emergency Care</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>Our 24/7 ER is fully equipped with life-saving equipment, ready to handle severe trauma, accidents, and acute medical emergencies instantly.</p>
-            </div>
+            {services.length > 0 ? services.map((service, index) => (
+              <div key={service._id || index} className="service-card" data-aos="zoom-in" data-aos-delay={`${(index % 6 + 1) * 100}`} style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)', textAlign: 'left' }}>
+                <Activity size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
+                <h3 style={{ color: 'var(--accent)', fontSize: '1.6rem' }}>{service.title}</h3>
+                <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>{service.description}</p>
+              </div>
+            )) : (
+              <p>Loading services...</p>
+            )}
 
           </div>
         </div>

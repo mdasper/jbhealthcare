@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { client } from '../sanity';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [settings, setSettings] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
+    client.fetch(`*[_type == "siteSettings"][0]`).then((data) => {
+      setSettings(data);
+    }).catch(console.error);
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
@@ -32,8 +37,8 @@ const Navbar = () => {
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div className="logo">
           <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <img src="/logo.jpg" alt="JB Healthcare Logo" style={{ height: '50px', borderRadius: '50%', backgroundColor: 'white', padding: '2px' }} />
-            JB Healthcare
+            <img src="/logo.jpg" alt={`${settings?.hospitalName || 'JB Healthcare'} Logo`} style={{ height: '50px', borderRadius: '50%', backgroundColor: 'white', padding: '2px' }} />
+            {settings?.hospitalName || "JB Healthcare"}
           </Link>
         </div>
         
@@ -49,7 +54,7 @@ const Navbar = () => {
             <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={closeMenu}>Contact</Link>
           </div>
           <a 
-            href={`https://wa.me/919345510905?text=${encodeURIComponent("Hi, I would like to book an appointment.")}`} 
+            href={`https://wa.me/${settings?.whatsappNumber ? settings.whatsappNumber.replace(/\D/g, '') : '919345510905'}?text=${encodeURIComponent("Hi, I would like to book an appointment.")}`} 
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn btn-accent" 
