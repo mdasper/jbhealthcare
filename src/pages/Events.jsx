@@ -23,8 +23,9 @@ const Events = () => {
   };
 
   return (
-    <div className="page-transition" style={{ paddingTop: '80px', minHeight: '100vh', backgroundColor: 'var(--secondary)' }}>
-      <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
+    <>
+      <div className="page-transition" style={{ paddingTop: '80px', minHeight: '100vh', backgroundColor: 'var(--secondary)' }}>
+        <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
         <div className="container text-center" data-aos="fade-up">
           <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginBottom: '20px' }}>Events & Medical Camps</h1>
           <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.9)' }}>
@@ -74,12 +75,18 @@ const Events = () => {
         </div>
       </section>
 
-      {/* Gallery Modal */}
+        <style>{`
+          .event-img-hover:hover { transform: scale(1.05); }
+          .gallery-overlay:hover { opacity: 1 !important; }
+        `}</style>
+      </div>
+
+      {/* Gallery Modal (Outside page-transition to fix position: fixed) */}
       {selectedEvent && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 9999, backgroundColor: 'rgba(0,0,0,0.9)', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ padding: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' }}>
+        <div style={{ position: 'fixed', inset: 0, zIndex: 999999, backgroundColor: 'rgba(0,0,0,0.95)', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ padding: '20px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.8)' }}>
             <h2 style={{ color: 'white', margin: 0 }}>{selectedEvent.title} - Gallery</h2>
-            <button onClick={closeGallery} style={{ background: 'none', border: 'none', color: 'white', fontSize: '2rem', cursor: 'pointer' }}>&times;</button>
+            <button onClick={closeGallery} style={{ background: 'none', border: 'none', color: 'white', fontSize: '3rem', cursor: 'pointer', lineHeight: '1' }}>&times;</button>
           </div>
           
           <div style={{ flex: 1, overflowY: 'auto', padding: '40px 20px' }}>
@@ -94,20 +101,15 @@ const Events = () => {
                 </div>
               ) : (
                 <div style={{ textAlign: 'center', color: 'white', marginTop: '100px' }}>
-                  <h3>No gallery photos available for this event.</h3>
+                  <h3 style={{ color: 'white' }}>No gallery photos available for this event yet.</h3>
+                  <button onClick={closeGallery} className="btn btn-primary mt-4">Go Back</button>
                 </div>
               )}
             </div>
           </div>
         </div>
       )}
-
-      {/* Basic CSS for hover effects */}
-      <style>{`
-        .event-img-hover:hover { transform: scale(1.05); }
-        .gallery-overlay:hover { opacity: 1 !important; }
-      `}</style>
-    </div>
+    </>
   );
 };
 
