@@ -47,15 +47,12 @@ const Home = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Use Sanity data for the first slide if available, otherwise fallback
-  const displaySlides = homeData ? [
-    {
-      title: homeData.heroTitle || slides[0].title,
-      subtitle: homeData.heroSubtitle || slides[0].subtitle,
-      image: homeData.heroImage ? urlFor(homeData.heroImage).url() : slides[0].image
-    },
-    ...slides.slice(1)
-  ] : slides;
+  // Use Sanity data if available, otherwise fallback to default slides
+  const displaySlides = homeData?.heroSliders?.length > 0 ? homeData.heroSliders.map(slide => ({
+    title: slide.title,
+    subtitle: slide.subtitle,
+    image: slide.image ? urlFor(slide.image).url() : slides[0].image
+  })) : slides;
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % displaySlides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? displaySlides.length - 1 : prev - 1));

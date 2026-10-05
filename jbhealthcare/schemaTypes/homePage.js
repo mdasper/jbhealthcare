@@ -4,20 +4,19 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'heroTitle',
-      title: 'Main Banner Title',
-      type: 'string',
-    },
-    {
-      name: 'heroSubtitle',
-      title: 'Main Banner Subtitle',
-      type: 'text',
-    },
-    {
-      name: 'heroImage',
-      title: 'Main Banner Background Image',
-      type: 'image',
-      options: { hotspot: true }
+      name: 'heroSliders',
+      title: 'Hero Sliders (Banner Images & Text)',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', title: 'Banner Title', type: 'string' },
+            { name: 'subtitle', title: 'Banner Subtitle', type: 'text' },
+            { name: 'image', title: 'Background Image', type: 'image', options: { hotspot: true } }
+          ]
+        }
+      ]
     },
     {
       name: 'emergencyNumber',

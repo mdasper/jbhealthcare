@@ -38,6 +38,34 @@ export default {
       title: 'About Us Image',
       type: 'image',
       options: { hotspot: true }
+    },
+    {
+      name: 'coreValues',
+      title: 'Core Values (e.g. Compassion, Excellence)',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', title: 'Value Title', type: 'string' },
+            { name: 'description', title: 'Description', type: 'string' }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'whyDifferent',
+      title: 'Why We Are Different',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', title: 'Point Title', type: 'string' },
+            { name: 'description', title: 'Description', type: 'string' }
+          ]
+        }
+      ]
     }
   ],
 }
