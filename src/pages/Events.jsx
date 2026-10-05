@@ -104,8 +104,6 @@ const Events = () => {
         .premium-event-card:hover .gallery-overlay { opacity: 1 !important; }
         .premium-event-card:hover .gallery-icon-container { transform: scale(1) !important; }
       `}</style>
-    </>
-
       {/* Gallery Modal (Outside page-transition to fix position: fixed) */}
       {selectedEvent && (
         <div style={{ position: 'fixed', inset: 0, zIndex: 999999, backgroundColor: 'rgba(0,0,0,0.95)', display: 'flex', flexDirection: 'column' }}>
