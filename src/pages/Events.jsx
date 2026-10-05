@@ -12,7 +12,12 @@ const dummyGallery = [
   'https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1612349317150-e410f624c400?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 ];
 
 const Events = () => {
@@ -45,6 +50,15 @@ const Events = () => {
   const prevPhoto = (totalPhotos) => {
     setCurrentPhotoIndex((prev) => (prev === 0 ? totalPhotos - 1 : prev - 1));
   };
+
+  const getEventDummyGallery = (event) => {
+    if (!event) return dummyGallery;
+    const idx = events.findIndex(e => e._id === event._id);
+    const count = 10 + (Math.abs(idx) % 6);
+    return dummyGallery.slice(0, count);
+  };
+
+  const activeGallery = selectedEvent?.gallery?.length > 0 ? selectedEvent.gallery : getEventDummyGallery(selectedEvent);
 
   return (
     <>
@@ -96,7 +110,7 @@ const Events = () => {
                   
                   <div style={{ marginTop: 'auto' }}>
                     <button onClick={() => openGallery(eventItem)} className="btn" style={{ backgroundColor: 'var(--accent)', color: 'var(--white)', border: 'none', padding: '14px 28px', fontSize: '1rem', fontWeight: '600', display: 'inline-flex', alignItems: 'center', gap: '10px', transition: 'all 0.3s ease', borderRadius: '8px', boxShadow: '0 4px 15px rgba(224, 169, 109, 0.4)' }} onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(224, 169, 109, 0.6)'; }} onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(224, 169, 109, 0.4)'; }}>
-                      View Event Gallery ({eventItem.gallery?.length || 10})
+                      View Event Gallery ({eventItem.gallery?.length || (10 + (index % 6))})
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </button>
                   </div>
@@ -130,13 +144,13 @@ const Events = () => {
       {selectedEvent && (
         <div style={{ position: 'fixed', inset: 0, zIndex: 999999, backgroundColor: 'rgba(0,0,0,0.95)', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '20px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.8)' }}>
-            <h2 style={{ color: 'white', margin: 0 }}>{selectedEvent.title} - Gallery ({currentPhotoIndex + 1} / {selectedEvent.gallery?.length || dummyGallery.length})</h2>
+            <h2 style={{ color: 'white', margin: 0 }}>{selectedEvent.title} - Gallery ({currentPhotoIndex + 1} / {activeGallery.length})</h2>
             <button onClick={closeGallery} style={{ background: 'none', border: 'none', color: 'white', fontSize: '3rem', cursor: 'pointer', lineHeight: '1' }}>&times;</button>
           </div>
           
           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', padding: '20px' }}>
             <button 
-              onClick={() => prevPhoto(selectedEvent.gallery ? selectedEvent.gallery.length : dummyGallery.length)} 
+              onClick={() => prevPhoto(activeGallery.length)} 
               style={{ position: 'absolute', left: '30px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.2)', border: 'none', color: 'white', width: '50px', height: '50px', borderRadius: '50%', fontSize: '1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}
               onMouseOver={(e) => e.currentTarget.style.background = 'var(--accent)'}
               onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'}
@@ -147,15 +161,15 @@ const Events = () => {
             <div style={{ width: '100%', maxWidth: '900px', height: '70vh', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
               <img 
                 src={selectedEvent.gallery && selectedEvent.gallery.length > 0 
-                  ? urlFor(selectedEvent.gallery[currentPhotoIndex]).url() 
-                  : dummyGallery[currentPhotoIndex]} 
+                  ? urlFor(activeGallery[currentPhotoIndex]).url() 
+                  : activeGallery[currentPhotoIndex]} 
                 alt={`Gallery Photo ${currentPhotoIndex + 1}`} 
                 style={{ width: '100%', height: '100%', objectFit: 'contain', backgroundColor: '#000' }} 
               />
             </div>
             
             <button 
-              onClick={() => nextPhoto(selectedEvent.gallery ? selectedEvent.gallery.length : dummyGallery.length)} 
+              onClick={() => nextPhoto(activeGallery.length)} 
               style={{ position: 'absolute', right: '30px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.2)', border: 'none', color: 'white', width: '50px', height: '50px', borderRadius: '50%', fontSize: '1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}
               onMouseOver={(e) => e.currentTarget.style.background = 'var(--accent)'}
               onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'}
