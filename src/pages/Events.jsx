@@ -18,6 +18,7 @@ const dummyGallery = [
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   useEffect(() => {
     client.fetch(`*[_type == "event"] | order(date desc)`).then((data) => {
@@ -27,12 +28,22 @@ const Events = () => {
 
   const openGallery = (event) => {
     setSelectedEvent(event);
+    setCurrentPhotoIndex(0);
     document.body.style.overflow = 'hidden'; // prevent scrolling when modal is open
   };
 
   const closeGallery = () => {
     setSelectedEvent(null);
+    setCurrentPhotoIndex(0);
     document.body.style.overflow = 'auto';
+  };
+
+  const nextPhoto = (totalPhotos) => {
+    setCurrentPhotoIndex((prev) => (prev === totalPhotos - 1 ? 0 : prev + 1));
+  };
+
+  const prevPhoto = (totalPhotos) => {
+    setCurrentPhotoIndex((prev) => (prev === 0 ? totalPhotos - 1 : prev - 1));
   };
 
   return (
@@ -115,34 +126,42 @@ const Events = () => {
           .event-content-container { padding: 30px 25px !important; }
         }
       `}</style>
-      {/* Gallery Modal (Outside page-transition to fix position: fixed) */}
+      {/* Gallery Modal */}
       {selectedEvent && (
         <div style={{ position: 'fixed', inset: 0, zIndex: 999999, backgroundColor: 'rgba(0,0,0,0.95)', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '20px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.8)' }}>
-            <h2 style={{ color: 'white', margin: 0 }}>{selectedEvent.title} - Gallery</h2>
+            <h2 style={{ color: 'white', margin: 0 }}>{selectedEvent.title} - Gallery ({currentPhotoIndex + 1} / {selectedEvent.gallery?.length || dummyGallery.length})</h2>
             <button onClick={closeGallery} style={{ background: 'none', border: 'none', color: 'white', fontSize: '3rem', cursor: 'pointer', lineHeight: '1' }}>&times;</button>
           </div>
           
-          <div style={{ flex: 1, overflowY: 'auto', padding: '40px 20px' }}>
-            <div className="container">
-              {selectedEvent.gallery && selectedEvent.gallery.length > 0 ? (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
-                  {selectedEvent.gallery.map((img, idx) => (
-                    <div key={idx} style={{ borderRadius: '8px', overflow: 'hidden', height: '250px' }}>
-                      <img src={urlFor(img).url()} alt={`Gallery ${idx}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
-                  {dummyGallery.map((imgUrl, idx) => (
-                    <div key={idx} style={{ borderRadius: '8px', overflow: 'hidden', height: '250px' }}>
-                      <img src={imgUrl} alt={`Dummy Gallery ${idx}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    </div>
-                  ))}
-                </div>
-              )}
+          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', padding: '20px' }}>
+            <button 
+              onClick={() => prevPhoto(selectedEvent.gallery ? selectedEvent.gallery.length : dummyGallery.length)} 
+              style={{ position: 'absolute', left: '30px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.2)', border: 'none', color: 'white', width: '50px', height: '50px', borderRadius: '50%', fontSize: '1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}
+              onMouseOver={(e) => e.currentTarget.style.background = 'var(--accent)'}
+              onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'}
+            >
+              &#10094;
+            </button>
+            
+            <div style={{ width: '100%', maxWidth: '900px', height: '70vh', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
+              <img 
+                src={selectedEvent.gallery && selectedEvent.gallery.length > 0 
+                  ? urlFor(selectedEvent.gallery[currentPhotoIndex]).url() 
+                  : dummyGallery[currentPhotoIndex]} 
+                alt={`Gallery Photo ${currentPhotoIndex + 1}`} 
+                style={{ width: '100%', height: '100%', objectFit: 'contain', backgroundColor: '#000' }} 
+              />
             </div>
+            
+            <button 
+              onClick={() => nextPhoto(selectedEvent.gallery ? selectedEvent.gallery.length : dummyGallery.length)} 
+              style={{ position: 'absolute', right: '30px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.2)', border: 'none', color: 'white', width: '50px', height: '50px', borderRadius: '50%', fontSize: '1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}
+              onMouseOver={(e) => e.currentTarget.style.background = 'var(--accent)'}
+              onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'}
+            >
+              &#10095;
+            </button>
           </div>
         </div>
       )}
