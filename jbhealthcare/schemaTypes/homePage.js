@@ -24,6 +24,20 @@ export default {
       type: 'string',
     },
     {
+      name: 'features',
+      title: 'Why Choose Us (5 Points)',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', title: 'Feature Title (e.g. Certified Experts)', type: 'string' },
+            { name: 'description', title: 'Description', type: 'string' }
+          ]
+        }
+      ]
+    },
+    {
       name: 'founderName',
       title: 'Founder Name',
       type: 'string',
@@ -48,20 +62,13 @@ export default {
       title: 'Founder/Doctor Image',
       type: 'image',
       options: { hotspot: true }
-    },
-    {
-      name: 'features',
-      title: 'Why Choose Us (5 Points)',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            { name: 'title', title: 'Feature Title (e.g. Certified Experts)', type: 'string' },
-            { name: 'description', title: 'Description', type: 'string' }
-          ]
-        }
-      ]
     }
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Home Page Content'
+      }
+    }
+  }
 }
