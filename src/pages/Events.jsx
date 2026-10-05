@@ -100,6 +100,8 @@ const Events = () => {
         </div>
       </section>
 
+      </div>
+
       {/* Advanced CSS for premium hover effects and responsiveness */}
       <style>{`
         .premium-horizontal-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(10, 43, 78, 0.12) !important; }
