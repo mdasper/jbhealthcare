@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Stethoscope, HeartPulse, ShieldPlus, Award, Users, Activity, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { client, urlFor } from '../sanity';
 
 const slides = [
   {
@@ -32,22 +33,38 @@ const slides = [
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [homeData, setHomeData] = useState(null);
 
   useEffect(() => {
+    // Fetch data from Sanity
+    client.fetch(`*[_type == "homePage"][0]`).then((data) => {
+      setHomeData(data);
+    }).catch(console.error);
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 3000);
     return () => clearInterval(timer);
   }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  // Use Sanity data for the first slide if available, otherwise fallback
+  const displaySlides = homeData ? [
+    {
+      title: homeData.heroTitle || slides[0].title,
+      subtitle: homeData.heroSubtitle || slides[0].subtitle,
+      image: homeData.heroImage ? urlFor(homeData.heroImage).url() : slides[0].image
+    },
+    ...slides.slice(1)
+  ] : slides;
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % displaySlides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? displaySlides.length - 1 : prev - 1));
 
   return (
     <div className="home-page page-transition">
       {/* Premium Hero Slider */}
       <section className="hero-slider">
-        {slides.map((slide, index) => (
+        {displaySlides.map((slide, index) => (
           <div 
             key={index} 
             className={`slide ${index === currentSlide ? 'active' : ''}`}
@@ -70,7 +87,7 @@ const Home = () => {
         <button className="slider-nav next" onClick={nextSlide}><ChevronRight size={32}/></button>
         
         <div className="slider-indicators">
-          {slides.map((_, idx) => (
+          {displaySlides.map((_, idx) => (
             <div 
               key={idx} 
               className={`indicator ${idx === currentSlide ? 'active' : ''}`}
