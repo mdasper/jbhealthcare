@@ -1,13 +1,32 @@
+import { useState, useEffect } from 'react';
 import { Activity } from 'lucide-react';
+import { client, urlFor } from '../sanity';
 
 const About = () => {
+  const [aboutData, setAboutData] = useState(null);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "aboutPage"][0]`).then((data) => {
+      setAboutData(data);
+    }).catch(console.error);
+  }, []);
+
+  // Use fallback text if data is still loading
+  const mainHeading = aboutData?.mainHeading || "About JB Healthcare";
+  const historyText = aboutData?.historyText || "Established with a bold vision to make premium, international-standard healthcare accessible to everyone, JB Healthcare has grown into a trusted name in Anaiyur, Tamil Nadu. Over the years, we have built a reputation based on trust, clinical excellence, and deep-rooted empathy.";
+  const vision = aboutData?.vision || "To be the most trusted and respected healthcare partner in the region, recognized globally for our clinical excellence, compassionate care, and unwavering commitment to community wellness and health education.";
+  const mission = aboutData?.mission || "We strive to deliver comprehensive, high-quality, and affordable healthcare services under one roof. Our mission is to continuously upgrade our medical technology, empower our staff through regular training, and provide a healing environment that consistently exceeds patient expectations.";
+  const labHeading = aboutData?.labHeading || "In-House Diagnostic Center";
+  const labDescription = aboutData?.labDescription || "At JB Healthcare, we know that waiting for test results can be stressful for you and your family. That's why we've set up our own fully equipped diagnostic center right here inside our hospital.";
+  const aboutImage = aboutData?.aboutImage ? urlFor(aboutData.aboutImage).url() : "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+
   return (
     <div className="page-transition" style={{ paddingTop: '80px' }}>
       
       {/* 1. Header (Dark) */}
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
         <div className="container text-center" data-aos="fade-up">
-          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginBottom: '20px' }}>About JB Healthcare</h1>
+          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginBottom: '20px' }}>{mainHeading}</h1>
           <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.9)' }}>
             Committed to providing world-class medical facilities, innovative treatments, and compassionate care to our community. We believe in treating the whole person, not just the disease.
           </p>
@@ -19,12 +38,12 @@ const About = () => {
         <div className="container">
           <div className="contact-grid" style={{ alignItems: 'center' }}>
             <div data-aos="fade-right">
-              <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hospital Building" style={{ width: '100%', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
+              <img src={aboutImage} alt="Hospital Building" style={{ width: '100%', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
             </div>
             <div data-aos="fade-left">
               <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>Our Legacy of Care</h2>
               <p className="mb-2">
-                Established with a bold vision to make premium, international-standard healthcare accessible to everyone, JB Healthcare has grown into a trusted name in Anaiyur, Tamil Nadu. Over the years, we have built a reputation based on trust, clinical excellence, and deep-rooted empathy.
+                {historyText}
               </p>
               <p className="mb-2">
                 Our state-of-the-art infrastructure was designed from the ground up keeping patient comfort and advanced medical requirements in mind. We believe that healing is a holistic process, which is why our facilities look and feel welcoming rather than clinical.
@@ -57,7 +76,7 @@ const About = () => {
                   Our Vision
                 </h4>
                 <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--white)', opacity: 0.9, margin: 0 }}>
-                  To be the most trusted and respected healthcare partner in the region, recognized globally for our clinical excellence, compassionate care, and unwavering commitment to community wellness and health education.
+                  {vision}
                 </p>
               </div>
               
@@ -67,7 +86,7 @@ const About = () => {
                   Our Mission
                 </h4>
                 <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--white)', opacity: 0.9, margin: 0 }}>
-                  We strive to deliver comprehensive, high-quality, and affordable healthcare services under one roof. Our mission is to continuously upgrade our medical technology, empower our staff through regular training, and provide a healing environment that consistently exceeds patient expectations.
+                  {mission}
                 </p>
               </div>
               
@@ -81,9 +100,9 @@ const About = () => {
         <div className="container">
           <div className="contact-grid" style={{ alignItems: 'center' }}>
             <div style={{ order: 2 }} data-aos="fade-left">
-              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px', color: 'var(--white)' }}>In-House Diagnostic Center</h2>
+              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px', color: 'var(--white)' }}>{labHeading}</h2>
               <p className="mb-4" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', lineHeight: '1.8' }}>
-                At JB Healthcare, we know that waiting for test results can be stressful for you and your family. That’s why we’ve set up our own fully equipped diagnostic center right here inside our hospital. Our goal is to give you fast, accurate results so your doctor can start the right treatment without any delay.
+                {labDescription}
               </p>
               <p className="mb-4" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', lineHeight: '1.8' }}>
                 Whether it's a routine check-up or an emergency in the middle of the night, our friendly lab technicians are here 24/7 to make the testing process as smooth and painless as possible.
