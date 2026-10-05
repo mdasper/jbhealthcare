@@ -2,6 +2,19 @@ import { useState, useEffect } from 'react';
 import { Calendar } from 'lucide-react';
 import { client, urlFor } from '../sanity';
 
+const dummyGallery = [
+  'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+];
+
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -61,9 +74,9 @@ const Events = () => {
                   <h3 style={{ color: 'var(--primary)', fontSize: '1.4rem', marginBottom: '15px' }}>{eventItem.title}</h3>
                   <p style={{ color: '#555', fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px' }}>{eventItem.description}</p>
                   
-                  {eventItem.gallery && eventItem.gallery.length > 0 && (
-                    <button onClick={() => openGallery(eventItem)} className="btn btn-outline" style={{ width: '100%' }}>View {eventItem.gallery.length} Photos</button>
-                  )}
+                  <button onClick={() => openGallery(eventItem)} className="btn btn-outline" style={{ width: '100%', borderColor: 'var(--primary)', color: 'var(--primary)' }}>
+                    View {eventItem.gallery?.length || 10} Photos
+                  </button>
                 </div>
               </div>
             )) : (
@@ -100,9 +113,12 @@ const Events = () => {
                   ))}
                 </div>
               ) : (
-                <div style={{ textAlign: 'center', color: 'white', marginTop: '100px' }}>
-                  <h3 style={{ color: 'white' }}>No gallery photos available for this event yet.</h3>
-                  <button onClick={closeGallery} className="btn btn-primary mt-4">Go Back</button>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+                  {dummyGallery.map((imgUrl, idx) => (
+                    <div key={idx} style={{ borderRadius: '8px', overflow: 'hidden', height: '250px' }}>
+                      <img src={imgUrl} alt={`Dummy Gallery ${idx}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
