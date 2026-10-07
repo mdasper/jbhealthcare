@@ -1,0 +1,6 @@
+{"_id": "service-1", "_type": "service", "title": "Cardiology", "description": "Comprehensive cardiac care including diagnostics, non-invasive procedures, and advanced treatments for heart conditions."}
+{"_id": "service-2", "_type": "service", "title": "Orthopaedics & Joint Replacement", "description": "Expert care for bone and joint conditions, offering advanced joint replacement surgeries and sports medicine."}
+{"_id": "service-3", "_type": "service", "title": "Paediatrics & Neonatology", "description": "Dedicated child healthcare services with specialized neonatal intensive care units (NICU) and expert paediatricians."}
+{"_id": "service-4", "_type": "service", "title": "General & Laparoscopic Surgery", "description": "Minimally invasive surgical procedures ensuring faster recovery, less pain, and minimal scarring."}
+{"_id": "service-5", "_type": "service", "title": "Obstetrics & Gynaecology", "description": "Complete women's healthcare, from maternity services and normal deliveries to advanced gynaecological treatments."}
+{"_id": "service-6", "_type": "service", "title": "Neurology & Stroke Care", "description": "Advanced care for brain, spine, and nerve disorders with round-the-clock emergency stroke management."}

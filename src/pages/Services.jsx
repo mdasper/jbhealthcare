@@ -17,7 +17,7 @@ const Services = () => {
       {/* 1. Header (Dark) */}
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
         <div className="container text-center" data-aos="fade-up">
-          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginBottom: '20px' }}>Our Medical Services</h1>
+          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginBottom: '20px' }}>Departments & Specialities</h1>
           <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.9)' }}>
             JB Healthcare offers a comprehensive range of medical services under one roof. From preventive health check-ups to advanced surgical interventions, our departments are equipped to handle all your health needs.
           </p>
@@ -35,10 +35,13 @@ const Services = () => {
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
             
             {services.length > 0 ? services.map((service, index) => (
-              <div key={service._id || index} className="service-card" data-aos="zoom-in" data-aos-delay={`${(index % 6 + 1) * 100}`} style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)', textAlign: 'left' }}>
-                <Activity size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-                <h3 style={{ color: 'var(--accent)', fontSize: '1.6rem' }}>{service.title}</h3>
-                <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>{service.description}</p>
+              <div key={service._id || index} className="service-card" data-aos="zoom-in" data-aos-delay={`${(index % 6 + 1) * 100}`} style={{ backgroundColor: 'var(--white)', color: 'var(--primary)', borderRadius: '12px', padding: '30px', boxShadow: '0 15px 40px rgba(0,0,0,0.08)', textAlign: 'left', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-10px)'; e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.12)'; }} onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 15px 40px rgba(0,0,0,0.08)'; }}>
+                <div style={{ width: '70px', height: '70px', backgroundColor: 'var(--secondary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                  <Activity size={36} style={{ color: 'var(--accent)' }} />
+                </div>
+                <h3 style={{ color: 'var(--primary)', fontSize: '1.6rem', marginBottom: '15px' }}>{service.title}</h3>
+                <p style={{ color: '#666', lineHeight: '1.7', marginBottom: '25px' }}>{service.description}</p>
+                <Link to="/doctors" className="btn" style={{ display: 'inline-block', backgroundColor: 'var(--secondary)', color: 'var(--primary)', padding: '10px 20px', borderRadius: '6px', fontWeight: '600', textDecoration: 'none' }}>View Doctors &rarr;</Link>
               </div>
             )) : (
               <p>Loading services...</p>
