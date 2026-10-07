@@ -1,7 +1,8 @@
 const FloatingWhatsApp = () => {
-  const phoneNumber = "919345510905"; 
+  let phoneNumber = "919345510905"; 
+  if (phoneNumber.length === 10) phoneNumber = "91" + phoneNumber;
   const message = "Hi, I would like to book an appointment.";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
   
   const instagramUrl = "https://www.instagram.com/jb.healthcare.sivakasi/";
   const facebookUrl = "https://www.facebook.com/100095190337849/";

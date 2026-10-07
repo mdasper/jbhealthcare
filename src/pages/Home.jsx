@@ -73,7 +73,7 @@ const Home = () => {
               <h1 className="slide-title">{slide.title}</h1>
               <p className="slide-subtitle" style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', fontSize: '1.25rem' }}>{slide.subtitle}</p>
               <div style={{ display: 'flex', gap: '20px', marginTop: '60px' }}>
-                <Link to="/contact" className="btn btn-accent">Book an Appointment</Link>
+                <Link to="/appointment" className="btn btn-accent">Book an Appointment</Link>
                 <Link to="/services" className="btn btn-outline">Our Services</Link>
               </div>
             </div>
@@ -93,6 +93,8 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+
 
       {/* Why Choose Us - Full Width Banner Style */}
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
@@ -131,8 +133,8 @@ const Home = () => {
       <section className="section" style={{ backgroundColor: 'var(--secondary)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '50px' }} data-aos="fade-up">
-            <h4 style={{ color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '10px' }}>Departments</h4>
-            <h2 className="section-title" style={{ margin: 0 }}>Our Top Services</h2>
+            <h4 style={{ color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '10px' }}>Excellence in Healthcare</h4>
+            <h2 className="section-title" style={{ margin: 0 }}>Top Departments & Surgeries</h2>
           </div>
           <div className="services-grid">
             <div className="service-card" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)' }}>
@@ -146,13 +148,14 @@ const Home = () => {
               <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)' }}>Expert consultations and advanced treatments from our panel of experienced specialists.</p>
             </div>
             <div className="service-card" data-aos="zoom-in" data-aos-delay="300" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)' }}>
-              <ShieldPlus size={48} className="service-icon" style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--white)' }}>Emergency Care</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)' }}>24/7 emergency medical care with fully equipped trauma and intensive care units.</p>
+              <Activity size={48} className="service-icon" style={{ color: 'var(--accent)', marginBottom: '15px' }} />
+              <h3 style={{ color: 'var(--white)' }}>Laparoscopic Surgery</h3>
+              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)' }}>Minimally invasive keyhole surgeries for faster recovery and minimal scarring.</p>
             </div>
           </div>
-          <div className="text-center mt-4">
-            <Link to="/services" className="btn btn-primary">View All Services</Link>
+          <div className="text-center" style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '50px' }}>
+            <Link to="/services" className="btn btn-primary">All Departments</Link>
+            <Link to="/surgeries" className="btn btn-outline" style={{ borderColor: 'var(--primary)', color: 'var(--primary)' }}>View Surgeries</Link>
           </div>
         </div>
       </section>
@@ -220,7 +223,7 @@ const Home = () => {
         <div className="container">
           <h2 style={{ color: 'var(--white)', fontSize: '2.5rem', marginBottom: '20px' }}>Need a Medical Consultation?</h2>
           <p style={{ fontSize: '1.2rem', marginBottom: '30px' }}>Our specialists are ready to provide you with the best healthcare.</p>
-          <Link to="/contact" className="btn" style={{ backgroundColor: 'var(--white)', color: 'var(--primary)' }}>Contact Us Now</Link>
+          <Link to="/appointment" className="btn" style={{ backgroundColor: 'var(--white)', color: 'var(--primary)' }}>Book Appointment Now</Link>
         </div>
       </section>
     </div>

@@ -2,6 +2,26 @@ import { useState, useEffect } from 'react';
 import { Activity } from 'lucide-react';
 import { client, urlFor } from '../sanity';
 
+const CountUp = ({ end, duration = 2000, suffix = "+" }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(Math.floor(easeProgress * end));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [end, duration]);
+
+  return <span>{count.toLocaleString()}{suffix}</span>;
+};
+
 const About = () => {
   const [aboutData, setAboutData] = useState(null);
 
@@ -33,7 +53,31 @@ const About = () => {
         </div>
       </section>
 
-      {/* 2. Legacy of Care (Light - White) */}
+      {/* 2. Milestones (Gold Accent) */}
+      <section style={{ backgroundColor: 'var(--accent)', padding: '60px 0', color: 'var(--primary)' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px', textAlign: 'center' }}>
+            <div data-aos="fade-up" data-aos-delay="100">
+              <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '5px' }}><CountUp end={10} /></h2>
+              <p style={{ fontSize: '1.2rem', fontWeight: '600', textTransform: 'uppercase' }}>Years of Trust</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+              <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '5px' }}><CountUp end={10000} /></h2>
+              <p style={{ fontSize: '1.2rem', fontWeight: '600', textTransform: 'uppercase' }}>Successful Surgeries</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+              <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '5px' }}><CountUp end={50} /></h2>
+              <p style={{ fontSize: '1.2rem', fontWeight: '600', textTransform: 'uppercase' }}>Expert Doctors</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400">
+              <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '5px' }}><CountUp end={50000} /></h2>
+              <p style={{ fontSize: '1.2rem', fontWeight: '600', textTransform: 'uppercase' }}>Happy Patients</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Legacy of Care (Light - White) */}
       <section className="section" style={{ backgroundColor: 'var(--white)' }}>
         <div className="container">
           <div className="contact-grid" style={{ alignItems: 'center' }}>

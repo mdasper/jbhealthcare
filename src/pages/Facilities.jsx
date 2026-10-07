@@ -72,7 +72,7 @@ const Facilities = () => {
                 className="facility-card" 
                 data-aos="fade-up" 
                 data-aos-delay={`${(index % 3 + 1) * 100}`} 
-                style={{ backgroundColor: 'var(--white)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 15px 40px rgba(0,0,0,0.06)', transition: 'transform 0.4s ease, box-shadow 0.4s ease' }}
+                style={{ backgroundColor: 'var(--primary)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 15px 40px rgba(0,0,0,0.2)', transition: 'transform 0.4s ease, box-shadow 0.4s ease', display: 'flex', flexDirection: 'column' }}
               >
                 <div style={{ height: '250px', overflow: 'hidden', position: 'relative' }}>
                   <img 
@@ -81,16 +81,16 @@ const Facilities = () => {
                     style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }}
                     className="facility-img-hover"
                   />
-                  <div style={{ position: 'absolute', bottom: '-1px', left: '0', width: '100%', height: '50px', background: 'linear-gradient(to top, var(--white), transparent)' }}></div>
+                  <div style={{ position: 'absolute', bottom: '-1px', left: '0', width: '100%', height: '50px', background: 'linear-gradient(to top, var(--primary), transparent)' }}></div>
                 </div>
                 
-                <div style={{ padding: '30px', position: 'relative' }}>
-                  <div style={{ position: 'absolute', top: '-40px', right: '30px', width: '70px', height: '70px', backgroundColor: 'var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 20px rgba(10,43,78,0.2)' }}>
+                <div style={{ padding: '30px', position: 'relative', flex: '1', display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ position: 'absolute', top: '-40px', right: '30px', width: '70px', height: '70px', backgroundColor: 'var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 20px rgba(0,0,0,0.5)', border: '2px solid var(--accent)' }}>
                     {facility.icon}
                   </div>
                   
-                  <h3 style={{ color: 'var(--primary)', fontSize: '1.6rem', marginBottom: '15px', paddingRight: '50px' }}>{facility.title}</h3>
-                  <p style={{ color: '#555', lineHeight: '1.7', fontSize: '1.05rem', marginBottom: '0' }}>{facility.description}</p>
+                  <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginBottom: '15px', paddingRight: '50px' }}>{facility.title}</h3>
+                  <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '1.7', fontSize: '1.05rem', marginBottom: '0', flex: '1' }}>{facility.description}</p>
                 </div>
               </div>
             ))}

@@ -11,7 +11,7 @@ const Contact = () => {
   }, []);
 
   const address = settings?.address || "2/571A, Bharathi Nagar, Reserve line, Anaiyur, Tamil Nadu 626124";
-  const phone = settings?.phone || "093455 10905";
+  const phone = settings?.phone || "+91 93455 10905";
   const email = settings?.email || "info@jbhealthcare.com";
 
   return (
