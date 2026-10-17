@@ -5,45 +5,51 @@ import { Link } from 'react-router-dom';
 const facilitiesData = [
   {
     id: 1,
-    title: "24/7 Advanced ICU",
-    description: "State-of-the-art Intensive Care Unit equipped with advanced ventilators, multiparameter monitors, and round-the-clock intensivist support for critical patients.",
-    icon: <HeartPulse size={40} color="var(--accent)" />,
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 2,
-    title: "Modular Operation Theatres",
-    description: "Highly sterile, infection-free modular OTs designed for complex surgeries including laparoscopic, orthopedic, and cardiac procedures.",
-    icon: <Activity size={40} color="var(--accent)" />,
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 3,
-    title: "24/7 Emergency Care",
-    description: "Dedicated emergency response team with fully equipped ambulances and a trauma care center ready to handle medical emergencies at any time.",
+    title: "24/7 Emergency & Surgical Care Unit",
+    subtitle: "Immediate Trauma Care & OT Response",
+    description: "Round-the-clock emergency casualty, trauma care, and fully equipped surgical theatres ready for immediate surgical interventions at any time of day or night.",
     icon: <ShieldPlus size={40} color="var(--accent)" />,
     image: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: 4,
-    title: "Advanced Diagnostics & Lab",
-    description: "In-house NABL accredited laboratory offering comprehensive blood tests, pathology, and microbiology services with accurate, fast results.",
+    id: 2,
+    title: "Rapid Blood Diagnostics & ECG",
+    subtitle: "Automated In-House Laboratory",
+    description: "Fast-track computerized laboratory delivering quick blood test results, biochemistry, and 12-lead digital ECG to initiate accurate medical treatment without delay.",
     icon: <Microscope size={40} color="var(--accent)" />,
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
+    id: 3,
+    title: "Visiting Specialists Consultation",
+    subtitle: "Leading Superspecialist Doctors",
+    description: "Regular outpatient visits, second opinions, and multi-disciplinary treatment planning by top consulting specialists from major medical centers.",
+    icon: <Stethoscope size={40} color="var(--accent)" />,
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 4,
+    title: "Inpatient (IP) & Outpatient (OP) Wards",
+    subtitle: "Spacious & Clean Patient Rooms",
+    description: "Hygienic, comfortable inpatient recovery rooms, patient monitoring suites, and a patient-friendly outpatient consultation wing.",
+    icon: <HeartPulse size={40} color="var(--accent)" />,
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  },
+  {
     id: 5,
-    title: "24/7 Pharmacy",
-    description: "Well-stocked in-house pharmacy ensuring all essential life-saving medicines and regular prescriptions are available round the clock.",
-    icon: <Pill size={40} color="var(--accent)" />,
-    image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    title: "Advanced Modular Operation Theatres",
+    subtitle: "Infection-Free Laminar Airflow Suites",
+    description: "Laminar airflow, ultra-sterile modular surgical suites custom-fitted for advanced laparoscopic, orthopaedic, and gynaecological procedures.",
+    icon: <Activity size={40} color="var(--accent)" />,
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 6,
-    title: "Premium Patient Wards",
-    description: "Comfortable, hygienic, and spacious recovery rooms ranging from general wards to deluxe private suites with attender facilities.",
-    icon: <Stethoscope size={40} color="var(--accent)" />,
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    title: "24/7 In-House Pharmacy",
+    subtitle: "Essential & Emergency Medicines",
+    description: "Fully stocked pharmacy on hospital premises ensuring round-the-clock availability of critical emergency drugs, surgical supplies, and patient prescriptions.",
+    icon: <Pill size={40} color="var(--accent)" />,
+    image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -54,9 +60,12 @@ const Facilities = () => {
       {/* Hero Section */}
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
         <div className="container text-center" data-aos="fade-up">
-          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginBottom: '20px' }}>World-Class Facilities</h1>
-          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.9)' }}>
-            At JB Healthcare, we integrate cutting-edge medical technology with compassionate care. Our infrastructure is designed to provide the highest standards of safety, comfort, and clinical excellence.
+          <span style={{ color: 'var(--accent)', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem' }}>
+            24/7 Medical Services & Care
+          </span>
+          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginTop: '10px', marginBottom: '20px' }}>24/7 Hospital Facilities</h1>
+          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.9)', lineHeight: '1.8' }}>
+            At JB Healthcare, we provide round-the-clock emergency medical services, rapid diagnostics, and comfortable inpatient care with the highest standards of clinical safety.
           </p>
         </div>
       </section>
@@ -89,8 +98,11 @@ const Facilities = () => {
                     {facility.icon}
                   </div>
                   
-                  <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginBottom: '15px', paddingRight: '50px' }}>{facility.title}</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '1.7', fontSize: '1.05rem', marginBottom: '0', flex: '1' }}>{facility.description}</p>
+                  <h3 style={{ color: 'var(--white)', fontSize: '1.45rem', marginBottom: '4px', paddingRight: '50px' }}>{facility.title}</h3>
+                  <div style={{ color: 'var(--accent)', fontSize: '0.9rem', fontWeight: 'bold', marginBottom: '14px' }}>
+                    {facility.subtitle}
+                  </div>
+                  <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '0', flex: '1' }}>{facility.description}</p>
                 </div>
               </div>
             ))}

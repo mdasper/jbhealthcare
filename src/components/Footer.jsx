@@ -14,6 +14,7 @@ const Footer = () => {
 
   const hospitalName = "JB Healthcare";
   const phone = "+91 93455 10905";
+  const landline = "04562-299920";
   const whatsappNumber = "919345510905";
   const email = "info@jbhealthcare.com";
   const address = "2/571A, Bharathi Nagar, Reserve line, Vasantham Nagar, Rengapa Shyam Nagar, Anaiyur, Tamil Nadu 626124";
@@ -28,11 +29,14 @@ const Footer = () => {
       <div className="container" style={{ width: '100%', maxWidth: 'none', margin: '0', padding: '0 40px' }}>
         <div className="footer-grid">
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
               <img src="/logo.jpg" alt="JB Healthcare Logo" style={{ height: '60px', borderRadius: '50%', backgroundColor: 'white', padding: '3px' }} />
-              <h3 className="logo" style={{color: 'var(--white)', margin: 0}}>{hospitalName}</h3>
+              <div>
+                <h3 className="logo" style={{color: 'var(--white)', margin: 0}}>{hospitalName}</h3>
+                <span style={{ color: 'var(--accent)', fontSize: '0.8rem', fontWeight: 'bold' }}>Healing Hands, Caring Hearts</span>
+              </div>
             </div>
-            <p>Providing exceptional healthcare services with a focus on patient well-being and advanced medical treatments.</p>
+            <p>Healing Hands, Caring Hearts. Providing exceptional surgical and emergency healthcare services with advanced medical technology.</p>
             <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
               <a href="https://www.facebook.com/100095190337849/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--white)', backgroundColor: '#1877F2', padding: '10px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -78,10 +82,15 @@ const Footer = () => {
                 </a>
               </li>
               <li style={{display: 'flex', gap: '10px'}}>
-                <Phone size={18} style={{ flexShrink: 0 }}/>
-                <a href={`https://api.whatsapp.com/send?phone=${whatsappClean}`} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.8)' }}>
-                  {phone}
-                </a>
+                <Phone size={18} style={{ flexShrink: 0, marginTop: '3px' }}/>
+                <div>
+                  <a href="tel:04562299920" style={{ color: 'var(--white)', fontWeight: '600', display: 'block', textDecoration: 'none' }}>
+                    04562-299920 <span style={{ color: 'var(--accent)', fontSize: '0.8rem' }}>(Hospital)</span>
+                  </a>
+                  <a href={`https://api.whatsapp.com/send?phone=${whatsappClean}`} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>
+                    {phone}
+                  </a>
+                </div>
               </li>
               <li style={{display: 'flex', gap: '10px'}}>
                 <Mail size={18} style={{ flexShrink: 0 }}/>

@@ -675,3 +675,50 @@ body, html {
 .page-transition {
   animation: pageFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Chief Doctor Reference Card (Multi-tier design) */
+.chief-doctor-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: #0A2540;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.chief-doctor-stat-item {
+  padding: 18px 12px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.chief-doctor-stat-item:last-child {
+  border-right: none;
+}
+
+@media (max-width: 860px) {
+  .chief-doctor-stats-bar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .chief-doctor-stat-item:nth-child(3) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .chief-doctor-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .chief-doctor-stat-item {
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .chief-doctor-stat-item:nth-child(2n) {
+    border-right: none;
+  }
+  .chief-doctor-stat-item:last-child {
+    grid-column: span 2;
+    border-right: none;
+    border-bottom: none;
+  }
+}
+

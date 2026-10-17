@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Activity } from 'lucide-react';
+import { Activity, Clock, Award, ShieldCheck, Heart, CheckCircle2, FlaskConical, Zap, Calendar } from 'lucide-react';
 import { client, urlFor } from '../sanity';
 
 const CountUp = ({ end, duration = 2000, suffix = "+" }) => {
@@ -38,7 +38,7 @@ const About = () => {
   const mission = aboutData?.mission || "We strive to deliver comprehensive, high-quality, and affordable healthcare services under one roof. Our mission is to continuously upgrade our medical technology, empower our staff through regular training, and provide a healing environment that consistently exceeds patient expectations.";
   const labHeading = aboutData?.labHeading || "In-House Diagnostic Center";
   const labDescription = aboutData?.labDescription || "At JB Healthcare, we know that waiting for test results can be stressful for you and your family. That's why we've set up our own fully equipped diagnostic center right here inside our hospital.";
-  const aboutImage = aboutData?.aboutImage ? urlFor(aboutData.aboutImage).url() : "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+  const aboutImage = aboutData?.aboutImage ? urlFor(aboutData.aboutImage).url() : "/legacy_of_care.jpg";
 
   return (
     <div className="page-transition" style={{ paddingTop: '80px' }}>
@@ -54,54 +54,238 @@ const About = () => {
       </section>
 
       {/* 2. Milestones (Gold Accent) */}
-      <section style={{ backgroundColor: 'var(--accent)', padding: '60px 0', color: 'var(--primary)' }}>
+      <section style={{ backgroundColor: 'var(--accent)', padding: '50px 0', color: 'var(--primary)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px', textAlign: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '25px', textAlign: 'center' }}>
             <div data-aos="fade-up" data-aos-delay="100">
-              <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '5px' }}><CountUp end={10} /></h2>
-              <p style={{ fontSize: '1.2rem', fontWeight: '600', textTransform: 'uppercase' }}>Years of Trust</p>
+              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px' }}><CountUp end={10000} /></h2>
+              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>Successful Surgeries</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="200">
-              <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '5px' }}><CountUp end={10000} /></h2>
-              <p style={{ fontSize: '1.2rem', fontWeight: '600', textTransform: 'uppercase' }}>Successful Surgeries</p>
+              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px' }}><CountUp end={2000} /></h2>
+              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>Laparoscopic Cases</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="300">
-              <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '5px' }}><CountUp end={50} /></h2>
-              <p style={{ fontSize: '1.2rem', fontWeight: '600', textTransform: 'uppercase' }}>Expert Doctors</p>
+              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px' }}><CountUp end={3000} /></h2>
+              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>C-Section Deliveries</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="400">
-              <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '5px' }}><CountUp end={50000} /></h2>
-              <p style={{ fontSize: '1.2rem', fontWeight: '600', textTransform: 'uppercase' }}>Happy Patients</p>
+              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px' }}><CountUp end={100} /></h2>
+              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>Cancer Surgeries</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="500">
+              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px' }}><CountUp end={7} suffix=" Yrs" /></h2>
+              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>Govt Service Record</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Legacy of Care (Light - White) */}
-      <section className="section" style={{ backgroundColor: 'var(--white)' }}>
+      {/* 2.5 Founder & Chief Doctor Spotlight */}
+      <section className="section" style={{ backgroundColor: 'var(--secondary)', padding: '80px 0' }}>
         <div className="container">
-          <div className="contact-grid" style={{ alignItems: 'center' }}>
-            <div data-aos="fade-right">
-              <img src={aboutImage} alt="Hospital Building" style={{ width: '100%', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
+          <div style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderRadius: '24px', padding: '50px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+            <div className="contact-grid" style={{ alignItems: 'center', gap: '40px' }}>
+              <div data-aos="fade-right" style={{ textAlign: 'center' }}>
+                <img 
+                  src="/doctor.png" 
+                  alt="Dr. B. Saileshkumar" 
+                  style={{ width: '100%', maxWidth: '380px', borderRadius: '16px', boxShadow: '0 15px 30px rgba(0,0,0,0.3)', border: '3px solid var(--accent)' }} 
+                  onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; }}
+                />
+                <div style={{ marginTop: '15px', display: 'inline-block', backgroundColor: 'var(--accent)', color: 'var(--primary)', padding: '6px 18px', borderRadius: '20px', fontWeight: 'bold', fontSize: '0.9rem' }}>
+                  ★ Best Doctor Award (2017 & 2018)
+                </div>
+              </div>
+              <div data-aos="fade-left">
+                <span style={{ color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '700', fontSize: '0.85rem' }}>
+                  Leadership & Clinical Vision
+                </span>
+                <h2 style={{ color: 'var(--white)', fontSize: '2.4rem', marginTop: '8px', marginBottom: '6px' }}>
+                  Dr. B. Saileshkumar
+                </h2>
+                <h4 style={{ color: 'var(--accent)', fontSize: '1.15rem', marginBottom: '20px', fontWeight: '600' }}>
+                  MBBS., M.S., FIAGES., FALS — Founder & Chief Surgeon
+                </h4>
+                
+                <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.7', marginBottom: '15px', fontSize: '1.02rem' }}>
+                  A native clinical leader with an extraordinary track record of more than <strong>10,000 successful surgical operations</strong> and <strong>2,000+ advanced laparoscopic procedures</strong>.
+                </p>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '15px', marginTop: '20px' }}>
+                  <div style={{ backgroundColor: 'rgba(255,255,255,0.06)', padding: '14px', borderRadius: '10px', borderLeft: '3px solid var(--accent)' }}>
+                    <h5 style={{ color: 'var(--accent)', margin: '0 0 5px 0', fontSize: '0.95rem' }}>Education & Fellowships</h5>
+                    <p style={{ color: 'rgba(255,255,255,0.85)', margin: 0, fontSize: '0.88rem', lineHeight: '1.5' }}>
+                      MBBS (Madras Medical College), MS (Madurai Medical College), Laparoscopic Surgery Training (VG Hospital Coimbatore), FIAGES & FALS Fellowships.
+                    </p>
+                  </div>
+                  <div style={{ backgroundColor: 'rgba(255,255,255,0.06)', padding: '14px', borderRadius: '10px', borderLeft: '3px solid var(--accent)' }}>
+                    <h5 style={{ color: 'var(--accent)', margin: '0 0 5px 0', fontSize: '0.95rem' }}>Public Service & Honor</h5>
+                    <p style={{ color: 'rgba(255,255,255,0.85)', margin: 0, fontSize: '0.88rem', lineHeight: '1.5' }}>
+                      Conferred the <strong>Best Doctor Award</strong> for two consecutive years (2017 & 2018) by the District Collector. Founder Secretary of IMA Sivakasi (2016-2017) and 7 years of public health service across Virudhunagar district.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Legacy of Care (Upgraded Luxury Section with Background Gradient) */}
+      <section 
+        className="section" 
+        style={{ 
+          background: 'linear-gradient(180deg, #EBF2F8 0%, #F4F7FB 50%, #EAEFF5 100%)',
+          padding: '90px 0',
+          position: 'relative',
+          borderTop: '1px solid rgba(10, 43, 78, 0.08)',
+          borderBottom: '1px solid rgba(10, 43, 78, 0.08)'
+        }}
+      >
+        <div className="container">
+          <div className="contact-grid" style={{ alignItems: 'center', gap: '50px' }}>
+            
+            {/* Left Column: Image with Floating Badge */}
+            <div data-aos="fade-right" style={{ position: 'relative' }}>
+              <div style={{
+                position: 'relative',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: '0 25px 60px rgba(10, 43, 78, 0.22)',
+                border: '2px solid rgba(224, 169, 109, 0.45)'
+              }}>
+                <img 
+                  src={aboutImage} 
+                  alt="JB Healthcare Compassionate Patient Care" 
+                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
+                  onError={(e) => { e.target.src = "/legacy_of_care.jpg"; }}
+                />
+
+                {/* Floating Heart & Slogan Banner */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '18px',
+                  left: '18px',
+                  right: '18px',
+                  backgroundColor: 'rgba(10, 43, 78, 0.92)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '16px',
+                  padding: '16px 20px',
+                  border: '1px solid rgba(224, 169, 109, 0.4)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '14px',
+                  boxShadow: '0 10px 25px rgba(0,0,0,0.3)'
+                }}>
+                  <div style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '50%',
+                    backgroundColor: 'var(--accent)',
+                    color: '#0A2540',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <Heart size={24} fill="#0A2540" color="#0A2540" />
+                  </div>
+                  <div>
+                    <div style={{ color: 'var(--accent)', fontWeight: '800', fontSize: '0.98rem', letterSpacing: '0.5px' }}>
+                      Healing Hands, Caring Hearts
+                    </div>
+                    <div style={{ color: 'rgba(255,255,255,0.88)', fontSize: '0.84rem', marginTop: '2px' }}>
+                      Every patient is treated with deep empathy like family
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Content */}
             <div data-aos="fade-left">
-              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>Our Legacy of Care</h2>
-              <p className="mb-2">
+              <h2 className="section-title" style={{ textAlign: 'left', marginTop: '0', marginBottom: '18px', fontSize: 'clamp(2.1rem, 3.5vw, 2.8rem)', color: 'var(--primary)' }}>
+                Our Legacy of Care
+              </h2>
+
+              <p style={{ fontSize: '1.08rem', lineHeight: '1.75', color: '#1e293b', marginBottom: '14px', fontWeight: '500' }}>
                 {historyText}
               </p>
-              <p className="mb-2">
+
+              <p style={{ fontSize: '0.96rem', lineHeight: '1.7', color: '#475569', marginBottom: '24px' }}>
                 Our state-of-the-art infrastructure was designed from the ground up keeping patient comfort and advanced medical requirements in mind. We believe that healing is a holistic process, which is why our facilities look and feel welcoming rather than clinical.
               </p>
-              <p className="mb-4">
-                From the moment you step into our facility, our dedicated staff ensures that your journey to recovery is smooth, transparent, and completely stress-free. Every patient is treated like family.
-              </p>
-              <ul style={{ listStyle: 'disc', paddingLeft: '20px', lineHeight: '2', fontWeight: '500' }}>
-                <li>24/7 Dedicated Emergency Care</li>
-                <li>Highly Experienced Medical Professionals</li>
-                <li>Advanced Diagnostic Technology</li>
-                <li>Patient-Centric Approach in all operations</li>
-              </ul>
+
+              {/* 4 Upgraded Feature Cards */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '14px' }}>
+                {[
+                  { 
+                    icon: Clock, 
+                    title: '24/7 Dedicated Emergency Care', 
+                    desc: 'Always ready with emergency surgical casualty & on-call surgeons' 
+                  },
+                  { 
+                    icon: Award, 
+                    title: 'Award-Winning Specialists', 
+                    desc: 'Expert laparoscopic surgeons & multi-speciality consultants' 
+                  },
+                  { 
+                    icon: Activity, 
+                    title: 'Rapid Diagnostics & ECG', 
+                    desc: 'In-house automated lab results and digital ECG monitoring' 
+                  },
+                  { 
+                    icon: ShieldCheck, 
+                    title: 'Hygienic IP & OP Wards', 
+                    desc: 'Spacious inpatient recovery suites & tranquil outpatient rooms' 
+                  }
+                ].map((item, idx) => {
+                  const ItemIcon = item.icon;
+                  return (
+                    <div 
+                      key={idx}
+                      style={{
+                        backgroundColor: '#ffffff',
+                        borderRadius: '14px',
+                        padding: '15px 18px',
+                        boxShadow: '0 4px 18px rgba(10, 43, 78, 0.06)',
+                        border: '1px solid rgba(10, 43, 78, 0.08)',
+                        display: 'flex',
+                        gap: '12px',
+                        alignItems: 'flex-start'
+                      }}
+                    >
+                      <div style={{
+                        width: '38px',
+                        height: '38px',
+                        borderRadius: '10px',
+                        backgroundColor: 'rgba(224, 169, 109, 0.15)',
+                        border: '1px solid rgba(224, 169, 109, 0.4)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'var(--primary)',
+                        flexShrink: 0
+                      }}>
+                        <ItemIcon size={20} color="#A26B33" />
+                      </div>
+                      <div>
+                        <div style={{ color: 'var(--primary)', fontWeight: '700', fontSize: '0.92rem' }}>
+                          {item.title}
+                        </div>
+                        <div style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '2px', lineHeight: '1.4' }}>
+                          {item.desc}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
             </div>
+
           </div>
         </div>
       </section>
@@ -139,40 +323,219 @@ const About = () => {
         </div>
       </section>
 
-      {/* 4. In-House Laboratory (Dark) */}
-      <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', overflow: 'hidden' }}>
+      {/* 4. In-House Laboratory (Luxury Dark Clinical Showcase) */}
+      <section 
+        className="section" 
+        style={{ 
+          background: 'radial-gradient(circle at 85% 20%, rgba(224, 169, 109, 0.14) 0%, transparent 45%), linear-gradient(135deg, #06182B 0%, #0A2540 50%, #081D33 100%)',
+          color: 'var(--white)', 
+          overflow: 'hidden',
+          padding: '95px 0',
+          position: 'relative',
+          borderTop: '1px solid rgba(224, 169, 109, 0.25)',
+          borderBottom: '1px solid rgba(224, 169, 109, 0.25)'
+        }}
+      >
         <div className="container">
-          <div className="contact-grid" style={{ alignItems: 'center' }}>
+          <div className="contact-grid" style={{ alignItems: 'center', gap: '50px' }}>
+            
+            {/* Left: Lab Image Showcase */}
+            <div style={{ order: 1 }} data-aos="fade-right">
+              <div style={{
+                position: 'relative',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: '0 25px 60px rgba(0,0,0,0.45)',
+                border: '2px solid rgba(224, 169, 109, 0.5)',
+                backgroundColor: '#0c2239'
+              }}>
+                <img 
+                  src="/lab.png" 
+                  alt="JB Healthcare In-House Diagnostic Lab" 
+                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
+                />
+
+                {/* Top Badge: 24/7 Diagnostic Badge */}
+                <div style={{
+                  position: 'absolute',
+                  top: '18px',
+                  left: '18px',
+                  backgroundColor: 'rgba(10, 43, 78, 0.88)',
+                  backdropFilter: 'blur(8px)',
+                  color: 'var(--accent)',
+                  fontWeight: '800',
+                  padding: '6px 16px',
+                  borderRadius: '20px',
+                  fontSize: '0.82rem',
+                  border: '1px solid rgba(224, 169, 109, 0.4)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+                }}>
+                  <FlaskConical size={16} /> In-House Automated Lab
+                </div>
+
+                {/* Floating Bottom Card: Fast Reports */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '18px',
+                  left: '18px',
+                  right: '18px',
+                  backgroundColor: 'rgba(6, 24, 43, 0.94)',
+                  backdropFilter: 'blur(10px)',
+                  padding: '14px 18px',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(224, 169, 109, 0.4)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.35)'
+                }}>
+                  <div style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '50%',
+                    backgroundColor: 'var(--accent)',
+                    color: '#0A2540',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <Zap size={20} fill="#0A2540" color="#0A2540" />
+                  </div>
+                  <div>
+                    <div style={{ color: 'var(--accent)', fontSize: '0.92rem', fontWeight: '800' }}>
+                      Prompt Computerized Test Results
+                    </div>
+                    <div style={{ color: 'rgba(255,255,255,0.82)', fontSize: '0.8rem', marginTop: '1px' }}>
+                      Rapid diagnostics to commence targeted treatment immediately
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Content & 4 Luxe Feature Cards */}
             <div style={{ order: 2 }} data-aos="fade-left">
-              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px', color: 'var(--white)' }}>{labHeading}</h2>
-              <p className="mb-4" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', lineHeight: '1.8' }}>
+              
+              <h2 style={{
+                fontSize: 'clamp(2.2rem, 3.8vw, 2.9rem)',
+                color: 'var(--white)',
+                marginTop: 0,
+                marginBottom: '8px',
+                fontWeight: '800',
+                lineHeight: '1.2'
+              }}>
+                {labHeading}
+              </h2>
+
+              <div style={{ color: 'var(--accent)', fontSize: '1rem', fontWeight: '600', marginBottom: '16px' }}>
+                Automated Pathology, Biochemistry & 12-Lead Digital ECG
+              </div>
+
+              <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '1.02rem', lineHeight: '1.7', marginBottom: '14px' }}>
                 {labDescription}
               </p>
-              <p className="mb-4" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', lineHeight: '1.8' }}>
-                Whether it's a routine check-up or an emergency in the middle of the night, our friendly lab technicians are here 24/7 to make the testing process as smooth and painless as possible.
+
+              <p style={{ color: 'rgba(255,255,255,0.76)', fontSize: '0.94rem', lineHeight: '1.65', marginBottom: '25px' }}>
+                Whether it's a routine preventive health check-up or an urgent surgical casualty evaluation in the middle of the night, our certified laboratory technicians and modern analyzers ensure zero delay and complete clinical reliability.
               </p>
-              <ul style={{ listStyle: 'none', paddingLeft: '0', lineHeight: '1.6', fontSize: '1.1rem' }}>
-                <li style={{ marginBottom: '15px', display: 'flex', alignItems: 'flex-start' }}>
-                  <Activity size={20} style={{ color: 'var(--accent)', marginRight: '12px', flexShrink: 0, marginTop: '2px' }} /> 
-                  <span><strong>Fast & Accurate Results:</strong> to start your treatment quickly.</span>
-                </li>
-                <li style={{ marginBottom: '15px', display: 'flex', alignItems: 'flex-start' }}>
-                  <Activity size={20} style={{ color: 'var(--accent)', marginRight: '12px', flexShrink: 0, marginTop: '2px' }} /> 
-                  <span><strong>24/7 Emergency Lab:</strong> always open when you need it most.</span>
-                </li>
-                <li style={{ marginBottom: '15px', display: 'flex', alignItems: 'flex-start' }}>
-                  <Activity size={20} style={{ color: 'var(--accent)', marginRight: '12px', flexShrink: 0, marginTop: '2px' }} /> 
-                  <span><strong>Safe & Hygienic:</strong> environment ensuring your complete peace of mind.</span>
-                </li>
-                <li style={{ marginBottom: '15px', display: 'flex', alignItems: 'flex-start' }}>
-                  <Activity size={20} style={{ color: 'var(--accent)', marginRight: '12px', flexShrink: 0, marginTop: '2px' }} /> 
-                  <span><strong>Friendly Staff:</strong> making blood tests easy, even for children.</span>
-                </li>
-              </ul>
+
+              {/* 4 Feature Cards Grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '14px', marginBottom: '28px' }}>
+                {[
+                  {
+                    icon: Zap,
+                    title: 'Fast & Accurate Results',
+                    desc: 'Instant computerized reports to begin correct medical care promptly'
+                  },
+                  {
+                    icon: Clock,
+                    title: '24/7 Emergency Lab',
+                    desc: 'Round-the-clock testing ready for night casualty & emergency OT'
+                  },
+                  {
+                    icon: ShieldCheck,
+                    title: 'Sterile & Safe Testing',
+                    desc: 'Ultra-hygienic automated sampling ensuring zero contamination risk'
+                  },
+                  {
+                    icon: Activity,
+                    title: 'Digital ECG & Biochemistry',
+                    desc: 'Instant 12-lead cardiac ECG, blood sugar, LFT, RFT & lipid panels'
+                  }
+                ].map((item, idx) => {
+                  const ItemIcon = item.icon;
+                  return (
+                    <div
+                      key={idx}
+                      style={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(224, 169, 109, 0.28)',
+                        borderRadius: '14px',
+                        padding: '14px 16px',
+                        display: 'flex',
+                        gap: '12px',
+                        alignItems: 'flex-start',
+                        transition: 'transform 0.25s ease, border-color 0.25s ease'
+                      }}
+                    >
+                      <div style={{
+                        width: '36px',
+                        height: '36px',
+                        borderRadius: '10px',
+                        backgroundColor: 'rgba(224, 169, 109, 0.15)',
+                        border: '1px solid rgba(224, 169, 109, 0.4)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'var(--accent)',
+                        flexShrink: 0
+                      }}>
+                        <ItemIcon size={18} />
+                      </div>
+                      <div>
+                        <div style={{ color: 'var(--white)', fontWeight: '700', fontSize: '0.92rem' }}>
+                          {item.title}
+                        </div>
+                        <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.8rem', marginTop: '2px', lineHeight: '1.4' }}>
+                          {item.desc}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Action Button */}
+              <div>
+                <a
+                  href="/appointment"
+                  style={{
+                    backgroundColor: 'var(--accent)',
+                    color: '#0A2540',
+                    fontWeight: '800',
+                    fontSize: '0.96rem',
+                    padding: '12px 28px',
+                    borderRadius: '30px',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    boxShadow: '0 4px 16px rgba(224, 169, 109, 0.35)',
+                    transition: 'all 0.25s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+                >
+                  <Calendar size={18} /> Book Diagnostic / Blood Test
+                </a>
+              </div>
+
             </div>
-            <div style={{ order: 1 }}>
-              <img src="/lab.png" alt="In-House Diagnostic Lab" style={{ width: '100%', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)', border: '4px solid var(--accent)' }} />
-            </div>
+
           </div>
         </div>
       </section>

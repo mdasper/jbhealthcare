@@ -49,8 +49,22 @@ const Contact = () => {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                 </div>
                 <div>
-                  <h4 style={{ color: 'var(--primary)', margin: 0, fontSize: '1.1rem' }}>Call Us</h4>
-                  <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}>{phone}</p>
+                  <h4 style={{ color: 'var(--primary)', margin: 0, fontSize: '1.1rem' }}>Hospital Landline</h4>
+                  <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}>
+                    <a href="tel:04562299920" style={{ color: '#555', textDecoration: 'none', fontWeight: '600' }}>04562-299920</a> (24/7 Front Desk)
+                  </p>
+                </div>
+              </div>
+
+              <div className="contact-info-item" style={{ marginBottom: '20px', alignItems: 'center' }}>
+                <div className="contact-info-icon" style={{ backgroundColor: 'var(--primary)', color: 'var(--accent)', padding: '10px', width: '45px', height: '45px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, borderRadius: '50%' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div>
+                  <h4 style={{ color: 'var(--primary)', margin: 0, fontSize: '1.1rem' }}>Mobile & Appointments</h4>
+                  <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}>
+                    <a href="tel:+919345510905" style={{ color: '#555', textDecoration: 'none', fontWeight: '600' }}>+91 93455 10905</a>
+                  </p>
                 </div>
               </div>
               

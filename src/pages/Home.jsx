@@ -136,26 +136,141 @@ const Home = () => {
             <h4 style={{ color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '10px' }}>Excellence in Healthcare</h4>
             <h2 className="section-title" style={{ margin: 0 }}>Top Departments & Surgeries</h2>
           </div>
-          <div className="services-grid">
-            <div className="service-card" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)' }}>
-              <Stethoscope size={48} className="service-icon" style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--white)' }}>General Medicine</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)' }}>Comprehensive health check-ups and treatments for a wide range of common medical conditions.</p>
+          <div className="top-departments-2x2">
+            
+            {/* Card 1: Laparoscopic Surgery */}
+            <div className="service-card department-tile" data-aos="zoom-in" data-aos-delay="100">
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
+                  <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: 'rgba(224, 169, 109, 0.15)', border: '1px solid rgba(224, 169, 109, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Activity size={32} color="var(--accent)" />
+                  </div>
+                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(224, 169, 109, 0.2)', color: 'var(--accent)', padding: '4px 12px', borderRadius: '15px', fontWeight: 'bold' }}>
+                    🔬 லேப்ராஸ்கோபிக் அறுவை சிகிச்சை
+                  </span>
+                </div>
+                <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginBottom: '10px', textAlign: 'left' }}>Laparoscopic Surgery</h3>
+                <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '0.94rem', lineHeight: '1.6', textAlign: 'left', marginBottom: '18px' }}>
+                  Minimally invasive keyhole surgery center of excellence led by Dr. B. Saileshkumar (2,000+ surgeries) with minimal pain, no scars, and faster discharge.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
+                  <span className="dept-pill">கருப்பை நீக்கம் (Hysterectomy)</span>
+                  <span className="dept-pill">குடல்வால் & பித்தப்பை (Appendix & Gallbladder)</span>
+                  <span className="dept-pill">குடல் இறக்கம் (Hernia Repair)</span>
+                  <span className="dept-pill">நீர்க்கட்டி & F.P (Cyst & Sterilization)</span>
+                </div>
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto' }}>
+                <span style={{ color: 'var(--accent)', fontSize: '0.85rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <CheckCircle size={15} /> 2,000+ Laparoscopies
+                </span>
+                <Link to="/surgeries" style={{ color: 'var(--white)', fontSize: '0.88rem', fontWeight: 'bold', textDecoration: 'underline' }}>
+                  View Surgeries →
+                </Link>
+              </div>
             </div>
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="200" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)' }}>
-              <HeartPulse size={48} className="service-icon" style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--white)' }}>Cardiology</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)' }}>Expert consultations and advanced treatments from our panel of experienced specialists.</p>
+
+            {/* Card 2: 24/7 Emergency & OT */}
+            <div className="service-card department-tile" data-aos="zoom-in" data-aos-delay="200">
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
+                  <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: 'rgba(224, 169, 109, 0.15)', border: '1px solid rgba(224, 169, 109, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <ShieldPlus size={32} color="var(--accent)" />
+                  </div>
+                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(224, 169, 109, 0.2)', color: 'var(--accent)', padding: '4px 12px', borderRadius: '15px', fontWeight: 'bold' }}>
+                    🚨 அவசர சிகிச்சை & நவீன OT
+                  </span>
+                </div>
+                <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginBottom: '10px', textAlign: 'left' }}>24/7 Emergency & OT</h3>
+                <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '0.94rem', lineHeight: '1.6', textAlign: 'left', marginBottom: '18px' }}>
+                  Round-the-clock emergency casualty, rapid trauma response, advanced sterile modular operation theatres, and dedicated intensive care units (ICU).
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
+                  <span className="dept-pill">24/7 அவசர சிகிச்சை (Casualty Care)</span>
+                  <span className="dept-pill">நவீன அறுவை அரங்கு (Modular OT)</span>
+                  <span className="dept-pill">தீவிர சிகிச்சை பிரிவு (ICU Support)</span>
+                  <span className="dept-pill">அவசர முதலுதவி (Immediate Trauma Care)</span>
+                </div>
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto' }}>
+                <span style={{ color: 'var(--accent)', fontSize: '0.85rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <CheckCircle size={15} /> 24/7 Emergency Care
+                </span>
+                <Link to="/facilities" style={{ color: 'var(--white)', fontSize: '0.88rem', fontWeight: 'bold', textDecoration: 'underline' }}>
+                  View Facilities →
+                </Link>
+              </div>
             </div>
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="300" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '4px solid var(--accent)' }}>
-              <Activity size={48} className="service-icon" style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--white)' }}>Laparoscopic Surgery</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)' }}>Minimally invasive keyhole surgeries for faster recovery and minimal scarring.</p>
+
+            {/* Card 3: Rapid Diagnostics & ECG */}
+            <div className="service-card department-tile" data-aos="zoom-in" data-aos-delay="300">
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
+                  <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: 'rgba(224, 169, 109, 0.15)', border: '1px solid rgba(224, 169, 109, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <HeartPulse size={32} color="var(--accent)" />
+                  </div>
+                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(224, 169, 109, 0.2)', color: 'var(--accent)', padding: '4px 12px', borderRadius: '15px', fontWeight: 'bold' }}>
+                    ⚡ விரைவு பரிசோதனை & ECG
+                  </span>
+                </div>
+                <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginBottom: '10px', textAlign: 'left' }}>Rapid Diagnostics & ECG</h3>
+                <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '0.94rem', lineHeight: '1.6', textAlign: 'left', marginBottom: '18px' }}>
+                  In-house computerized diagnostic laboratory and computerized digital cardiac monitoring providing rapid, accurate blood and biochemistry reports.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
+                  <span className="dept-pill">24 மணி நேர ஆய்வகம் (Automated Lab)</span>
+                  <span className="dept-pill">டிஜிட்டல் ECG (12-Lead Digital ECG)</span>
+                  <span className="dept-pill">ரத்த பரிசோதனைகள் (Biochemistry)</span>
+                  <span className="dept-pill">விரைவு முடிவுகள் (Same-Day Reports)</span>
+                </div>
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto' }}>
+                <span style={{ color: 'var(--accent)', fontSize: '0.85rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <CheckCircle size={15} /> 24 Hours Automated Lab
+                </span>
+                <Link to="/facilities" style={{ color: 'var(--white)', fontSize: '0.88rem', fontWeight: 'bold', textDecoration: 'underline' }}>
+                  Lab Details →
+                </Link>
+              </div>
             </div>
+
+            {/* Card 4: Visiting Super-Specialists */}
+            <div className="service-card department-tile" data-aos="zoom-in" data-aos-delay="400">
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
+                  <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: 'rgba(224, 169, 109, 0.15)', border: '1px solid rgba(224, 169, 109, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Stethoscope size={32} color="var(--accent)" />
+                  </div>
+                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(224, 169, 109, 0.2)', color: 'var(--accent)', padding: '4px 12px', borderRadius: '15px', fontWeight: 'bold' }}>
+                    🌟 சிறப்பு மருத்துவர்கள் வருகை
+                  </span>
+                </div>
+                <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginBottom: '10px', textAlign: 'left' }}>Visiting Specialists</h3>
+                <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '0.94rem', lineHeight: '1.6', textAlign: 'left', marginBottom: '18px' }}>
+                  Regular consultations and specialized surgeries by 12 renowned super-specialists across Cancer, Gastro, Plastic, Urology, Ortho & Maternity.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
+                  <span className="dept-pill">12 சிறப்பு மருத்துவர்கள் (Specialists)</span>
+                  <span className="dept-pill">புற்றுநோய் & குடல் (Cancer & GI Care)</span>
+                  <span className="dept-pill">ஒட்டுறுப்பு & குழந்தை (Plastic & Child)</span>
+                  <span className="dept-pill">சிறுநீரகம் & எலும்பு (Urology & Ortho)</span>
+                </div>
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto' }}>
+                <span style={{ color: 'var(--accent)', fontSize: '0.85rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <CheckCircle size={15} /> 12 Active Specialists
+                </span>
+                <Link to="/doctors" style={{ color: 'var(--white)', fontSize: '0.88rem', fontWeight: 'bold', textDecoration: 'underline' }}>
+                  View All Doctors →
+                </Link>
+              </div>
+            </div>
+
           </div>
-          <div className="text-center" style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '50px' }}>
-            <Link to="/services" className="btn btn-primary">All Departments</Link>
-            <Link to="/surgeries" className="btn btn-outline" style={{ borderColor: 'var(--primary)', color: 'var(--primary)' }}>View Surgeries</Link>
+          <div className="text-center" style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginTop: '50px', flexWrap: 'wrap' }}>
+            <Link to="/doctors" className="btn btn-accent">Specialist Doctors</Link>
+            <Link to="/surgeries" className="btn btn-primary">Laparoscopic Surgeries</Link>
+            <Link to="/services" className="btn btn-outline" style={{ borderColor: 'var(--primary)', color: 'var(--primary)' }}>All Departments</Link>
           </div>
         </div>
       </section>
@@ -165,31 +280,48 @@ const Home = () => {
       <section className="section doctor-message" style={{ overflow: 'hidden' }}>
         <div className="container">
           <div className="doctor-image" data-aos="fade-right">
-            <img src="/doctor.png" alt="Chief Doctor" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1612349317150-e410f624c400?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; }} />
+            <img src="/doctor.png" alt="Dr. B. Saileshkumar" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1612349317150-e410f624c400?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; }} />
           </div>
           <div className="doctor-content" data-aos="fade-left">
-            <h4 style={{ color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '10px', fontFamily: 'Inter' }}>Message from the Founder</h4>
-            <h2>Meet Our Chief Doctor</h2>
-            <h4>Owner & Lead Physician</h4>
-            <div className="quote" style={{ marginBottom: '15px', fontSize: '1.1rem', lineHeight: '1.5' }}>
-              "Healing is not just about prescribing medicines; it's about listening to our patients, understanding their pain, and guiding them towards a healthier, happier life. At JB Healthcare, we treat you like family."
+            <div style={{ display: 'inline-block', backgroundColor: 'rgba(224, 169, 109, 0.2)', color: 'var(--accent)', padding: '5px 15px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>
+              Founder & Chief Surgeon
+            </div>
+            <h2 style={{ fontSize: '2.4rem', marginBottom: '8px', color: 'var(--white)' }}>Dr. B. Saileshkumar</h2>
+            <h4 style={{ color: 'var(--accent)', fontSize: '1.15rem', fontWeight: '600', marginBottom: '15px' }}>
+              MBBS., M.S., FIAGES., FALS (Laparoscopic & General Surgeon)
+            </h4>
+            
+            <div className="quote" style={{ marginBottom: '15px', fontSize: '1.05rem', lineHeight: '1.5' }}>
+              "Healing Hands, Caring Hearts — Healing is not just about prescribing medicines; it's about listening to our patients, understanding their pain, and guiding them towards a healthier, happier life."
             </div>
             
-            <div style={{ marginBottom: '10px' }}>
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.2rem', marginBottom: '5px' }}>A Lifelong Commitment to Healthcare</h3>
-              <p style={{ color: 'rgba(255,255,255,0.85)', lineHeight: '1.5', fontSize: '0.95rem', margin: 0 }}>
-                With over a decade of dedicated service in the medical field, our founder established JB Healthcare with a single mission: to bring world-class, compassionate, and affordable healthcare to the heart of Anaiyur. Our clinic stands as a beacon of hope and healing, built on the pillars of trust and medical excellence.
+            {/* Highlights from Hospital Banner */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '20px' }}>
+              <div style={{ backgroundColor: 'rgba(255,255,255,0.08)', padding: '10px 14px', borderRadius: '10px', borderLeft: '3px solid var(--accent)' }}>
+                <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--accent)', display: 'block' }}>10,000+</span>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)' }}>Successful Surgeries</span>
+              </div>
+              <div style={{ backgroundColor: 'rgba(255,255,255,0.08)', padding: '10px 14px', borderRadius: '10px', borderLeft: '3px solid var(--accent)' }}>
+                <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--accent)', display: 'block' }}>2,000+</span>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)' }}>Laparoscopic Surgeries</span>
+              </div>
+              <div style={{ backgroundColor: 'rgba(255,255,255,0.08)', padding: '10px 14px', borderRadius: '10px', borderLeft: '3px solid var(--accent)' }}>
+                <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--accent)', display: 'block' }}>Best Doctor Award</span>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)' }}>2017 & 2018 (Collector)</span>
+              </div>
+            </div>
+
+            <div style={{ marginBottom: '12px' }}>
+              <h3 style={{ color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '4px' }}>Medical Journey & Credentials</h3>
+              <p style={{ color: 'rgba(255,255,255,0.85)', lineHeight: '1.5', fontSize: '0.9rem', margin: 0 }}>
+                Alumnus of Madras Medical College (MBBS) & Madurai Medical College (MS). Advanced Laparoscopic training from VG Hospital Coimbatore, with prestigious FIAGES / FALS Fellowships. Over 7 years of dedicated government medical service across Virudhunagar district and Founder Secretary of IMA Sivakasi (2016-2017).
               </p>
             </div>
 
-            <div style={{ marginBottom: '15px' }}>
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.2rem', marginBottom: '5px' }}>Patient-First Philosophy</h3>
-              <p style={{ color: 'rgba(255,255,255,0.85)', lineHeight: '1.5', fontSize: '0.95rem', margin: 0 }}>
-                We believe that every patient deserves personalized attention. From modern diagnostic tools to comprehensive post-treatment care, we ensure that your medical journey is smooth, transparent, and effective. Your health is not just our profession—it is our passion.
-              </p>
+            <div style={{ display: 'flex', gap: '15px', marginTop: '15px', flexWrap: 'wrap' }}>
+              <Link to="/about" className="btn btn-accent" style={{ padding: '10px 24px', fontSize: '0.95rem' }}>Full Profile & Achievements</Link>
+              <Link to="/appointment" className="btn btn-outline" style={{ padding: '10px 24px', fontSize: '0.95rem' }}>Book Consultation</Link>
             </div>
-
-            <Link to="/about" className="btn btn-accent" style={{ marginTop: '5px' }}>Read More About Us</Link>
           </div>
         </div>
       </section>
@@ -226,6 +358,44 @@ const Home = () => {
           <Link to="/appointment" className="btn" style={{ backgroundColor: 'var(--white)', color: 'var(--primary)' }}>Book Appointment Now</Link>
         </div>
       </section>
+
+      <style>{`
+        .top-departments-2x2 {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+        @media (max-width: 900px) {
+          .top-departments-2x2 {
+            grid-template-columns: 1fr;
+          }
+        }
+        .department-tile {
+          background-color: var(--primary) !important;
+          color: var(--white) !important;
+          border-top: 4px solid var(--accent) !important;
+          border-radius: 18px !important;
+          padding: 35px 30px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: space-between !important;
+          box-shadow: 0 12px 35px rgba(10, 43, 78, 0.12) !important;
+          transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        .department-tile:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 45px rgba(10, 43, 78, 0.22) !important;
+        }
+        .dept-pill {
+          font-size: 0.8rem;
+          background-color: rgba(224, 169, 109, 0.15);
+          color: var(--accent);
+          padding: 5px 12px;
+          border-radius: 20px;
+          border: 1px solid rgba(224, 169, 109, 0.35);
+          font-weight: 500;
+        }
+      `}</style>
     </div>
   );
 };

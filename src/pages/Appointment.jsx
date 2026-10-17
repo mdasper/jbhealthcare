@@ -133,13 +133,23 @@ const Appointment = () => {
               {/* Emergency Contact Box to fill the bottom space */}
               <div style={{ marginTop: 'auto', backgroundColor: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', position: 'relative', zIndex: 1, paddingTop: '30px' }}>
                 <h4 style={{ color: 'var(--accent)', fontSize: '1.2rem', marginBottom: '20px' }}>Need Urgent Help?</h4>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '12px' }}>
                   <Phone size={22} color="var(--white)" />
-                  <span style={{ color: 'var(--white)', fontSize: '1.1rem', fontWeight: 'bold' }}>+91 93455 10905</span>
+                  <div>
+                    <span style={{ color: 'var(--white)', fontSize: '1.1rem', fontWeight: 'bold', display: 'block' }}>04562-299920</span>
+                    <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>Hospital Front Desk</span>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
+                  <Phone size={22} color="var(--accent)" />
+                  <div>
+                    <span style={{ color: 'var(--white)', fontSize: '1.05rem', fontWeight: 'bold', display: 'block' }}>+91 93455 10905</span>
+                    <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>Appointments & WhatsApp</span>
+                  </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                   <MessageSquare size={22} color="var(--white)" />
-                  <span style={{ color: 'var(--white)', fontSize: '1rem' }}>Available 24/7 for Emergencies</span>
+                  <span style={{ color: 'var(--white)', fontSize: '0.95rem' }}>24/7 Casualty & Emergency Available</span>
                 </div>
               </div>
 
@@ -204,16 +214,32 @@ const Appointment = () => {
                     </label>
                     <select name="department" required value={formData.department} onChange={handleChange} style={{ width: '100%', padding: '16px', border: '1px solid #e1e8ed', borderRadius: '8px', fontSize: '1rem', backgroundColor: '#f9fafb', color: 'var(--primary)' }}>
                       <option value="">Select a specialisation</option>
-                      {formData.department && !['General Medicine', 'Cardiology', 'Laparoscopic Surgery', 'Paediatrics', 'Orthopaedics', 'Neurology', 'Gynaecology'].includes(formData.department) && (
+                      {formData.department && ![
+                        'Laparoscopic & General Surgery',
+                        'Surgical Oncology (Cancer Surgery)',
+                        'Medical Gastroenterology & Hepatology',
+                        'Plastic & Reconstructive Surgery',
+                        'Paediatric Surgery (Child Specialist)',
+                        'Urology & Renal Sciences',
+                        'Orthopaedics & Trauma Surgery',
+                        'Anaesthesiology & Critical Care',
+                        '24/7 Casualty & Emergency',
+                        'General Medicine',
+                        'Gynaecology & Obstetrics'
+                      ].includes(formData.department) && (
                         <option value={formData.department}>{formData.department}</option>
                       )}
+                      <option value="Laparoscopic & General Surgery">Laparoscopic & General Surgery (Chief Surgeon)</option>
+                      <option value="Surgical Oncology (Cancer Surgery)">Surgical Oncology (Cancer Surgery)</option>
+                      <option value="Medical Gastroenterology & Hepatology">Medical Gastroenterology & Hepatology (குடல் & கல்லீரல்)</option>
+                      <option value="Plastic & Reconstructive Surgery">Plastic & Reconstructive Surgery (ஒட்டுறுப்பு)</option>
+                      <option value="Paediatric Surgery (Child Specialist)">Paediatric Surgery (குழந்தைகள் அறுவை சிகிச்சை)</option>
+                      <option value="Urology & Renal Sciences">Urology & Renal Sciences (சிறுநீரகம்)</option>
+                      <option value="Orthopaedics & Trauma Surgery">Orthopaedics & Trauma Surgery (எலும்பு முறிவு)</option>
+                      <option value="Anaesthesiology & Critical Care">Anaesthesiology & Critical Care (மயக்கவியல்)</option>
+                      <option value="24/7 Casualty & Emergency">24/7 Casualty & Emergency</option>
                       <option value="General Medicine">General Medicine</option>
-                      <option value="Cardiology">Cardiology</option>
-                      <option value="Laparoscopic Surgery">Laparoscopic Surgery</option>
-                      <option value="Paediatrics">Paediatrics</option>
-                      <option value="Orthopaedics">Orthopaedics</option>
-                      <option value="Neurology">Neurology</option>
-                      <option value="Gynaecology">Gynaecology</option>
+                      <option value="Gynaecology & Obstetrics">Gynaecology & Obstetrics</option>
                     </select>
                   </div>
                   
@@ -229,7 +255,30 @@ const Appointment = () => {
                   <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--primary)', fontWeight: '600', marginBottom: '8px', fontSize: '0.95rem' }}>
                     <User size={16} /> Preferred Doctor (Optional)
                   </label>
-                  <input type="text" name="doctor" value={formData.doctor} onChange={handleChange} placeholder="e.g. Dr. Arun Kumar" style={{ width: '100%', padding: '16px', border: '1px solid #e1e8ed', borderRadius: '8px', fontSize: '1rem', backgroundColor: '#f9fafb', transition: 'all 0.3s' }} />
+                  <input 
+                    type="text" 
+                    name="doctor" 
+                    list="doctors-list"
+                    value={formData.doctor} 
+                    onChange={handleChange} 
+                    placeholder="Type or select a doctor (e.g. Dr. B. Saileshkumar, Dr. A.C. Arun)..." 
+                    style={{ width: '100%', padding: '16px', border: '1px solid #e1e8ed', borderRadius: '8px', fontSize: '1rem', backgroundColor: '#f9fafb', transition: 'all 0.3s' }} 
+                  />
+                  <datalist id="doctors-list">
+                    <option value="Dr. B. Saileshkumar (Chief Laparoscopic & General Surgeon)">Chief Surgeon</option>
+                    <option value="Dr. A.C. Arun (M.D., D.M. - Gastroenterologist & Hepatologist)">குடல் மற்றும் கல்லீரல் சிறப்பு நிபுணர்</option>
+                    <option value="Dr. Gurumoorthi (M.S., M.Ch. - Surgical Oncologist)">புற்று நோய் அறுவை சிகிச்சை நிபுணர்</option>
+                    <option value="Dr. Manikandan (M.S., M.Ch. - Surgical Oncologist)">புற்று நோய் அறுவை சிகிச்சை நிபுணர்</option>
+                    <option value="Dr. R. Arunkumar (M.S., M.Ch. - Plastic & Reconstructive Surgeon)">ஒட்டுறுப்பு அறுவை சிகிச்சை நிபுணர்</option>
+                    <option value="Dr. J. Arunkumar (M.S., M.Ch. - Paediatric Surgeon)">குழந்தைகள் அறுவை சிகிச்சை நிபுணர்</option>
+                    <option value="Dr. G. Sankar (M.S., M.Ch. - Urologist & Renal Surgeon)">சிறுநீரக அறுவை சிகிச்சை நிபுணர்</option>
+                    <option value="Dr. Deepan Ramkumar (M.S. Ortho - Orthopaedic Surgeon)">எலும்பு முறிவு அறுவை சிகிச்சை நிபுணர்</option>
+                    <option value="Dr. Sivaram (MBBS, DNB - Consultant Physician)">பொது மற்றும் நீரிழிவு மருத்துவர்</option>
+                    <option value="Dr. Sangeetha (MBBS, DGO - Gynaecologist)">மகளிர் மற்றும் மகப்பேறு சிறப்பு நிபுணர்</option>
+                    <option value="Dr. P. Karthikeyan (MBBS, MD - Consultant Physician)">பொது மற்றும் உள்மருத்துவ நிபுணர் (MD)</option>
+                    <option value="Dr. S. Sri Kishore Ganesh (M.D. - Anaesthesiologist)">மயக்கவியல் நிபுணர்</option>
+                    <option value="Dr. M. Jeganatha Prabhu (D.A. - Anaesthesiologist)">மயக்கவியல் நிபுணர்</option>
+                  </datalist>
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '35px' }}>
