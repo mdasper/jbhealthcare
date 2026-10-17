@@ -74,7 +74,7 @@ const Home = () => {
               <p className="slide-subtitle" style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', fontSize: '1.25rem' }}>{slide.subtitle}</p>
               <div style={{ display: 'flex', gap: '20px', marginTop: '60px' }}>
                 <Link to="/appointment" className="btn btn-accent">Book an Appointment</Link>
-                <Link to="/services" className="btn btn-outline">Our Services</Link>
+                <Link to="/departments" className="btn btn-outline">Our Departments</Link>
               </div>
             </div>
           </div>
@@ -270,7 +270,7 @@ const Home = () => {
           <div className="text-center" style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginTop: '50px', flexWrap: 'wrap' }}>
             <Link to="/doctors" className="btn btn-accent">Specialist Doctors</Link>
             <Link to="/surgeries" className="btn btn-primary">Laparoscopic Surgeries</Link>
-            <Link to="/services" className="btn btn-outline" style={{ borderColor: 'var(--primary)', color: 'var(--primary)' }}>All Departments</Link>
+            <Link to="/departments" className="btn btn-outline" style={{ borderColor: 'var(--primary)', color: 'var(--primary)' }}>All Departments</Link>
           </div>
         </div>
       </section>

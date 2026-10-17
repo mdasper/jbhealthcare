@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { client } from '../sanity';
 import { 
   Activity, 
   ClipboardList, 
@@ -264,19 +265,28 @@ const IconMapper = ({ name, size = 32, color = 'var(--accent)' }) => {
 };
 
 const Services = () => {
+  const [departments, setDepartments] = useState(realDepartments);
   const [selectedCategory, setSelectedCategory] = useState('All Departments');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredDepts = realDepartments.filter((dept) => {
+  useEffect(() => {
+    client.fetch(`*[_type == "service"] | order(order asc)`).then((data) => {
+      if (data && data.length > 0) {
+        setDepartments(data);
+      }
+    }).catch(console.error);
+  }, []);
+
+  const filteredDepts = departments.filter((dept) => {
     const matchesCategory = selectedCategory === 'All Departments' || dept.category === selectedCategory;
     const q = searchQuery.toLowerCase().trim();
     if (!q) return matchesCategory;
     const matchesQuery = 
-      dept.title.toLowerCase().includes(q) ||
-      dept.tamilTitle.toLowerCase().includes(q) ||
-      dept.doctor.toLowerCase().includes(q) ||
-      dept.description.toLowerCase().includes(q) ||
-      dept.keyProcedures.some((p) => p.toLowerCase().includes(q));
+      dept.title?.toLowerCase().includes(q) ||
+      dept.tamilTitle?.toLowerCase().includes(q) ||
+      dept.doctor?.toLowerCase().includes(q) ||
+      dept.description?.toLowerCase().includes(q) ||
+      (dept.keyProcedures && dept.keyProcedures.some((p) => p.toLowerCase().includes(q)));
     return matchesCategory && matchesQuery;
   });
 
@@ -377,8 +387,8 @@ const Services = () => {
             {categoryList.map((cat) => {
               const isActive = selectedCategory === cat;
               const count = cat === 'All Departments' 
-                ? realDepartments.length 
-                : realDepartments.filter(d => d.category === cat).length;
+                ? departments.length 
+                : departments.filter(d => d.category === cat).length;
 
               return (
                 <button
