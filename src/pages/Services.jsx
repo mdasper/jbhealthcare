@@ -270,14 +270,17 @@ const Services = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    client.fetch(`*[_type == "service"] | order(order asc)`).then((data) => {
-      if (data && data.length > 0) {
+    client.fetch(`*[_type == "service" && defined(keyProcedures)] | order(order asc)`).then((data) => {
+      if (Array.isArray(data) && data.length > 0) {
         setDepartments(data);
       }
-    }).catch(console.error);
+    }).catch((err) => {
+      console.warn('Using offline verified departments fallback:', err);
+    });
   }, []);
 
-  const filteredDepts = departments.filter((dept) => {
+  const filteredDepts = (departments || []).filter((dept) => {
+    if (!dept) return false;
     const matchesCategory = selectedCategory === 'All Departments' || dept.category === selectedCategory;
     const q = searchQuery.toLowerCase().trim();
     if (!q) return matchesCategory;
@@ -286,7 +289,7 @@ const Services = () => {
       dept.tamilTitle?.toLowerCase().includes(q) ||
       dept.doctor?.toLowerCase().includes(q) ||
       dept.description?.toLowerCase().includes(q) ||
-      (dept.keyProcedures && dept.keyProcedures.some((p) => p.toLowerCase().includes(q)));
+      (Array.isArray(dept.keyProcedures) && dept.keyProcedures.some((p) => p?.toLowerCase().includes(q)));
     return matchesCategory && matchesQuery;
   });
 
@@ -507,7 +510,7 @@ const Services = () => {
                         Key Procedures & Clinical Focus:
                       </div>
                       <div className="dept-proc-list">
-                        {dept.keyProcedures.map((proc, pIdx) => (
+                        {(dept.keyProcedures || []).map((proc, pIdx) => (
                           <div key={pIdx} className="dept-proc-item">
                             <span className="dept-proc-bullet">•</span>
                             <span className="dept-proc-text">{proc}</span>
