@@ -722,3 +722,60 @@ body, html {
   }
 }
 
+/* =========================================
+   PREMIUM UI ENHANCEMENTS (IDEA 8)
+   ========================================= */
+
+/* 24/7 Live Emergency Casualty Pulse Beacon */
+.live-casualty-beacon {
+  position: relative;
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #00E676;
+  box-shadow: 0 0 8px #00E676, 0 0 14px rgba(0, 230, 118, 0.6);
+  flex-shrink: 0;
+}
+
+.live-casualty-beacon::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 1.5px solid #00E676;
+  animation: beaconRadar 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  opacity: 0.8;
+}
+
+@keyframes beaconRadar {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Magnetic Hover Micro-Interaction */
+.btn-magnetic {
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+.btn-magnetic:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-magnetic:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* TiltCard Specular Light Enhancements */
+.tilt-card-wrapper {
+  transition: box-shadow 0.3s ease;
+}

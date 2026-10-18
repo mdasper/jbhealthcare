@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { client } from '../sanity';
+import TiltCard from '../components/TiltCard';
 import { 
   Activity, 
   ClipboardList, 
@@ -453,9 +454,12 @@ const Services = () => {
           ) : (
             <div className="dept-grid-container">
               {filteredDepts.map((dept, index) => (
-                <div 
+                <TiltCard 
                   key={`${dept._id}-${selectedCategory}`} 
                   className="dept-luxe-card tile-stream-in"
+                  maxTilt={6}
+                  scale={1.02}
+                  glareColor="rgba(224, 169, 109, 0.22)"
                   data-aos="fade-up" 
                   data-aos-delay={`${(index % 3 + 1) * 80}`}
                   style={{ animationDelay: `${index * 80}ms` }}
@@ -531,7 +535,7 @@ const Services = () => {
                     </div>
 
                   </div>
-                </div>
+                </TiltCard>
               ))}
             </div>
           )}
@@ -737,11 +741,9 @@ const Services = () => {
           border: 1px solid rgba(255, 255, 255, 0.08);
           display: flex;
           flex-direction: column;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .dept-luxe-card:hover {
-          transform: translateY(-7px);
-          box-shadow: 0 20px 48px rgba(7, 25, 45, 0.45) !important;
+          box-shadow: 0 24px 52px rgba(7, 25, 45, 0.55), 0 0 25px rgba(224, 169, 109, 0.15) !important;
         }
         .dept-luxe-inner {
           border: 1.5px solid rgba(224, 169, 109, 0.45);

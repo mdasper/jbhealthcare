@@ -78,10 +78,11 @@ const Navbar = () => {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <a 
               href="tel:04562299920" 
+              className="btn-magnetic"
               style={{ 
                 display: 'inline-flex', 
                 alignItems: 'center', 
-                gap: '6px', 
+                gap: '8px', 
                 color: 'var(--white)', 
                 backgroundColor: 'rgba(255,255,255,0.08)',
                 padding: '8px 14px',
@@ -91,15 +92,16 @@ const Navbar = () => {
                 textDecoration: 'none',
                 border: '1px solid rgba(224, 169, 109, 0.4)'
               }}
-              title="24/7 Hospital Desk"
+              title="24/7 Emergency Casualty Desk"
             >
+              <span className="live-casualty-beacon" />
               <Phone size={14} color="var(--accent)" />
               <span>04562-299920</span>
             </a>
 
             <Link 
               to="/appointment" 
-              className="btn btn-accent premium-book-btn" 
+              className="btn btn-accent premium-book-btn btn-magnetic" 
               style={{ 
                 padding: '10px 22px', 
                 fontSize: '0.85rem', 

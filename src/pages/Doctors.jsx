@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import TiltCard from '../components/TiltCard';
 import { 
   Calendar, 
   Clock, 
@@ -252,15 +253,21 @@ const Doctors = () => {
       {/* Chief Doctor Spotlight Section (Executive Multi-Tier Profile Card) */}
       <section style={{ padding: '60px 0 35px' }}>
         <div className="container">
-          <div style={{ 
-            backgroundColor: '#0A2540', 
-            borderRadius: '24px', 
-            overflow: 'hidden', 
-            boxShadow: '0 25px 55px rgba(10,43,78,0.22)', 
-            border: '2px solid rgba(224, 169, 109, 0.4)',
-            maxWidth: '1080px',
-            margin: '0 auto'
-          }} data-aos="fade-up">
+          <TiltCard 
+            maxTilt={3.5}
+            scale={1.01}
+            glareColor="rgba(224, 169, 109, 0.16)"
+            style={{ 
+              backgroundColor: '#0A2540', 
+              borderRadius: '24px', 
+              overflow: 'hidden', 
+              boxShadow: '0 25px 55px rgba(10,43,78,0.22)', 
+              border: '2px solid rgba(224, 169, 109, 0.4)',
+              maxWidth: '1080px',
+              margin: '0 auto'
+            }} 
+            data-aos="fade-up"
+          >
 
             {/* Tier 1: Profile Header */}
             <div style={{ 
@@ -713,7 +720,7 @@ const Doctors = () => {
               </div>
             </div>
 
-          </div>
+          </TiltCard>
         </div>
       </section>
 
@@ -845,9 +852,12 @@ const Doctors = () => {
               gap: '28px' 
             }}>
               {filteredDoctors.map((doc, idx) => (
-                <div 
+                <TiltCard 
                   key={doc._id}
                   className="dark-luxe-card"
+                  maxTilt={6}
+                  scale={1.02}
+                  glareColor="rgba(224, 169, 109, 0.2)"
                   data-aos="fade-up"
                   data-aos-delay={`${(idx % 3 + 1) * 60}`}
                 >
@@ -890,7 +900,7 @@ const Doctors = () => {
                     </Link>
 
                   </div>
-                </div>
+                </TiltCard>
               ))}
             </div>
           )}
@@ -974,11 +984,9 @@ const Doctors = () => {
           border: 1px solid rgba(255, 255, 255, 0.06);
           display: flex;
           flex-direction: column;
-          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .dark-luxe-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 22px 50px rgba(8, 29, 51, 0.42) !important;
+          box-shadow: 0 24px 55px rgba(8, 29, 51, 0.5), 0 0 25px rgba(224, 169, 109, 0.15) !important;
         }
         .dark-luxe-inner {
           border: 1.5px solid rgba(224, 169, 109, 0.55);

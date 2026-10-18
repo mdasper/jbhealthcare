@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Stethoscope, HeartPulse, ShieldPlus, Award, Users, Activity, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { client, urlFor } from '../sanity';
+import TiltCard from '../components/TiltCard';
 
 const slides = [
   {
@@ -139,7 +140,14 @@ const Home = () => {
           <div className="top-departments-2x2">
             
             {/* Card 1: Laparoscopic Surgery */}
-            <div className="service-card department-tile" data-aos="zoom-in" data-aos-delay="100">
+            <TiltCard 
+              className="service-card department-tile" 
+              maxTilt={5} 
+              scale={1.02} 
+              glareColor="rgba(224, 169, 109, 0.22)"
+              data-aos="zoom-in" 
+              data-aos-delay="100"
+            >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
                   <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: 'rgba(224, 169, 109, 0.15)', border: '1px solid rgba(224, 169, 109, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -168,10 +176,17 @@ const Home = () => {
                   View Surgeries →
                 </Link>
               </div>
-            </div>
+            </TiltCard>
 
             {/* Card 2: 24/7 Emergency & OT */}
-            <div className="service-card department-tile" data-aos="zoom-in" data-aos-delay="200">
+            <TiltCard 
+              className="service-card department-tile" 
+              maxTilt={5} 
+              scale={1.02} 
+              glareColor="rgba(224, 169, 109, 0.22)"
+              data-aos="zoom-in" 
+              data-aos-delay="200"
+            >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
                   <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: 'rgba(224, 169, 109, 0.15)', border: '1px solid rgba(224, 169, 109, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -200,10 +215,17 @@ const Home = () => {
                   View Facilities →
                 </Link>
               </div>
-            </div>
+            </TiltCard>
 
             {/* Card 3: Rapid Diagnostics & ECG */}
-            <div className="service-card department-tile" data-aos="zoom-in" data-aos-delay="300">
+            <TiltCard 
+              className="service-card department-tile" 
+              maxTilt={5} 
+              scale={1.02} 
+              glareColor="rgba(224, 169, 109, 0.22)"
+              data-aos="zoom-in" 
+              data-aos-delay="300"
+            >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
                   <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: 'rgba(224, 169, 109, 0.15)', border: '1px solid rgba(224, 169, 109, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -232,10 +254,17 @@ const Home = () => {
                   Lab Details →
                 </Link>
               </div>
-            </div>
+            </TiltCard>
 
             {/* Card 4: Visiting Super-Specialists */}
-            <div className="service-card department-tile" data-aos="zoom-in" data-aos-delay="400">
+            <TiltCard 
+              className="service-card department-tile" 
+              maxTilt={5} 
+              scale={1.02} 
+              glareColor="rgba(224, 169, 109, 0.22)"
+              data-aos="zoom-in" 
+              data-aos-delay="400"
+            >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
                   <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: 'rgba(224, 169, 109, 0.15)', border: '1px solid rgba(224, 169, 109, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -264,13 +293,13 @@ const Home = () => {
                   View All Doctors →
                 </Link>
               </div>
-            </div>
+            </TiltCard>
 
           </div>
           <div className="text-center" style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginTop: '50px', flexWrap: 'wrap' }}>
-            <Link to="/doctors" className="btn btn-accent">Specialist Doctors</Link>
-            <Link to="/surgeries" className="btn btn-primary">Laparoscopic Surgeries</Link>
-            <Link to="/departments" className="btn btn-outline" style={{ borderColor: 'var(--primary)', color: 'var(--primary)' }}>All Departments</Link>
+            <Link to="/doctors" className="btn btn-accent btn-magnetic">Specialist Doctors</Link>
+            <Link to="/surgeries" className="btn btn-primary btn-magnetic">Laparoscopic Surgeries</Link>
+            <Link to="/departments" className="btn btn-outline btn-magnetic" style={{ borderColor: 'var(--primary)', color: 'var(--primary)' }}>All Departments</Link>
           </div>
         </div>
       </section>
@@ -355,7 +384,7 @@ const Home = () => {
         <div className="container">
           <h2 style={{ color: 'var(--white)', fontSize: '2.5rem', marginBottom: '20px' }}>Need a Medical Consultation?</h2>
           <p style={{ fontSize: '1.2rem', marginBottom: '30px' }}>Our specialists are ready to provide you with the best healthcare.</p>
-          <Link to="/appointment" className="btn" style={{ backgroundColor: 'var(--white)', color: 'var(--primary)' }}>Book Appointment Now</Link>
+          <Link to="/appointment" className="btn btn-magnetic" style={{ backgroundColor: 'var(--white)', color: 'var(--primary)', fontWeight: '700' }}>Book Appointment Now</Link>
         </div>
       </section>
 
@@ -380,11 +409,9 @@ const Home = () => {
           flex-direction: column !important;
           justify-content: space-between !important;
           box-shadow: 0 12px 35px rgba(10, 43, 78, 0.12) !important;
-          transition: transform 0.3s ease, box-shadow 0.3s ease !important;
         }
         .department-tile:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 20px 45px rgba(10, 43, 78, 0.22) !important;
+          box-shadow: 0 24px 50px rgba(10, 43, 78, 0.35), 0 0 25px rgba(224, 169, 109, 0.15) !important;
         }
         .dept-pill {
           font-size: 0.8rem;

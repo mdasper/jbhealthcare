@@ -6,6 +6,7 @@ import { Activity } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import HeartbeatScrollProgress from './components/HeartbeatScrollProgress';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -57,6 +58,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <HeartbeatScrollProgress />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
