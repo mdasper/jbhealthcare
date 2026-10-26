@@ -8,6 +8,7 @@ const Appointment = () => {
   const passedState = location.state || {};
 
   const [settings, setSettings] = useState(null);
+  const [agreed, setAgreed] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -41,6 +42,7 @@ const Appointment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!agreed) return;
     
     const whatsappNumber = '919345510905';
     let text = `*🏥 JB Healthcare - Appointment Booking*\n\n`;
@@ -289,8 +291,54 @@ const Appointment = () => {
                   <textarea name="message" value={formData.message} onChange={handleChange} rows="3" placeholder="Describe your symptoms or reason for the visit..." style={{ width: '100%', padding: '16px', border: '1px solid #e1e8ed', borderRadius: '8px', fontSize: '1rem', backgroundColor: '#f9fafb', resize: 'vertical' }}></textarea>
                 </div>
 
+                {/* Terms Agreement Checkbox */}
+                <div style={{ 
+                  marginBottom: '25px', 
+                  display: 'flex', 
+                  alignItems: 'flex-start', 
+                  gap: '12px', 
+                  padding: '14px 18px', 
+                  backgroundColor: agreed ? 'rgba(0, 180, 216, 0.08)' : '#f8f9fa', 
+                  borderRadius: '10px', 
+                  border: agreed ? '1.5px solid var(--primary)' : '1px solid #e1e8ed', 
+                  transition: 'all 0.3s ease' 
+                }}>
+                  <input 
+                    type="checkbox" 
+                    id="appointment-agree"
+                    name="agree" 
+                    checked={agreed} 
+                    onChange={(e) => setAgreed(e.target.checked)} 
+                    style={{ width: '20px', height: '20px', marginTop: '2px', cursor: 'pointer', accentColor: 'var(--primary)' }} 
+                  />
+                  <label htmlFor="appointment-agree" style={{ color: '#333', fontSize: '0.95rem', cursor: 'pointer', userSelect: 'none', lineHeight: '1.5', fontWeight: '500' }}>
+                    I agree to the hospital's appointment terms and confirm that the details provided above are accurate for booking my consultation.
+                  </label>
+                </div>
+
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-                  <button type="submit" className="btn btn-accent" style={{ padding: '16px 40px', fontSize: '1.1rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', borderRadius: '8px' }}>
+                  <button 
+                    type="submit" 
+                    disabled={!agreed}
+                    className="btn btn-magnetic" 
+                    style={{ 
+                      padding: '16px 40px', 
+                      fontSize: '1.1rem', 
+                      fontWeight: 'bold', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center', 
+                      gap: '10px', 
+                      borderRadius: '8px',
+                      backgroundColor: agreed ? 'var(--primary)' : '#cbd5e1',
+                      color: agreed ? '#FFFFFF' : '#64748b',
+                      cursor: agreed ? 'pointer' : 'not-allowed',
+                      border: 'none',
+                      boxShadow: agreed ? '0 6px 20px rgba(0, 180, 216, 0.35)' : 'none',
+                      transition: 'all 0.3s ease',
+                      opacity: agreed ? 1 : 0.7
+                    }}
+                  >
                     Submit Appointment Request
                   </button>
                 </div>
