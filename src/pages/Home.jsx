@@ -67,15 +67,15 @@ const Home = () => {
             key={index} 
             className={`slide ${index === currentSlide ? 'active' : ''}`}
             style={{ 
-              backgroundImage: `linear-gradient(rgba(0, 180, 216, 0.75), rgba(0, 140, 175, 0.85)), url(${slide.image})` 
+              backgroundImage: `linear-gradient(rgba(8, 28, 50, 0.82), rgba(0, 130, 175, 0.70)), url(${slide.image})` 
             }}
           >
             <div className="container" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               <h1 className="slide-title">{slide.title}</h1>
               <p className="slide-subtitle" style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', fontSize: '1.25rem' }}>{slide.subtitle}</p>
               <div style={{ display: 'flex', gap: '20px', marginTop: '60px' }}>
-                <Link to="/appointment" className="btn btn-accent">Book an Appointment</Link>
-                <Link to="/departments" className="btn btn-outline">Our Departments</Link>
+                <Link to="/appointment" className="btn btn-magnetic" style={{ backgroundColor: '#00B4D8', color: '#FFFFFF', fontWeight: '700', padding: '14px 34px', borderRadius: '30px', boxShadow: '0 6px 20px rgba(0, 180, 216, 0.4)' }}>Book an Appointment</Link>
+                <Link to="/departments" className="btn btn-outline btn-magnetic" style={{ padding: '14px 34px', borderRadius: '30px', fontWeight: '700' }}>Our Departments</Link>
               </div>
             </div>
           </div>
@@ -102,29 +102,29 @@ const Home = () => {
         <div className="container">
           <div className="why-choose-us" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '20px', textAlign: 'center' }}>
             <div data-aos="fade-up" data-aos-delay="100">
-              <Award size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--white)' }}>Certified Experts</h3>
-              <p style={{ opacity: 0.8 }}>Highly qualified doctors and medical staff.</p>
+              <Award size={48} style={{ color: '#061D38', marginBottom: '15px' }} />
+              <h3 style={{ color: '#061D38', fontWeight: '800' }}>Certified Experts</h3>
+              <p style={{ color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>Highly qualified doctors and medical staff.</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="200">
-              <Activity size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--white)' }}>Modern Technology</h3>
-              <p style={{ opacity: 0.8 }}>State-of-the-art facilities and equipment.</p>
+              <Activity size={48} style={{ color: '#061D38', marginBottom: '15px' }} />
+              <h3 style={{ color: '#061D38', fontWeight: '800' }}>Modern Technology</h3>
+              <p style={{ color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>State-of-the-art facilities and equipment.</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="300">
-              <ShieldPlus size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--white)' }}>24/7 Support</h3>
-              <p style={{ opacity: 0.8 }}>Round-the-clock emergency services.</p>
+              <ShieldPlus size={48} style={{ color: '#061D38', marginBottom: '15px' }} />
+              <h3 style={{ color: '#061D38', fontWeight: '800' }}>24/7 Support</h3>
+              <p style={{ color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>Round-the-clock emergency services.</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="400">
-              <Users size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--white)' }}>Patient-Centric Care</h3>
-              <p style={{ opacity: 0.8 }}>Personalized treatment plans and emotional support.</p>
+              <Users size={48} style={{ color: '#061D38', marginBottom: '15px' }} />
+              <h3 style={{ color: '#061D38', fontWeight: '800' }}>Patient-Centric Care</h3>
+              <p style={{ color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>Personalized treatment plans and emotional support.</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="500">
-              <CheckCircle size={48} style={{ color: 'var(--accent)', marginBottom: '15px' }} />
-              <h3 style={{ color: 'var(--white)' }}>Strict Hygiene</h3>
-              <p style={{ opacity: 0.8 }}>100% adherence to international safety protocols.</p>
+              <CheckCircle size={48} style={{ color: '#061D38', marginBottom: '15px' }} />
+              <h3 style={{ color: '#061D38', fontWeight: '800' }}>Strict Hygiene</h3>
+              <p style={{ color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>100% adherence to international safety protocols.</p>
             </div>
           </div>
         </div>

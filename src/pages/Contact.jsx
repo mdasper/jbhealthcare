@@ -18,8 +18,8 @@ const Contact = () => {
     <div className="page-transition" style={{ paddingTop: '80px' }}>
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
         <div className="container text-center" data-aos="fade-up">
-          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginBottom: '20px' }}>Contact Us</h1>
-          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto' }}>
+          <h1 style={{ color: '#061D38', fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800' }}>Contact Us</h1>
+          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
             We are here to answer your questions and assist you with your healthcare needs. Reach out to us today.
           </p>
         </div>

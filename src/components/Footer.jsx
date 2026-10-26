@@ -32,11 +32,11 @@ const Footer = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
               <img src="/logo.jpg" alt="JB Healthcare Logo" style={{ height: '60px', borderRadius: '50%', backgroundColor: 'white', padding: '3px' }} />
               <div>
-                <h3 className="logo" style={{color: 'var(--white)', margin: 0}}>{hospitalName}</h3>
-                <span style={{ color: 'var(--accent)', fontSize: '0.8rem', fontWeight: 'bold' }}>Healing Hands, Caring Hearts</span>
+                <h3 className="logo" style={{color: '#061D38', margin: 0, fontWeight: '800'}}>{hospitalName}</h3>
+                <span style={{ color: '#061D38', fontSize: '0.8rem', fontWeight: '800', letterSpacing: '0.5px' }}>Healing Hands, Caring Hearts</span>
               </div>
             </div>
-            <p>Healing Hands, Caring Hearts. Providing exceptional surgical and emergency healthcare services with advanced medical technology.</p>
+            <p style={{ color: '#FFFFFF', fontWeight: '600', lineHeight: '1.7', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>Healing Hands, Caring Hearts. Providing exceptional surgical and emergency healthcare services with advanced medical technology.</p>
             <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
               <a href="https://www.facebook.com/100095190337849/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--white)', backgroundColor: '#1877F2', padding: '10px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -57,7 +57,6 @@ const Footer = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/departments">Departments</Link></li>
-              {/* <li><Link to="/symptom-explorer" style={{ color: 'var(--accent)', fontWeight: '600' }}>3D Symptom Finder 🧍‍♂️</Link></li> */}
               <li><Link to="/surgeries">Surgeries</Link></li>
               <li><Link to="/facilities">Facilities</Link></li>
               <li><Link to="/doctors">Doctors</Link></li>
@@ -67,35 +66,35 @@ const Footer = () => {
           </div>
           <div>
             <h3>Opening Hours</h3>
-            <ul style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '2', listStyle: 'none', padding: 0, maxWidth: '280px' }}>
-              <li style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '5px' }}><span>Mon - Sat:</span> <span>09:00 AM - 08:00 PM</span></li>
-              <li style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '5px', paddingTop: '5px' }}><span>Sunday:</span> <span style={{ color: '#ffb0b0' }}>Emergency Only</span></li>
-              <li style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--accent)', fontWeight: 'bold', marginTop: '15px' }}><span>Ambulance:</span> <span>24/7 Available</span></li>
+            <ul style={{ color: '#FFFFFF', fontWeight: '600', lineHeight: '2.2', listStyle: 'none', padding: 0, maxWidth: '300px', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
+              <li style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.3)', paddingBottom: '6px' }}><span>Mon - Sat:</span> <span style={{ fontWeight: '700' }}>09:00 AM - 08:00 PM</span></li>
+              <li style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.3)', paddingBottom: '6px', paddingTop: '6px' }}><span>Sunday:</span> <span style={{ backgroundColor: '#D32F2F', color: '#FFFFFF', padding: '2px 10px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: '800' }}>Emergency Only</span></li>
+              <li style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#FFFFFF', color: '#061D38', fontWeight: '800', marginTop: '15px', padding: '8px 14px', borderRadius: '10px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}><span>Ambulance:</span> <span style={{ color: '#D32F2F', fontWeight: '800' }}>24/7 Available</span></li>
             </ul>
           </div>
           <div>
             <h3>Contact Info</h3>
             <ul className="footer-contact-links">
-              <li style={{display: 'flex', gap: '10px'}}>
-                <MapPin size={18} style={{ flexShrink: 0, marginTop: '4px' }}/>
-                <a href="https://maps.google.com/?q=2/571A,+Bharathi+Nagar,+Reserve+line,+Vasantham+Nagar,+Rengapa+Shyam+Nagar,+Anaiyur,+Tamil+Nadu+626124" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.8)' }}>
+              <li style={{display: 'flex', gap: '12px', alignItems: 'flex-start', marginBottom: '14px'}}>
+                <MapPin size={20} color="#061D38" style={{ flexShrink: 0, marginTop: '3px' }}/>
+                <a href="https://maps.google.com/?q=2/571A,+Bharathi+Nagar,+Reserve+line,+Vasantham+Nagar,+Rengapa+Shyam+Nagar,+Anaiyur,+Tamil+Nadu+626124" target="_blank" rel="noopener noreferrer" style={{ color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
                   {address}
                 </a>
               </li>
-              <li style={{display: 'flex', gap: '10px'}}>
-                <Phone size={18} style={{ flexShrink: 0, marginTop: '3px' }}/>
+              <li style={{display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '14px'}}>
+                <Phone size={20} color="#061D38" style={{ flexShrink: 0 }}/>
                 <div>
-                  <a href="tel:04562299920" style={{ color: 'var(--white)', fontWeight: '600', display: 'block', textDecoration: 'none' }}>
-                    04562-299920 <span style={{ color: 'var(--accent)', fontSize: '0.8rem' }}>(Hospital)</span>
+                  <a href="tel:04562299920" style={{ color: '#FFFFFF', fontWeight: '700', fontSize: '1.05rem', display: 'block', textDecoration: 'none', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
+                    04562-299920 <span style={{ backgroundColor: '#061D38', color: '#FFFFFF', padding: '2px 8px', borderRadius: '10px', fontSize: '0.75rem', fontWeight: '700', marginLeft: '6px' }}>Hospital</span>
                   </a>
-                  <a href={`https://api.whatsapp.com/send?phone=${whatsappClean}`} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}>
+                  <a href={`https://api.whatsapp.com/send?phone=${whatsappClean}`} target="_blank" rel="noopener noreferrer" style={{ color: '#FFFFFF', fontWeight: '700', fontSize: '1rem', marginTop: '2px', display: 'block', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
                     {phone}
                   </a>
                 </div>
               </li>
-              <li style={{display: 'flex', gap: '10px'}}>
-                <Mail size={18} style={{ flexShrink: 0 }}/>
-                <a href={`mailto:${email}`} style={{ color: 'rgba(255,255,255,0.8)' }}>
+              <li style={{display: 'flex', gap: '12px', alignItems: 'center'}}>
+                <Mail size={20} color="#061D38" style={{ flexShrink: 0 }}/>
+                <a href={`mailto:${email}`} style={{ color: '#FFFFFF', fontWeight: '700', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
                   {email}
                 </a>
               </li>

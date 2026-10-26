@@ -550,19 +550,19 @@ const Services = () => {
             
             <div data-aos="fade-right" style={{ flex: '1 1 500px' }}>
               <div style={{
-                color: 'var(--accent)',
-                fontSize: '0.85rem',
-                fontWeight: '700',
+                color: '#061D38',
+                fontSize: '0.9rem',
+                fontWeight: '800',
                 textTransform: 'uppercase',
                 letterSpacing: '1px',
                 marginBottom: '8px'
               }}>
                 Preventive Health Checkup
               </div>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: 'var(--white)' }}>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#061D38', fontWeight: '800' }}>
                 Comprehensive Master Health Packages
               </h2>
-              <p style={{ fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '25px', color: 'rgba(255,255,255,0.88)' }}>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '25px', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
                 Prevention is always superior to cure. JB Healthcare offers customized health screening packages designed for all age groups to detect asymptomatic risks early and maintain enduring health.
               </p>
               

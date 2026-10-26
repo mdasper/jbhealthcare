@@ -65,8 +65,8 @@ const Events = () => {
       <div className="page-transition" style={{ paddingTop: '80px', minHeight: '100vh', backgroundColor: 'var(--secondary)' }}>
         <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
         <div className="container text-center" data-aos="fade-up">
-          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginBottom: '20px' }}>Events & Medical Camps</h1>
-          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.9)' }}>
+          <h1 style={{ color: '#061D38', fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800' }}>Events & Medical Camps</h1>
+          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
             Stay updated with our latest medical camps, health awareness programs, and hospital events.
           </p>
         </div>

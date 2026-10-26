@@ -60,11 +60,11 @@ const Facilities = () => {
       {/* Hero Section */}
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
         <div className="container text-center" data-aos="fade-up">
-          <span style={{ color: 'var(--accent)', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem' }}>
+          <span style={{ color: '#061D38', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.95rem' }}>
             24/7 Medical Services & Care
           </span>
-          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginTop: '10px', marginBottom: '20px' }}>24/7 Hospital Facilities</h1>
-          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.9)', lineHeight: '1.8' }}>
+          <h1 style={{ color: '#061D38', fontSize: '3.5rem', marginTop: '10px', marginBottom: '20px', fontWeight: '800' }}>24/7 Hospital Facilities</h1>
+          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.8' }}>
             At JB Healthcare, we provide round-the-clock emergency medical services, rapid diagnostics, and comfortable inpatient care with the highest standards of clinical safety.
           </p>
         </div>

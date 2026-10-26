@@ -53,14 +53,14 @@ const Navbar = () => {
           <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <img src="/logo.jpg" alt={`${settings?.hospitalName || 'JB Healthcare'} Logo`} style={{ height: '48px', borderRadius: '50%', backgroundColor: 'white', padding: '2px' }} />
             <div>
-              <span style={{ display: 'block', fontWeight: 'bold', fontSize: '1.25rem', letterSpacing: '0.5px' }}>{settings?.hospitalName || "JB Healthcare"}</span>
-              <span style={{ display: 'block', fontSize: '0.7rem', color: 'var(--accent)', fontWeight: '600', letterSpacing: '0.5px' }}>Healing Hands, Caring Hearts</span>
+              <span style={{ display: 'block', fontWeight: '800', fontSize: '1.25rem', letterSpacing: '0.5px', color: '#0A2540' }}>{settings?.hospitalName || "JB Healthcare"}</span>
+              <span style={{ display: 'block', fontSize: '0.72rem', color: '#003852', fontWeight: '700', letterSpacing: '0.5px' }}>Healing Hands, Caring Hearts</span>
             </div>
           </Link>
         </div>
         
         <div className="mobile-menu-icon" onClick={toggleMenu} style={{ display: 'none', cursor: 'pointer', zIndex: 1000 }}>
-          {isMobileMenuOpen ? <X size={28} color="var(--white)" /> : <Menu size={28} color="var(--white)" />}
+          {isMobileMenuOpen ? <X size={28} color="#0A2540" /> : <Menu size={28} color="#0A2540" />}
         </div>
 
         <div className={`nav-wrapper ${isMobileMenuOpen ? 'mobile-open' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
@@ -68,29 +68,6 @@ const Navbar = () => {
             <Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeMenu}>Home</Link>
             <Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={closeMenu}>About Us</Link>
             <Link to="/departments" className={location.pathname === '/departments' ? 'active' : ''} onClick={closeMenu}>Departments</Link>
-            {/* Symptom Finder 3D Tab (Temporarily commented out - uncomment when needed) */}
-            {/* 
-            <Link 
-              to="/symptom-explorer" 
-              className={`symptom-nav-link ${location.pathname === '/symptom-explorer' ? 'active' : ''}`} 
-              onClick={closeMenu}
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-            >
-              <span>Symptom Finder</span>
-              <span style={{ 
-                fontSize: '0.62rem', 
-                backgroundColor: 'rgba(224, 169, 109, 0.22)', 
-                color: 'var(--accent)', 
-                border: '1px solid rgba(224, 169, 109, 0.5)', 
-                padding: '1px 6px', 
-                borderRadius: '8px', 
-                fontWeight: '800',
-                letterSpacing: '0.5px'
-              }}>
-                3D
-              </span>
-            </Link>
-            */}
             <Link to="/doctors" className={location.pathname === '/doctors' ? 'active' : ''} onClick={closeMenu}>Doctors</Link>
             <Link to="/surgeries" className={location.pathname === '/surgeries' ? 'active' : ''} onClick={closeMenu}>Surgeries</Link>
             <Link to="/facilities" className={location.pathname === '/facilities' ? 'active' : ''} onClick={closeMenu}>Facilities</Link>
@@ -106,25 +83,26 @@ const Navbar = () => {
                 display: 'inline-flex', 
                 alignItems: 'center', 
                 gap: '8px', 
-                color: 'var(--white)', 
-                backgroundColor: 'rgba(255,255,255,0.08)',
-                padding: '8px 14px',
-                borderRadius: '20px',
-                fontSize: '0.82rem',
-                fontWeight: '600',
+                color: '#0A2540', 
+                backgroundColor: '#FFFFFF',
+                padding: '8px 16px',
+                borderRadius: '25px',
+                fontSize: '0.85rem',
+                fontWeight: '700',
                 textDecoration: 'none',
-                border: '1px solid rgba(224, 169, 109, 0.4)'
+                boxShadow: '0 2px 10px rgba(0, 35, 60, 0.15)',
+                border: '1px solid rgba(255, 255, 255, 0.8)'
               }}
               title="Call Emergency / Appointments"
             >
               <span className="live-casualty-beacon" />
-              <Phone size={14} color="var(--accent)" />
+              <Phone size={14} color="#00B4D8" />
               <span>+91 93455 10905</span>
             </a>
 
             <Link 
               to="/appointment" 
-              className="btn btn-accent premium-book-btn btn-magnetic" 
+              className="btn btn-magnetic" 
               style={{ 
                 padding: '10px 22px', 
                 fontSize: '0.85rem', 
@@ -133,8 +111,10 @@ const Navbar = () => {
                 textTransform: 'uppercase', 
                 whiteSpace: 'nowrap',
                 borderRadius: '30px',
-                border: '1px solid rgba(224, 169, 109, 0.5)',
-                boxShadow: '0 4px 20px rgba(224, 169, 109, 0.3)'
+                backgroundColor: '#0A2540',
+                color: '#FFFFFF',
+                border: '1px solid rgba(10, 37, 64, 0.4)',
+                boxShadow: '0 4px 15px rgba(10, 37, 64, 0.3)'
               }}
               onClick={closeMenu}
             >

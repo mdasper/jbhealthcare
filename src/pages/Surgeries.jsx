@@ -60,13 +60,13 @@ const Surgeries = () => {
       {/* Hero Section */}
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 80px' }}>
         <div className="container text-center" data-aos="fade-up">
-          <span style={{ color: 'var(--accent)', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.9rem' }}>
+          <span style={{ color: '#061D38', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.95rem' }}>
             Healing Hands, Caring Hearts
           </span>
-          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginTop: '10px', marginBottom: '20px' }}>
+          <h1 style={{ color: '#061D38', fontSize: '3.5rem', marginTop: '10px', marginBottom: '20px', fontWeight: '800' }}>
             Surgeries & Advanced Laparoscopy
           </h1>
-          <p style={{ fontSize: '1.2rem', maxWidth: '850px', margin: '0 auto', color: 'rgba(255,255,255,0.9)', lineHeight: '1.8' }}>
+          <p style={{ fontSize: '1.2rem', maxWidth: '850px', margin: '0 auto', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.8' }}>
             JB Healthcare is a premier surgical center of excellence in Sivakasi & Virudhunagar district. Under the expertise of Dr. B. Saileshkumar (10,000+ Surgeries), we specialize in world-class minimally invasive laparoscopic procedures.
           </p>
         </div>

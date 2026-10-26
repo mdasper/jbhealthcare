@@ -958,18 +958,18 @@ const Doctors = () => {
       {/* Bottom CTA Banner */}
       <section style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '60px 0', textAlign: 'center' }}>
         <div className="container" data-aos="fade-up">
-          <h2 style={{ color: 'var(--accent)', fontSize: '2.4rem', marginBottom: '15px' }}>
+          <h2 style={{ color: '#061D38', fontSize: '2.4rem', marginBottom: '15px', fontWeight: '800' }}>
             Need Immediate Assistance or Surgery Consultation?
           </h2>
-          <p style={{ fontSize: '1.15rem', maxWidth: '700px', margin: '0 auto 30px', color: 'rgba(255,255,255,0.9)' }}>
+          <p style={{ fontSize: '1.15rem', maxWidth: '700px', margin: '0 auto 30px', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
             Our hospital front desk is available 24/7 to connect you with our medical team and schedule priority appointments.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', flexWrap: 'wrap' }}>
-            <Link to="/appointment" className="btn btn-accent" style={{ padding: '14px 32px', fontSize: '1.05rem', borderRadius: '30px', fontWeight: 'bold' }}>
+            <Link to="/appointment" className="btn btn-magnetic" style={{ backgroundColor: '#061D38', color: '#FFFFFF', padding: '14px 32px', fontSize: '1.05rem', borderRadius: '30px', fontWeight: 'bold' }}>
               Book an Appointment
             </Link>
-            <a href="tel:04562299920" className="btn btn-outline" style={{ padding: '14px 32px', fontSize: '1.05rem', borderRadius: '30px', borderColor: 'var(--white)', color: 'var(--white)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-              <Phone size={18} /> Call 04562-299920
+            <a href="tel:04562299920" className="btn btn-magnetic" style={{ padding: '14px 32px', fontSize: '1.05rem', borderRadius: '30px', backgroundColor: '#FFFFFF', color: '#061D38', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <Phone size={18} color="#061D38" /> Call 04562-299920
             </a>
           </div>
         </div>
