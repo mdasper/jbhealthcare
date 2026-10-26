@@ -68,6 +68,29 @@ const Navbar = () => {
             <Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={closeMenu}>Home</Link>
             <Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={closeMenu}>About Us</Link>
             <Link to="/departments" className={location.pathname === '/departments' ? 'active' : ''} onClick={closeMenu}>Departments</Link>
+            {/* Symptom Finder 3D Tab (Temporarily commented out - uncomment when needed) */}
+            {/* 
+            <Link 
+              to="/symptom-explorer" 
+              className={`symptom-nav-link ${location.pathname === '/symptom-explorer' ? 'active' : ''}`} 
+              onClick={closeMenu}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+            >
+              <span>Symptom Finder</span>
+              <span style={{ 
+                fontSize: '0.62rem', 
+                backgroundColor: 'rgba(224, 169, 109, 0.22)', 
+                color: 'var(--accent)', 
+                border: '1px solid rgba(224, 169, 109, 0.5)', 
+                padding: '1px 6px', 
+                borderRadius: '8px', 
+                fontWeight: '800',
+                letterSpacing: '0.5px'
+              }}>
+                3D
+              </span>
+            </Link>
+            */}
             <Link to="/doctors" className={location.pathname === '/doctors' ? 'active' : ''} onClick={closeMenu}>Doctors</Link>
             <Link to="/surgeries" className={location.pathname === '/surgeries' ? 'active' : ''} onClick={closeMenu}>Surgeries</Link>
             <Link to="/facilities" className={location.pathname === '/facilities' ? 'active' : ''} onClick={closeMenu}>Facilities</Link>
@@ -77,7 +100,7 @@ const Navbar = () => {
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <a 
-              href="tel:04562299920" 
+              href="tel:+919345510905" 
               className="btn-magnetic"
               style={{ 
                 display: 'inline-flex', 
@@ -92,11 +115,11 @@ const Navbar = () => {
                 textDecoration: 'none',
                 border: '1px solid rgba(224, 169, 109, 0.4)'
               }}
-              title="24/7 Emergency Casualty Desk"
+              title="Call Emergency / Appointments"
             >
               <span className="live-casualty-beacon" />
               <Phone size={14} color="var(--accent)" />
-              <span>04562-299920</span>
+              <span>+91 93455 10905</span>
             </a>
 
             <Link 

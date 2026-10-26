@@ -15,18 +15,19 @@ const Appointment = () => {
     doctor: passedState.doctorName || '',
     type: 'In-Person',
     date: '',
-    message: ''
+    message: passedState.symptomNote || ''
   });
 
   useEffect(() => {
-    if (passedState.department || passedState.doctorName) {
+    if (passedState.department || passedState.doctorName || passedState.symptomNote) {
       setFormData(prev => ({
         ...prev,
         department: passedState.department || prev.department,
-        doctor: passedState.doctorName || prev.doctor
+        doctor: passedState.doctorName || prev.doctor,
+        message: passedState.symptomNote || prev.message
       }));
     }
-  }, [passedState.department, passedState.doctorName]);
+  }, [passedState.department, passedState.doctorName, passedState.symptomNote]);
 
   useEffect(() => {
     client.fetch(`*[_type == "siteSettings"][0]`).then((data) => {

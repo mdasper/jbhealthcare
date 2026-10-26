@@ -57,6 +57,7 @@ const Footer = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/departments">Departments</Link></li>
+              {/* <li><Link to="/symptom-explorer" style={{ color: 'var(--accent)', fontWeight: '600' }}>3D Symptom Finder 🧍‍♂️</Link></li> */}
               <li><Link to="/surgeries">Surgeries</Link></li>
               <li><Link to="/facilities">Facilities</Link></li>
               <li><Link to="/doctors">Doctors</Link></li>

@@ -67,7 +67,7 @@ const Home = () => {
             key={index} 
             className={`slide ${index === currentSlide ? 'active' : ''}`}
             style={{ 
-              backgroundImage: `linear-gradient(rgba(10, 43, 78, 0.7), rgba(10, 43, 78, 0.8)), url(${slide.image})` 
+              backgroundImage: `linear-gradient(rgba(0, 180, 216, 0.75), rgba(0, 140, 175, 0.85)), url(${slide.image})` 
             }}
           >
             <div className="container" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>

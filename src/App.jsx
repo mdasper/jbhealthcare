@@ -16,6 +16,7 @@ import Contact from './pages/Contact';
 import Facilities from './pages/Facilities';
 import Surgeries from './pages/Surgeries';
 import Appointment from './pages/Appointment';
+import SymptomExplorer from './pages/SymptomExplorer';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -69,6 +70,8 @@ function App() {
         <Route path="/facilities" element={<Facilities />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/doctors" element={<Doctors />} />
+        <Route path="/symptom-explorer" element={<SymptomExplorer />} />
+        <Route path="/symptom-checker" element={<SymptomExplorer />} />
         <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

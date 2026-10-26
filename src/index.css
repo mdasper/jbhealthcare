@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #0A2B4E; /* Darker Premium Blue */
+  --primary: #00B4D8; /* Medical Cyan/Blue from client reference */
   --secondary: #F5F7FA; /* Light gray/white */
   --accent: #E0A96D; /* Warm gold/bronze for 3rd color */
   --text-dark: #000000;
@@ -70,9 +70,9 @@ ul {
 }
 
 .btn-primary:hover {
-  background-color: #0b3a63;
+  background-color: #0096b4;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(15, 76, 129, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
 }
 
 .btn-accent {
@@ -95,16 +95,16 @@ ul {
 .mb-4 { margin-bottom: 2rem; }
 
 .navbar {
-  background: rgba(10, 43, 78, 0.85); /* Premium Glassmorphism */
+  background: rgba(0, 180, 216, 0.95); /* Updated from dark blue to #00B4D8 glassmorphism */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--white);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
   padding: 20px 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -680,7 +680,7 @@ body, html {
 .chief-doctor-stats-bar {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  background-color: #0A2540;
+  background-color: var(--primary);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
