@@ -72,14 +72,14 @@ const Appointment = () => {
       {/* Premium Hero Section */}
       <section style={{ 
         padding: '160px 0 200px', 
-        background: 'linear-gradient(rgba(10, 43, 78, 0.9), rgba(10, 43, 78, 0.8)), url(https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
+        background: 'linear-gradient(rgba(0, 180, 216, 0.92), rgba(0, 140, 190, 0.94)), url(https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'var(--white)'
       }}>
         <div className="container text-center" data-aos="fade-up">
-          <h1 style={{ color: 'var(--white)', fontSize: '3.5rem', marginBottom: '20px', letterSpacing: '1px' }}>Book Your Consultation</h1>
-          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.9)' }}>
+          <h1 style={{ color: '#FFFFFF', fontSize: '3.5rem', marginBottom: '20px', letterSpacing: '1px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>Book Your Consultation</h1>
+          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.7', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
             Experience world-class healthcare. Schedule an in-person visit or an exclusive online video consultation from the comfort of your home.
           </p>
         </div>
@@ -94,65 +94,65 @@ const Appointment = () => {
             <div style={{ backgroundColor: 'var(--primary)', padding: '60px 40px', color: 'var(--white)', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
               
               {/* Decorative Circle */}
-              <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(224,169,109,0.3), transparent)' }}></div>
+              <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(255,255,255,0.25), transparent)' }}></div>
 
-              <h2 style={{ color: 'var(--accent)', fontSize: '2.2rem', marginBottom: '20px', position: 'relative', zIndex: 1 }}>Why Choose JB Healthcare?</h2>
-              <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '40px', position: 'relative', zIndex: 1 }}>
+              <h2 style={{ color: '#061D38', fontSize: '2.2rem', marginBottom: '20px', position: 'relative', zIndex: 1, fontWeight: '800' }}>Why Choose JB Healthcare?</h2>
+              <p style={{ color: '#061D38', opacity: 0.95, fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '40px', position: 'relative', zIndex: 1, fontWeight: '500' }}>
                 Our commitment to your well-being goes beyond treatments. We offer compassionate care backed by cutting-edge technology.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '25px', position: 'relative', zIndex: 1 }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
-                  <div style={{ backgroundColor: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%', color: 'var(--accent)' }}>
+                  <div style={{ backgroundColor: 'rgba(6, 29, 56, 0.15)', padding: '12px', borderRadius: '50%', color: '#061D38' }}>
                     <Shield size={24} />
                   </div>
                   <div>
-                    <h4 style={{ color: 'var(--white)', fontSize: '1.1rem', marginBottom: '5px' }}>100% Confidential & Secure</h4>
-                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', margin: 0 }}>Your medical records and details are strictly private.</p>
+                    <h4 style={{ color: '#061D38', fontSize: '1.1rem', marginBottom: '5px', fontWeight: '800' }}>100% Confidential & Secure</h4>
+                    <p style={{ color: '#061D38', opacity: 0.9, fontSize: '0.9rem', margin: 0, fontWeight: '500' }}>Your medical records and details are strictly private.</p>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
-                  <div style={{ backgroundColor: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%', color: 'var(--accent)' }}>
+                  <div style={{ backgroundColor: 'rgba(6, 29, 56, 0.15)', padding: '12px', borderRadius: '50%', color: '#061D38' }}>
                     <CheckCircle size={24} />
                   </div>
                   <div>
-                    <h4 style={{ color: 'var(--white)', fontSize: '1.1rem', marginBottom: '5px' }}>No Hidden Wait Times</h4>
-                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', margin: 0 }}>Book in advance and get priority consultation slots.</p>
+                    <h4 style={{ color: '#061D38', fontSize: '1.1rem', marginBottom: '5px', fontWeight: '800' }}>No Hidden Wait Times</h4>
+                    <p style={{ color: '#061D38', opacity: 0.9, fontSize: '0.9rem', margin: 0, fontWeight: '500' }}>Book in advance and get priority consultation slots.</p>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
-                  <div style={{ backgroundColor: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%', color: 'var(--accent)' }}>
+                  <div style={{ backgroundColor: 'rgba(6, 29, 56, 0.15)', padding: '12px', borderRadius: '50%', color: '#061D38' }}>
                     <Stethoscope size={24} />
                   </div>
                   <div>
-                    <h4 style={{ color: 'var(--white)', fontSize: '1.1rem', marginBottom: '5px' }}>Top Medical Experts</h4>
-                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', margin: 0 }}>Consult with the most experienced doctors in Anaiyur.</p>
+                    <h4 style={{ color: '#061D38', fontSize: '1.1rem', marginBottom: '5px', fontWeight: '800' }}>Top Medical Experts</h4>
+                    <p style={{ color: '#061D38', opacity: 0.9, fontSize: '0.9rem', margin: 0, fontWeight: '500' }}>Consult with the most experienced doctors in Anaiyur.</p>
                   </div>
                 </div>
               </div>
 
               {/* Emergency Contact Box to fill the bottom space */}
-              <div style={{ marginTop: 'auto', backgroundColor: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)', position: 'relative', zIndex: 1, paddingTop: '30px' }}>
-                <h4 style={{ color: 'var(--accent)', fontSize: '1.2rem', marginBottom: '20px' }}>Need Urgent Help?</h4>
+              <div style={{ marginTop: 'auto', backgroundColor: 'rgba(255,255,255,0.2)', padding: '25px', borderRadius: '16px', border: '1.5px solid rgba(6, 29, 56, 0.2)', position: 'relative', zIndex: 1, paddingTop: '25px' }}>
+                <h4 style={{ color: '#061D38', fontSize: '1.2rem', marginBottom: '16px', fontWeight: '800' }}>Need Urgent Help?</h4>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '12px' }}>
-                  <Phone size={22} color="var(--white)" />
+                  <Phone size={22} color="#061D38" />
                   <div>
-                    <span style={{ color: 'var(--white)', fontSize: '1.1rem', fontWeight: 'bold', display: 'block' }}>04562-299920</span>
-                    <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>Hospital Front Desk</span>
+                    <span style={{ color: '#061D38', fontSize: '1.1rem', fontWeight: '800', display: 'block' }}>+91 93455 10905</span>
+                    <span style={{ color: '#061D38', opacity: 0.9, fontSize: '0.85rem', fontWeight: '600' }}>Hospital Front Desk</span>
                   </div>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
-                  <Phone size={22} color="var(--accent)" />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '12px' }}>
+                  <Phone size={22} color="#061D38" />
                   <div>
-                    <span style={{ color: 'var(--white)', fontSize: '1.05rem', fontWeight: 'bold', display: 'block' }}>+91 93455 10905</span>
-                    <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>Appointments & WhatsApp</span>
+                    <span style={{ color: '#061D38', fontSize: '1.05rem', fontWeight: '800', display: 'block' }}>+91 93455 10905</span>
+                    <span style={{ color: '#061D38', opacity: 0.9, fontSize: '0.85rem', fontWeight: '600' }}>Appointments & WhatsApp</span>
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                  <MessageSquare size={22} color="var(--white)" />
-                  <span style={{ color: 'var(--white)', fontSize: '0.95rem' }}>24/7 Casualty & Emergency Available</span>
+                  <MessageSquare size={22} color="#061D38" />
+                  <span style={{ color: '#061D38', fontSize: '0.95rem', fontWeight: '800' }}>24/7 Casualty & Emergency Available</span>
                 </div>
               </div>
 
@@ -185,16 +185,16 @@ const Appointment = () => {
                     Consultation Type
                   </label>
                   <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                    <label style={{ flex: '1', display: 'flex', alignItems: 'center', gap: '12px', padding: '18px', border: formData.type === 'In-Person' ? '2px solid var(--accent)' : '1px solid #e1e8ed', borderRadius: '12px', cursor: 'pointer', backgroundColor: formData.type === 'In-Person' ? '#fffaf4' : '#f9fafb', transition: 'all 0.3s' }}>
-                      <input type="radio" name="type" value="In-Person" checked={formData.type === 'In-Person'} onChange={handleChange} style={{ width: '20px', height: '20px', accentColor: 'var(--accent)' }} />
+                    <label style={{ flex: '1', display: 'flex', alignItems: 'center', gap: '12px', padding: '18px', border: formData.type === 'In-Person' ? '2px solid #0077B6' : '1px solid #e1e8ed', borderRadius: '12px', cursor: 'pointer', backgroundColor: formData.type === 'In-Person' ? '#f0f9ff' : '#f9fafb', transition: 'all 0.3s' }}>
+                      <input type="radio" name="type" value="In-Person" checked={formData.type === 'In-Person'} onChange={handleChange} style={{ width: '20px', height: '20px', accentColor: '#0077B6' }} />
                       <div>
                         <span style={{ fontWeight: '600', color: 'var(--primary)', display: 'block' }}>Clinic Visit</span>
                         <span style={{ fontSize: '0.85rem', color: '#666' }}>In-person at Hospital</span>
                       </div>
                     </label>
                     
-                    <label style={{ flex: '1', display: 'flex', alignItems: 'center', gap: '12px', padding: '18px', border: formData.type === 'Online Consultation' ? '2px solid var(--accent)' : '1px solid #e1e8ed', borderRadius: '12px', cursor: 'pointer', backgroundColor: formData.type === 'Online Consultation' ? '#fffaf4' : '#f9fafb', transition: 'all 0.3s' }}>
-                      <input type="radio" name="type" value="Online Consultation" checked={formData.type === 'Online Consultation'} onChange={handleChange} style={{ width: '20px', height: '20px', accentColor: 'var(--accent)' }} />
+                    <label style={{ flex: '1', display: 'flex', alignItems: 'center', gap: '12px', padding: '18px', border: formData.type === 'Online Consultation' ? '2px solid #0077B6' : '1px solid #e1e8ed', borderRadius: '12px', cursor: 'pointer', backgroundColor: formData.type === 'Online Consultation' ? '#f0f9ff' : '#f9fafb', transition: 'all 0.3s' }}>
+                      <input type="radio" name="type" value="Online Consultation" checked={formData.type === 'Online Consultation'} onChange={handleChange} style={{ width: '20px', height: '20px', accentColor: '#0077B6' }} />
                       <div>
                         <span style={{ fontWeight: '600', color: 'var(--primary)', display: 'block' }}>Video Call</span>
                         <span style={{ fontSize: '0.85rem', color: '#666' }}>Exclusive 12:00-12:30 PM</span>
@@ -312,7 +312,7 @@ const Appointment = () => {
                     style={{ width: '20px', height: '20px', marginTop: '2px', cursor: 'pointer', accentColor: 'var(--primary)' }} 
                   />
                   <label htmlFor="appointment-agree" style={{ color: '#333', fontSize: '0.95rem', cursor: 'pointer', userSelect: 'none', lineHeight: '1.5', fontWeight: '500' }}>
-                    I agree to the hospital's appointment terms and confirm that the details provided above are accurate for booking my consultation.
+                    I confirm that I am providing my personal and medical details with my full consent for this consultation.
                   </label>
                 </div>
 
@@ -355,7 +355,7 @@ const Appointment = () => {
           outline: none;
           border-color: var(--accent) !important;
           background-color: var(--white) !important;
-          box-shadow: 0 0 0 3px rgba(224, 169, 109, 0.15);
+          box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.2);
         }
       `}</style>
       

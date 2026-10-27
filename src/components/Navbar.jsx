@@ -48,7 +48,7 @@ const Navbar = () => {
       padding: scrolled ? '15px 0' : '22px 0',
       transform: hidden ? 'translateY(-100%)' : 'translateY(0)'
     }}>
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '100%', padding: '0 40px' }}>
+      <div className="container navbar-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '100%' }}>
         <div className="logo">
           <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <img src="/logo.jpg" alt={`${settings?.hospitalName || 'JB Healthcare'} Logo`} style={{ height: '48px', borderRadius: '50%', backgroundColor: 'white', padding: '2px' }} />

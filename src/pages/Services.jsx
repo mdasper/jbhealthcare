@@ -300,36 +300,18 @@ const Services = () => {
       {/* 1. Ultra Premium Header */}
       <section style={{ 
         padding: '160px 0 90px', 
-        background: 'linear-gradient(rgba(10, 43, 78, 0.94), rgba(10, 43, 78, 0.88)), url(https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
+        background: 'linear-gradient(rgba(0, 180, 216, 0.92), rgba(0, 140, 190, 0.94)), url(https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'var(--white)',
         textAlign: 'center'
       }}>
         <div className="container" data-aos="fade-up">
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            backgroundColor: 'rgba(224, 169, 109, 0.15)',
-            border: '1px solid rgba(224, 169, 109, 0.4)',
-            color: 'var(--accent)',
-            padding: '6px 20px',
-            borderRadius: '25px',
-            fontSize: '0.88rem',
-            fontWeight: '700',
-            letterSpacing: '1px',
-            textTransform: 'uppercase',
-            marginBottom: '16px'
-          }}>
-            <Sparkles size={16} /> சிறப்பு மருத்துவ துறைகள் • Centers of Clinical Excellence
-          </div>
-
-          <h1 style={{ color: 'var(--white)', fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', marginBottom: '16px', letterSpacing: '0.5px', fontWeight: 'bold', lineHeight: '1.2' }}>
+          <h1 style={{ color: '#FFFFFF', fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', marginBottom: '16px', letterSpacing: '0.5px', fontWeight: '800', lineHeight: '1.2', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>
             Comprehensive Medical & Surgical Departments
           </h1>
 
-          <p style={{ fontSize: '1.2rem', maxWidth: '820px', margin: '0 auto', color: 'rgba(255,255,255,0.9)', lineHeight: '1.8' }}>
+          <p style={{ fontSize: '1.2rem', maxWidth: '820px', margin: '0 auto', color: '#FFFFFF', lineHeight: '1.8', fontWeight: '500', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
             Led by award-winning Chief Laparoscopic Surgeon <strong>Dr. B. Saileshkumar</strong> (10,000+ Surgeries) alongside a distinguished team of visiting super-specialists in surgical oncology, gastroenterology, plastic surgery, urology, paediatrics, and orthopaedics in Sivakasi.
           </p>
         </div>
@@ -416,8 +398,8 @@ const Services = () => {
                 >
                   <span>{cat}</span>
                   <span style={{ 
-                    backgroundColor: isActive ? 'rgba(224, 169, 109, 0.25)' : 'rgba(10, 43, 78, 0.08)', 
-                    color: isActive ? 'var(--accent)' : '#555',
+                    backgroundColor: isActive ? 'rgba(6, 29, 56, 0.15)' : 'rgba(10, 43, 78, 0.08)', 
+                    color: isActive ? '#061D38' : '#555',
                     padding: '2px 8px',
                     borderRadius: '10px',
                     fontSize: '0.75rem',
@@ -459,7 +441,7 @@ const Services = () => {
                   className="dept-luxe-card tile-stream-in"
                   maxTilt={6}
                   scale={1.02}
-                  glareColor="rgba(224, 169, 109, 0.22)"
+                  glareColor="rgba(0, 180, 216, 0.22)"
                   data-aos="fade-up" 
                   data-aos-delay={`${(index % 3 + 1) * 80}`}
                   style={{ animationDelay: `${index * 80}ms` }}
@@ -566,19 +548,55 @@ const Services = () => {
                 Prevention is always superior to cure. JB Healthcare offers customized health screening packages designed for all age groups to detect asymptomatic risks early and maintain enduring health.
               </p>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '15px', marginBottom: '30px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '32px' }}>
                 {[
-                  { title: 'Master Diabetic Profile', desc: 'Fasting sugar, HbA1c, urine microalbumin & nerve checks' },
-                  { title: 'Senior Citizen Health Care', desc: 'Renal, cardiac, liver & complete bone health profiles' },
-                  { title: 'Women Wellness Screening', desc: 'Gynaec consult, pelvic check, anaemia & hormone panel' },
-                  { title: 'Complete Cardiac Evaluation', desc: 'Digital ECG, blood lipid profile & blood pressure review' }
+                  {
+                    title: 'Master Health Check-up',
+                    badge: 'Most Popular',
+                    badgeColor: '#F59E0B',
+                    items: [
+                      'Complete Blood Count (CBC)',
+                      'Blood Sugar (Fasting & PP)',
+                      'HbA1c (Diabetes Marker)',
+                      'Liver Function Test (LFT)',
+                      'Kidney Function Test (RFT)',
+                      'Lipid Profile (Cholesterol)',
+                      'Digital 12-Lead ECG',
+                      'Urine Routine Analysis',
+                      'Thyroid Profile (T3, T4, TSH)',
+                      'Physician Consultation'
+                    ]
+                  },
+                  {
+                    title: 'Global Elite Test Package',
+                    badge: 'Comprehensive',
+                    badgeColor: '#00B4D8',
+                    items: [
+                      'All Master Health Check-up tests',
+                      'Vitamin D & Vitamin B12',
+                      'Iron Studies & Serum Ferritin',
+                      'PSA (Prostate – Men)',
+                      'CA-125 Tumour Marker (Women)',
+                      'Chest X-Ray (PA View)',
+                      'Ultrasound Abdomen & Pelvis',
+                      'Eye Pressure Check (IOP)',
+                      'Dental & Nutritional Consult',
+                      'Senior Specialist Consultation'
+                    ]
+                  }
                 ].map((pkg, i) => (
-                  <div key={i} style={{ backgroundColor: 'rgba(255,255,255,0.06)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(224, 169, 109, 0.25)' }}>
-                    <div style={{ color: 'var(--accent)', fontWeight: '700', fontSize: '0.98rem', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                      <Activity size={16} /> {pkg.title}
+                  <div key={i} style={{ backgroundColor: '#061D38', padding: '22px', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.18)', boxShadow: '0 8px 24px rgba(6, 29, 56, 0.25)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+                      <Activity size={20} color="#38BDF8" />
+                      <span style={{ color: '#FFFFFF', fontWeight: '800', fontSize: '1.05rem' }}>{pkg.title}</span>
+                      <span style={{ backgroundColor: pkg.badgeColor, color: '#061D38', padding: '2px 8px', borderRadius: '10px', fontSize: '0.68rem', fontWeight: '800', marginLeft: 'auto' }}>{pkg.badge}</span>
                     </div>
-                    <div style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.82rem', lineHeight: '1.4' }}>
-                      {pkg.desc}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                      {pkg.items.map((item, idx) => (
+                        <div key={idx} style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <span style={{ color: '#38BDF8', fontSize: '0.7rem' }}>✓</span> {item}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}
@@ -587,22 +605,22 @@ const Services = () => {
               <Link 
                 to="/appointment" 
                 state={{ department: "Master Health Checkup" }}
-                className="btn btn-accent" 
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '13px 28px', fontSize: '1rem', borderRadius: '30px', fontWeight: 'bold' }}
+                className="btn" 
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '14px 30px', fontSize: '1rem', borderRadius: '30px', fontWeight: '800', backgroundColor: '#061D38', color: '#FFFFFF', border: 'none', boxShadow: '0 6px 20px rgba(6, 29, 56, 0.3)' }}
               >
                 <Calendar size={18} /> Enquire / Book Health Package
               </Link>
             </div>
             
             <div data-aos="fade-left" style={{ flex: '1 1 400px' }}>
-              <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.35)', border: '2px solid rgba(224, 169, 109, 0.3)' }}>
+              <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.35)', border: '2px solid rgba(0, 180, 216, 0.3)' }}>
                 <img 
                   src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                   alt="JB Healthcare Health Packages" 
                   style={{ width: '100%', height: '420px', objectFit: 'cover', display: 'block' }} 
                 />
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px 30px 25px', background: 'linear-gradient(to top, rgba(10, 43, 78, 0.98) 0%, rgba(10, 43, 78, 0.7) 65%, transparent 100%)' }}>
-                  <span style={{ backgroundColor: 'var(--accent)', color: '#0A2540', padding: '3px 12px', borderRadius: '15px', fontSize: '0.78rem', fontWeight: 'bold' }}>
+                  <span style={{ backgroundColor: '#00B4D8', color: '#061D38', padding: '3px 12px', borderRadius: '15px', fontSize: '0.78rem', fontWeight: 'bold' }}>
                     Special Offer
                   </span>
                   <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginTop: '8px', marginBottom: '4px' }}>Master Health Checkup</h3>
@@ -635,28 +653,28 @@ const Services = () => {
           <h2 style={{ color: 'var(--primary)', fontSize: '2.4rem', marginBottom: '12px' }} data-aos="fade-up">
             Your Seamless Healthcare Journey
           </h2>
-          <div style={{ width: '80px', height: '4px', backgroundColor: 'var(--accent)', margin: '0 auto 50px auto', borderRadius: '2px' }} data-aos="fade-up"></div>
+          <div style={{ width: '80px', height: '4px', backgroundColor: '#00B4D8', margin: '0 auto 50px auto', borderRadius: '2px' }} data-aos="fade-up"></div>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
             <div style={{ backgroundColor: '#ffffff', padding: '40px 30px', borderRadius: '18px', boxShadow: '0 10px 30px rgba(0,0,0,0.06)', border: '1px solid rgba(10,43,78,0.08)' }} data-aos="fade-up" data-aos-delay="100">
-              <div style={{ width: '76px', height: '76px', backgroundColor: 'rgba(224, 169, 109, 0.12)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 22px auto', border: '1.5px solid rgba(224, 169, 109, 0.3)' }}>
-                <PhoneCall size={34} color="var(--accent)" />
+              <div style={{ width: '76px', height: '76px', backgroundColor: 'rgba(0, 180, 216, 0.12)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 22px auto', border: '1.5px solid rgba(0, 180, 216, 0.3)' }}>
+                <PhoneCall size={34} color="#0077B6" />
               </div>
               <h3 style={{ color: 'var(--primary)', fontSize: '1.35rem', marginBottom: '10px' }}>1. Book Appointment</h3>
-              <p style={{ color: '#666', lineHeight: '1.6', fontSize: '0.95rem' }}>Easily schedule your visit via WhatsApp or call us directly at 04562-299920. Say goodbye to long waiting queues.</p>
+              <p style={{ color: '#666', lineHeight: '1.6', fontSize: '0.95rem' }}>Easily schedule your visit via WhatsApp or call us directly at +91 93455 10905. Say goodbye to long waiting queues.</p>
             </div>
             
             <div style={{ backgroundColor: '#ffffff', padding: '40px 30px', borderRadius: '18px', boxShadow: '0 10px 30px rgba(0,0,0,0.06)', border: '1px solid rgba(10,43,78,0.08)' }} data-aos="fade-up" data-aos-delay="200">
-              <div style={{ width: '76px', height: '76px', backgroundColor: 'rgba(224, 169, 109, 0.12)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 22px auto', border: '1.5px solid rgba(224, 169, 109, 0.3)' }}>
-                <ClipboardList size={34} color="var(--accent)" />
+              <div style={{ width: '76px', height: '76px', backgroundColor: 'rgba(0, 180, 216, 0.12)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 22px auto', border: '1.5px solid rgba(0, 180, 216, 0.3)' }}>
+                <ClipboardList size={34} color="#0077B6" />
               </div>
               <h3 style={{ color: 'var(--primary)', fontSize: '1.35rem', marginBottom: '10px' }}>2. Specialist Consultation</h3>
               <p style={{ color: '#666', lineHeight: '1.6', fontSize: '0.95rem' }}>Consult with Dr. B. Saileshkumar or our visiting super-specialists for a detailed, caring, and precise clinical evaluation.</p>
             </div>
             
             <div style={{ backgroundColor: '#ffffff', padding: '40px 30px', borderRadius: '18px', boxShadow: '0 10px 30px rgba(0,0,0,0.06)', border: '1px solid rgba(10,43,78,0.08)' }} data-aos="fade-up" data-aos-delay="300">
-              <div style={{ width: '76px', height: '76px', backgroundColor: 'rgba(224, 169, 109, 0.12)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 22px auto', border: '1.5px solid rgba(224, 169, 109, 0.3)' }}>
-                <Clock size={34} color="var(--accent)" />
+              <div style={{ width: '76px', height: '76px', backgroundColor: 'rgba(0, 180, 216, 0.12)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 22px auto', border: '1.5px solid rgba(0, 180, 216, 0.3)' }}>
+                <Clock size={34} color="#0077B6" />
               </div>
               <h3 style={{ color: 'var(--primary)', fontSize: '1.35rem', marginBottom: '10px' }}>3. Rapid Recovery & Care</h3>
               <p style={{ color: '#666', lineHeight: '1.6', fontSize: '0.95rem' }}>Experience minimally invasive keyhole procedures, zero scars, and prompt discharge with regular follow-ups for full recovery.</p>
@@ -695,20 +713,16 @@ const Services = () => {
 
         .dept-grid-container {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 32px;
           width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
         }
-        @media (max-width: 1120px) {
-          .dept-grid-container {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-          }
-        }
-        @media (max-width: 680px) {
+        @media (max-width: 820px) {
           .dept-grid-container {
             grid-template-columns: 1fr;
-            gap: 18px;
+            gap: 20px;
           }
         }
 
@@ -743,10 +757,10 @@ const Services = () => {
           flex-direction: column;
         }
         .dept-luxe-card:hover {
-          box-shadow: 0 24px 52px rgba(7, 25, 45, 0.55), 0 0 25px rgba(224, 169, 109, 0.15) !important;
+          box-shadow: 0 24px 52px rgba(7, 25, 45, 0.55), 0 0 25px rgba(0, 180, 216, 0.25) !important;
         }
         .dept-luxe-inner {
-          border: 1.5px solid rgba(224, 169, 109, 0.45);
+          border: 1.5px solid rgba(0, 180, 216, 0.4);
           border-radius: 13px;
           padding: 22px 20px;
           display: flex;
@@ -755,8 +769,8 @@ const Services = () => {
           transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .dept-luxe-card:hover .dept-luxe-inner {
-          border-color: #e0a96d !important;
-          box-shadow: inset 0 0 24px rgba(224, 169, 109, 0.06);
+          border-color: #00B4D8 !important;
+          box-shadow: inset 0 0 24px rgba(0, 180, 216, 0.08);
         }
 
         .dept-header-row {
@@ -773,9 +787,9 @@ const Services = () => {
           flex-wrap: wrap;
         }
         .dept-category-tag {
-          background-color: rgba(224, 169, 109, 0.14);
-          color: var(--accent);
-          border: 1px solid rgba(224, 169, 109, 0.4);
+          background-color: rgba(0, 180, 216, 0.15);
+          color: #00B4D8;
+          border: 1px solid rgba(0, 180, 216, 0.4);
           padding: 3px 10px;
           border-radius: 14px;
           font-size: 0.72rem;
@@ -800,7 +814,7 @@ const Services = () => {
           height: 42px;
           border-radius: 10px;
           background-color: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(224, 169, 109, 0.35);
+          border: 1px solid rgba(0, 180, 216, 0.35);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -818,7 +832,7 @@ const Services = () => {
           line-height: 1.25;
         }
         .dept-title-ta {
-          color: var(--accent);
+          color: #00B4D8;
           font-size: 0.86rem;
           font-weight: 600;
         }
@@ -850,7 +864,7 @@ const Services = () => {
           font-weight: 700;
         }
         .dept-doc-degree {
-          color: rgba(224, 169, 109, 0.92);
+          color: #00B4D8;
           font-size: 0.78rem;
           font-weight: 500;
         }
@@ -871,7 +885,7 @@ const Services = () => {
           flex: 1;
         }
         .dept-proc-heading {
-          color: var(--accent);
+          color: #00B4D8;
           font-size: 0.74rem;
           font-weight: 700;
           text-transform: uppercase;
@@ -889,7 +903,7 @@ const Services = () => {
           gap: 6px;
         }
         .dept-proc-bullet {
-          color: var(--accent);
+          color: #00B4D8;
           font-size: 0.95rem;
           line-height: 1;
           flex-shrink: 0;
@@ -904,9 +918,9 @@ const Services = () => {
           margin-top: auto;
         }
         .dept-book-btn {
-          background-color: rgba(224, 169, 109, 0.14);
-          border: 1px solid rgba(224, 169, 109, 0.45);
-          color: var(--accent);
+          background-color: rgba(0, 180, 216, 0.14);
+          border: 1px solid rgba(0, 180, 216, 0.45);
+          color: #00B4D8;
           padding: 10px 16px;
           border-radius: 8px;
           font-size: 0.88rem;
@@ -920,8 +934,8 @@ const Services = () => {
           width: 100%;
         }
         .dept-book-btn:hover {
-          background-color: var(--accent) !important;
-          color: #0A2540 !important;
+          background-color: #00B4D8 !important;
+          color: #061D38 !important;
         }
       `}</style>
       

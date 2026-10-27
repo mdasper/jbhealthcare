@@ -54,8 +54,8 @@ const HeartbeatScrollProgress = () => {
         style={{
           width: `${scrollProgress}%`,
           height: '100%',
-          background: 'linear-gradient(90deg, #0A2B4E 0%, #00C9A7 40%, #E0A96D 80%, #FFD166 100%)',
-          boxShadow: '0 0 10px rgba(224, 169, 109, 0.8), 0 0 18px rgba(0, 201, 167, 0.5)',
+          background: 'linear-gradient(90deg, #0A2B4E 0%, #00C9A7 40%, #00B4D8 80%, #38BDF8 100%)',
+          boxShadow: '0 0 10px rgba(0, 180, 216, 0.8), 0 0 18px rgba(0, 201, 167, 0.5)',
           position: 'relative',
           transition: 'width 0.1s linear'
         }}
@@ -83,7 +83,7 @@ const HeartbeatScrollProgress = () => {
                 width: '100%',
                 height: '100%',
                 borderRadius: '50%',
-                backgroundColor: 'rgba(224, 169, 109, 0.4)',
+                backgroundColor: 'rgba(0, 180, 216, 0.4)',
                 animation: 'ecgPingRing 1.4s cubic-bezier(0, 0, 0.2, 1) infinite'
               }}
             />
@@ -95,7 +95,7 @@ const HeartbeatScrollProgress = () => {
                 height: '8px',
                 borderRadius: '50%',
                 backgroundColor: '#ffffff',
-                boxShadow: '0 0 8px #FFD166, 0 0 14px #E0A96D',
+                boxShadow: '0 0 8px #38BDF8, 0 0 14px #00B4D8',
                 zIndex: 2
               }}
             />
@@ -109,13 +109,13 @@ const HeartbeatScrollProgress = () => {
                 right: '-4px',
                 width: '28px',
                 height: '14px',
-                filter: 'drop-shadow(0 0 4px #E0A96D)'
+                filter: 'drop-shadow(0 0 4px #00B4D8)'
               }}
             >
               <polyline 
                 points="0,6 6,6 8,1 11,11 13,3 15,9 17,6 24,6" 
                 fill="none" 
-                stroke="#FFD166" 
+                stroke="#38BDF8" 
                 strokeWidth="2" 
                 strokeLinecap="round" 
                 strokeLinejoin="round" 

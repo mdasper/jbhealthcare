@@ -41,7 +41,7 @@ const facilitiesData = [
     subtitle: "Infection-Free Laminar Airflow Suites",
     description: "Laminar airflow, ultra-sterile modular surgical suites custom-fitted for advanced laparoscopic, orthopaedic, and gynaecological procedures.",
     icon: <Activity size={40} color="var(--accent)" />,
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/ot_photos/1I8A0785.JPG"
   },
   {
     id: 6,
@@ -60,10 +60,7 @@ const Facilities = () => {
       {/* Hero Section */}
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
         <div className="container text-center" data-aos="fade-up">
-          <span style={{ color: '#061D38', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.95rem' }}>
-            24/7 Medical Services & Care
-          </span>
-          <h1 style={{ color: '#061D38', fontSize: '3.5rem', marginTop: '10px', marginBottom: '20px', fontWeight: '800' }}>24/7 Hospital Facilities</h1>
+          <h1 style={{ color: '#FFFFFF', fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>24/7 Hospital Facilities</h1>
           <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.8' }}>
             At JB Healthcare, we provide round-the-clock emergency medical services, rapid diagnostics, and comfortable inpatient care with the highest standards of clinical safety.
           </p>
@@ -94,12 +91,12 @@ const Facilities = () => {
                 </div>
                 
                 <div style={{ padding: '30px', position: 'relative', flex: '1', display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ position: 'absolute', top: '-40px', right: '30px', width: '70px', height: '70px', backgroundColor: 'var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 20px rgba(0,0,0,0.5)', border: '2px solid var(--accent)' }}>
+                  <div style={{ position: 'absolute', top: '-40px', right: '30px', width: '70px', height: '70px', backgroundColor: 'var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 20px rgba(0,0,0,0.5)', border: '2px solid #061D38' }}>
                     {facility.icon}
                   </div>
                   
                   <h3 style={{ color: 'var(--white)', fontSize: '1.45rem', marginBottom: '4px', paddingRight: '50px' }}>{facility.title}</h3>
-                  <div style={{ color: 'var(--accent)', fontSize: '0.9rem', fontWeight: 'bold', marginBottom: '14px' }}>
+                  <div style={{ color: '#061D38', fontSize: '0.92rem', fontWeight: '800', marginBottom: '14px' }}>
                     {facility.subtitle}
                   </div>
                   <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '0', flex: '1' }}>{facility.description}</p>
@@ -112,15 +109,17 @@ const Facilities = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section" style={{ backgroundColor: 'var(--white)', textAlign: 'center' }}>
+      <section style={{ backgroundColor: '#071A2E', padding: '50px 0', borderTop: '1px solid rgba(255,255,255,0.08)', textAlign: 'center' }}>
         <div className="container" data-aos="zoom-in">
-          <h2 style={{ color: 'var(--primary)', fontSize: '2.5rem', marginBottom: '20px' }}>Need Immediate Medical Assistance?</h2>
-          <p style={{ color: '#666', fontSize: '1.2rem', marginBottom: '40px', maxWidth: '600px', margin: '0 auto 40px auto' }}>
+          <h2 style={{ color: 'var(--white)', fontSize: '2.2rem', marginBottom: '12px' }}>Need Immediate Medical Assistance?</h2>
+          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', marginBottom: '30px', maxWidth: '650px', margin: '0 auto 30px auto' }}>
             Our emergency and critical care departments are operational 24/7. Contact us immediately for swift response and expert care.
           </p>
-          <Link to="/contact" className="btn btn-accent" style={{ padding: '15px 40px', fontSize: '1.1rem', fontWeight: 'bold' }}>
-            Contact Emergency Services
-          </Link>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+            <Link to="/contact" className="btn btn-accent" style={{ padding: '12px 32px', fontSize: '1rem', borderRadius: '30px', fontWeight: 'bold' }}>
+              Contact Emergency Services
+            </Link>
+          </div>
         </div>
       </section>
 

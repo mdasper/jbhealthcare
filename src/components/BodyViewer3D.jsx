@@ -17,7 +17,7 @@ import * as THREE from 'three';
  *           (React 19 -> @react-three/fiber@9 + @react-three/drei@10)
  */
 
-const GOLD = '#E0A96D';
+const GOLD = '#00B4D8';
 const NAVY = '#0B2B4E';
 const BODY_HEIGHT = 1.8;
 
@@ -414,20 +414,20 @@ const CSS = `
   .b3d-dot {
     position: absolute; left: 50%; top: 50%; width: 10px; height: 10px;
     margin: -5px 0 0 -5px; border-radius: 50%;
-    background: #FFD166; border: 2px solid #0B2B4E;
+    background: #00B4D8; border: 2px solid #0B2B4E;
     transition: transform .2s, background .2s;
   }
   .b3d-ring {
     position: absolute; left: 50%; top: 50%; width: 24px; height: 24px;
     margin: -12px 0 0 -12px; border-radius: 50%;
-    border: 1.5px solid #E0A96D; opacity: .7;
+    border: 1.5px solid #00B4D8; opacity: .7;
     animation: b3dPulse 2s ease-out infinite;
   }
   .b3d-label {
     position: absolute; left: 50%; bottom: 100%; transform: translate(-50%, 4px);
     white-space: nowrap; font: 600 12px/1 system-ui, sans-serif;
     color: #fff; background: rgba(6, 22, 40, .92);
-    border: 1px solid rgba(224, 169, 109, .6); border-radius: 999px;
+    border: 1px solid rgba(0, 180, 216, .6); border-radius: 999px;
     padding: 6px 11px; opacity: 0; pointer-events: none;
     transition: opacity .2s;
   }
@@ -437,7 +437,7 @@ const CSS = `
   .b3d-hot.is-selected .b3d-dot { background: #00E676; transform: scale(1.3); }
   .b3d-hot.is-selected .b3d-ring { border-color: #00E676; }
   .b3d-hot:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 50%; }
-  .b3d-loading { color: #E0A96D; font: 600 13px system-ui, sans-serif; white-space: nowrap; }
+  .b3d-loading { color: #00B4D8; font: 600 13px system-ui, sans-serif; white-space: nowrap; }
 
   @keyframes b3dPulse {
     0%   { transform: scale(.7); opacity: .9; }

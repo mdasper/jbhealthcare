@@ -24,6 +24,8 @@ const visitingSpecialists = [
     categoryHeader: 'ANAESTHESIOLOGY & CRITICAL CARE',
     department: 'Anaesthesiology & Critical Care',
     category: 'Anaesthesiology',
+    schedule: 'All Surgical Days',
+    timing: 'As per OT Schedule',
     focusAreas: [
       'Surgical anaesthesia',
       'Painless delivery',
@@ -38,6 +40,8 @@ const visitingSpecialists = [
     categoryHeader: 'ANAESTHESIOLOGY',
     department: 'Anaesthesiology',
     category: 'Anaesthesiology',
+    schedule: 'All Surgical Days',
+    timing: 'As per OT Schedule',
     focusAreas: [
       'General anaesthesia',
       'Regional anaesthesia',
@@ -52,6 +56,8 @@ const visitingSpecialists = [
     categoryHeader: 'GASTROENTEROLOGY',
     department: 'Medical Gastroenterology & Hepatology',
     category: 'Gastroenterology',
+    schedule: 'Every Thursday',
+    timing: '10:00 AM – 1:00 PM',
     focusAreas: [
       'Diagnostic endoscopy',
       'Liver disease & cirrhosis',
@@ -66,6 +72,8 @@ const visitingSpecialists = [
     categoryHeader: 'SURGICAL ONCOLOGY',
     department: 'Surgical Oncology',
     category: 'Surgical Oncology',
+    schedule: 'Every Wednesday',
+    timing: '10:00 AM – 1:00 PM',
     focusAreas: [
       'Tumor resection',
       'Gastrointestinal cancer',
@@ -80,6 +88,8 @@ const visitingSpecialists = [
     categoryHeader: 'SURGICAL ONCOLOGY',
     department: 'Surgical Oncology',
     category: 'Surgical Oncology',
+    schedule: 'Every Wednesday',
+    timing: '10:00 AM – 1:00 PM',
     focusAreas: [
       'Advanced onco-surgery',
       'Biopsy procedures',
@@ -94,6 +104,8 @@ const visitingSpecialists = [
     categoryHeader: 'PLASTIC SURGERY',
     department: 'Plastic & Reconstructive Surgery',
     category: 'Plastic Surgery',
+    schedule: 'Every Friday',
+    timing: '10:00 AM – 12:00 PM',
     focusAreas: [
       'Trauma reconstruction',
       'Microvascular surgery',
@@ -108,6 +120,8 @@ const visitingSpecialists = [
     categoryHeader: 'PAEDIATRIC SURGERY',
     department: 'Paediatric Surgery',
     category: 'Paediatric Surgery',
+    schedule: 'Every Saturday',
+    timing: '10:00 AM – 1:00 PM',
     focusAreas: [
       'Neonatal surgery',
       'Congenital anomalies',
@@ -122,6 +136,8 @@ const visitingSpecialists = [
     categoryHeader: 'UROLOGY & RENAL',
     department: 'Urology & Renal Sciences',
     category: 'Urology',
+    schedule: 'Every Tuesday',
+    timing: '10:00 AM – 1:00 PM',
     focusAreas: [
       'Kidney stone removal',
       'Prostate care & TURP',
@@ -136,6 +152,8 @@ const visitingSpecialists = [
     categoryHeader: 'ORTHOPAEDIC SURGERY',
     department: 'Orthopaedics & Trauma Surgery',
     category: 'Orthopaedics',
+    schedule: 'Every Monday & Thursday',
+    timing: '10:00 AM – 1:00 PM',
     focusAreas: [
       'Complex fracture fixation',
       'Accident & trauma care',
@@ -150,6 +168,8 @@ const visitingSpecialists = [
     categoryHeader: 'GENERAL MEDICINE',
     department: 'General Medicine & Diabetology',
     category: 'General Medicine',
+    schedule: 'Mon – Sat',
+    timing: '9:00 AM – 12:00 PM',
     focusAreas: [
       'Diabetes management',
       'Hypertension care',
@@ -164,6 +184,8 @@ const visitingSpecialists = [
     categoryHeader: 'OBSTETRICS & GYNAECOLOGY',
     department: 'Obstetrics & Gynaecology',
     category: 'Gynaecology',
+    schedule: 'Tue, Thu & Sat',
+    timing: '9:00 AM – 1:00 PM',
     focusAreas: [
       'Antenatal care & delivery',
       'Normal & C-sections',
@@ -178,6 +200,8 @@ const visitingSpecialists = [
     categoryHeader: 'GENERAL & INTERNAL MEDICINE',
     department: 'General & Internal Medicine',
     category: 'General Medicine',
+    schedule: 'Mon – Sat',
+    timing: '5:00 PM – 8:00 PM',
     focusAreas: [
       'Internal medicine',
       'Lifestyle disease care',
@@ -228,23 +252,20 @@ const Doctors = () => {
       {/* Hero Section */}
       <section style={{ 
         padding: '160px 0 90px', 
-        background: 'linear-gradient(rgba(10, 43, 78, 0.92), rgba(10, 43, 78, 0.85)), url(https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
+        background: 'linear-gradient(rgba(0, 180, 216, 0.92), rgba(0, 140, 190, 0.94)), url(https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'var(--white)',
         textAlign: 'center'
       }}>
         <div className="container" data-aos="fade-up">
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(224, 169, 109, 0.2)', border: '1px solid rgba(224, 169, 109, 0.4)', color: 'var(--accent)', padding: '6px 18px', borderRadius: '30px', fontSize: '0.9rem', fontWeight: 'bold', marginBottom: '18px' }}>
-            <Sparkles size={16} /> JB HEALTHCARE MEDICAL TEAM
-          </div>
-          <h1 style={{ color: 'var(--white)', fontSize: '3.3rem', marginBottom: '15px', letterSpacing: '0.5px' }}>
+          <h1 style={{ color: '#FFFFFF', fontSize: '3.3rem', marginBottom: '15px', letterSpacing: '0.5px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>
             Meet Our Medical Team & Specialists
           </h1>
-          <p style={{ fontSize: '1.25rem', color: 'var(--accent)', fontWeight: '500', marginBottom: '15px' }}>
+          <p style={{ fontSize: '1.25rem', color: '#061D38', fontWeight: '800', marginBottom: '15px' }}>
             சிறப்பு மருத்துவர்கள் குழு • Leading Surgeons & Consultants
           </p>
-          <p style={{ fontSize: '1.1rem', maxWidth: '820px', margin: '0 auto', color: 'rgba(255,255,255,0.88)', lineHeight: '1.7' }}>
+          <p style={{ fontSize: '1.1rem', maxWidth: '820px', margin: '0 auto', color: '#FFFFFF', lineHeight: '1.7', fontWeight: '500', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
             Led by award-winning laparoscopic surgeon <strong>Dr. B. Saileshkumar</strong>, our multidisciplinary team of visiting super-specialists brings premier clinical expertise in cancer surgery, gastroenterology, plastic surgery, urology, paediatrics, and orthopaedics to Sivakasi.
           </p>
         </div>
@@ -256,13 +277,13 @@ const Doctors = () => {
           <TiltCard 
             maxTilt={3.5}
             scale={1.01}
-            glareColor="rgba(224, 169, 109, 0.16)"
+            glareColor="rgba(0, 180, 216, 0.16)"
             style={{ 
               backgroundColor: '#0A2540', 
               borderRadius: '24px', 
               overflow: 'hidden', 
               boxShadow: '0 25px 55px rgba(10,43,78,0.22)', 
-              border: '2px solid rgba(224, 169, 109, 0.4)',
+              border: '2px solid rgba(0, 180, 216, 0.4)',
               maxWidth: '1080px',
               margin: '0 auto'
             }} 
@@ -287,7 +308,7 @@ const Doctors = () => {
                 overflow: 'hidden',
                 backgroundColor: '#13355e',
                 boxShadow: '0 10px 25px rgba(0,0,0,0.3)',
-                border: '2px solid rgba(224, 169, 109, 0.45)',
+                border: '2px solid rgba(0, 180, 216, 0.45)',
                 flexShrink: 0
               }}>
                 <img 
@@ -301,8 +322,8 @@ const Doctors = () => {
                   bottom: '8px',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  backgroundColor: '#E0A96D',
-                  color: '#0A2540',
+                  backgroundColor: '#00B4D8',
+                  color: '#061D38',
                   fontSize: '0.75rem',
                   fontWeight: '800',
                   padding: '3px 14px',
@@ -318,7 +339,7 @@ const Doctors = () => {
               {/* Doctor Identity & Degrees */}
               <div style={{ flex: 1, minWidth: '280px' }}>
                 <div style={{
-                  color: '#E0A96D',
+                  color: '#00B4D8',
                   fontSize: '0.85rem',
                   fontWeight: '700',
                   letterSpacing: '1px',
@@ -344,14 +365,14 @@ const Doctors = () => {
                     <span 
                       key={deg} 
                       style={{
-                        border: '1.5px solid #E0A96D',
+                        border: '1.5px solid #00B4D8',
                         color: 'var(--white)',
                         padding: '3px 14px',
                         borderRadius: '20px',
                         fontSize: '0.82rem',
                         fontWeight: '700',
                         letterSpacing: '0.5px',
-                        backgroundColor: 'rgba(224, 169, 109, 0.08)'
+                        backgroundColor: 'rgba(0, 180, 216, 0.15)'
                       }}
                     >
                       {deg}
@@ -401,7 +422,7 @@ const Doctors = () => {
                 {/* Left Column: Education and training */}
                 <div>
                   <div style={{
-                    color: '#B37D4E',
+                    color: '#0077B6',
                     fontSize: '0.82rem',
                     fontWeight: '700',
                     textTransform: 'uppercase',
@@ -423,7 +444,7 @@ const Doctors = () => {
                   <div style={{
                     position: 'relative',
                     paddingLeft: '24px',
-                    borderLeft: '2px solid #E0A96D',
+                    borderLeft: '2px solid #00B4D8',
                     marginLeft: '8px',
                     display: 'flex',
                     flexDirection: 'column',
@@ -438,7 +459,7 @@ const Doctors = () => {
                         width: '10px',
                         height: '10px',
                         borderRadius: '50%',
-                        backgroundColor: '#E0A96D'
+                        backgroundColor: '#00B4D8'
                       }} />
                       <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>MBBS</div>
                       <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px' }}>மெட்ராஸ் மருத்துவக் கல்லூரி</div>
@@ -453,7 +474,7 @@ const Doctors = () => {
                         width: '10px',
                         height: '10px',
                         borderRadius: '50%',
-                        backgroundColor: '#E0A96D'
+                        backgroundColor: '#00B4D8'
                       }} />
                       <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>M.S.</div>
                       <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px' }}>மதுரை மருத்துவக் கல்லூரி</div>
@@ -468,7 +489,7 @@ const Doctors = () => {
                         width: '10px',
                         height: '10px',
                         borderRadius: '50%',
-                        backgroundColor: '#E0A96D'
+                        backgroundColor: '#00B4D8'
                       }} />
                       <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>லேப்ரோஸ்கோப்பி பயிற்சி</div>
                       <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px' }}>VG மருத்துவமனை, கோயம்புத்தூர்</div>
@@ -483,7 +504,7 @@ const Doctors = () => {
                         width: '10px',
                         height: '10px',
                         borderRadius: '50%',
-                        backgroundColor: '#E0A96D'
+                        backgroundColor: '#00B4D8'
                       }} />
                       <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>FIAGES / FALS</div>
                       <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px', lineHeight: '1.5' }}>
@@ -496,7 +517,7 @@ const Doctors = () => {
                 {/* Right Column: Public service */}
                 <div>
                   <div style={{
-                    color: '#B37D4E',
+                    color: '#0077B6',
                     fontSize: '0.82rem',
                     fontWeight: '700',
                     textTransform: 'uppercase',
@@ -522,12 +543,12 @@ const Doctors = () => {
                         width: '44px',
                         height: '44px',
                         borderRadius: '12px',
-                        backgroundColor: '#FAF2E8',
-                        border: '1.5px solid #EED7BF',
+                        backgroundColor: 'rgba(0, 180, 216, 0.1)',
+                        border: '1.5px solid rgba(0, 180, 216, 0.3)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: '#B37D4E',
+                        color: '#0077B6',
                         flexShrink: 0
                       }}>
                         <Building2 size={22} />
@@ -548,12 +569,12 @@ const Doctors = () => {
                         width: '44px',
                         height: '44px',
                         borderRadius: '12px',
-                        backgroundColor: '#FAF2E8',
-                        border: '1.5px solid #EED7BF',
+                        backgroundColor: 'rgba(0, 180, 216, 0.1)',
+                        border: '1.5px solid rgba(0, 180, 216, 0.3)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: '#B37D4E',
+                        color: '#0077B6',
                         flexShrink: 0
                       }}>
                         <Stethoscope size={22} />
@@ -574,12 +595,12 @@ const Doctors = () => {
                         width: '44px',
                         height: '44px',
                         borderRadius: '12px',
-                        backgroundColor: '#FAF2E8',
-                        border: '1.5px solid #EED7BF',
+                        backgroundColor: 'rgba(0, 180, 216, 0.1)',
+                        border: '1.5px solid rgba(0, 180, 216, 0.3)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: '#B37D4E',
+                        color: '#0077B6',
                         flexShrink: 0
                       }}>
                         <MapPin size={22} />
@@ -672,8 +693,8 @@ const Doctors = () => {
                   to="/appointment" 
                   state={{ doctorName: "Dr. B. Saileshkumar", department: "Laparoscopic & General Surgery" }}
                   style={{
-                    backgroundColor: '#E0A96D',
-                    color: '#0A2540',
+                    backgroundColor: '#00B4D8',
+                    color: '#061D38',
                     fontWeight: '800',
                     fontSize: '0.95rem',
                     padding: '10px 24px',
@@ -682,7 +703,7 @@ const Doctors = () => {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    boxShadow: '0 4px 14px rgba(224, 169, 109, 0.35)',
+                    boxShadow: '0 4px 14px rgba(0, 180, 216, 0.35)',
                     transition: 'all 0.25s ease'
                   }}
                   onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
@@ -798,7 +819,7 @@ const Doctors = () => {
                       fontWeight: isActive ? '700' : '500',
                       border: isActive ? '2px solid var(--accent)' : '1px solid rgba(10, 43, 78, 0.12)',
                       backgroundColor: isActive ? 'var(--primary)' : 'var(--white)',
-                      color: isActive ? 'var(--accent)' : 'var(--primary)',
+                      color: isActive ? '#061D38' : 'var(--primary)',
                       cursor: 'pointer',
                       transition: 'all 0.25s ease',
                       boxShadow: isActive ? '0 4px 12px rgba(10, 43, 78, 0.2)' : 'none',
@@ -809,8 +830,8 @@ const Doctors = () => {
                   >
                     <span>{cat.label}</span>
                     <span style={{ 
-                      backgroundColor: isActive ? 'rgba(224, 169, 109, 0.25)' : 'rgba(10, 43, 78, 0.08)', 
-                      color: isActive ? 'var(--accent)' : '#555',
+                      backgroundColor: isActive ? 'rgba(6, 29, 56, 0.15)' : 'rgba(10, 43, 78, 0.08)', 
+                      color: isActive ? '#061D38' : '#555',
                       padding: '2px 7px',
                       borderRadius: '10px',
                       fontSize: '0.75rem',
@@ -831,7 +852,7 @@ const Doctors = () => {
             </div>
           )}
 
-          {/* Doctor Cards Grid - Dark Luxe Luxury Style */}
+          {/* Doctor Cards Grid - Styled exactly like Surgeries Cards */}
           {filteredDoctors.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '60px 20px', backgroundColor: 'var(--white)', borderRadius: '20px', boxShadow: '0 8px 30px rgba(0,0,0,0.04)' }}>
               <Award size={48} color="#ccc" style={{ marginBottom: '15px' }} />
@@ -848,59 +869,79 @@ const Doctors = () => {
           ) : (
             <div style={{ 
               display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', 
-              gap: '28px' 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+              gap: '30px' 
             }}>
               {filteredDoctors.map((doc, idx) => (
-                <TiltCard 
-                  key={doc._id}
-                  className="dark-luxe-card"
-                  maxTilt={6}
-                  scale={1.02}
-                  glareColor="rgba(224, 169, 109, 0.2)"
-                  data-aos="fade-up"
-                  data-aos-delay={`${(idx % 3 + 1) * 60}`}
+                <div 
+                  key={doc._id} 
+                  data-aos="fade-up" 
+                  data-aos-delay={`${(idx % 3 + 1) * 80}`}
+                  style={{ 
+                    backgroundColor: 'var(--white)', 
+                    border: '1px solid rgba(10, 43, 78, 0.08)',
+                    borderRadius: '16px', 
+                    padding: '30px', 
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.04)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease'
+                  }}
+                  className="doctor-card-hover"
                 >
-                  <div className="dark-luxe-inner">
-                    
-                    {/* Category Label */}
-                    <div className="dark-luxe-category">
-                      {doc.categoryHeader}
-                    </div>
-
-                    {/* Doctor Name (Serif Elegance) */}
-                    <h3 className="dark-luxe-name">
-                      Dr.<br />{doc.name.replace(/^Dr\.\s*/i, '')}
+                  <div>
+                    {/* Doctor Name */}
+                    <h3 style={{ color: '#0077B6', fontSize: '1.45rem', marginBottom: '6px', lineHeight: '1.3', fontWeight: '800' }}>
+                      {doc.name}
                     </h3>
 
-                    {/* Degree */}
-                    <div className="dark-luxe-degree">
-                      {doc.degree}
+                    {/* Degree & Department Pill */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '14px' }}>
+                      <span style={{ backgroundColor: 'rgba(0, 180, 216, 0.15)', color: '#0077B6', border: '1px solid #00B4D8', padding: '2px 10px', borderRadius: '12px', fontSize: '0.9rem', fontWeight: 'bold' }}>
+                        {doc.degree}
+                      </span>
+                      <span style={{ color: '#666', fontSize: '0.85rem', fontWeight: '500' }}>
+                        • {doc.department}
+                      </span>
                     </div>
 
-                    {/* Gold Divider Line */}
-                    <div className="dark-luxe-divider" />
+                    {/* Schedule Badge */}
+                    {doc.schedule && (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', backgroundColor: 'rgba(0, 119, 182, 0.08)', border: '1px solid rgba(0, 119, 182, 0.2)', borderRadius: '10px', padding: '6px 12px', marginBottom: '12px' }}>
+                        <Clock size={14} color="#0077B6" />
+                        <span style={{ color: '#0077B6', fontSize: '0.82rem', fontWeight: '700' }}>{doc.schedule}</span>
+                        <span style={{ color: '#666', fontSize: '0.82rem' }}>• {doc.timing}</span>
+                      </div>
+                    )}
 
-                    {/* Clinical Focus List */}
-                    <div className="dark-luxe-focus-list">
-                      {doc.focusAreas.map((fa, i) => (
-                        <div key={i} className="dark-luxe-focus-item">
-                          {fa}
-                        </div>
+                    {/* Category Header */}
+                    <p style={{ color: '#555', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
+                      Specialized in {doc.categoryHeader.toLowerCase()} consultations, surgical opinions, and patient care at JB Healthcare.
+                    </p>
+                  </div>
+
+                  <div>
+                    {/* Focus Area Tags */}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>
+                      {doc.focusAreas.map((fa, fIdx) => (
+                        <span key={fIdx} style={{ backgroundColor: 'var(--secondary)', color: 'var(--primary)', fontSize: '0.75rem', fontWeight: '600', padding: '4px 10px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                          ✓ {fa}
+                        </span>
                       ))}
                     </div>
 
-                    {/* Book Consult Action */}
+                    {/* Action Button */}
                     <Link 
                       to="/appointment" 
                       state={{ doctorName: `${doc.name} (${doc.degree})`, department: doc.department }}
-                      className="dark-luxe-btn"
+                      className="btn btn-primary"
+                      style={{ width: '100%', textAlign: 'center', padding: '10px', borderRadius: '8px', fontSize: '0.95rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', textDecoration: 'none' }}
                     >
-                      Book consult
+                      <Calendar size={16} /> Consult Specialist
                     </Link>
-
                   </div>
-                </TiltCard>
+                </div>
               ))}
             </div>
           )}
@@ -911,14 +952,14 @@ const Doctors = () => {
             backgroundColor: 'var(--white)',
             borderRadius: '18px',
             padding: '30px 35px',
-            border: '2px dashed rgba(224, 169, 109, 0.5)',
+            border: '2px dashed rgba(0, 180, 216, 0.45)',
             boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
             display: 'flex',
             flexDirection: 'column',
             gap: '15px'
           }} data-aos="fade-up">
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{ backgroundColor: 'rgba(224, 169, 109, 0.2)', padding: '10px', borderRadius: '12px', color: 'var(--accent)' }}>
+              <div style={{ backgroundColor: 'rgba(0, 180, 216, 0.15)', padding: '10px', borderRadius: '12px', color: '#0077B6' }}>
                 <Clock size={24} />
               </div>
               <div>
@@ -941,7 +982,7 @@ const Doctors = () => {
                 <strong style={{ color: 'var(--primary)', display: 'block', marginBottom: '4px' }}>
                   📞 Direct Helpline & Schedule Confirmation
                 </strong>
-                Call our reception at <strong>04562-299920</strong> or WhatsApp <strong>+91 93455 10905</strong> for the exact consultation timings for the current week.
+                Call our reception at <strong>+91 93455 10905</strong> for the exact consultation timings for the current week.
               </div>
               <div>
                 <strong style={{ color: 'var(--primary)', display: 'block', marginBottom: '4px' }}>
@@ -956,111 +997,30 @@ const Doctors = () => {
       </section>
 
       {/* Bottom CTA Banner */}
-      <section style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '60px 0', textAlign: 'center' }}>
+      <section style={{ backgroundColor: '#071A2E', padding: '50px 0', borderTop: '1px solid rgba(255,255,255,0.08)', textAlign: 'center' }}>
         <div className="container" data-aos="fade-up">
-          <h2 style={{ color: '#061D38', fontSize: '2.4rem', marginBottom: '15px', fontWeight: '800' }}>
+          <h2 style={{ color: 'var(--white)', fontSize: '2.2rem', marginBottom: '12px' }}>
             Need Immediate Assistance or Surgery Consultation?
           </h2>
-          <p style={{ fontSize: '1.15rem', maxWidth: '700px', margin: '0 auto 30px', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
+          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', maxWidth: '700px', margin: '0 auto 30px' }}>
             Our hospital front desk is available 24/7 to connect you with our medical team and schedule priority appointments.
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', flexWrap: 'wrap' }}>
-            <Link to="/appointment" className="btn btn-magnetic" style={{ backgroundColor: '#061D38', color: '#FFFFFF', padding: '14px 32px', fontSize: '1.05rem', borderRadius: '30px', fontWeight: 'bold' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+            <Link to="/appointment" className="btn btn-accent" style={{ padding: '12px 32px', fontSize: '1rem', borderRadius: '30px', fontWeight: 'bold' }}>
               Book an Appointment
             </Link>
-            <a href="tel:04562299920" className="btn btn-magnetic" style={{ padding: '14px 32px', fontSize: '1.05rem', borderRadius: '30px', backgroundColor: '#FFFFFF', color: '#061D38', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-              <Phone size={18} color="#061D38" /> Call 04562-299920
+            <a href="tel:+919345510905" className="btn btn-outline" style={{ padding: '12px 32px', fontSize: '1rem', borderRadius: '30px', borderColor: 'var(--white)', color: 'var(--white)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <Phone size={18} /> Call +91 93455 10905
             </a>
           </div>
         </div>
       </section>
 
       <style>{`
-        .dark-luxe-card {
-          background-color: #081d33;
-          border-radius: 18px;
-          padding: 12px;
-          box-shadow: 0 14px 35px rgba(8, 29, 51, 0.28);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          display: flex;
-          flex-direction: column;
-        }
-        .dark-luxe-card:hover {
-          box-shadow: 0 24px 55px rgba(8, 29, 51, 0.5), 0 0 25px rgba(224, 169, 109, 0.15) !important;
-        }
-        .dark-luxe-inner {
-          border: 1.5px solid rgba(224, 169, 109, 0.55);
-          border-radius: 12px;
-          padding: 28px 24px;
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-          transition: border-color 0.3s ease;
-        }
-        .dark-luxe-card:hover .dark-luxe-inner {
-          border-color: #e0a96d !important;
-        }
-        .dark-luxe-category {
-          color: #e0a96d;
-          font-size: 0.78rem;
-          font-weight: 700;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          margin-bottom: 14px;
-        }
-        .dark-luxe-name {
-          font-family: 'Cormorant Garamond', Georgia, serif;
-          font-size: 2.1rem;
-          font-weight: 700;
-          color: #ffffff;
-          line-height: 1.15;
-          margin: 0 0 6px;
-          letter-spacing: 0.3px;
-        }
-        .dark-luxe-degree {
-          color: rgba(255, 255, 255, 0.72);
-          font-size: 0.94rem;
-          font-weight: 500;
-        }
-        .dark-luxe-divider {
-          width: 44px;
-          height: 2px;
-          background-color: #e0a96d;
-          margin: 18px 0 22px;
-        }
-        .dark-luxe-focus-list {
-          display: flex;
-          flex-direction: column;
-          gap: 11px;
-          margin-bottom: 32px;
-          flex: 1;
-        }
-        .dark-luxe-focus-item {
-          color: rgba(255, 255, 255, 0.92);
-          font-size: 0.98rem;
-          font-weight: 400;
-          line-height: 1.4;
-        }
-        .dark-luxe-btn {
-          display: block;
-          width: 100%;
-          padding: 13px 20px;
-          border: 1.5px solid #e0a96d;
-          border-radius: 8px;
-          color: #e0a96d;
-          background-color: transparent;
-          font-weight: 700;
-          font-size: 0.96rem;
-          text-align: center;
-          transition: all 0.3s ease;
-          text-decoration: none;
-          cursor: pointer;
-          margin-top: auto;
-        }
-        .dark-luxe-btn:hover {
-          background-color: #e0a96d !important;
-          color: #081d33 !important;
-          box-shadow: 0 4px 18px rgba(224, 169, 109, 0.45);
+        .doctor-card-hover:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+          border-color: var(--accent) !important;
         }
       `}</style>
       

@@ -385,7 +385,7 @@ const SymptomExplorer = () => {
         background: 'radial-gradient(circle at 50% 20%, rgba(10, 43, 78, 0.95), #061628 85%)',
         textAlign: 'center',
         position: 'relative',
-        borderBottom: '1px solid rgba(224, 169, 109, 0.2)'
+        borderBottom: '1px solid rgba(0, 180, 216, 0.2)'
       }}>
         <div className="container" data-aos="fade-up">
           
@@ -393,9 +393,9 @@ const SymptomExplorer = () => {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            backgroundColor: 'rgba(224, 169, 109, 0.12)',
-            border: '1px solid rgba(224, 169, 109, 0.45)',
-            color: 'var(--accent)',
+            backgroundColor: 'rgba(0, 180, 216, 0.15)',
+            border: '1px solid rgba(0, 180, 216, 0.45)',
+            color: '#00B4D8',
             padding: '7px 22px',
             borderRadius: '30px',
             fontSize: '0.86rem',
@@ -432,7 +432,7 @@ const SymptomExplorer = () => {
           <div style={{ maxWidth: '640px', margin: '0 auto', position: 'relative' }}>
             <Search 
               size={20} 
-              color="var(--accent)" 
+              color="#00B4D8" 
               style={{ position: 'absolute', left: '18px', top: '50%', transform: 'translateY(-50%)' }} 
             />
             <input 
@@ -444,7 +444,7 @@ const SymptomExplorer = () => {
                 width: '100%',
                 padding: '14px 45px 14px 50px',
                 borderRadius: '30px',
-                border: '1.5px solid rgba(224, 169, 109, 0.4)',
+                border: '1.5px solid rgba(0, 180, 216, 0.4)',
                 backgroundColor: 'rgba(10, 43, 78, 0.7)',
                 backdropFilter: 'blur(10px)',
                 color: '#ffffff',
@@ -493,8 +493,8 @@ const SymptomExplorer = () => {
                   }}
                   className="btn-magnetic"
                   style={{
-                    backgroundColor: 'rgba(224, 169, 109, 0.2)',
-                    border: '1px solid #E0A96D',
+                    backgroundColor: 'rgba(0, 180, 216, 0.2)',
+                    border: '1px solid #00B4D8',
                     color: '#ffffff',
                     padding: '8px 18px',
                     borderRadius: '20px',
@@ -505,9 +505,9 @@ const SymptomExplorer = () => {
                     gap: '8px'
                   }}
                 >
-                  <Zap size={14} color="#FFD166" />
+                  <Zap size={14} color="#00B4D8" />
                   <span><strong>{match.labelEn}</strong> ({match.labelTa})</span>
-                  <ArrowRight size={13} color="var(--accent)" />
+                  <ArrowRight size={13} color="#00B4D8" />
                 </button>
               ))}
             </div>
@@ -536,14 +536,14 @@ const SymptomExplorer = () => {
                 borderRadius: '30px',
                 fontSize: '0.95rem',
                 fontWeight: '700',
-                border: activeView === 'front' ? '2px solid #E0A96D' : '1px solid rgba(255,255,255,0.15)',
+                border: activeView === 'front' ? '2px solid #00B4D8' : '1px solid rgba(255,255,255,0.15)',
                 backgroundColor: activeView === 'front' ? '#0A2B4E' : 'rgba(255,255,255,0.05)',
-                color: activeView === 'front' ? '#FFD166' : 'rgba(255,255,255,0.8)',
+                color: activeView === 'front' ? '#00B4D8' : 'rgba(255,255,255,0.8)',
                 cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                boxShadow: activeView === 'front' ? '0 0 20px rgba(224, 169, 109, 0.35)' : 'none'
+                boxShadow: activeView === 'front' ? '0 0 20px rgba(0, 180, 216, 0.35)' : 'none'
               }}
             >
               <span>🧍‍♂️ Front View (முன்புறம்)</span>
@@ -557,14 +557,14 @@ const SymptomExplorer = () => {
                 borderRadius: '30px',
                 fontSize: '0.95rem',
                 fontWeight: '700',
-                border: activeView === 'back' ? '2px solid #E0A96D' : '1px solid rgba(255,255,255,0.15)',
+                border: activeView === 'back' ? '2px solid #00B4D8' : '1px solid rgba(255,255,255,0.15)',
                 backgroundColor: activeView === 'back' ? '#0A2B4E' : 'rgba(255,255,255,0.05)',
-                color: activeView === 'back' ? '#FFD166' : 'rgba(255,255,255,0.8)',
+                color: activeView === 'back' ? '#00B4D8' : 'rgba(255,255,255,0.8)',
                 cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                boxShadow: activeView === 'back' ? '0 0 20px rgba(224, 169, 109, 0.35)' : 'none'
+                boxShadow: activeView === 'back' ? '0 0 20px rgba(0, 180, 216, 0.35)' : 'none'
               }}
             >
               <RotateCcw size={16} />
@@ -581,7 +581,7 @@ const SymptomExplorer = () => {
               style={{
                 backgroundColor: '#071A2E',
                 borderRadius: '24px',
-                border: '1.5px solid rgba(224, 169, 109, 0.35)',
+                border: '1.5px solid rgba(0, 180, 216, 0.35)',
                 boxShadow: '0 20px 60px rgba(0, 0, 0, 0.6), inset 0 0 40px rgba(10, 43, 78, 0.6)',
                 padding: '30px 20px',
                 display: 'flex',
@@ -597,7 +597,7 @@ const SymptomExplorer = () => {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(0, 201, 167, 0.08) 0%, transparent 70%), linear-gradient(rgba(224, 169, 109, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(224, 169, 109, 0.05) 1px, transparent 1px)',
+                  backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(0, 201, 167, 0.08) 0%, transparent 70%), linear-gradient(rgba(0, 180, 216, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 180, 216, 0.05) 1px, transparent 1px)',
                   backgroundSize: '100% 100%, 30px 30px, 30px 30px',
                   pointerEvents: 'none',
                   zIndex: 1
@@ -695,12 +695,12 @@ const SymptomExplorer = () => {
                 key={selectedHotspot.id}
                 maxTilt={4}
                 scale={1.01}
-                glareColor="rgba(224, 169, 109, 0.16)"
+                glareColor="rgba(0, 180, 216, 0.16)"
                 style={{
                   backgroundColor: '#09213A',
                   borderRadius: '24px',
-                  border: '1.5px solid #E0A96D',
-                  boxShadow: '0 25px 65px rgba(0, 0, 0, 0.5), 0 0 30px rgba(224, 169, 109, 0.15)',
+                  border: '1.5px solid #00B4D8',
+                  boxShadow: '0 25px 65px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 180, 216, 0.25)',
                   padding: '36px 32px',
                   display: 'flex',
                   flexDirection: 'column',
@@ -713,9 +713,9 @@ const SymptomExplorer = () => {
                   {/* Header Badges */}
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '18px' }}>
                     <div style={{
-                      backgroundColor: 'rgba(224, 169, 109, 0.18)',
-                      border: '1px solid rgba(224, 169, 109, 0.45)',
-                      color: 'var(--accent)',
+                      backgroundColor: 'rgba(0, 180, 216, 0.18)',
+                      border: '1px solid rgba(0, 180, 216, 0.45)',
+                      color: '#00B4D8',
                       padding: '4px 14px',
                       borderRadius: '16px',
                       fontSize: '0.8rem',
@@ -752,7 +752,7 @@ const SymptomExplorer = () => {
                   }}>
                     {selectedHotspot.labelEn}
                   </h2>
-                  <div style={{ color: 'var(--accent)', fontSize: '1.15rem', fontWeight: '600', marginBottom: '22px' }}>
+                  <div style={{ color: '#00B4D8', fontSize: '1.15rem', fontWeight: '600', marginBottom: '22px' }}>
                     {selectedHotspot.labelTa}
                   </div>
 
@@ -778,7 +778,7 @@ const SymptomExplorer = () => {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '9px' }}>
                       {selectedHotspot.symptoms.map((sym, sIdx) => (
                         <div key={sIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                          <span style={{ color: '#FFD166', marginTop: '2px', fontWeight: 'bold' }}>•</span>
+                          <span style={{ color: '#00B4D8', marginTop: '2px', fontWeight: 'bold' }}>•</span>
                           <span style={{ color: 'rgba(255, 255, 255, 0.92)', fontSize: '0.94rem', lineHeight: '1.45' }}>
                             {sym}
                           </span>
@@ -791,11 +791,11 @@ const SymptomExplorer = () => {
                   <div style={{
                     backgroundColor: 'rgba(10, 43, 78, 0.55)',
                     borderRadius: '16px',
-                    border: '1.5px solid rgba(224, 169, 109, 0.35)',
+                    border: '1.5px solid rgba(0, 180, 216, 0.35)',
                     padding: '20px 22px',
                     marginBottom: '22px'
                   }}>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--accent)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '4px' }}>
+                    <div style={{ fontSize: '0.78rem', color: '#00B4D8', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '4px' }}>
                       Recommended Department & Specialist:
                     </div>
 
@@ -811,16 +811,16 @@ const SymptomExplorer = () => {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '12px',
-                      backgroundColor: 'rgba(224, 169, 109, 0.12)',
+                      backgroundColor: 'rgba(0, 180, 216, 0.12)',
                       padding: '10px 16px',
                       borderRadius: '12px',
-                      border: '1px solid rgba(224, 169, 109, 0.3)'
+                      border: '1px solid rgba(0, 180, 216, 0.3)'
                     }}>
                       <div style={{
                         width: '36px',
                         height: '36px',
                         borderRadius: '50%',
-                        backgroundColor: '#E0A96D',
+                        backgroundColor: '#00B4D8',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -945,7 +945,7 @@ const SymptomExplorer = () => {
       {/* 3. 24/7 Emergency Casualty Help Strip */}
       <section style={{
         backgroundColor: '#071A2E',
-        borderTop: '1px solid rgba(224, 169, 109, 0.25)',
+        borderTop: '1px solid rgba(0, 180, 216, 0.25)',
         padding: '35px 0'
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
@@ -963,7 +963,7 @@ const SymptomExplorer = () => {
 
           <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
             <a
-              href="tel:04562299920"
+              href="tel:+919345510905"
               className="btn btn-accent btn-magnetic"
               style={{
                 display: 'inline-flex',
@@ -975,14 +975,14 @@ const SymptomExplorer = () => {
                 fontWeight: '800'
               }}
             >
-              <Phone size={16} /> 04562-299920
+              <Phone size={16} /> +91 93455 10905
             </a>
             <Link
               to="/contact"
               className="btn-magnetic"
               style={{
-                color: 'var(--accent)',
-                border: '1.5px solid rgba(224, 169, 109, 0.5)',
+                color: '#00B4D8',
+                border: '1.5px solid rgba(0, 180, 216, 0.5)',
                 padding: '11px 22px',
                 borderRadius: '25px',
                 fontSize: '0.92rem',

@@ -17,7 +17,7 @@ const TiltCard = ({
   scale = 1.02,
   perspective = 1000,
   glare = true,
-  glareColor = 'rgba(224, 169, 109, 0.18)',
+  glareColor = 'rgba(0, 180, 216, 0.18)',
   glareMaxOpacity = 0.35,
   onClick,
   ...restProps

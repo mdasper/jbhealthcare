@@ -46,36 +46,36 @@ const About = () => {
       {/* 1. Header (Dark) */}
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
         <div className="container text-center" data-aos="fade-up">
-          <h1 style={{ color: '#061D38', fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800' }}>{mainHeading}</h1>
+          <h1 style={{ color: '#FFFFFF', fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>{mainHeading}</h1>
           <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
             Committed to providing world-class medical facilities, innovative treatments, and compassionate care to our community. We believe in treating the whole person, not just the disease.
           </p>
         </div>
       </section>
 
-      {/* 2. Milestones (Gold Accent) */}
-      <section style={{ backgroundColor: 'var(--accent)', padding: '50px 0', color: 'var(--primary)' }}>
+      {/* 2. Milestones (High Contrast Navy & Cyan) */}
+      <section style={{ backgroundColor: '#061D38', padding: '50px 0', color: '#FFFFFF' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '25px', textAlign: 'center' }}>
             <div data-aos="fade-up" data-aos-delay="100">
-              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px' }}><CountUp end={10000} /></h2>
-              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>Successful Surgeries</p>
+              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px', color: '#00B4D8' }}><CountUp end={10000} /></h2>
+              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: '#FFFFFF' }}>Successful Surgeries</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="200">
-              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px' }}><CountUp end={2000} /></h2>
-              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>Laparoscopic Cases</p>
+              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px', color: '#00B4D8' }}><CountUp end={2000} /></h2>
+              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: '#FFFFFF' }}>Laparoscopic Cases</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="300">
-              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px' }}><CountUp end={3000} /></h2>
-              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>C-Section Deliveries</p>
+              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px', color: '#00B4D8' }}><CountUp end={3000} /></h2>
+              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: '#FFFFFF' }}>C-Section Deliveries</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="400">
-              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px' }}><CountUp end={100} /></h2>
-              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>Cancer Surgeries</p>
+              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px', color: '#00B4D8' }}><CountUp end={100} /></h2>
+              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: '#FFFFFF' }}>Cancer Surgeries</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="500">
-              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px' }}><CountUp end={7} suffix=" Yrs" /></h2>
-              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>Govt Service Record</p>
+              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '4px', color: '#00B4D8' }}><CountUp end={7} suffix=" Yrs" /></h2>
+              <p style={{ fontSize: '1rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: '#FFFFFF' }}>Govt Service Record</p>
             </div>
           </div>
         </div>
@@ -90,38 +90,38 @@ const About = () => {
                 <img 
                   src="/doctor.png" 
                   alt="Dr. B. Saileshkumar" 
-                  style={{ width: '100%', maxWidth: '380px', borderRadius: '16px', boxShadow: '0 15px 30px rgba(0,0,0,0.3)', border: '3px solid var(--accent)' }} 
+                  style={{ width: '100%', maxWidth: '380px', borderRadius: '16px', boxShadow: '0 15px 30px rgba(0,0,0,0.3)', border: '3px solid #061D38' }} 
                   onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; }}
                 />
-                <div style={{ marginTop: '15px', display: 'inline-block', backgroundColor: 'var(--accent)', color: 'var(--primary)', padding: '6px 18px', borderRadius: '20px', fontWeight: 'bold', fontSize: '0.9rem' }}>
+                <div style={{ marginTop: '15px', display: 'inline-block', backgroundColor: '#061D38', color: '#FFFFFF', padding: '6px 18px', borderRadius: '20px', fontWeight: 'bold', fontSize: '0.9rem' }}>
                   ★ Best Doctor Award (2017 & 2018)
                 </div>
               </div>
               <div data-aos="fade-left">
-                <span style={{ color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '700', fontSize: '0.85rem' }}>
+                <span style={{ color: '#061D38', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '800', fontSize: '0.85rem' }}>
                   Leadership & Clinical Vision
                 </span>
-                <h2 style={{ color: 'var(--white)', fontSize: '2.4rem', marginTop: '8px', marginBottom: '6px' }}>
+                <h2 style={{ color: '#061D38', fontSize: '2.4rem', marginTop: '8px', marginBottom: '6px', fontWeight: '800' }}>
                   Dr. B. Saileshkumar
                 </h2>
-                <h4 style={{ color: 'var(--accent)', fontSize: '1.15rem', marginBottom: '20px', fontWeight: '600' }}>
+                <h4 style={{ color: '#061D38', fontSize: '1.15rem', marginBottom: '20px', fontWeight: '800' }}>
                   MBBS., M.S., FIAGES., FALS — Founder & Chief Surgeon
                 </h4>
                 
-                <p style={{ color: 'rgba(255,255,255,0.9)', lineHeight: '1.7', marginBottom: '15px', fontSize: '1.02rem' }}>
+                <p style={{ color: '#061D38', lineHeight: '1.7', marginBottom: '15px', fontSize: '1.02rem', fontWeight: '500' }}>
                   A native clinical leader with an extraordinary track record of more than <strong>10,000 successful surgical operations</strong> and <strong>2,000+ advanced laparoscopic procedures</strong>.
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '15px', marginTop: '20px' }}>
-                  <div style={{ backgroundColor: 'rgba(255,255,255,0.06)', padding: '14px', borderRadius: '10px', borderLeft: '3px solid var(--accent)' }}>
-                    <h5 style={{ color: 'var(--accent)', margin: '0 0 5px 0', fontSize: '0.95rem' }}>Education & Fellowships</h5>
-                    <p style={{ color: 'rgba(255,255,255,0.85)', margin: 0, fontSize: '0.88rem', lineHeight: '1.5' }}>
+                  <div style={{ backgroundColor: 'rgba(255,255,255,0.25)', padding: '14px', borderRadius: '10px', borderLeft: '3px solid #061D38' }}>
+                    <h5 style={{ color: '#061D38', margin: '0 0 5px 0', fontSize: '0.98rem', fontWeight: '800' }}>Education & Fellowships</h5>
+                    <p style={{ color: '#061D38', margin: 0, fontSize: '0.88rem', lineHeight: '1.5', fontWeight: '500' }}>
                       MBBS (Madras Medical College), MS (Madurai Medical College), Laparoscopic Surgery Training (VG Hospital Coimbatore), FIAGES & FALS Fellowships.
                     </p>
                   </div>
-                  <div style={{ backgroundColor: 'rgba(255,255,255,0.06)', padding: '14px', borderRadius: '10px', borderLeft: '3px solid var(--accent)' }}>
-                    <h5 style={{ color: 'var(--accent)', margin: '0 0 5px 0', fontSize: '0.95rem' }}>Public Service & Honor</h5>
-                    <p style={{ color: 'rgba(255,255,255,0.85)', margin: 0, fontSize: '0.88rem', lineHeight: '1.5' }}>
+                  <div style={{ backgroundColor: 'rgba(255,255,255,0.25)', padding: '14px', borderRadius: '10px', borderLeft: '3px solid #061D38' }}>
+                    <h5 style={{ color: '#061D38', margin: '0 0 5px 0', fontSize: '0.98rem', fontWeight: '800' }}>Public Service & Honor</h5>
+                    <p style={{ color: '#061D38', margin: 0, fontSize: '0.88rem', lineHeight: '1.5', fontWeight: '500' }}>
                       Conferred the <strong>Best Doctor Award</strong> for two consecutive years (2017 & 2018) by the District Collector. Founder Secretary of IMA Sivakasi (2016-2017) and 7 years of public health service across Virudhunagar district.
                     </p>
                   </div>
@@ -154,7 +154,7 @@ const About = () => {
                 borderRadius: '24px',
                 overflow: 'hidden',
                 boxShadow: '0 25px 60px rgba(10, 43, 78, 0.22)',
-                border: '2px solid rgba(224, 169, 109, 0.45)'
+                border: '2px solid rgba(0, 180, 216, 0.45)'
               }}>
                 <img 
                   src={aboutImage} 
@@ -173,7 +173,7 @@ const About = () => {
                   backdropFilter: 'blur(10px)',
                   borderRadius: '16px',
                   padding: '16px 20px',
-                  border: '1px solid rgba(224, 169, 109, 0.4)',
+                  border: '1px solid rgba(0, 180, 216, 0.4)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '14px',
@@ -183,17 +183,17 @@ const About = () => {
                     width: '46px',
                     height: '46px',
                     borderRadius: '50%',
-                    backgroundColor: 'var(--accent)',
-                    color: '#0A2540',
+                    backgroundColor: '#00B4D8',
+                    color: '#061D38',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0
                   }}>
-                    <Heart size={24} fill="#0A2540" color="#0A2540" />
+                    <Heart size={24} fill="#061D38" color="#061D38" />
                   </div>
                   <div>
-                    <div style={{ color: 'var(--accent)', fontWeight: '800', fontSize: '0.98rem', letterSpacing: '0.5px' }}>
+                    <div style={{ color: '#00B4D8', fontWeight: '800', fontSize: '0.98rem', letterSpacing: '0.5px' }}>
                       Healing Hands, Caring Hearts
                     </div>
                     <div style={{ color: 'rgba(255,255,255,0.88)', fontSize: '0.84rem', marginTop: '2px' }}>
@@ -261,15 +261,15 @@ const About = () => {
                         width: '38px',
                         height: '38px',
                         borderRadius: '10px',
-                        backgroundColor: 'rgba(224, 169, 109, 0.15)',
-                        border: '1px solid rgba(224, 169, 109, 0.4)',
+                        backgroundColor: 'rgba(0, 180, 216, 0.12)',
+                        border: '1px solid rgba(0, 180, 216, 0.35)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         color: 'var(--primary)',
                         flexShrink: 0
                       }}>
-                        <ItemIcon size={20} color="#A26B33" />
+                        <ItemIcon size={20} color="#0077B6" />
                       </div>
                       <div>
                         <div style={{ color: 'var(--primary)', fontWeight: '700', fontSize: '0.92rem' }}>
@@ -299,21 +299,21 @@ const About = () => {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px' }}>
               
               {/* Vision Card */}
-              <div style={{ background: 'var(--primary)', padding: '40px 30px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderTop: '4px solid var(--accent)', textAlign: 'center' }} data-aos="zoom-in" data-aos-delay="100">
-                <h4 style={{ color: 'var(--accent)', marginBottom: '20px', fontSize: '1.8rem' }}>
+              <div style={{ background: 'var(--primary)', padding: '40px 30px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderTop: '4px solid #061D38', textAlign: 'center' }} data-aos="zoom-in" data-aos-delay="100">
+                <h4 style={{ color: '#061D38', marginBottom: '20px', fontSize: '1.8rem', fontWeight: '800' }}>
                   Our Vision
                 </h4>
-                <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--white)', opacity: 0.9, margin: 0 }}>
+                <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#061D38', fontWeight: '500', margin: 0 }}>
                   {vision}
                 </p>
               </div>
               
               {/* Mission Card */}
-              <div style={{ background: 'var(--primary)', padding: '40px 30px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderTop: '4px solid var(--accent)', textAlign: 'center' }} data-aos="zoom-in" data-aos-delay="200">
-                <h4 style={{ color: 'var(--accent)', marginBottom: '20px', fontSize: '1.8rem' }}>
+              <div style={{ background: 'var(--primary)', padding: '40px 30px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderTop: '4px solid #061D38', textAlign: 'center' }} data-aos="zoom-in" data-aos-delay="200">
+                <h4 style={{ color: '#061D38', marginBottom: '20px', fontSize: '1.8rem', fontWeight: '800' }}>
                   Our Mission
                 </h4>
-                <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--white)', opacity: 0.9, margin: 0 }}>
+                <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#061D38', fontWeight: '500', margin: 0 }}>
                   {mission}
                 </p>
               </div>
@@ -323,17 +323,15 @@ const About = () => {
         </div>
       </section>
 
-      {/* 4. In-House Laboratory (Luxury Dark Clinical Showcase) */}
+      {/* 4. In-House Laboratory (Medical Cyan Showcase) */}
       <section 
         className="section" 
         style={{ 
-          background: 'radial-gradient(circle at 85% 20%, rgba(224, 169, 109, 0.14) 0%, transparent 45%), linear-gradient(135deg, #06182B 0%, #0A2540 50%, #081D33 100%)',
+          background: 'linear-gradient(135deg, #00B4D8 0%, #0096C7 100%)',
           color: 'var(--white)', 
           overflow: 'hidden',
           padding: '95px 0',
-          position: 'relative',
-          borderTop: '1px solid rgba(224, 169, 109, 0.25)',
-          borderBottom: '1px solid rgba(224, 169, 109, 0.25)'
+          position: 'relative'
         }}
       >
         <div className="container">
@@ -345,9 +343,9 @@ const About = () => {
                 position: 'relative',
                 borderRadius: '24px',
                 overflow: 'hidden',
-                boxShadow: '0 25px 60px rgba(0,0,0,0.45)',
-                border: '2px solid rgba(224, 169, 109, 0.5)',
-                backgroundColor: '#0c2239'
+                boxShadow: '0 25px 60px rgba(0,0,0,0.25)',
+                border: '2px solid rgba(255, 255, 255, 0.5)',
+                backgroundColor: '#061D38'
               }}>
                 <img 
                   src="/lab.png" 
@@ -360,20 +358,19 @@ const About = () => {
                   position: 'absolute',
                   top: '18px',
                   left: '18px',
-                  backgroundColor: 'rgba(10, 43, 78, 0.88)',
-                  backdropFilter: 'blur(8px)',
-                  color: 'var(--accent)',
+                  backgroundColor: '#061D38',
+                  color: '#38BDF8',
                   fontWeight: '800',
-                  padding: '6px 16px',
+                  padding: '7px 18px',
                   borderRadius: '20px',
                   fontSize: '0.82rem',
-                  border: '1px solid rgba(224, 169, 109, 0.4)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.25)'
                 }}>
-                  <FlaskConical size={16} /> In-House Automated Lab
+                  <FlaskConical size={16} color="#38BDF8" /> In-House Automated Lab
                 </div>
 
                 {/* Floating Bottom Card: Fast Reports */}
@@ -382,34 +379,33 @@ const About = () => {
                   bottom: '18px',
                   left: '18px',
                   right: '18px',
-                  backgroundColor: 'rgba(6, 24, 43, 0.94)',
-                  backdropFilter: 'blur(10px)',
+                  backgroundColor: '#061D38',
                   padding: '14px 18px',
                   borderRadius: '16px',
-                  border: '1px solid rgba(224, 169, 109, 0.4)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.35)'
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
                 }}>
                   <div style={{
                     width: '42px',
                     height: '42px',
                     borderRadius: '50%',
-                    backgroundColor: 'var(--accent)',
-                    color: '#0A2540',
+                    backgroundColor: '#00B4D8',
+                    color: '#061D38',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0
                   }}>
-                    <Zap size={20} fill="#0A2540" color="#0A2540" />
+                    <Zap size={20} fill="#061D38" color="#061D38" />
                   </div>
                   <div>
-                    <div style={{ color: 'var(--accent)', fontSize: '0.92rem', fontWeight: '800' }}>
+                    <div style={{ color: '#38BDF8', fontSize: '0.92rem', fontWeight: '800' }}>
                       Prompt Computerized Test Results
                     </div>
-                    <div style={{ color: 'rgba(255,255,255,0.82)', fontSize: '0.8rem', marginTop: '1px' }}>
+                    <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.8rem', marginTop: '1px' }}>
                       Rapid diagnostics to commence targeted treatment immediately
                     </div>
                   </div>
@@ -422,7 +418,7 @@ const About = () => {
               
               <h2 style={{
                 fontSize: 'clamp(2.2rem, 3.8vw, 2.9rem)',
-                color: 'var(--white)',
+                color: '#FFFFFF',
                 marginTop: 0,
                 marginBottom: '8px',
                 fontWeight: '800',
@@ -431,15 +427,15 @@ const About = () => {
                 {labHeading}
               </h2>
 
-              <div style={{ color: 'var(--accent)', fontSize: '1rem', fontWeight: '600', marginBottom: '16px' }}>
+              <div style={{ color: '#061D38', fontSize: '1.08rem', fontWeight: '800', marginBottom: '16px' }}>
                 Automated Pathology, Biochemistry & 12-Lead Digital ECG
               </div>
 
-              <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '1.02rem', lineHeight: '1.7', marginBottom: '14px' }}>
+              <p style={{ color: '#FFFFFF', fontSize: '1.02rem', lineHeight: '1.7', marginBottom: '14px', fontWeight: '500', textShadow: '0 1px 2px rgba(0, 30, 60, 0.2)' }}>
                 {labDescription}
               </p>
 
-              <p style={{ color: 'rgba(255,255,255,0.76)', fontSize: '0.94rem', lineHeight: '1.65', marginBottom: '25px' }}>
+              <p style={{ color: 'rgba(255,255,255,0.92)', fontSize: '0.95rem', lineHeight: '1.65', marginBottom: '25px', textShadow: '0 1px 2px rgba(0, 30, 60, 0.2)' }}>
                 Whether it's a routine preventive health check-up or an urgent surgical casualty evaluation in the middle of the night, our certified laboratory technicians and modern analyzers ensure zero delay and complete clinical reliability.
               </p>
 
@@ -472,13 +468,14 @@ const About = () => {
                     <div
                       key={idx}
                       style={{
-                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                        border: '1px solid rgba(224, 169, 109, 0.28)',
+                        backgroundColor: '#061D38',
+                        border: '1px solid rgba(255, 255, 255, 0.18)',
                         borderRadius: '14px',
                         padding: '14px 16px',
                         display: 'flex',
                         gap: '12px',
                         alignItems: 'flex-start',
+                        boxShadow: '0 6px 18px rgba(0,0,0,0.18)',
                         transition: 'transform 0.25s ease, border-color 0.25s ease'
                       }}
                     >
@@ -486,21 +483,20 @@ const About = () => {
                         width: '36px',
                         height: '36px',
                         borderRadius: '10px',
-                        backgroundColor: 'rgba(224, 169, 109, 0.15)',
-                        border: '1px solid rgba(224, 169, 109, 0.4)',
+                        backgroundColor: '#00B4D8',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: 'var(--accent)',
+                        color: '#061D38',
                         flexShrink: 0
                       }}>
-                        <ItemIcon size={18} />
+                        <ItemIcon size={18} color="#061D38" />
                       </div>
                       <div>
-                        <div style={{ color: 'var(--white)', fontWeight: '700', fontSize: '0.92rem' }}>
+                        <div style={{ color: '#FFFFFF', fontWeight: '800', fontSize: '0.94rem' }}>
                           {item.title}
                         </div>
-                        <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.8rem', marginTop: '2px', lineHeight: '1.4' }}>
+                        <div style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.82rem', marginTop: '2px', lineHeight: '1.4' }}>
                           {item.desc}
                         </div>
                       </div>
@@ -514,17 +510,17 @@ const About = () => {
                 <a
                   href="/appointment"
                   style={{
-                    backgroundColor: 'var(--accent)',
-                    color: '#0A2540',
+                    backgroundColor: '#061D38',
+                    color: '#FFFFFF',
                     fontWeight: '800',
                     fontSize: '0.96rem',
-                    padding: '12px 28px',
+                    padding: '13px 30px',
                     borderRadius: '30px',
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    boxShadow: '0 4px 16px rgba(224, 169, 109, 0.35)',
+                    boxShadow: '0 6px 20px rgba(0, 0, 0, 0.25)',
                     transition: 'all 0.25s ease'
                   }}
                   onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
@@ -549,16 +545,16 @@ const About = () => {
           </p>
           <div className="services-grid">
             <div className="service-card" data-aos="zoom-in" data-aos-delay="100" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.8rem' }}>Compassion</h3>
-              <p className="mt-2" style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.9)' }}>Treating every patient with immense dignity, respect, and unconditional kindness, understanding their pain and emotional needs.</p>
+              <h3 style={{ color: '#061D38', fontSize: '1.8rem', fontWeight: '800' }}>Compassion</h3>
+              <p className="mt-2" style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.95)' }}>Treating every patient with immense dignity, respect, and unconditional kindness, understanding their pain and emotional needs.</p>
             </div>
             <div className="service-card" data-aos="zoom-in" data-aos-delay="200" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.8rem' }}>Excellence</h3>
-              <p className="mt-2" style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.9)' }}>Maintaining the highest possible standards in clinical outcomes, patient safety, and medical technology integration.</p>
+              <h3 style={{ color: '#061D38', fontSize: '1.8rem', fontWeight: '800' }}>Excellence</h3>
+              <p className="mt-2" style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.95)' }}>Maintaining the highest possible standards in clinical outcomes, patient safety, and medical technology integration.</p>
             </div>
             <div className="service-card" data-aos="zoom-in" data-aos-delay="300" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
-              <h3 style={{ color: 'var(--accent)', fontSize: '1.8rem' }}>Integrity</h3>
-              <p className="mt-2" style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.9)' }}>Ensuring absolute transparency in all our medical, ethical, and billing practices without any hidden agendas.</p>
+              <h3 style={{ color: '#061D38', fontSize: '1.8rem', fontWeight: '800' }}>Integrity</h3>
+              <p className="mt-2" style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.95)' }}>Ensuring absolute transparency in all our medical, ethical, and billing practices without any hidden agendas.</p>
             </div>
           </div>
         </div>
@@ -572,17 +568,17 @@ const About = () => {
             We don't just treat symptoms; we treat the person. At JB Healthcare, every protocol, every ward, and every consultation is designed with patient safety, comfort, and quick recovery at its core.
           </p>
           <div className="services-grid">
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="100" style={{ borderLeft: '4px solid var(--accent)', textAlign: 'left', backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
-              <h3 style={{ color: 'var(--accent)' }}>Patient-First Approach</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)' }}>We prioritize your comfort, encourage clear communication, and design completely personalized treatment plans for every individual.</p>
+            <div className="service-card" data-aos="zoom-in" data-aos-delay="100" style={{ borderLeft: '4px solid #061D38', textAlign: 'left', backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
+              <h3 style={{ color: '#061D38', fontWeight: '800' }}>Patient-First Approach</h3>
+              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.95)' }}>We prioritize your comfort, encourage clear communication, and design completely personalized treatment plans for every individual.</p>
             </div>
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="200" style={{ borderLeft: '4px solid var(--accent)', textAlign: 'left', backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
-              <h3 style={{ color: 'var(--accent)' }}>Experienced Specialists</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)' }}>Our board-certified doctors and surgeons bring decades of rich experience across multiple advanced medical disciplines.</p>
+            <div className="service-card" data-aos="zoom-in" data-aos-delay="200" style={{ borderLeft: '4px solid #061D38', textAlign: 'left', backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
+              <h3 style={{ color: '#061D38', fontWeight: '800' }}>Experienced Specialists</h3>
+              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.95)' }}>Our board-certified doctors and surgeons bring decades of rich experience across multiple advanced medical disciplines.</p>
             </div>
-            <div className="service-card" data-aos="zoom-in" data-aos-delay="300" style={{ borderLeft: '4px solid var(--accent)', textAlign: 'left', backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
-              <h3 style={{ color: 'var(--accent)' }}>Hygienic Environment</h3>
-              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.9)' }}>We adhere to the strictest international protocols for sanitation, waste management, and overall infection control.</p>
+            <div className="service-card" data-aos="zoom-in" data-aos-delay="300" style={{ borderLeft: '4px solid #061D38', textAlign: 'left', backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
+              <h3 style={{ color: '#061D38', fontWeight: '800' }}>Hygienic Environment</h3>
+              <p className="mt-2" style={{ color: 'rgba(255,255,255,0.95)' }}>We adhere to the strictest international protocols for sanitation, waste management, and overall infection control.</p>
             </div>
           </div>
         </div>
