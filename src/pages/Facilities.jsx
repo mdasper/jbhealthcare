@@ -15,7 +15,7 @@ const facilitiesData = [
     id: 2,
     title: "Rapid Blood Diagnostics & ECG",
     subtitle: "Automated In-House Laboratory",
-    description: "Fast-track computerized laboratory delivering quick blood test results, biochemistry, and 12-lead digital ECG to initiate accurate medical treatment without delay.",
+    description: "Fast-track computerized laboratory delivering quick blood test results, biochemistry, and 3-lead digital ECG to initiate accurate medical treatment without delay.",
     icon: <Microscope size={40} color="var(--accent)" />,
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
   },

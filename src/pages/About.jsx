@@ -32,8 +32,8 @@ const About = () => {
   }, []);
 
   // Use fallback text if data is still loading
-  const mainHeading = aboutData?.mainHeading || "About JB Healthcare";
-  const historyText = aboutData?.historyText || "Established with a bold vision to make premium, international-standard healthcare accessible to everyone, JB Healthcare has grown into a trusted name in Sivakasi, Tamil Nadu. Over the years, we have built a reputation based on trust, clinical excellence, and deep-rooted empathy.";
+  const rawHistoryText = aboutData?.historyText || "Established with a bold vision to make premium, international-standard healthcare accessible to everyone, JB Healthcare has grown into a trusted name in Sivakasi, Tamil Nadu. Over the years, we have built a reputation based on trust, clinical excellence, and deep-rooted empathy.";
+  const historyText = rawHistoryText.replace(/Anaiyur/gi, 'Sivakasi');
   const vision = aboutData?.vision || "To be the most trusted and respected healthcare partner in the region, recognized globally for our clinical excellence, compassionate care, and unwavering commitment to community wellness and health education.";
   const mission = aboutData?.mission || "We strive to deliver comprehensive, high-quality, and affordable healthcare services under one roof. Our mission is to continuously upgrade our medical technology, empower our staff through regular training, and provide a healing environment that consistently exceeds patient expectations.";
   const labHeading = aboutData?.labHeading || "In-House Diagnostic Center";
@@ -428,7 +428,7 @@ const About = () => {
               </h2>
 
               <div style={{ color: '#061D38', fontSize: '1.08rem', fontWeight: '800', marginBottom: '16px' }}>
-                Automated Pathology, Biochemistry & 12-Lead Digital ECG
+                Automated Pathology, Biochemistry & 3-Lead Digital ECG
               </div>
 
               <p style={{ color: '#FFFFFF', fontSize: '1.02rem', lineHeight: '1.7', marginBottom: '14px', fontWeight: '500', textShadow: '0 1px 2px rgba(0, 30, 60, 0.2)' }}>
@@ -460,7 +460,7 @@ const About = () => {
                   {
                     icon: Activity,
                     title: 'Digital ECG & Biochemistry',
-                    desc: 'Instant 12-lead cardiac ECG, blood sugar, LFT, RFT & lipid panels'
+                    desc: 'Instant 3-lead cardiac ECG, blood sugar, LFT, RFT & lipid panels'
                   }
                 ].map((item, idx) => {
                   const ItemIcon = item.icon;

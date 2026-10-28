@@ -175,9 +175,9 @@ const realDepartments = [
     tamilTitle: 'பொது மருத்துவம் & நீரிழிவு சிறப்பு சிகிச்சை',
     category: 'Clinical & Emergency',
     icon: 'Stethoscope',
-    doctor: 'Dr. Sivram & Dr. P. Karthikeyan',
-    doctorRole: 'Consultant Physicians',
-    degree: 'MBBS, DNB / MBBS, MD',
+    doctor: 'Dr. Sivram',
+    doctorRole: 'Consultant Physician',
+    degree: 'MBBS, DNB (General Medicine)',
     badge: 'Holistic Adult Wellness & Chronic Care',
     description: 'Evidence-based internal medicine diagnosing and managing infectious illnesses, dengue, fever spikes, uncontrolled diabetes mellitus, hypertension, cholesterol, and respiratory diseases.',
     keyProcedures: [
@@ -193,9 +193,9 @@ const realDepartments = [
     tamilTitle: 'மயக்கவியல் & தீவிர அவசர சிகிச்சை பிரிவு',
     category: 'Clinical & Emergency',
     icon: 'Syringe',
-    doctor: 'Dr. S. Sri Kishore Ganesh & Dr. M. Jeganatha Prabhu',
+    doctor: 'Dr. P. Karthikeyan, Dr. S. Sri Kishore Ganesh & Dr. M. Jeganatha Prabhu',
     doctorRole: 'Consultant Anaesthesiologists',
-    degree: 'M.D. / D.A.',
+    degree: 'MBBS, MD / M.D. / D.A.',
     badge: 'Painless Labor & Safe Surgical Anaesthesia',
     description: 'Round-the-clock perioperative vigilance ensuring total pain-free surgical procedures, state-of-the-art epidural labour analgesia, and intensive post-operative critical care monitoring.',
     keyProcedures: [
@@ -233,9 +233,9 @@ const realDepartments = [
     doctorRole: 'Diagnostic Laboratory Division',
     degree: 'Automated Pathology & ECG',
     badge: 'Fast, Accurate Computerized Reports',
-    description: 'In-house automated lab analyzing blood, biochemistry, and computerized 12-lead digital ECGs swiftly to provide our doctors and visiting specialists with prompt diagnostic clarity.',
+    description: 'In-house automated lab analyzing blood, biochemistry, and computerized 3-lead digital ECGs swiftly to provide our doctors and visiting specialists with prompt diagnostic clarity.',
     keyProcedures: [
-      'Computerized 12-Lead Digital ECG Testing',
+      'Computerized 3-Lead Digital ECG Testing',
       'Complete Blood Counts (CBC), ESR & Coagulation',
       'Liver & Kidney Function Profiles (LFT, RFT)',
       'Blood Sugar, HbA1c, Urine & Lipid Panels'
@@ -561,7 +561,7 @@ const Services = () => {
                       'Liver Function Test (LFT)',
                       'Kidney Function Test (RFT)',
                       'Lipid Profile (Cholesterol)',
-                      'Digital 12-Lead ECG',
+                      'Digital 3-Lead ECG',
                       'Urine Routine Analysis',
                       'Thyroid Profile (T3, T4, TSH)',
                       'Physician Consultation'

@@ -38,8 +38,8 @@ const bodyHotspots = [
     ],
     department: 'General Medicine & Diabetology',
     deptTa: 'பொது மருத்துவம் & நரம்பியல் பரிசோதனை',
-    doctor: 'Dr. Sivaram & Dr. P. Karthikeyan',
-    degrees: 'MBBS, DNB / MBBS, MD',
+    doctor: 'Dr. Sivaram',
+    degrees: 'MBBS, DNB (Internal Medicine)',
     techHighlight: 'Comprehensive neuro-vascular workup, in-house emergency stabilization, and rapid clinical triage.',
     severityNote: 'Sudden severe headache with speech difficulty requires immediate 24/7 Casualty triage.',
     badge: 'Same-Day Diagnostics Available'
@@ -86,9 +86,9 @@ const bodyHotspots = [
     deptTa: 'டிஜிட்டல் ECG & இதய பரிசோதனை மையம்',
     doctor: 'Dr. Sivaram & Critical Care Team',
     degrees: 'MBBS, DNB (Internal Medicine)',
-    techHighlight: 'Computerized 12-lead digital ECG testing, cardiac biomarker profiling (Troponin/CPK), and 24/7 oxygenation therapy.',
+    techHighlight: 'Computerized 3-lead digital ECG testing, cardiac biomarker profiling (Troponin/CPK), and 24/7 oxygenation therapy.',
     severityNote: 'Chest pain radiating to the jaw, back or left arm is an emergency. Contact our 24/7 Casualty immediately.',
-    badge: 'Instant 12-Lead Digital ECG'
+    badge: 'Instant 3-Lead Digital ECG'
   },
   {
     id: 'upper_abdomen',

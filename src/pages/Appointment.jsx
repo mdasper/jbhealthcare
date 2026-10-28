@@ -278,7 +278,7 @@ const Appointment = () => {
                     <option value="Dr. Deepan Ramkumar (M.S. Ortho - Orthopaedic Surgeon)">எலும்பு முறிவு அறுவை சிகிச்சை நிபுணர்</option>
                     <option value="Dr. Sivaram (MBBS, DNB - Consultant Physician)">பொது மற்றும் நீரிழிவு மருத்துவர்</option>
                     <option value="Dr. Sangeetha (MBBS, DGO - Gynaecologist)">மகளிர் மற்றும் மகப்பேறு சிறப்பு நிபுணர்</option>
-                    <option value="Dr. P. Karthikeyan (MBBS, MD - Consultant Physician)">பொது மற்றும் உள்மருத்துவ நிபுணர் (MD)</option>
+                    <option value="Dr. P. Karthikeyan (MBBS, MD - Consultant Anaesthesiologist)">மயக்கவியல் மற்றும் தீவிர சிகிச்சை நிபுணர்</option>
                     <option value="Dr. S. Sri Kishore Ganesh (M.D. - Anaesthesiologist)">மயக்கவியல் நிபுணர்</option>
                     <option value="Dr. M. Jeganatha Prabhu (D.A. - Anaesthesiologist)">மயக்கவியல் நிபுணர்</option>
                   </datalist>

@@ -44,7 +44,7 @@ const Home = () => {
 
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -200,11 +200,10 @@ const Home = () => {
                 </div>
                 <h3 style={{ color: '#FFFFFF', fontSize: '1.6rem', marginBottom: '10px', textAlign: 'left', fontWeight: '800' }}>24/7 Emergency & OT</h3>
                 <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '0.94rem', lineHeight: '1.6', textAlign: 'left', marginBottom: '18px', fontWeight: '400' }}>
-                  Round-the-clock emergency casualty, rapid trauma response, advanced sterile modular operation theatres, and highly skilled on-call surgical teams ready 24 hours a day.
+                  Round-the-clock emergency casualty, rapid trauma response, and highly skilled on-call surgical teams ready 24 hours a day.
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
                   <span className="dept-pill">24/7 அவசர சிகிச்சை (Casualty Care)</span>
-                  <span className="dept-pill">நவீன அறுவை அரங்கு (Modular OT)</span>
                   <span className="dept-pill">அவசர முதலுதவி (Immediate Trauma Care)</span>
                   <span className="dept-pill">விரைவு அறுவை ஆதரவு (24/7 Surgical Team)</span>
                 </div>
@@ -243,7 +242,7 @@ const Home = () => {
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
                   <span className="dept-pill">24 மணி நேர ஆய்வகம் (Automated Lab)</span>
-                  <span className="dept-pill">டிஜிட்டல் ECG (12-Lead Digital ECG)</span>
+                  <span className="dept-pill">டிஜிட்டல் ECG (3-Lead Digital ECG)</span>
                   <span className="dept-pill">ரத்த பரிசோதனைகள் (Biochemistry)</span>
                   <span className="dept-pill">விரைவு முடிவுகள் (Same-Day Reports)</span>
                 </div>

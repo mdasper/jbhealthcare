@@ -49,8 +49,8 @@ const laparoscopicSurgeries = [
     englishTitle: "Laparoscopic Sterilization",
     tamilTitle: "குடும்பக் கட்டுப்பாடு",
     subtitle: "Keyhole Family Planning Procedure",
-    description: "Safe, rapid, and painless permanent family planning procedure performed through a minute keyhole incision.",
-    features: ["Scarless Procedure", "Same-day Discharge", "High Safety Standard"]
+    description: "Government-approved, safe, rapid, and painless permanent family planning procedure performed through a minute keyhole incision.",
+    features: ["Govt. Recognized Center (அரசு அங்கீகாரம் பெற்றது)", "Scarless Procedure", "Same-day Discharge", "High Safety Standard"]
   }
 ];
 
@@ -201,8 +201,8 @@ const Surgeries = () => {
                 title: 'Cancer Surgery',
                 subtitle: 'புற்றுநோய் அறுவை சிகிச்சை',
                 img: '/ot_photos/1I8A0850.JPG',
-                desc: 'Dedicated surgical oncology services with visiting M.Ch. oncological surgeons for tumor resection, staging, breast cancer, GI cancer, and head & neck oncology.',
-                tags: ['Tumor Resection', 'Oncology Specialists', 'Breast Cancer', 'GI Oncology']
+                desc: 'Dedicated surgical oncology services with visiting M.Ch. oncological surgeons for tumor resection, staging, breast cancer, GI cancer, and comprehensive chemotherapy care.',
+                tags: ['Tumor Resection', 'Oncology Specialists', 'Chemotherapy Care', 'Breast Cancer', 'GI Oncology']
               }
             ].map((svc, i) => (
               <div

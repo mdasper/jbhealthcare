@@ -197,16 +197,16 @@ const visitingSpecialists = [
     _id: 'v-12',
     name: 'Dr. P. Karthikeyan',
     degree: 'MBBS, MD',
-    categoryHeader: 'GENERAL & INTERNAL MEDICINE',
-    department: 'General & Internal Medicine',
-    category: 'General Medicine',
+    categoryHeader: 'ANAESTHESIOLOGY & CRITICAL CARE',
+    department: 'Anaesthesiology & Critical Care',
+    category: 'Anaesthesiology',
     schedule: 'Mon – Sat',
     timing: '5:00 PM – 8:00 PM',
     focusAreas: [
-      'Internal medicine',
-      'Lifestyle disease care',
-      'Cardiovascular health',
-      'Geriatric long-term care'
+      'Surgical anaesthesia & sedation',
+      'Post-operative pain management',
+      'Critical care monitoring',
+      'Emergency resuscitation'
     ]
   }
 ];
