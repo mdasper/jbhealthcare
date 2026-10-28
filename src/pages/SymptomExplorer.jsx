@@ -162,24 +162,24 @@ const bodyHotspots = [
   {
     id: 'female_pelvis',
     view: 'front',
-    labelEn: 'Women’s Health & Maternity',
-    labelTa: 'பெண்கள் நலம் & கர்ப்பகால சிகிச்சை',
-    category: 'Women & Child',
+    labelEn: 'Women’s Health & Gynaecology',
+    labelTa: 'பெண்கள் நலம் & மகளிர் நலம்',
+    category: 'Women Health',
     cx: 50,
     cy: 62.5,
     r: 4.5,
     symptoms: [
       'Irregular menstrual periods, severe cramps & PCOD (மாதவிடாய் பிரச்சனை)',
       'Lower abdominal heaviness, fibroids & ovarian cysts (கருப்பை நீர்க்கட்டி)',
-      'Antenatal pregnancy checkups, scans & high-risk monitoring (கர்ப்பகால பராமரிப்பு)',
-      'White discharge, pelvic infection & fertility evaluation'
+      'White discharge, pelvic infection & hormonal imbalance',
+      'Pelvic pain evaluation & laparoscopic consultation'
     ],
-    department: 'Obstetrics & Gynaecology',
-    deptTa: 'மகப்பேறு & மகளிர் நலம்',
+    department: 'Gynaecology & Women’s Health',
+    deptTa: 'மகளிர் நலம் & லேப்ராஸ்கோபிக் சிகிச்சை',
     doctor: 'Dr. Sangeetha & Surgical Team',
-    degrees: 'MBBS, DGO (Obstetrics & Gynaecology)',
-    techHighlight: 'Laparoscopic Hysterectomy (கருப்பை நீக்கம்), safe normal delivery suites, and emergency caesarean capabilities.',
-    severityNote: 'Severe pelvic pain during pregnancy or heavy abnormal bleeding requires immediate attention.',
+    degrees: 'MBBS, DGO (Gynaecology & Women Health)',
+    techHighlight: 'Advanced 4K Laparoscopic Hysterectomy (கருப்பை நீக்கம்), cystectomy, and minimally invasive procedures.',
+    severityNote: 'Severe acute pelvic pain or heavy abnormal bleeding requires prompt medical consultation.',
     badge: 'Gentle, Compassionate Women Care'
   },
   {

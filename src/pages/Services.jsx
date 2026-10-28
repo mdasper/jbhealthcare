@@ -153,20 +153,20 @@ const realDepartments = [
   },
   {
     _id: 'dept-8',
-    title: 'Obstetrics & Gynaecology',
-    tamilTitle: 'மகப்பேறு & மகளிர் நல அறுவை சிகிச்சை',
-    category: 'Women & Child',
-    icon: 'Baby',
+    title: 'Gynaecology & Women’s Health',
+    tamilTitle: 'மகளிர் நல மருத்துவம் & லேப்ராஸ்கோபிக் சிகிச்சை',
+    category: 'Women Health',
+    icon: 'Activity',
     doctor: 'Dr. Sangeetha & Surgical Team',
-    doctorRole: 'Consultant Obstetrician & Gynaecologist',
+    doctorRole: 'Consultant Gynaecologist & Surgeon',
     degree: 'MBBS, DGO',
-    badge: '3,000+ Successful Deliveries & C-Sections',
-    description: 'Complete, gentle healthcare for women through every chapter of life. From pre-conceptional counseling, high-risk maternity care, painless normal delivery, to laparoscopic gynaecological surgeries.',
+    badge: 'Advanced Laparoscopic Gynec Care',
+    description: 'Comprehensive, gentle healthcare for women. Specializing in minimally invasive laparoscopic gynecological surgeries, fibroid & ovarian cyst management, and complete pelvic wellness.',
     keyProcedures: [
-      'Safe Normal Deliveries & Planned C-Sections',
-      'High-Risk Pregnancy & Fetal Heart Monitoring',
+      'Laparoscopic Hysterectomy & Cystectomy',
       'Fibroid Uterus & Ovarian Cyst Management',
-      'PCOS, Irregular Cycles & Infertility Workup'
+      'PCOS, Irregular Cycles & Hormonal Wellness',
+      'Pelvic Health & Preventive Screenings'
     ]
   },
   {

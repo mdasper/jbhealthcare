@@ -129,7 +129,7 @@ const initialEvents = [
     time: '10:30 AM – 01:30 PM',
     location: 'Sivakasi Town Hall',
     badge: '350+ Attendees',
-    description: 'Awareness seminar on keyhole gynecological surgery, painless maternity care, and preventive health for modern working women.',
+    description: 'Awareness seminar on keyhole gynecological surgery, preventive wellness, and healthcare for modern working women.',
     highlights: ['Specialist Q&A Panel', 'Health Guide Distribution'],
     thumbnailUrl: '/events/event_womens_seminar.jpg',
     isUpcoming: false

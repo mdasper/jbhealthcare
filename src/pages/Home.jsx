@@ -11,9 +11,9 @@ const slides = [
     subtitle: 'At JB Healthcare, we bring world-class medical excellence right to Anaiyur. From routine check-ups to complex procedures, we are dedicated to providing compassionate, holistic care that focuses on healing your body and mind in a warm, welcoming environment.'
   },
   {
-    image: '/hero_surgery.jpg',
+    image: '/hero_laparoscopic.jpg',
     title: 'Premier Centre for Advanced Laparoscopic Surgery',
-    subtitle: 'Led by Dr. B. Saileshkumar (MBBS, MS, FIAGES, FALS), our surgical team delivers world-class minimally invasive procedures — shorter hospital stays, faster recovery, and outstanding outcomes for every patient.'
+    subtitle: 'Led by Dr. B. Saileshkumar (MBBS, MS, FIAGES, FALS), our surgical team delivers world-class minimally invasive keyhole procedures — minimal pain, zero ugly scars, and rapid same-day recovery.'
   },
   {
     image: '/hero_emergency.jpg',
@@ -44,16 +44,28 @@ const Home = () => {
 
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
-  // Use Sanity data if available, otherwise fallback to default slides
-  const displaySlides = homeData?.heroSliders?.length > 0 ? homeData.heroSliders.map((slide, index) => ({
-    title: slide.title,
-    subtitle: slide.subtitle,
-    image: slide.image ? urlFor(slide.image).url() : slides[index % slides.length].image
-  })) : slides;
+  // Use Sanity data if available, ensuring any maternity mention is replaced with Advanced Laparoscopic Surgery
+  const rawSlides = homeData?.heroSliders?.length > 0 ? homeData.heroSliders : slides;
+  const displaySlides = rawSlides.map((slide, index) => {
+    const isMaternity = /maternity|birthing|neonatal|delivery/i.test(`${slide.title} ${slide.subtitle}`);
+    if (isMaternity) {
+      return {
+        title: 'Premier Centre for Advanced Laparoscopic Surgery',
+        subtitle: 'Led by Dr. B. Saileshkumar (MBBS, MS, FIAGES, FALS), our surgical team delivers world-class minimally invasive keyhole procedures — minimal pain, zero ugly scars, and rapid same-day recovery.',
+        image: '/hero_laparoscopic.jpg'
+      };
+    }
+    const isSurgery = /surgery|laparoscop/i.test(`${slide.title} ${slide.subtitle}`);
+    return {
+      title: slide.title,
+      subtitle: slide.subtitle,
+      image: isSurgery ? '/hero_laparoscopic.jpg' : (slide.image ? (typeof slide.image === 'string' ? slide.image : urlFor(slide.image).url()) : slides[index % slides.length].image)
+    };
+  });
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % displaySlides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? displaySlides.length - 1 : prev - 1));
@@ -72,12 +84,21 @@ const Home = () => {
               backgroundPosition: 'center'
             }}
           >
-            <div className="container" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <div className="container" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px' }}>
+              {slide.title.includes('Laparoscopic') && (
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 20px', borderRadius: '30px', backgroundColor: 'rgba(0, 180, 216, 0.25)', border: '1px solid rgba(0, 180, 216, 0.6)', color: '#38BDF8', fontSize: '0.92rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px', backdropFilter: 'blur(8px)', boxShadow: '0 4px 15px rgba(0, 180, 216, 0.3)' }}>
+                  🔬 Minimal Incision • Fast Recovery • அதிநவீன லேப்ராஸ்கோபிக்
+                </span>
+              )}
               <h1 className="slide-title">{slide.title}</h1>
               <p className="slide-subtitle" style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', fontSize: '1.25rem' }}>{slide.subtitle}</p>
-              <div style={{ display: 'flex', gap: '20px', marginTop: '60px' }}>
+              <div style={{ display: 'flex', gap: '16px', marginTop: '35px', flexWrap: 'wrap', justifyContent: 'center' }}>
                 <Link to="/appointment" className="btn btn-magnetic" style={{ backgroundColor: '#00B4D8', color: '#FFFFFF', fontWeight: '700', padding: '14px 34px', borderRadius: '30px', boxShadow: '0 6px 20px rgba(0, 180, 216, 0.4)' }}>Book an Appointment</Link>
-                <Link to="/departments" className="btn btn-outline btn-magnetic" style={{ padding: '14px 34px', borderRadius: '30px', fontWeight: '700' }}>Our Departments</Link>
+                {slide.title.includes('Laparoscopic') ? (
+                  <Link to="/surgeries" className="btn btn-outline btn-magnetic" style={{ padding: '14px 34px', borderRadius: '30px', fontWeight: '700' }}>Explore Surgeries →</Link>
+                ) : (
+                  <Link to="/departments" className="btn btn-outline btn-magnetic" style={{ padding: '14px 34px', borderRadius: '30px', fontWeight: '700' }}>Our Departments</Link>
+                )}
               </div>
             </div>
           </div>
@@ -278,7 +299,7 @@ const Home = () => {
                 </div>
                 <h3 style={{ color: '#FFFFFF', fontSize: '1.6rem', marginBottom: '10px', textAlign: 'left', fontWeight: '800' }}>Visiting Specialists</h3>
                 <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '0.94rem', lineHeight: '1.6', textAlign: 'left', marginBottom: '18px', fontWeight: '400' }}>
-                  Regular consultations and specialized surgeries by 12 renowned super-specialists across Cancer, Gastro, Plastic, Urology, Ortho & Maternity.
+                  Regular consultations and specialized surgeries by 12 renowned super-specialists across Cancer, Gastro, Plastic, Urology, Ortho & Paediatrics.
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
                   <span className="dept-pill">12 சிறப்பு மருத்துவர்கள் (Specialists)</span>
