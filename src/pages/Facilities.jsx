@@ -70,7 +70,7 @@ const Facilities = () => {
       {/* Facilities Grid */}
       <section className="section" style={{ backgroundColor: 'var(--secondary)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px' }}>
+          <div className="facilities-grid">
             
             {facilitiesData.map((facility, index) => (
               <div 
@@ -124,6 +124,17 @@ const Facilities = () => {
       </section>
 
       <style>{`
+        .facilities-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 40px;
+        }
+        @media (max-width: 600px) {
+          .facilities-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+        }
         .facility-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.12) !important; }
         .facility-card:hover .facility-img-hover { transform: scale(1.08) !important; }
       `}</style>

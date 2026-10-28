@@ -164,7 +164,7 @@ const About = () => {
                 />
 
                 {/* Floating Heart & Slogan Banner */}
-                <div style={{
+                <div className="about-floating-pill" style={{
                   position: 'absolute',
                   bottom: '18px',
                   left: '18px',
@@ -179,7 +179,7 @@ const About = () => {
                   gap: '14px',
                   boxShadow: '0 10px 25px rgba(0,0,0,0.3)'
                 }}>
-                  <div style={{
+                  <div className="about-pill-icon" style={{
                     width: '46px',
                     height: '46px',
                     borderRadius: '50%',
@@ -193,10 +193,10 @@ const About = () => {
                     <Heart size={24} fill="#061D38" color="#061D38" />
                   </div>
                   <div>
-                    <div style={{ color: '#00B4D8', fontWeight: '800', fontSize: '0.98rem', letterSpacing: '0.5px' }}>
+                    <div className="about-pill-title" style={{ color: '#00B4D8', fontWeight: '800', fontSize: '0.98rem', letterSpacing: '0.5px' }}>
                       Healing Hands, Caring Hearts
                     </div>
-                    <div style={{ color: 'rgba(255,255,255,0.88)', fontSize: '0.84rem', marginTop: '2px' }}>
+                    <div className="about-pill-desc" style={{ color: 'rgba(255,255,255,0.88)', fontSize: '0.84rem', marginTop: '2px' }}>
                       Every patient is treated with deep empathy like family
                     </div>
                   </div>
@@ -354,7 +354,7 @@ const About = () => {
                 />
 
                 {/* Top Badge: 24/7 Diagnostic Badge */}
-                <div style={{
+                <div className="about-lab-top-badge" style={{
                   position: 'absolute',
                   top: '18px',
                   left: '18px',
@@ -374,7 +374,7 @@ const About = () => {
                 </div>
 
                 {/* Floating Bottom Card: Fast Reports */}
-                <div style={{
+                <div className="about-floating-pill" style={{
                   position: 'absolute',
                   bottom: '18px',
                   left: '18px',
@@ -388,7 +388,7 @@ const About = () => {
                   gap: '12px',
                   boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
                 }}>
-                  <div style={{
+                  <div className="about-pill-icon" style={{
                     width: '42px',
                     height: '42px',
                     borderRadius: '50%',
@@ -402,10 +402,10 @@ const About = () => {
                     <Zap size={20} fill="#061D38" color="#061D38" />
                   </div>
                   <div>
-                    <div style={{ color: '#38BDF8', fontSize: '0.92rem', fontWeight: '800' }}>
+                    <div className="about-pill-title" style={{ color: '#38BDF8', fontSize: '0.92rem', fontWeight: '800' }}>
                       Prompt Computerized Test Results
                     </div>
-                    <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.8rem', marginTop: '1px' }}>
+                    <div className="about-pill-desc" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.8rem', marginTop: '1px' }}>
                       Rapid diagnostics to commence targeted treatment immediately
                     </div>
                   </div>
@@ -583,6 +583,48 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <style>{`
+        @media (max-width: 600px) {
+          .about-floating-pill {
+            bottom: 8px !important;
+            left: 8px !important;
+            right: 8px !important;
+            padding: 7px 10px !important;
+            border-radius: 12px !important;
+            gap: 8px !important;
+            background-color: rgba(6, 29, 56, 0.94) !important;
+          }
+          .about-pill-icon {
+            width: 30px !important;
+            height: 30px !important;
+          }
+          .about-pill-icon svg {
+            width: 15px !important;
+            height: 15px !important;
+          }
+          .about-pill-title {
+            font-size: 0.78rem !important;
+            line-height: 1.2 !important;
+          }
+          .about-pill-desc {
+            font-size: 0.68rem !important;
+            line-height: 1.2 !important;
+            margin-top: 1px !important;
+          }
+          .about-lab-top-badge {
+            top: 8px !important;
+            left: 8px !important;
+            padding: 4px 10px !important;
+            font-size: 0.7rem !important;
+            border-radius: 14px !important;
+          }
+          .about-lab-top-badge svg {
+            width: 12px !important;
+            height: 12px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

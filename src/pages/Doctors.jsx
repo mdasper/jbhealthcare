@@ -413,12 +413,8 @@ const Doctors = () => {
             </div>
 
             {/* Tier 3: White Content Body */}
-            <div style={{ backgroundColor: '#ffffff', color: '#1a202c', padding: '36px 36px 32px' }}>
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                gap: '36px'
-              }}>
+            <div className="chief-doctor-body" style={{ backgroundColor: '#ffffff', color: '#1a202c', padding: '36px 36px 32px' }}>
+              <div className="chief-doctor-info-grid">
                 {/* Left Column: Education and training */}
                 <div>
                   <div style={{
@@ -867,11 +863,7 @@ const Doctors = () => {
               </button>
             </div>
           ) : (
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-              gap: '30px' 
-            }}>
+            <div className="doctors-grid">
               {filteredDoctors.map((doc, idx) => (
                 <div 
                   key={doc._id} 
@@ -1017,6 +1009,26 @@ const Doctors = () => {
       </section>
 
       <style>{`
+        .chief-doctor-info-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 36px;
+        }
+        .doctors-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 30px;
+        }
+        @media (max-width: 600px) {
+          .chief-doctor-body {
+            padding: 20px 16px !important;
+          }
+          .chief-doctor-info-grid,
+          .doctors-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+        }
         .doctor-card-hover:hover {
           transform: translateY(-8px);
           box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;

@@ -290,35 +290,26 @@ const Events = () => {
     <div className="page-transition" style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', paddingTop: '80px' }}>
       
       {/* 1. Sleek Hero Header */}
-      <section style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '120px 0 80px' }}>
+      <section className="events-hero-section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
         <div className="container text-center" data-aos="fade-up">
-          <h1 style={{ color: '#FFFFFF', fontSize: '3.4rem', marginBottom: '14px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)', letterSpacing: '0.3px' }}>
+          <h1 className="events-hero-title" style={{ color: '#FFFFFF', marginBottom: '14px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)', letterSpacing: '0.3px' }}>
             Events & Medical Camps
           </h1>
-          <p style={{ fontSize: '1.15rem', maxWidth: '760px', margin: '0 auto', color: '#FFFFFF', fontWeight: '500', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.65' }}>
+          <p className="events-hero-sub" style={{ maxWidth: '760px', margin: '0 auto', color: '#FFFFFF', fontWeight: '500', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.65' }}>
             Explore our specialized health screening camps, upcoming hospital consultations, and community welfare programs in Sivakasi.
           </p>
         </div>
       </section>
 
       {/* 2. Premium 3-Segment Tab Bar (Mess-Free Segmented Controller) */}
-      <section style={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid #E2E8F0', padding: '16px 0', position: 'sticky', top: '75px', zIndex: 30, boxShadow: '0 4px 18px rgba(0,0,0,0.03)' }}>
+      <section className="events-tab-bar-section" style={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid #E2E8F0', padding: '16px 0', position: 'sticky', top: '75px', zIndex: 30, boxShadow: '0 4px 18px rgba(0,0,0,0.03)' }}>
         <div className="container">
-          <div style={{ 
-            maxWidth: '680px', 
-            margin: '0 auto', 
-            backgroundColor: '#F1F5F9', 
-            borderRadius: '40px', 
-            padding: '5px', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'space-between',
-            boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.04)'
-          }}>
+          <div className="events-tabs-container">
             
             {/* Tab 1: Upcoming Events */}
             <button
               onClick={() => setActiveTab('upcoming')}
+              className={`events-tab-btn ${activeTab === 'upcoming' ? 'active' : ''}`}
               style={{
                 flex: 1,
                 padding: '11px 16px',
@@ -339,7 +330,7 @@ const Events = () => {
             >
               <Sparkles size={15} color={activeTab === 'upcoming' ? '#38BDF8' : '#64748B'} />
               <span>Upcoming</span>
-              <span style={{
+              <span className="events-tab-badge" style={{
                 backgroundColor: activeTab === 'upcoming' ? 'rgba(255,255,255,0.25)' : '#E2E8F0',
                 color: activeTab === 'upcoming' ? '#FFFFFF' : '#475569',
                 fontSize: '0.72rem',
@@ -354,6 +345,7 @@ const Events = () => {
             {/* Tab 2: Medical Camps */}
             <button
               onClick={() => setActiveTab('camps')}
+              className={`events-tab-btn ${activeTab === 'camps' ? 'active' : ''}`}
               style={{
                 flex: 1,
                 padding: '11px 16px',
@@ -374,7 +366,7 @@ const Events = () => {
             >
               <Tent size={15} color={activeTab === 'camps' ? '#38BDF8' : '#64748B'} />
               <span>Medical Camps</span>
-              <span style={{
+              <span className="events-tab-badge" style={{
                 backgroundColor: activeTab === 'camps' ? 'rgba(255,255,255,0.25)' : '#E2E8F0',
                 color: activeTab === 'camps' ? '#FFFFFF' : '#475569',
                 fontSize: '0.72rem',
@@ -389,6 +381,7 @@ const Events = () => {
             {/* Tab 3: Completed Events */}
             <button
               onClick={() => setActiveTab('completed')}
+              className={`events-tab-btn ${activeTab === 'completed' ? 'active' : ''}`}
               style={{
                 flex: 1,
                 padding: '11px 16px',
@@ -409,7 +402,7 @@ const Events = () => {
             >
               <Award size={15} color={activeTab === 'completed' ? '#38BDF8' : '#64748B'} />
               <span>Completed</span>
-              <span style={{
+              <span className="events-tab-badge" style={{
                 backgroundColor: activeTab === 'completed' ? 'rgba(255,255,255,0.25)' : '#E2E8F0',
                 color: activeTab === 'completed' ? '#FFFFFF' : '#475569',
                 fontSize: '0.72rem',
@@ -426,23 +419,11 @@ const Events = () => {
       </section>
 
       {/* 3. Main Content Area */}
-      <section style={{ padding: '45px 0 90px' }}>
+      <section style={{ padding: '40px 0 80px' }}>
         <div className="container" style={{ maxWidth: '1180px' }}>
           
           {/* Active Category Header Banner */}
-          <div style={{
-            backgroundColor: '#FFFFFF',
-            borderRadius: '16px',
-            padding: '20px 28px',
-            marginBottom: '35px',
-            border: '1px solid #E2E8F0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '15px',
-            boxShadow: '0 4px 15px rgba(0,0,0,0.02)'
-          }} data-aos="fade-up">
+          <div className="events-banner" data-aos="fade-up">
             
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <div style={{
@@ -487,11 +468,7 @@ const Events = () => {
           </div>
 
           {/* Clean 2/3 Column Grid Cards (Ultra Neat, Modern, Premium) */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '28px'
-          }}>
+          <div className="events-grid">
             {currentDisplayList.map((eventItem, index) => {
               const dateObj = formatDate(eventItem.date);
               const isUpcoming = eventItem.category === 'upcoming';
@@ -851,6 +828,100 @@ const Events = () => {
           </div>
         </div>
       )}
+
+      {/* Mobile-Friendly Responsive Styles */}
+      <style>{`
+        .events-hero-section {
+          padding: 120px 0 70px;
+        }
+        .events-hero-title {
+          font-size: 3.2rem;
+        }
+        .events-hero-sub {
+          font-size: 1.15rem;
+        }
+        .events-tabs-container {
+          max-width: 680px;
+          margin: 0 auto;
+          background-color: #F1F5F9;
+          border-radius: 40px;
+          padding: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          box-shadow: inset 0 2px 4px rgba(0,0,0,0.04);
+          width: 100%;
+        }
+        .events-banner {
+          background-color: #FFFFFF;
+          border-radius: 16px;
+          padding: 20px 28px;
+          margin-bottom: 35px;
+          border: 1px solid #E2E8F0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 15px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .events-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 28px;
+          width: 100%;
+        }
+
+        @media (max-width: 768px) {
+          .events-hero-section {
+            padding: 95px 0 50px !important;
+          }
+          .events-hero-title {
+            font-size: 2.3rem !important;
+          }
+          .events-hero-sub {
+            font-size: 1rem !important;
+          }
+          .events-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+        }
+
+        @media (max-width: 580px) {
+          .events-tabs-container {
+            border-radius: 20px !important;
+            padding: 4px !important;
+            gap: 3px !important;
+          }
+          .events-tab-btn {
+            padding: 9px 6px !important;
+            font-size: 0.78rem !important;
+            gap: 4px !important;
+            border-radius: 16px !important;
+          }
+          .events-tab-btn svg {
+            display: none !important;
+          }
+          .events-tab-badge {
+            padding: 2px 5px !important;
+            font-size: 0.68rem !important;
+          }
+          .events-banner {
+            padding: 14px 16px !important;
+            margin-bottom: 20px !important;
+          }
+          .events-banner h2 {
+            font-size: 1.1rem !important;
+          }
+          .events-banner p {
+            font-size: 0.8rem !important;
+          }
+          .clean-event-card {
+            width: 100% !important;
+          }
+        }
+      `}</style>
 
     </div>
   );
