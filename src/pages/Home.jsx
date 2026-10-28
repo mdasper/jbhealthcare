@@ -69,11 +69,6 @@ const Home = () => {
             }}
           >
             <div className="container" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px' }}>
-              {slide.title.includes('Laparoscopic') && (
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 20px', borderRadius: '30px', backgroundColor: 'rgba(0, 180, 216, 0.25)', border: '1px solid rgba(0, 180, 216, 0.6)', color: '#38BDF8', fontSize: '0.92rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px', backdropFilter: 'blur(8px)', boxShadow: '0 4px 15px rgba(0, 180, 216, 0.3)' }}>
-                  🔬 Minimal Incision • Fast Recovery • அதிநவீன லேப்ராஸ்கோபிக்
-                </span>
-              )}
               <h1 className="slide-title">{slide.title}</h1>
               <p className="slide-subtitle" style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', fontSize: '1.25rem' }}>{slide.subtitle}</p>
               <div style={{ display: 'flex', gap: '16px', marginTop: '35px', flexWrap: 'wrap', justifyContent: 'center' }}>
