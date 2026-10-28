@@ -8,7 +8,7 @@ const slides = [
   {
     image: '/hero_welcome.jpg',
     title: 'Your Health, Our Greatest Priority',
-    subtitle: 'At JB Healthcare, we bring world-class medical excellence right to Anaiyur. From routine check-ups to complex procedures, we are dedicated to providing compassionate, holistic care that focuses on healing your body and mind in a warm, welcoming environment.'
+    subtitle: 'At JB Healthcare, we bring world-class medical excellence right to Sivakasi. From routine check-ups to complex procedures, we are dedicated to providing compassionate, holistic care that focuses on healing your body and mind in a warm, welcoming environment.'
   },
   {
     image: '/hero_laparoscopic.jpg',

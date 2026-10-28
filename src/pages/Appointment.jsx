@@ -128,7 +128,7 @@ const Appointment = () => {
                   </div>
                   <div>
                     <h4 style={{ color: '#061D38', fontSize: '1.1rem', marginBottom: '5px', fontWeight: '800' }}>Top Medical Experts</h4>
-                    <p style={{ color: '#061D38', opacity: 0.9, fontSize: '0.9rem', margin: 0, fontWeight: '500' }}>Consult with the most experienced doctors in Anaiyur.</p>
+                    <p style={{ color: '#061D38', opacity: 0.9, fontSize: '0.9rem', margin: 0, fontWeight: '500' }}>Consult with the most experienced doctors in Sivakasi.</p>
                   </div>
                 </div>
               </div>
