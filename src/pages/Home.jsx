@@ -48,24 +48,8 @@ const Home = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Use Sanity data if available, ensuring any maternity mention is replaced with Advanced Laparoscopic Surgery
-  const rawSlides = homeData?.heroSliders?.length > 0 ? homeData.heroSliders : slides;
-  const displaySlides = rawSlides.map((slide, index) => {
-    const isMaternity = /maternity|birthing|neonatal|delivery/i.test(`${slide.title} ${slide.subtitle}`);
-    if (isMaternity) {
-      return {
-        title: 'Premier Centre for Advanced Laparoscopic Surgery',
-        subtitle: 'Led by Dr. B. Saileshkumar (MBBS, MS, FIAGES, FALS), our surgical team delivers world-class minimally invasive keyhole procedures — minimal pain, zero ugly scars, and rapid same-day recovery.',
-        image: '/hero_laparoscopic.jpg'
-      };
-    }
-    const isSurgery = /surgery|laparoscop/i.test(`${slide.title} ${slide.subtitle}`);
-    return {
-      title: slide.title,
-      subtitle: slide.subtitle,
-      image: isSurgery ? '/hero_laparoscopic.jpg' : (slide.image ? (typeof slide.image === 'string' ? slide.image : urlFor(slide.image).url()) : slides[index % slides.length].image)
-    };
-  });
+  // Use verified local slides containing Advanced Laparoscopic Surgery and no maternity care
+  const displaySlides = slides;
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % displaySlides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? displaySlides.length - 1 : prev - 1));
