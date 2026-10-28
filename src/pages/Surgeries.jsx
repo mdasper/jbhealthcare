@@ -246,16 +246,16 @@ const Surgeries = () => {
       {/* Featured: Center for Laparoscopic Surgery Highlight */}
       <section className="section" style={{ backgroundColor: '#f4f7fb', padding: '80px 0' }}>
         <div className="container">
-          <div style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderRadius: '24px', padding: '50px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '40px', boxShadow: '0 20px 40px rgba(10,43,78,0.2)' }}>
-            <div style={{ flex: '1', minWidth: '300px' }} data-aos="fade-right">
-              <span style={{ backgroundColor: '#FFFFFF', color: '#061D38', padding: '6px 16px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
+          <div className="why-choose-surgery-card" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderRadius: '24px', padding: '50px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '40px', boxShadow: '0 20px 40px rgba(10,43,78,0.2)' }}>
+            <div className="why-choose-content" style={{ flex: '1', minWidth: '280px' }} data-aos="fade-right">
+              <span className="surgery-excellence-pill">
                 Center of Surgical Excellence
               </span>
-              <h2 style={{ color: 'var(--white)', fontSize: '2.5rem', marginTop: '16px', marginBottom: '16px', lineHeight: '1.2' }}>
+              <h2 className="why-choose-surgery-title" style={{ color: 'var(--white)', fontSize: '2.5rem', marginTop: '16px', marginBottom: '16px', lineHeight: '1.2' }}>
                 Why Choose JB Healthcare for Laparoscopy?
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '25px' }}>
-                <span className="lead-doctor-title" style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+                <span className="lead-doctor-title">
                   Under the lead of Dr. B. Saileshkumar (MBBS, MS, FIAGES, FALS),
                 </span>{' '}
                 JB Healthcare has performed over <strong>2,000+ laparoscopic surgeries</strong> and <strong>10,000+ total surgical procedures</strong>. With high-resolution camera towers, ultra-fine instrumentation, and advanced anesthesia protocols, patients experience less pain, zero ugly stitches, and prompt return to home.
@@ -269,7 +269,7 @@ const Surgeries = () => {
                 </a>
               </div>
             </div>
-            <div style={{ flex: '1', minWidth: '300px', height: '360px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 16px 36px rgba(0,0,0,0.35)' }} data-aos="fade-left">
+            <div className="why-choose-image" style={{ flex: '1', minWidth: '280px', height: '360px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 16px 36px rgba(0,0,0,0.35)' }} data-aos="fade-left">
               <img src="/ot_photos/1I8A0785.JPG" alt="Laparoscopic Surgery OT" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
           </div>
@@ -526,12 +526,59 @@ const Surgeries = () => {
         .svc-card-hover:hover { transform: translateY(-10px); box-shadow: 0 24px 50px rgba(0,0,0,0.45) !important; border-color: rgba(0, 180, 216, 0.6) !important; }
         .svc-card-hover:hover img { transform: scale(1.07); }
 
-        /* Responsive Fixes */
-        @media (max-width: 768px) {
-          .lead-doctor-title { white-space: normal !important; }
-          .section { padding: 50px 0 !important; }
+        /* Why Choose Us Excellence Badge & Layout Responsive */
+        .surgery-excellence-pill {
+          display: inline-flex;
+          align-items: center;
+          background-color: #FFFFFF;
+          color: #061D38;
+          padding: 7px 18px;
+          border-radius: 30px;
+          font-size: 0.85rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+          box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+          line-height: 1.2;
+          white-space: nowrap;
         }
+
+        @media (max-width: 768px) {
+          .why-choose-surgery-card {
+            padding: 24px 18px !important;
+            gap: 22px !important;
+            border-radius: 18px !important;
+          }
+          .why-choose-content {
+            min-width: 100% !important;
+            flex: 1 1 100% !important;
+          }
+          .why-choose-image {
+            min-width: 100% !important;
+            flex: 1 1 100% !important;
+            height: 230px !important;
+          }
+          .why-choose-surgery-title {
+            font-size: 1.65rem !important;
+            line-height: 1.25 !important;
+            margin-top: 14px !important;
+            margin-bottom: 14px !important;
+          }
+          .lead-doctor-title { 
+            white-space: normal !important; 
+            display: inline !important;
+          }
+          .section { padding: 45px 0 !important; }
+        }
+
         @media (max-width: 480px) {
+          .surgery-excellence-pill {
+            font-size: 0.72rem !important;
+            padding: 6px 12px !important;
+            letter-spacing: 0.4px !important;
+            white-space: normal !important;
+            text-align: center !important;
+          }
           .ot-photo-card { height: 210px; }
           .ot-modal-popup { padding: 10px; border-radius: 14px; }
           .ot-modal-img { max-height: 65vh; }

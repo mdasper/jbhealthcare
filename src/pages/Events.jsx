@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { 
   Calendar, 
@@ -643,190 +644,212 @@ const Events = () => {
           color: #FFFFFF !important;
           box-shadow: 0 4px 12px rgba(0, 180, 216, 0.35);
         }
+
+        /* Modal Pop-up Styling matching Surgeries Tab */
+        .ot-modal-backdrop {
+          position: fixed;
+          inset: 0;
+          background-color: rgba(3, 12, 23, 0.85);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          z-index: 999999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 16px;
+          animation: modalFadeIn 0.2s ease-out;
+        }
+        .ot-modal-popup {
+          position: relative;
+          max-width: 880px;
+          width: 100%;
+          background: #071A2E;
+          border: 1.5px solid rgba(0, 180, 216, 0.45);
+          border-radius: 20px;
+          padding: 12px 14px 14px;
+          box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 35px rgba(0, 180, 216, 0.25);
+          display: flex;
+          flex-direction: column;
+          animation: modalPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ot-modal-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 4px 6px 10px;
+        }
+        .ot-modal-close-btn {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          color: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+        .ot-modal-close-btn:hover {
+          background-color: #EF4444;
+          border-color: #EF4444;
+          transform: scale(1.08);
+        }
+        .ot-modal-image-box {
+          position: relative;
+          border-radius: 12px;
+          overflow: hidden;
+          background-color: #020813;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          max-height: 72vh;
+        }
+        .ot-modal-img {
+          width: 100%;
+          max-height: 72vh;
+          object-fit: contain;
+          display: block;
+        }
+        .event-nav-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: rgba(6, 29, 56, 0.85);
+          backdrop-filter: blur(4px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          z-index: 10;
+          box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+        }
+        .event-nav-btn:hover {
+          background-color: #00B4D8;
+          border-color: #00B4D8;
+          transform: translateY(-50%) scale(1.08);
+        }
+        .event-nav-btn.prev {
+          left: 12px;
+        }
+        .event-nav-btn.next {
+          right: 12px;
+        }
+        @keyframes modalFadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes modalPopIn {
+          from { opacity: 0; transform: scale(0.92) translateY(10px); }
+          to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @media (max-width: 480px) {
+          .ot-modal-popup { padding: 10px; border-radius: 14px; }
+          .ot-modal-img { max-height: 65vh; }
+          .event-nav-btn { width: 34px; height: 34px; }
+          .event-nav-btn.prev { left: 8px; }
+          .event-nav-btn.next { right: 8px; }
+        }
       `}</style>
 
-      {/* Pure, Minimalist Lightbox Modal: Just Photo with Top-Right 'X' & Click Outside to Exit */}
-      {selectedEvent && (
+      {/* Pop-Up Gallery Photo Modal Dialog (Matching Surgeries Tab) */}
+      {selectedEvent && typeof document !== 'undefined' && createPortal(
         <div 
-          style={{ 
-            position: 'fixed', 
-            inset: 0, 
-            zIndex: 999999, 
-            backgroundColor: 'rgba(0, 0, 0, 0.92)', 
-            backdropFilter: 'blur(8px)',
-            display: 'flex', 
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '20px',
-            cursor: 'zoom-out' // Shows that clicking the black screen will exit
-          }}
-          onClick={(e) => {
-            // Clicking anywhere on the black screen closes the modal!
-            if (e.target === e.currentTarget) closeGallery();
-          }}
+          className="ot-modal-backdrop"
+          onClick={closeGallery}
         >
-          {/* Main Photo Wrapper */}
           <div 
-            style={{ 
-              position: 'relative', 
-              maxWidth: '92vw', 
-              maxHeight: '86vh', 
-              cursor: 'default',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
-            }}
+            className="ot-modal-popup"
             onClick={(e) => e.stopPropagation()}
+            style={{ maxWidth: '900px' }}
           >
-            {/* The Dedicated 'X' Button on top-right of the photo */}
-            <button 
-              onClick={closeGallery}
-              style={{
-                position: 'absolute',
-                top: '-18px',
-                right: '-18px',
-                width: '42px',
-                height: '42px',
-                borderRadius: '50%',
-                backgroundColor: '#FFFFFF',
-                color: '#061D38',
-                border: '2px solid rgba(0,0,0,0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 6px 20px rgba(0,0,0,0.5)',
-                zIndex: 1000,
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.12)';
-                e.currentTarget.style.backgroundColor = '#E63946';
-                e.currentTarget.style.color = '#FFFFFF';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.backgroundColor = '#FFFFFF';
-                e.currentTarget.style.color = '#061D38';
-              }}
-              aria-label="Close"
-              title="Close (or click black screen)"
-            >
-              <X size={22} strokeWidth={2.5} />
-            </button>
+            {/* Modal Header Bar with Close X Button */}
+            <div className="ot-modal-header">
+              <span style={{ color: '#38BDF8', fontSize: '0.9rem', fontWeight: '700', letterSpacing: '0.5px', display: 'flex', alignItems: 'center', gap: '8px', overflow: 'hidden', maxWidth: 'calc(100% - 50px)' }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#00B4D8', display: 'inline-block', flexShrink: 0 }}></span>
+                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  {selectedEvent.title}
+                </span>
+                <span style={{ fontSize: '0.75rem', backgroundColor: 'rgba(0, 180, 216, 0.2)', color: '#38BDF8', padding: '2px 8px', borderRadius: '10px', flexShrink: 0, fontWeight: '800' }}>
+                  {currentPhotoIndex + 1} / {activeGallery.length}
+                </span>
+              </span>
+              <button
+                onClick={closeGallery}
+                className="ot-modal-close-btn"
+                aria-label="Close Image"
+                title="Close (Esc)"
+              >
+                <X size={20} strokeWidth={2.5} />
+              </button>
+            </div>
 
-            {/* Left Chevron Arrow (Previous) */}
-            <button 
-              onClick={(e) => { e.stopPropagation(); prevPhoto(activeGallery.length); }}
-              style={{
-                position: 'absolute',
-                left: '-26px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                width: '46px',
-                height: '46px',
-                borderRadius: '50%',
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: '#061D38',
-                border: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.4)',
-                zIndex: 50,
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
-                e.currentTarget.style.backgroundColor = '#00B4D8';
-                e.currentTarget.style.color = '#FFFFFF';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                e.currentTarget.style.color = '#061D38';
-              }}
-              aria-label="Previous Photo"
-            >
-              <ChevronLeft size={24} strokeWidth={2.5} />
-            </button>
-
-            {/* The Photo Itself */}
-            <div style={{
-              borderRadius: '16px',
-              overflow: 'hidden',
-              boxShadow: '0 25px 65px rgba(0,0,0,0.7)',
-              backgroundColor: '#000000',
-              maxHeight: '80vh',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
+            {/* Modal Image Box */}
+            <div className="ot-modal-image-box">
               <img 
                 src={selectedEvent.gallery && selectedEvent.gallery.length > 0 && selectedEvent.gallery[currentPhotoIndex]?._type === 'image'
                   ? urlFor(activeGallery[currentPhotoIndex]).url() 
                   : (typeof activeGallery[currentPhotoIndex] === 'string' ? activeGallery[currentPhotoIndex] : (activeGallery[currentPhotoIndex]?.asset ? urlFor(activeGallery[currentPhotoIndex]).url() : galleryCollection[currentPhotoIndex % galleryCollection.length]))} 
                 alt={`${selectedEvent.title} Photo`}
-                style={{ 
-                  maxWidth: '88vw', 
-                  maxHeight: '78vh', 
-                  objectFit: 'contain', 
-                  display: 'block' 
-                }}
+                className="ot-modal-img"
               />
+
+              {/* Prev Navigation Arrow inside Image Box */}
+              {activeGallery.length > 1 && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); prevPhoto(activeGallery.length); }}
+                  className="event-nav-btn prev"
+                  aria-label="Previous Photo"
+                >
+                  <ChevronLeft size={22} strokeWidth={2.5} />
+                </button>
+              )}
+
+              {/* Next Navigation Arrow inside Image Box */}
+              {activeGallery.length > 1 && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); nextPhoto(activeGallery.length); }}
+                  className="event-nav-btn next"
+                  aria-label="Next Photo"
+                >
+                  <ChevronRight size={22} strokeWidth={2.5} />
+                </button>
+              )}
             </div>
 
-            {/* Right Chevron Arrow (Next) */}
-            <button 
-              onClick={(e) => { e.stopPropagation(); nextPhoto(activeGallery.length); }}
-              style={{
-                position: 'absolute',
-                right: '-26px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                width: '46px',
-                height: '46px',
-                borderRadius: '50%',
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: '#061D38',
-                border: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.4)',
-                zIndex: 50,
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
-                e.currentTarget.style.backgroundColor = '#00B4D8';
-                e.currentTarget.style.color = '#FFFFFF';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                e.currentTarget.style.color = '#061D38';
-              }}
-              aria-label="Next Photo"
-            >
-              <ChevronRight size={24} strokeWidth={2.5} />
-            </button>
-
-            {/* Photo Counter Label under image */}
-            <div style={{
-              marginTop: '12px',
-              color: 'rgba(255, 255, 255, 0.75)',
-              fontSize: '0.85rem',
-              fontWeight: '600',
-              letterSpacing: '0.5px'
-            }}>
-              {currentPhotoIndex + 1} of {activeGallery.length} • {selectedEvent.title}
-            </div>
-
+            {/* Bottom thumbnail indicator pills if multiple photos */}
+            {activeGallery.length > 1 && (
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', paddingTop: '10px' }}>
+                {activeGallery.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentPhotoIndex(idx)}
+                    style={{
+                      width: idx === currentPhotoIndex ? '24px' : '8px',
+                      height: '8px',
+                      borderRadius: '4px',
+                      backgroundColor: idx === currentPhotoIndex ? '#00B4D8' : 'rgba(255, 255, 255, 0.3)',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: 0,
+                      transition: 'all 0.25s ease'
+                    }}
+                    aria-label={`Go to photo ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* Mobile-Friendly Responsive Styles */}
