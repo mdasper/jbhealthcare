@@ -32,6 +32,7 @@ const About = () => {
   }, []);
 
   // Use fallback text if data is still loading
+  const mainHeading = aboutData?.mainHeading || "About JB Healthcare";
   const rawHistoryText = aboutData?.historyText || "Established with a bold vision to make premium, international-standard healthcare accessible to everyone, JB Healthcare has grown into a trusted name in Sivakasi, Tamil Nadu. Over the years, we have built a reputation based on trust, clinical excellence, and deep-rooted empathy.";
   const historyText = rawHistoryText.replace(/Anaiyur/gi, 'Sivakasi');
   const vision = aboutData?.vision || "To be the most trusted and respected healthcare partner in the region, recognized globally for our clinical excellence, compassionate care, and unwavering commitment to community wellness and health education.";
