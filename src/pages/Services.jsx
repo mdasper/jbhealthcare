@@ -301,22 +301,55 @@ const IconMapper = ({ name, size = 32, color = 'var(--accent)' }) => {
   }
 };
 
+const doctorOverrideMap = {
+  'plastic': { doctor: 'Dr. Arun Kumar', degree: 'M.S., M.Ch. (Plastic Surgery)', doctorRole: 'Visiting Plastic & Reconstructive Surgeon' },
+  'urology': { doctor: 'Dr. Shankar', degree: 'M.S., M.Ch. (Urology)', doctorRole: 'Visiting Urologist & Andrologist' },
+  'paediatric': { doctor: 'Dr. Arun Kumar', degree: 'M.S., M.Ch. (Paediatric Surgery)', doctorRole: 'Visiting Paediatric Surgeon' },
+  'pediatric': { doctor: 'Dr. Arun Kumar', degree: 'M.S., M.Ch. (Paediatric Surgery)', doctorRole: 'Visiting Paediatric Surgeon' },
+  'ortho': { doctor: 'Dr. Dheepan', degree: 'M.S. Ortho', doctorRole: 'Visiting Orthopaedic Surgeon' },
+  'general medicine': { doctor: 'Dr. Shailesh Kumar', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Physician & Surgeon' },
+  'diabetology': { doctor: 'Dr. Shailesh Kumar', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Physician & Surgeon' },
+  'anaesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'D.A. / M.D. / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
+  'anesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'D.A. / M.D. / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
+  'ent': { doctor: 'Dr. Sivaram', degree: 'MBBS, DNB (ENT)', doctorRole: 'Consultant ENT Specialist' },
+  'psychol': { doctor: 'Dr. Roshan', degree: 'M.Sc., M.Phil. (Clinical Psychology)', doctorRole: 'Consultant Psychologist & Counsellor' },
+  'gastro': { doctor: 'Dr. A.C. Arun', degree: 'M.D., D.M. (Gastroenterology)', doctorRole: 'Visiting Medical Gastroenterologist' }
+};
+
+const sanitizeDepartmentDoctors = (deptList) => {
+  return (deptList || []).map((dept) => {
+    let doc = dept.doctor;
+    let deg = dept.degree;
+    let role = dept.doctorRole;
+    const titleLower = (dept.title || '').toLowerCase();
+    for (const key of Object.keys(doctorOverrideMap)) {
+      if (titleLower.includes(key)) {
+        doc = doctorOverrideMap[key].doctor;
+        deg = doctorOverrideMap[key].degree || deg;
+        role = doctorOverrideMap[key].doctorRole || role;
+        break;
+      }
+    }
+    return { ...dept, doctor: doc, degree: deg, doctorRole: role };
+  });
+};
+
 const Services = () => {
-  const [departments, setDepartments] = useState(realDepartments);
+  const [departments, setDepartments] = useState(() => sanitizeDepartmentDoctors(realDepartments));
   const [selectedCategory, setSelectedCategory] = useState('All Departments');
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     client.fetch(`*[_type == "service" && defined(keyProcedures)] | order(order asc)`).then((data) => {
       if (Array.isArray(data) && data.length > 0) {
-        setDepartments(data);
+        setDepartments(sanitizeDepartmentDoctors(data));
       }
     }).catch((err) => {
       console.warn('Using offline verified departments fallback:', err);
     });
   }, []);
 
-  const filteredDepts = (departments || []).filter((dept) => {
+  const filteredDepts = sanitizeDepartmentDoctors(departments).filter((dept) => {
     if (!dept) return false;
     const matchesCategory = selectedCategory === 'All Departments' || dept.category === selectedCategory;
     const q = searchQuery.toLowerCase().trim();
