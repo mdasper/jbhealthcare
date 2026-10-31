@@ -10,9 +10,9 @@ const Contact = () => {
     }).catch(console.error);
   }, []);
 
-  const address = settings?.address || "2/571A, Bharathi Nagar, Reserve line, Anaiyur, Tamil Nadu 626124";
+  const address = settings?.address || "2/571A, Bharathi Nagar, Reserve line, Sivakasi, Tamil Nadu 626124";
   const phone = settings?.phone || "+91 93455 10905";
-  const email = settings?.email || "info@jbhealthcare.com";
+  const email = settings?.email || "jbhealthcare.sivakasi@gmail.com";
 
   return (
     <div className="page-transition" style={{ paddingTop: '80px' }}>

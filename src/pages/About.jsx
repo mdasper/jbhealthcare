@@ -123,7 +123,7 @@ const About = () => {
                   <div style={{ backgroundColor: 'rgba(255,255,255,0.25)', padding: '14px', borderRadius: '10px', borderLeft: '3px solid #061D38' }}>
                     <h5 style={{ color: '#061D38', margin: '0 0 5px 0', fontSize: '0.98rem', fontWeight: '800' }}>Public Service & Honor</h5>
                     <p style={{ color: '#061D38', margin: 0, fontSize: '0.88rem', lineHeight: '1.5', fontWeight: '500' }}>
-                      Conferred the <strong>Best Doctor Award</strong> for two consecutive years (2017 & 2018) by the District Collector. Founder Secretary of IMA Sivakasi (2016-2017) and 7 years of public health service across Virudhunagar district.
+                      Conferred the <strong>Best Doctor Award</strong> for two consecutive years (2017 & 2018) by the District Collector. Secretary of IMA Sivakasi (2016-2017) and 7 years of public health service across Virudhunagar district.
                     </p>
                   </div>
                 </div>

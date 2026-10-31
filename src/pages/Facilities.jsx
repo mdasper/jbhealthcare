@@ -37,9 +37,9 @@ const facilitiesData = [
   },
   {
     id: 5,
-    title: "Advanced Modular Operation Theatres",
-    subtitle: "Infection-Free Laminar Airflow Suites",
-    description: "Laminar airflow, ultra-sterile modular surgical suites custom-fitted for advanced laparoscopic, orthopaedic, and gynaecological procedures.",
+    title: "Advanced Well-Equipped Operation Theatre",
+    subtitle: "Sterile Modern Surgical Suites",
+    description: "Fully equipped modern surgical theatre custom-fitted with high-definition laparoscopic towers, advanced electrocautery, and comprehensive patient monitoring for laparoscopic, general, and emergency procedures.",
     icon: <Activity size={40} color="var(--accent)" />,
     image: "/ot_photos/1I8A0785.JPG"
   },

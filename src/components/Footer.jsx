@@ -16,8 +16,8 @@ const Footer = () => {
   const phone = "+91 93455 10905";
   const landline = "04562-299920";
   const whatsappNumber = "919345510905";
-  const email = "info@jbhealthcare.com";
-  const address = "2/571A, Bharathi Nagar, Reserve line, Vasantham Nagar, Rengapa Shyam Nagar, Anaiyur, Tamil Nadu 626124";
+  const email = "jbhealthcare.sivakasi@gmail.com";
+  const address = "2/571A, Bharathi Nagar, Reserve line, Vasantham Nagar, Rengapa Shyam Nagar, Sivakasi, Tamil Nadu 626124";
   
   // Format WhatsApp number to remove non-numeric chars for the URL
   let whatsappClean = whatsappNumber.replace(/\D/g, '');
@@ -140,7 +140,7 @@ const Footer = () => {
 
                   <div className="footer-schedule-row">
                     <span className="sched-label">Doctor OPD Timings:</span>
-                    <span className="sched-val">09:00 AM – 08:00 PM</span>
+                    <span className="sched-val">10:00 AM – 01:00 PM | 06:00 PM – 09:00 PM</span>
                   </div>
 
                   <div className="footer-schedule-row">

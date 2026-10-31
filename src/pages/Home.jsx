@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Stethoscope, HeartPulse, ShieldPlus, Award, Users, Activity, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Stethoscope, HeartPulse, ShieldPlus, Award, Users, Activity, CheckCircle, ChevronLeft, ChevronRight, Star, ExternalLink } from 'lucide-react';
 import { client, urlFor } from '../sanity';
 import TiltCard from '../components/TiltCard';
 
@@ -238,7 +238,7 @@ const Home = () => {
                 </div>
                 <h3 style={{ color: '#FFFFFF', fontSize: '1.6rem', marginBottom: '10px', textAlign: 'left', fontWeight: '800' }}>Rapid Diagnostics & ECG</h3>
                 <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '0.94rem', lineHeight: '1.6', textAlign: 'left', marginBottom: '18px', fontWeight: '400' }}>
-                  In-house computerized diagnostic laboratory and computerized digital cardiac monitoring providing rapid, accurate blood and biochemistry reports.
+                  In-house computerized diagnostic laboratory and Digital ECG providing rapid, accurate blood and biochemistry reports.
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
                   <span className="dept-pill">24 மணி நேர ஆய்வகம் (Automated Lab)</span>
@@ -344,7 +344,7 @@ const Home = () => {
             <div style={{ marginBottom: '16px' }}>
               <h3 style={{ color: '#061D38', fontSize: '1.18rem', fontWeight: '800', marginBottom: '6px' }}>Medical Journey & Credentials</h3>
               <p style={{ color: '#FFFFFF', lineHeight: '1.65', fontSize: '0.95rem', margin: 0, fontWeight: '500' }}>
-                Alumnus of Madras Medical College (MBBS) & Madurai Medical College (MS). Advanced Laparoscopic training from VG Hospital Coimbatore, with prestigious FIAGES / FALS Fellowships. Over 7 years of dedicated government medical service across Virudhunagar district and Founder Secretary of IMA Sivakasi (2016-2017).
+                Alumnus of Madras Medical College (MBBS) & Madurai Medical College (MS). Advanced Laparoscopic training from VG Hospital Coimbatore, with prestigious FIAGES / FALS Fellowships. Over 7 years of dedicated government medical service across Virudhunagar district and Secretary of IMA Sivakasi (2016-2017).
               </p>
             </div>
 
@@ -357,25 +357,163 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="section">
+      <section className="section" style={{ backgroundColor: 'var(--secondary)', padding: '80px 0' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <h4 style={{ color: '#061D38', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '10px', fontWeight: '800' }}>Testimonials</h4>
-            <h2 className="section-title" style={{ margin: 0 }}>What Our Patients Say</h2>
+          <div style={{ textAlign: 'center', marginBottom: '45px' }} data-aos="fade-up">
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(0, 180, 216, 0.12)', border: '1px solid rgba(0, 180, 216, 0.3)', color: '#061D38', padding: '6px 18px', borderRadius: '20px', fontWeight: '800', fontSize: '0.88rem', marginBottom: '12px' }}>
+              <Star size={16} fill="#F59E0B" color="#F59E0B" /> Google Reviews • 4.9 ★ (97+ Ratings)
+            </div>
+            <h2 className="section-title" style={{ margin: '0 0 10px 0' }}>What Our Patients Say</h2>
+            <p style={{ color: '#555', maxWidth: '650px', margin: '0 auto', fontSize: '1.05rem', lineHeight: '1.6' }}>
+              Real experiences shared by our patients and families on Google Reviews.
+            </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
-            <div style={{ padding: '30px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '12px', borderLeft: '5px solid #061D38', boxShadow: '0 8px 24px rgba(0, 70, 100, 0.15)' }}>
-              <p style={{ fontStyle: 'italic', marginBottom: '20px', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.7' }}>"The care I received at JB Healthcare was outstanding. The staff is extremely polite and the facilities are very clean. Highly recommended!"</p>
-              <h4 style={{ color: '#061D38', fontWeight: '800' }}>- Ramesh Kumar</h4>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px' }}>
+            {/* Review 1 */}
+            <div style={{ padding: '28px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '16px', borderTop: '4px solid #00B4D8', boxShadow: '0 10px 30px rgba(0, 70, 100, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                  <div style={{ display: 'flex', gap: '4px' }}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#E0F2FE', padding: '3px 10px', borderRadius: '10px', fontWeight: '600' }}>Google Review</span>
+                </div>
+                <p style={{ fontStyle: 'italic', marginBottom: '18px', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.65', fontSize: '0.96rem' }}>
+                  "My wife laparoscopic cholecystectomy surgery successfully done. Best Hospital for Surgery & Patient Care! Doctor patient-a purinjikittu romba clear-a explain panninaaru, very polite and caring. Highly recommended!"
+                </p>
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div>
+                  <h4 style={{ color: '#00B4D8', fontWeight: '800', margin: 0, fontSize: '1.05rem' }}>Ramesh Kumar</h4>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Surgery Patient Family</span>
+                </div>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Verified Review</span>
+              </div>
             </div>
-            <div style={{ padding: '30px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '12px', borderLeft: '5px solid #061D38', boxShadow: '0 8px 24px rgba(0, 70, 100, 0.15)' }}>
-              <p style={{ fontStyle: 'italic', marginBottom: '20px', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.7' }}>"I brought my father for an emergency and the doctors acted very swiftly. Their 24/7 service truly saved a life. Very grateful."</p>
-              <h4 style={{ color: '#061D38', fontWeight: '800' }}>- Priya S.</h4>
+
+            {/* Review 2 */}
+            <div style={{ padding: '28px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '16px', borderTop: '4px solid #00B4D8', boxShadow: '0 10px 30px rgba(0, 70, 100, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                  <div style={{ display: 'flex', gap: '4px' }}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#E0F2FE', padding: '3px 10px', borderRadius: '10px', fontWeight: '600' }}>Local Guide</span>
+                </div>
+                <p style={{ fontStyle: 'italic', marginBottom: '18px', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.65', fontSize: '0.96rem' }}>
+                  "The service provided was excellent. The doctor was very polite, and my wife's hernia surgery was successful. The staff was warm, friendly, and provided great service. I was very satisfied with the outcome."
+                </p>
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div>
+                  <h4 style={{ color: '#00B4D8', fontWeight: '800', margin: 0, fontSize: '1.05rem' }}>M Sathish</h4>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Local Guide • 11 Reviews</span>
+                </div>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Verified Review</span>
+              </div>
             </div>
-            <div style={{ padding: '30px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '12px', borderLeft: '5px solid #061D38', boxShadow: '0 8px 24px rgba(0, 70, 100, 0.15)' }}>
-              <p style={{ fontStyle: 'italic', marginBottom: '20px', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.7' }}>"Booking an appointment via WhatsApp was so easy. The consultation process was smooth and the doctor was very patient."</p>
-              <h4 style={{ color: '#061D38', fontWeight: '800' }}>- Karthik Raj</h4>
+
+            {/* Review 3 */}
+            <div style={{ padding: '28px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '16px', borderTop: '4px solid #00B4D8', boxShadow: '0 10px 30px rgba(0, 70, 100, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                  <div style={{ display: 'flex', gap: '4px' }}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#E0F2FE', padding: '3px 10px', borderRadius: '10px', fontWeight: '600' }}>Google Review</span>
+                </div>
+                <p style={{ fontStyle: 'italic', marginBottom: '18px', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.65', fontSize: '0.96rem' }}>
+                  "Excellent hospital with highly experienced doctors and a very supportive staff. The patient care is phenomenal, and they maintain great hygiene. Highly recommended for, both, OPD and inpatient services."
+                </p>
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div>
+                  <h4 style={{ color: '#00B4D8', fontWeight: '800', margin: 0, fontSize: '1.05rem' }}>Ayyanar Bharathi</h4>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Inpatient & OPD Patient</span>
+                </div>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Verified Review</span>
+              </div>
             </div>
+
+            {/* Review 4 */}
+            <div style={{ padding: '28px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '16px', borderTop: '4px solid #00B4D8', boxShadow: '0 10px 30px rgba(0, 70, 100, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                  <div style={{ display: 'flex', gap: '4px' }}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#E0F2FE', padding: '3px 10px', borderRadius: '10px', fontWeight: '600' }}>Google Review</span>
+                </div>
+                <p style={{ fontStyle: 'italic', marginBottom: '18px', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.65', fontSize: '0.96rem' }}>
+                  "My dad underwent laparoscopic surgery at JB Health Care, and we had a very good experience. The doctors and staff took good care of him, and the nursing care was excellent. Supportive, attentive, and helpful throughout the stay."
+                </p>
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div>
+                  <h4 style={{ color: '#00B4D8', fontWeight: '800', margin: 0, fontSize: '1.05rem' }}>KSR Traders</h4>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Laparoscopy Patient Family</span>
+                </div>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Verified Review</span>
+              </div>
+            </div>
+
+            {/* Review 5 */}
+            <div style={{ padding: '28px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '16px', borderTop: '4px solid #00B4D8', boxShadow: '0 10px 30px rgba(0, 70, 100, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                  <div style={{ display: 'flex', gap: '4px' }}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#E0F2FE', padding: '3px 10px', borderRadius: '10px', fontWeight: '600' }}>Google Review</span>
+                </div>
+                <p style={{ fontStyle: 'italic', marginBottom: '18px', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.65', fontSize: '0.96rem' }}>
+                  "My husband came here for hernia operation. Good in service and good maintenance, kind and caring doctor, nurses and staff. Excellent support throughout surgery and recovery. Thank you JB Healthcare!"
+                </p>
+              </div>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div>
+                  <h4 style={{ color: '#00B4D8', fontWeight: '800', margin: 0, fontSize: '1.05rem' }}>Sugu Keerthana</h4>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Surgical Patient Family</span>
+                </div>
+                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Verified Review</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Google Link Button */}
+          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+            <a 
+              href="https://share.google/LOK24CIH3ltNIHaN3" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                backgroundColor: '#061D38',
+                color: '#FFFFFF',
+                fontWeight: '700',
+                padding: '12px 28px',
+                borderRadius: '25px',
+                textDecoration: 'none',
+                boxShadow: '0 4px 15px rgba(6, 29, 56, 0.25)',
+                transition: 'all 0.25s ease'
+              }}
+            >
+              <span>View All 97+ Google Reviews</span>
+              <ExternalLink size={16} color="#00B4D8" />
+            </a>
           </div>
         </div>
       </section>

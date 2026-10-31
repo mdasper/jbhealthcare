@@ -45,141 +45,15 @@ const realDepartments = [
   },
   {
     _id: 'dept-2',
-    title: 'Surgical Oncology (Cancer Surgery)',
-    tamilTitle: 'புற்றுநோய் அறுவை சிகிச்சை துறை',
-    category: 'Super-Specialties',
-    icon: 'ShieldAlert',
-    doctor: 'Dr. Gurumoorthi & Dr. Manikandan',
-    doctorRole: 'Visiting Surgical Oncologists',
-    degree: 'M.S., M.Ch. (Surgical Oncology)',
-    badge: '100+ Cancer Surgeries Concluded',
-    description: 'Advanced surgical oncological care bringing tertiary-tier cancer resection, staging, and comprehensive oncological multidisciplinary surgical expertise directly to patients in Virudhunagar district.',
-    keyProcedures: [
-      'Tumor Resection & Clinical Staging',
-      'Gastrointestinal & Colorectal Cancer Surgery',
-      'Breast Cancer Surgery & Lumpectomy',
-      'Head, Neck & Oral Cavity Oncological Care'
-    ]
-  },
-  {
-    _id: 'dept-3',
-    title: 'Medical & Surgical Gastroenterology',
-    tamilTitle: 'குடல் மற்றும் கல்லீரல் சிறப்பு சிகிச்சை',
-    category: 'Super-Specialties',
-    icon: 'Activity',
-    doctor: 'Dr. A.C. Arun',
-    doctorRole: 'Visiting Medical Gastroenterologist',
-    degree: 'M.D., D.M. (Gastroenterology)',
-    badge: 'Comprehensive Liver & GI Center',
-    description: 'Specialized diagnosis and expert therapeutic management of complex digestive disorders, liver cirrhosis, chronic hepatitis, acid reflux, peptic ulcers, and bowel conditions.',
-    keyProcedures: [
-      'Diagnostic & Therapeutic Endoscopy',
-      'Liver Cirrhosis, Fatty Liver & Hepatitis Care',
-      'Severe Chronic Acid Reflux & Ulcer Therapies',
-      'Inflammatory Bowel Disease & Colon Health'
-    ]
-  },
-  {
-    _id: 'dept-4',
-    title: 'Plastic & Cosmetic Reconstructive Surgery',
-    tamilTitle: 'ஒட்டுறுப்பு அறுவை சிகிச்சை துறை',
-    category: 'Super-Specialties',
-    icon: 'Sparkles',
-    doctor: 'Dr. R. Arunkumar',
-    doctorRole: 'Visiting Plastic & Reconstructive Surgeon',
-    degree: 'M.S., M.Ch. (Plastic Surgery)',
-    badge: 'Precision Aesthetics & Trauma Reconstruction',
-    description: 'Fine microsurgical interventions for accidental trauma, deep soft tissue injuries, burn contracture releases, aesthetic contouring, and diabetic foot limb-salvage reconstruction.',
-    keyProcedures: [
-      'Accident Trauma & Soft Tissue Reconstruction',
-      'Burn Wound Contracture Release & Skin Grafting',
-      'Diabetic Foot Ulcer Limb-Salvage Surgeries',
-      'Cosmetic Scar Revision & Facial Contouring'
-    ]
-  },
-  {
-    _id: 'dept-5',
-    title: 'Paediatric Surgery & Neonatal Care',
-    tamilTitle: 'குழந்தைகள் அறுவை சிகிச்சை துறை',
-    category: 'Women & Child',
-    icon: 'Baby',
-    doctor: 'Dr. J. Arunkumar',
-    doctorRole: 'Visiting Paediatric Surgeon',
-    degree: 'M.S., M.Ch. (Paediatric Surgery)',
-    badge: 'Gentle, Compassionate Pediatric Care',
-    description: 'Specialized operative care tailored exclusively for newborns, infants, and growing children, ensuring gentle surgical handling, pediatric safety, and warm bedside care.',
-    keyProcedures: [
-      'Congenital Malformation Corrections',
-      'Paediatric Hernia, Hydrocele & Phimosis Care',
-      'Neonatal Surgical Emergencies & Anomalies',
-      'Pediatric Abdominal Keyhole Interventions'
-    ]
-  },
-  {
-    _id: 'dept-6',
-    title: 'Urology & Laser Stone Care',
-    tamilTitle: 'சிறுநீரக & கல் அறுவை சிகிச்சை',
-    category: 'Super-Specialties',
-    icon: 'Activity',
-    doctor: 'Dr. G. Sankar',
-    doctorRole: 'Visiting Urologist & Renal Surgeon',
-    degree: 'M.S., M.Ch. (Urology)',
-    badge: 'Modern Endoscopic & Laser Urology',
-    description: 'Comprehensive treatment for urinary tract and kidney disorders. Advanced minimally invasive laser stone dissolution, prostate enlargement therapies, and uro-surgical corrections.',
-    keyProcedures: [
-      'Laser Kidney & Ureteric Stone Lithotripsy',
-      'Prostate Enlargement (BPH) Assessment & Care',
-      'Urinary Tract Infection & Stricture Relief',
-      'Bladder Tumors & Hematuria Evaluation'
-    ]
-  },
-  {
-    _id: 'dept-7',
-    title: 'Orthopaedics & Fracture Trauma',
-    tamilTitle: 'எலும்பு முறிவு & மூட்டு அறுவை சிகிச்சை',
-    category: 'Surgical Excellence',
-    icon: 'Activity',
-    doctor: 'Dr. Deepan Ramkumar',
-    doctorRole: 'Visiting Orthopaedic Surgeon',
-    degree: 'M.S. Ortho',
-    badge: '24/7 Fracture Emergency & Joint Mobility',
-    description: 'Fast-track emergency fracture care, road accident trauma resuscitation, bone fixation with modern plates and nails, joint arthritis management, and spine pain rehabilitation.',
-    keyProcedures: [
-      '24/7 Emergency Fracture Fixation & Plating',
-      'Knee, Hip & Joint Degeneration Therapy',
-      'Chronic Low Back & Neck Spine Management',
-      'Tendon, Ligament & Sports Injury Care'
-    ]
-  },
-  {
-    _id: 'dept-8',
-    title: 'Gynaecology & Women’s Health',
-    tamilTitle: 'மகளிர் நல மருத்துவம் & லேப்ராஸ்கோபிக் சிகிச்சை',
-    category: 'Women Health',
-    icon: 'Activity',
-    doctor: 'Dr. Sangeetha & Surgical Team',
-    doctorRole: 'Consultant Gynaecologist & Surgeon',
-    degree: 'MBBS, DGO',
-    badge: 'Advanced Laparoscopic Gynec Care',
-    description: 'Comprehensive, gentle healthcare for women. Specializing in minimally invasive laparoscopic gynecological surgeries, fibroid & ovarian cyst management, and complete pelvic wellness.',
-    keyProcedures: [
-      'Laparoscopic Hysterectomy & Cystectomy',
-      'Fibroid Uterus & Ovarian Cyst Management',
-      'PCOS, Irregular Cycles & Hormonal Wellness',
-      'Pelvic Health & Preventive Screenings'
-    ]
-  },
-  {
-    _id: 'dept-9',
     title: 'General Medicine & Diabetology',
     tamilTitle: 'பொது மருத்துவம் & நீரிழிவு சிறப்பு சிகிச்சை',
     category: 'Clinical & Emergency',
     icon: 'Stethoscope',
-    doctor: 'Dr. Sivram',
-    doctorRole: 'Consultant Physician',
-    degree: 'MBBS, DNB (General Medicine)',
+    doctor: 'Dr. B. Saileshkumar',
+    doctorRole: 'Chief Physician & Surgeon',
+    degree: 'MBBS, M.S., FIAGES, FALS',
     badge: 'Holistic Adult Wellness & Chronic Care',
-    description: 'Evidence-based internal medicine diagnosing and managing infectious illnesses, dengue, fever spikes, uncontrolled diabetes mellitus, hypertension, cholesterol, and respiratory diseases.',
+    description: 'Comprehensive evidence-based internal medicine diagnosing and managing infectious illnesses, fevers, uncontrolled diabetes mellitus, hypertension, cholesterol, and respiratory conditions.',
     keyProcedures: [
       'Uncontrolled Diabetes & Neuropathy Management',
       'Hypertension & Cardiovascular Risk Assessment',
@@ -188,15 +62,15 @@ const realDepartments = [
     ]
   },
   {
-    _id: 'dept-10',
+    _id: 'dept-3',
     title: 'Anaesthesiology & Critical Care',
     tamilTitle: 'மயக்கவியல் & தீவிர அவசர சிகிச்சை பிரிவு',
     category: 'Clinical & Emergency',
     icon: 'Syringe',
-    doctor: 'Dr. P. Karthikeyan, Dr. S. Sri Kishore Ganesh & Dr. M. Jeganatha Prabhu',
+    doctor: 'Dr. M. Jeganatha Prabhu, Dr. S. Sri Kishore Ganesh & Dr. P. Karthikeyan',
     doctorRole: 'Consultant Anaesthesiologists',
-    degree: 'MBBS, MD / M.D. / D.A.',
-    badge: 'Painless Labor & Safe Surgical Anaesthesia',
+    degree: 'D.A. / M.D. / MBBS, MD',
+    badge: 'All Surgical Days • As per OT Schedule',
     description: 'Round-the-clock perioperative vigilance ensuring total pain-free surgical procedures, state-of-the-art epidural labour analgesia, and intensive post-operative critical care monitoring.',
     keyProcedures: [
       'Multi-Modal Surgical General & Spinal Anaesthesia',
@@ -206,7 +80,169 @@ const realDepartments = [
     ]
   },
   {
+    _id: 'dept-4',
+    title: 'Medical & Surgical Gastroenterology',
+    tamilTitle: 'குடல் மற்றும் கல்லீரல் சிறப்பு சிகிச்சை',
+    category: 'Super-Specialties',
+    icon: 'Activity',
+    doctor: 'Dr. A.C. Arun',
+    doctorRole: 'Visiting Medical Gastroenterologist',
+    degree: 'M.D., D.M. (Gastroenterology)',
+    badge: 'Every Friday • 9:00 PM',
+    description: 'Specialized diagnosis and expert therapeutic management of complex digestive disorders, liver cirrhosis, chronic hepatitis, acid reflux, peptic ulcers, and bowel conditions.',
+    keyProcedures: [
+      'Diagnostic & Therapeutic Endoscopy',
+      'Liver Cirrhosis, Fatty Liver & Hepatitis Care',
+      'Severe Chronic Acid Reflux & Ulcer Therapies',
+      'Inflammatory Bowel Disease & Colon Health'
+    ]
+  },
+  {
+    _id: 'dept-5',
+    title: 'Plastic, Cosmetic & Reconstructive Surgery',
+    tamilTitle: 'ஒட்டுறுப்பு அறுவை சிகிச்சை துறை',
+    category: 'Super-Specialties',
+    icon: 'Sparkles',
+    doctor: 'Dr. R. Arunkumar',
+    doctorRole: 'Visiting Plastic & Reconstructive Surgeon',
+    degree: 'M.S., M.Ch. (Plastic Surgery)',
+    badge: 'On Surgery Days • Based on Cases',
+    description: 'Fine microsurgical interventions for accidental trauma, deep soft tissue injuries, burn contracture releases, aesthetic contouring, and diabetic foot limb-salvage reconstruction.',
+    keyProcedures: [
+      'Accident Trauma & Soft Tissue Reconstruction',
+      'Burn Wound Contracture Release & Skin Grafting',
+      'Diabetic Foot Ulcer Limb-Salvage Surgeries',
+      'Cosmetic Scar Revision & Facial Contouring'
+    ]
+  },
+  {
+    _id: 'dept-6',
+    title: 'Urology & Andrology',
+    tamilTitle: 'சிறுநீரக & ஆண்மைக்குறைவு சிறப்பு சிகிச்சை',
+    category: 'Super-Specialties',
+    icon: 'Activity',
+    doctor: 'Dr. G. Sankar',
+    doctorRole: 'Visiting Urologist & Andrologist',
+    degree: 'M.S., M.Ch. (Urology)',
+    badge: 'On Surgery Days • Based on Cases',
+    description: 'Comprehensive treatment for urinary tract, kidney disorders, and andrological wellness. Advanced minimally invasive laser stone dissolution, prostate enlargement therapies, and male health care.',
+    keyProcedures: [
+      'Laser Kidney & Ureteric Stone Lithotripsy',
+      'Prostate Enlargement (BPH) Assessment & Care',
+      'Andrology & Male Reproductive Health Solutions',
+      'Urinary Tract Infection & Stricture Relief'
+    ]
+  },
+  {
+    _id: 'dept-7',
+    title: 'Paediatrics & Neonatal Surgery',
+    tamilTitle: 'குழந்தைகள் அறுவை சிகிச்சை துறை',
+    category: 'Women & Child',
+    icon: 'Baby',
+    doctor: 'Dr. J. Arunkumar',
+    doctorRole: 'Visiting Paediatric Surgeon',
+    degree: 'M.S., M.Ch. (Paediatric Surgery)',
+    badge: 'On Surgery Days • Based on Cases',
+    description: 'Specialized operative care tailored exclusively for newborns, infants, and growing children, ensuring gentle surgical handling, pediatric safety, and warm bedside care.',
+    keyProcedures: [
+      'Congenital Malformation Corrections',
+      'Paediatric Hernia, Hydrocele & Phimosis Care',
+      'Neonatal Surgical Emergencies & Anomalies',
+      'Pediatric Abdominal Keyhole Interventions'
+    ]
+  },
+  {
+    _id: 'dept-8',
+    title: 'Orthopaedics & Trauma Surgery',
+    tamilTitle: 'எலும்பு முறிவு & விபத்து அறுவை சிகிச்சை',
+    category: 'Surgical Excellence',
+    icon: 'Activity',
+    doctor: 'Dr. Deepan Ramkumar',
+    doctorRole: 'Visiting Orthopaedic Surgeon',
+    degree: 'M.S. Ortho',
+    badge: 'On Surgery Days • 24/7 Fracture Emergency',
+    description: 'Fast-track emergency fracture care, road accident trauma resuscitation, bone fixation with modern plates and nails, joint arthritis management, and spine pain rehabilitation.',
+    keyProcedures: [
+      'Emergency Fracture Fixation & Plating',
+      'Knee, Hip & Joint Degeneration Therapy',
+      'Chronic Low Back & Neck Spine Management',
+      'Tendon, Ligament & Sports Injury Care'
+    ]
+  },
+  {
+    _id: 'dept-9',
+    title: 'ENT (Ear, Nose & Throat)',
+    tamilTitle: 'காது, மூக்கு, தொண்டை சிறப்பு சிகிச்சை',
+    category: 'Super-Specialties',
+    icon: 'Stethoscope',
+    doctor: 'Dr. Sivaram',
+    doctorRole: 'Consultant ENT Specialist',
+    degree: 'MBBS, DNB (ENT)',
+    badge: 'On Surgery Days • Based on Cases',
+    description: 'Specialized diagnosis and surgical treatment of acute and chronic ear infections, hearing evaluation, sinus disorders, tonsillitis, nasal polyps, and vocal cord conditions.',
+    keyProcedures: [
+      'Endoscopic Sinus Surgery (FESS)',
+      'Tympanoplasty & Ear Micro-Surgery',
+      'Tonsillectomy & Adenoidectomy Care',
+      'Vertigo, Allergy & Nasal Blockage Solutions'
+    ]
+  },
+  {
+    _id: 'dept-10',
+    title: 'Obstetrics & Gynaecology',
+    tamilTitle: 'மகளிர் நல மருத்துவம் & லேப்ராஸ்கோபிக் சிகிச்சை',
+    category: 'Women & Child',
+    icon: 'Activity',
+    doctor: 'Dr. Sangeetha & Surgical Team',
+    doctorRole: 'Consultant Gynaecologist & Surgeon',
+    degree: 'MBBS, DGO',
+    badge: 'Wed & Sat • 4:00 PM – 5:00 PM',
+    description: 'Comprehensive, gentle healthcare for women. Specializing in minimally invasive laparoscopic gynecological surgeries, fibroid & ovarian cyst management, and complete pelvic wellness.',
+    keyProcedures: [
+      'Laparoscopic Hysterectomy & Cystectomy',
+      'Fibroid Uterus & Ovarian Cyst Management',
+      'PCOS, Irregular Cycles & Hormonal Wellness',
+      'Pelvic Health & Preventive Screenings'
+    ]
+  },
+  {
     _id: 'dept-11',
+    title: 'Surgical Oncology (Cancer Surgery)',
+    tamilTitle: 'புற்றுநோய் அறுவை சிகிச்சை துறை',
+    category: 'Super-Specialties',
+    icon: 'ShieldAlert',
+    doctor: 'Dr. Gurumoorthi & Dr. Manikandan',
+    doctorRole: 'Visiting Surgical Oncologists',
+    degree: 'M.S., M.Ch. (Surgical Oncology)',
+    badge: 'On Surgery Days • Based on Cases',
+    description: 'Advanced surgical oncological care bringing tertiary-tier cancer resection, staging, and comprehensive oncological multidisciplinary surgical expertise directly to patients in Sivakasi.',
+    keyProcedures: [
+      'Tumor Resection & Clinical Staging',
+      'Gastrointestinal & Colorectal Cancer Surgery',
+      'Breast Cancer Surgery & Lumpectomy',
+      'Head, Neck & Oral Cavity Oncological Care'
+    ]
+  },
+  {
+    _id: 'dept-12',
+    title: 'Clinical Psychology & Counselling',
+    tamilTitle: 'மனநலம் & உளவியல் ஆலோசனை பிரிவு',
+    category: 'Clinical & Emergency',
+    icon: 'Brain',
+    doctor: 'Visiting Clinical Psychologist',
+    doctorRole: 'Consultant Psychologist & Counsellor',
+    degree: 'M.Sc., M.Phil. (Clinical Psychology)',
+    badge: 'Every Wednesday • 10:00 AM – 12:00 PM',
+    description: 'Professional, confidential mental wellness support, cognitive behavioral therapy, stress management, adolescent counseling, and family emotional health guidance.',
+    keyProcedures: [
+      'Stress, Anxiety & Depressive Care Therapy',
+      'Adolescent & Child Behavioral Guidance',
+      'Marital & Family Conflict Counseling',
+      'Psychometric Assessments & Lifestyle Wellbeing'
+    ]
+  },
+  {
+    _id: 'dept-13',
     title: '24/7 Casualty & Trauma Center',
     tamilTitle: '24 மணி நேர அவசர விபத்து சிகிச்சை பிரிவு',
     category: 'Clinical & Emergency',
@@ -214,7 +250,7 @@ const realDepartments = [
     doctor: 'Emergency Medical Officers & On-Call Surgeons',
     doctorRole: 'Round-the-Clock Emergency Team',
     degree: 'Emergency Triage & Surgical Support',
-    badge: 'Always Open • Zero Wait Time Triage',
+    badge: 'Always Open • 24/7 Emergency',
     description: 'Equipped with multi-parameter cardiac monitors, oxygen delivery units, emergency trauma resuscitation kits, and an on-call surgical theatre ready to respond immediately to critical emergencies.',
     keyProcedures: [
       'Acute Accident Trauma, Cuts & Burn Triage',
@@ -224,14 +260,14 @@ const realDepartments = [
     ]
   },
   {
-    _id: 'dept-12',
+    _id: 'dept-14',
     title: 'In-House Diagnostics & Digital ECG',
     tamilTitle: 'துல்லிய ஆய்வகம் & டிஜிட்டல் ECG பிரிவு',
     category: 'Clinical & Emergency',
     icon: 'Activity',
     doctor: 'Certified Pathologists & Bio-Technicians',
     doctorRole: 'Diagnostic Laboratory Division',
-    degree: 'Automated Pathology & ECG',
+    degree: 'Automated Pathology & Digital ECG',
     badge: 'Fast, Accurate Computerized Reports',
     description: 'In-house automated lab analyzing blood, biochemistry, and computerized 3-lead digital ECGs swiftly to provide our doctors and visiting specialists with prompt diagnostic clarity.',
     keyProcedures: [

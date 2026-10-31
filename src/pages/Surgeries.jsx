@@ -284,7 +284,7 @@ const Surgeries = () => {
               Real Surgical Facility
             </span>
             <h2 style={{ color: '#FFFFFF', fontSize: '2.4rem', marginTop: '14px', marginBottom: '10px', fontWeight: '800' }}>
-              Inside Our Modular Operation Theatre
+              Inside Our Well-Equipped Operation Theatre
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.02rem', maxWidth: '720px', margin: '0 auto' }}>
               Real-time surgical procedures led by Chief Laparoscopic Surgeon Dr. B. Saileshkumar alongside specialized anesthesia and sterile nursing teams.
