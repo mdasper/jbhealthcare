@@ -39,7 +39,7 @@ const chiefDoctorSummary = {
 const visitingSpecialists = [
   {
     _id: 'v-1',
-    name: 'Dr. M. Jeganatha Prabhu',
+    name: 'Dr. Jaganatha Prabhu',
     degree: 'D.A.',
     categoryHeader: 'ANAESTHESIOLOGY & PERIOPERATIVE CARE',
     department: 'Anaesthesiology & Critical Care',
@@ -56,7 +56,7 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-2',
-    name: 'Dr. S. Sri Kishore Ganesh',
+    name: 'Dr. Kishore Ganesh',
     degree: 'M.D.',
     categoryHeader: 'ANAESTHESIOLOGY & CRITICAL CARE',
     department: 'Anaesthesiology & Critical Care',
@@ -73,7 +73,7 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-3',
-    name: 'Dr. P. Karthikeyan',
+    name: 'Dr. Karthikeyan',
     degree: 'MBBS, MD',
     categoryHeader: 'ANAESTHESIOLOGY & CRITICAL CARE',
     department: 'Anaesthesiology & Critical Care',
@@ -175,7 +175,7 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-9',
-    name: 'Dr. R. Arunkumar',
+    name: 'Dr. Arun Kumar',
     degree: 'M.S., M.Ch.',
     categoryHeader: 'PLASTIC & RECONSTRUCTIVE SURGERY',
     department: 'Plastic, Cosmetic & Reconstructive Surgery',
@@ -192,7 +192,7 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-10',
-    name: 'Dr. J. Arunkumar',
+    name: 'Dr. Arun Kumar',
     degree: 'M.S., M.Ch.',
     categoryHeader: 'PAEDIATRIC SURGERY',
     department: 'Paediatrics & Neonatal Surgery',
@@ -209,7 +209,7 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-11',
-    name: 'Dr. G. Sankar',
+    name: 'Dr. Shankar',
     degree: 'M.S., M.Ch.',
     categoryHeader: 'UROLOGY & ANDROLOGY',
     department: 'Urology & Andrology',
@@ -226,7 +226,7 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-12',
-    name: 'Dr. Deepan Ramkumar',
+    name: 'Dr. Dheepan',
     degree: 'M.S. Ortho',
     categoryHeader: 'ORTHOPAEDIC & TRAUMA SURGERY',
     department: 'Orthopaedics & Trauma Surgery',
@@ -243,7 +243,7 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-13',
-    name: 'Visiting Clinical Psychologist',
+    name: 'Dr. Roshan',
     degree: 'M.Sc., M.Phil.',
     categoryHeader: 'CLINICAL PSYCHOLOGY & COUNSELLING',
     department: 'Clinical Psychology & Counselling',
