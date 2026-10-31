@@ -10,9 +10,9 @@ const Contact = () => {
     }).catch(console.error);
   }, []);
 
-  const address = settings?.address || "2/571A, Bharathi Nagar, Reserve line, Sivakasi, Tamil Nadu 626124";
-  const phone = settings?.phone || "+91 93455 10905";
-  const email = settings?.email || "jbhealthcare.sivakasi@gmail.com";
+  const address = "2/571A, Bharathi Nagar, Reserve line, Sivakasi, Tamil Nadu 626124";
+  const phone = "+91 93455 10905";
+  const email = "jbhealthcare.sivakasi@gmail.com";
 
   return (
     <div className="page-transition" style={{ paddingTop: '80px' }}>
@@ -74,7 +74,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 style={{ color: 'var(--primary)', margin: 0, fontSize: '1.1rem' }}>Email Us</h4>
-                  <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}>{email}</p>
+                  <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}><a href="mailto:jbhealthcare.sivakasi@gmail.com" style={{ color: '#0077B6', textDecoration: 'none', fontWeight: '600' }}>jbhealthcare.sivakasi@gmail.com</a></p>
                 </div>
               </div>
             </div>
@@ -104,13 +104,13 @@ const Contact = () => {
             <div className="map-container" style={{ marginTop: '0' }}>
               {/* Google Maps Embed using the provided address */}
               <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.1234567890123!2d78.1158!3d9.953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5a1a1a1a1a1%3A0x1a2b3c4d5e6f7g8h!2sAnaiyur%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+              src="https://maps.google.com/maps?q=JB+Health+Care,+Bharathi+Nagar,+Reserve+line,+Sivakasi,+Tamil+Nadu+626124&t=&z=16&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
               style={{border: 0}} 
               allowFullScreen="" 
               loading="lazy"
-              title="JB Healthcare Location"
+              title="JB Healthcare Sivakasi Location"
             ></iframe>
             </div>
           </div>

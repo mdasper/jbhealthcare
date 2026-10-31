@@ -159,7 +159,7 @@ const Footer = () => {
                 
                 {/* Address Card */}
                 <a 
-                  href="https://maps.google.com/?q=2/571A,+Bharathi+Nagar,+Reserve+line,+Vasantham+Nagar,+Rengapa+Shyam+Nagar,+Anaiyur,+Tamil+Nadu+626124" 
+                  href="https://maps.google.com/?q=2/571A,+Bharathi+Nagar,+Reserve+line,+Vasantham+Nagar,+Rengapa+Shyam+Nagar,+Sivakasi,+Tamil+Nadu+626124" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="footer-info-item"
