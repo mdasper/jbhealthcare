@@ -365,128 +365,352 @@ const Home = () => {
             </div>
             <h2 className="section-title" style={{ margin: '0 0 10px 0' }}>What Our Patients Say</h2>
             <p style={{ color: '#555', maxWidth: '650px', margin: '0 auto', fontSize: '1.05rem', lineHeight: '1.6' }}>
-              Real experiences shared by our patients and families on Google Reviews.
+              Real patient feedback & surgical recovery experiences shared on Google Reviews.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px' }}>
+          {/* 6 Luxury Dark Blue Tiles Grid (3x2) Matching Top Departments Style */}
+          <div className="testimonials-luxury-grid">
+
             {/* Review 1 */}
-            <div style={{ padding: '28px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '16px', borderTop: '4px solid #00B4D8', boxShadow: '0 10px 30px rgba(0, 70, 100, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div 
+              key={0}
+              className="testimonial-dark-tile" 
+              data-aos="zoom-in" 
+              data-aos-delay="100"
+              style={{
+                background: 'linear-gradient(145deg, #07192d 0%, #0b243d 100%)',
+                color: '#FFFFFF',
+                border: '1px solid rgba(0, 180, 216, 0.28)',
+                borderTop: '4px solid #00B4D8',
+                borderRadius: '18px',
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxShadow: '0 12px 35px rgba(7, 25, 45, 0.25)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+            >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                  <div style={{ display: 'flex', gap: '4px' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" />
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
+                  <div style={{ display: 'flex', gap: '3px' }}>
+                    {[...Array(5)].map((_, sIdx) => (
+                      <Star key={sIdx} size={16} fill="#F59E0B" color="#F59E0B" />
                     ))}
                   </div>
-                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#E0F2FE', padding: '3px 10px', borderRadius: '10px', fontWeight: '600' }}>Google Review</span>
+                  <span style={{ fontSize: '0.8rem', backgroundColor: 'rgba(0, 180, 216, 0.15)', color: '#38BDF8', border: '1px solid rgba(0, 180, 216, 0.35)', padding: '4px 12px', borderRadius: '15px', fontWeight: '700', letterSpacing: '0.3px' }}>
+                    Google Review
+                  </span>
                 </div>
-                <p style={{ fontStyle: 'italic', marginBottom: '18px', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.65', fontSize: '0.96rem' }}>
+
+                <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', marginBottom: '8px', textAlign: 'left', fontWeight: '800' }}>
+                  Ramesh Kumar
+                </h3>
+
+                <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '0.93rem', lineHeight: '1.65', textAlign: 'left', marginBottom: '16px', fontWeight: '400', fontStyle: 'italic' }}>
                   "My wife laparoscopic cholecystectomy surgery successfully done. Best Hospital for Surgery & Patient Care! Doctor patient-a purinjikittu romba clear-a explain panninaaru, very polite and caring. Highly recommended!"
                 </p>
-              </div>
-              <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div>
-                  <h4 style={{ color: '#00B4D8', fontWeight: '800', margin: 0, fontSize: '1.05rem' }}>Ramesh Kumar</h4>
-                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Surgery Patient Family</span>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '18px' }}>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>பித்தப்பை அறுவை (Cholecystectomy)</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>Patient-Centric Care</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>Fast Recovery</span>
                 </div>
-                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Verified Review</span>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto', flexWrap: 'wrap', gap: '8px' }}>
+                <span style={{ color: '#38BDF8', backgroundColor: 'rgba(0, 180, 216, 0.12)', border: '1px solid rgba(0, 180, 216, 0.3)', padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <CheckCircle size={14} color="#38BDF8" /> Google Verified
+                </span>
+                <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.78rem', fontWeight: '500' }}>
+                  Surgery Patient Family
+                </span>
               </div>
             </div>
 
             {/* Review 2 */}
-            <div style={{ padding: '28px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '16px', borderTop: '4px solid #00B4D8', boxShadow: '0 10px 30px rgba(0, 70, 100, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div 
+              key={1}
+              className="testimonial-dark-tile" 
+              data-aos="zoom-in" 
+              data-aos-delay="200"
+              style={{
+                background: 'linear-gradient(145deg, #07192d 0%, #0b243d 100%)',
+                color: '#FFFFFF',
+                border: '1px solid rgba(0, 180, 216, 0.28)',
+                borderTop: '4px solid #00B4D8',
+                borderRadius: '18px',
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxShadow: '0 12px 35px rgba(7, 25, 45, 0.25)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+            >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                  <div style={{ display: 'flex', gap: '4px' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" />
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
+                  <div style={{ display: 'flex', gap: '3px' }}>
+                    {[...Array(5)].map((_, sIdx) => (
+                      <Star key={sIdx} size={16} fill="#F59E0B" color="#F59E0B" />
                     ))}
                   </div>
-                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#E0F2FE', padding: '3px 10px', borderRadius: '10px', fontWeight: '600' }}>Local Guide</span>
+                  <span style={{ fontSize: '0.8rem', backgroundColor: 'rgba(0, 180, 216, 0.15)', color: '#38BDF8', border: '1px solid rgba(0, 180, 216, 0.35)', padding: '4px 12px', borderRadius: '15px', fontWeight: '700', letterSpacing: '0.3px' }}>
+                    Local Guide
+                  </span>
                 </div>
-                <p style={{ fontStyle: 'italic', marginBottom: '18px', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.65', fontSize: '0.96rem' }}>
+
+                <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', marginBottom: '8px', textAlign: 'left', fontWeight: '800' }}>
+                  M Sathish
+                </h3>
+
+                <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '0.93rem', lineHeight: '1.65', textAlign: 'left', marginBottom: '16px', fontWeight: '400', fontStyle: 'italic' }}>
                   "The service provided was excellent. The doctor was very polite, and my wife's hernia surgery was successful. The staff was warm, friendly, and provided great service. I was very satisfied with the outcome."
                 </p>
-              </div>
-              <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div>
-                  <h4 style={{ color: '#00B4D8', fontWeight: '800', margin: 0, fontSize: '1.05rem' }}>M Sathish</h4>
-                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Local Guide • 11 Reviews</span>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '18px' }}>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>குடல் இறக்கம் (Hernia Surgery)</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>Warm Nursing Staff</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>Successful Outcome</span>
                 </div>
-                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Verified Review</span>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto', flexWrap: 'wrap', gap: '8px' }}>
+                <span style={{ color: '#38BDF8', backgroundColor: 'rgba(0, 180, 216, 0.12)', border: '1px solid rgba(0, 180, 216, 0.3)', padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <CheckCircle size={14} color="#38BDF8" /> Google Verified
+                </span>
+                <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.78rem', fontWeight: '500' }}>
+                  Local Guide • 11 Reviews
+                </span>
               </div>
             </div>
 
             {/* Review 3 */}
-            <div style={{ padding: '28px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '16px', borderTop: '4px solid #00B4D8', boxShadow: '0 10px 30px rgba(0, 70, 100, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div 
+              key={2}
+              className="testimonial-dark-tile" 
+              data-aos="zoom-in" 
+              data-aos-delay="300"
+              style={{
+                background: 'linear-gradient(145deg, #07192d 0%, #0b243d 100%)',
+                color: '#FFFFFF',
+                border: '1px solid rgba(0, 180, 216, 0.28)',
+                borderTop: '4px solid #00B4D8',
+                borderRadius: '18px',
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxShadow: '0 12px 35px rgba(7, 25, 45, 0.25)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+            >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                  <div style={{ display: 'flex', gap: '4px' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" />
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
+                  <div style={{ display: 'flex', gap: '3px' }}>
+                    {[...Array(5)].map((_, sIdx) => (
+                      <Star key={sIdx} size={16} fill="#F59E0B" color="#F59E0B" />
                     ))}
                   </div>
-                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#E0F2FE', padding: '3px 10px', borderRadius: '10px', fontWeight: '600' }}>Google Review</span>
+                  <span style={{ fontSize: '0.8rem', backgroundColor: 'rgba(0, 180, 216, 0.15)', color: '#38BDF8', border: '1px solid rgba(0, 180, 216, 0.35)', padding: '4px 12px', borderRadius: '15px', fontWeight: '700', letterSpacing: '0.3px' }}>
+                    Google Review
+                  </span>
                 </div>
-                <p style={{ fontStyle: 'italic', marginBottom: '18px', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.65', fontSize: '0.96rem' }}>
+
+                <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', marginBottom: '8px', textAlign: 'left', fontWeight: '800' }}>
+                  Ayyanar Bharathi
+                </h3>
+
+                <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '0.93rem', lineHeight: '1.65', textAlign: 'left', marginBottom: '16px', fontWeight: '400', fontStyle: 'italic' }}>
                   "Excellent hospital with highly experienced doctors and a very supportive staff. The patient care is phenomenal, and they maintain great hygiene. Highly recommended for, both, OPD and inpatient services."
                 </p>
-              </div>
-              <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div>
-                  <h4 style={{ color: '#00B4D8', fontWeight: '800', margin: 0, fontSize: '1.05rem' }}>Ayyanar Bharathi</h4>
-                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Inpatient & OPD Patient</span>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '18px' }}>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>அனுபவம் வாய்ந்த மருத்துவர்</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>100% Hygiene Standard</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>OPD & Inpatient</span>
                 </div>
-                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Verified Review</span>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto', flexWrap: 'wrap', gap: '8px' }}>
+                <span style={{ color: '#38BDF8', backgroundColor: 'rgba(0, 180, 216, 0.12)', border: '1px solid rgba(0, 180, 216, 0.3)', padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <CheckCircle size={14} color="#38BDF8" /> Google Verified
+                </span>
+                <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.78rem', fontWeight: '500' }}>
+                  Inpatient & OPD Patient
+                </span>
               </div>
             </div>
 
             {/* Review 4 */}
-            <div style={{ padding: '28px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '16px', borderTop: '4px solid #00B4D8', boxShadow: '0 10px 30px rgba(0, 70, 100, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div 
+              key={3}
+              className="testimonial-dark-tile" 
+              data-aos="zoom-in" 
+              data-aos-delay="100"
+              style={{
+                background: 'linear-gradient(145deg, #07192d 0%, #0b243d 100%)',
+                color: '#FFFFFF',
+                border: '1px solid rgba(0, 180, 216, 0.28)',
+                borderTop: '4px solid #00B4D8',
+                borderRadius: '18px',
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxShadow: '0 12px 35px rgba(7, 25, 45, 0.25)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+            >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                  <div style={{ display: 'flex', gap: '4px' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" />
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
+                  <div style={{ display: 'flex', gap: '3px' }}>
+                    {[...Array(5)].map((_, sIdx) => (
+                      <Star key={sIdx} size={16} fill="#F59E0B" color="#F59E0B" />
                     ))}
                   </div>
-                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#E0F2FE', padding: '3px 10px', borderRadius: '10px', fontWeight: '600' }}>Google Review</span>
+                  <span style={{ fontSize: '0.8rem', backgroundColor: 'rgba(0, 180, 216, 0.15)', color: '#38BDF8', border: '1px solid rgba(0, 180, 216, 0.35)', padding: '4px 12px', borderRadius: '15px', fontWeight: '700', letterSpacing: '0.3px' }}>
+                    Google Review
+                  </span>
                 </div>
-                <p style={{ fontStyle: 'italic', marginBottom: '18px', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.65', fontSize: '0.96rem' }}>
+
+                <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', marginBottom: '8px', textAlign: 'left', fontWeight: '800' }}>
+                  KSR Traders
+                </h3>
+
+                <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '0.93rem', lineHeight: '1.65', textAlign: 'left', marginBottom: '16px', fontWeight: '400', fontStyle: 'italic' }}>
                   "My dad underwent laparoscopic surgery at JB Health Care, and we had a very good experience. The doctors and staff took good care of him, and the nursing care was excellent. Supportive, attentive, and helpful throughout the stay."
                 </p>
-              </div>
-              <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div>
-                  <h4 style={{ color: '#00B4D8', fontWeight: '800', margin: 0, fontSize: '1.05rem' }}>KSR Traders</h4>
-                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Laparoscopy Patient Family</span>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '18px' }}>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>லேப்ராஸ்கோபிக் அறுவை</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>Attentive Nursing</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>No-Tip Ethics Policy</span>
                 </div>
-                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Verified Review</span>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto', flexWrap: 'wrap', gap: '8px' }}>
+                <span style={{ color: '#38BDF8', backgroundColor: 'rgba(0, 180, 216, 0.12)', border: '1px solid rgba(0, 180, 216, 0.3)', padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <CheckCircle size={14} color="#38BDF8" /> Google Verified
+                </span>
+                <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.78rem', fontWeight: '500' }}>
+                  Laparoscopy Patient Family
+                </span>
               </div>
             </div>
 
             {/* Review 5 */}
-            <div style={{ padding: '28px', background: 'var(--primary)', color: 'var(--white)', borderRadius: '16px', borderTop: '4px solid #00B4D8', boxShadow: '0 10px 30px rgba(0, 70, 100, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div 
+              key={4}
+              className="testimonial-dark-tile" 
+              data-aos="zoom-in" 
+              data-aos-delay="200"
+              style={{
+                background: 'linear-gradient(145deg, #07192d 0%, #0b243d 100%)',
+                color: '#FFFFFF',
+                border: '1px solid rgba(0, 180, 216, 0.28)',
+                borderTop: '4px solid #00B4D8',
+                borderRadius: '18px',
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxShadow: '0 12px 35px rgba(7, 25, 45, 0.25)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+            >
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                  <div style={{ display: 'flex', gap: '4px' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" />
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
+                  <div style={{ display: 'flex', gap: '3px' }}>
+                    {[...Array(5)].map((_, sIdx) => (
+                      <Star key={sIdx} size={16} fill="#F59E0B" color="#F59E0B" />
                     ))}
                   </div>
-                  <span style={{ fontSize: '0.78rem', backgroundColor: 'rgba(255,255,255,0.15)', color: '#E0F2FE', padding: '3px 10px', borderRadius: '10px', fontWeight: '600' }}>Google Review</span>
+                  <span style={{ fontSize: '0.8rem', backgroundColor: 'rgba(0, 180, 216, 0.15)', color: '#38BDF8', border: '1px solid rgba(0, 180, 216, 0.35)', padding: '4px 12px', borderRadius: '15px', fontWeight: '700', letterSpacing: '0.3px' }}>
+                    Google Review
+                  </span>
                 </div>
-                <p style={{ fontStyle: 'italic', marginBottom: '18px', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.65', fontSize: '0.96rem' }}>
+
+                <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', marginBottom: '8px', textAlign: 'left', fontWeight: '800' }}>
+                  Sugu Keerthana
+                </h3>
+
+                <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '0.93rem', lineHeight: '1.65', textAlign: 'left', marginBottom: '16px', fontWeight: '400', fontStyle: 'italic' }}>
                   "My husband came here for hernia operation. Good in service and good maintenance, kind and caring doctor, nurses and staff. Excellent support throughout surgery and recovery. Thank you JB Healthcare!"
                 </p>
-              </div>
-              <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div>
-                  <h4 style={{ color: '#00B4D8', fontWeight: '800', margin: 0, fontSize: '1.05rem' }}>Sugu Keerthana</h4>
-                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.7)' }}>Surgical Patient Family</span>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '18px' }}>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>அறுவை சிகிச்சை (Hernia)</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>Caring & Kind Doctor</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>Smooth Recovery</span>
                 </div>
-                <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Verified Review</span>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto', flexWrap: 'wrap', gap: '8px' }}>
+                <span style={{ color: '#38BDF8', backgroundColor: 'rgba(0, 180, 216, 0.12)', border: '1px solid rgba(0, 180, 216, 0.3)', padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <CheckCircle size={14} color="#38BDF8" /> Google Verified
+                </span>
+                <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.78rem', fontWeight: '500' }}>
+                  Surgical Patient Family
+                </span>
+              </div>
+            </div>
+
+            {/* Review 6 */}
+            <div 
+              key={5}
+              className="testimonial-dark-tile" 
+              data-aos="zoom-in" 
+              data-aos-delay="300"
+              style={{
+                background: 'linear-gradient(145deg, #07192d 0%, #0b243d 100%)',
+                color: '#FFFFFF',
+                border: '1px solid rgba(0, 180, 216, 0.28)',
+                borderTop: '4px solid #00B4D8',
+                borderRadius: '18px',
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxShadow: '0 12px 35px rgba(7, 25, 45, 0.25)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+            >
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
+                  <div style={{ display: 'flex', gap: '3px' }}>
+                    {[...Array(5)].map((_, sIdx) => (
+                      <Star key={sIdx} size={16} fill="#F59E0B" color="#F59E0B" />
+                    ))}
+                  </div>
+                  <span style={{ fontSize: '0.8rem', backgroundColor: 'rgba(0, 180, 216, 0.15)', color: '#38BDF8', border: '1px solid rgba(0, 180, 216, 0.35)', padding: '4px 12px', borderRadius: '15px', fontWeight: '700', letterSpacing: '0.3px' }}>
+                    Google Review
+                  </span>
+                </div>
+
+                <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', marginBottom: '8px', textAlign: 'left', fontWeight: '800' }}>
+                  Karthik Raj
+                </h3>
+
+                <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '0.93rem', lineHeight: '1.65', textAlign: 'left', marginBottom: '16px', fontWeight: '400', fontStyle: 'italic' }}>
+                  "One of the finest surgical centres in Sivakasi. Dr. Saileshkumar explains diagnosis with extreme clarity and patience. Modern facilities, 24/7 caring staff, and very neat atmosphere. Highly recommended!"
+                </p>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '18px' }}>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>நவீன மருத்துவ வசதிகள்</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>Clear Doctor Guidance</span>
+                  <span className="dept-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>24/7 Emergency Care</span>
+                </div>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto', flexWrap: 'wrap', gap: '8px' }}>
+                <span style={{ color: '#38BDF8', backgroundColor: 'rgba(0, 180, 216, 0.12)', border: '1px solid rgba(0, 180, 216, 0.3)', padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <CheckCircle size={14} color="#38BDF8" /> Google Verified
+                </span>
+                <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.78rem', fontWeight: '500' }}>
+                  Consultation & Surgery
+                </span>
               </div>
             </div>
           </div>
@@ -532,6 +756,27 @@ const Home = () => {
       </section>
 
       <style>{`
+        .testimonials-luxury-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 26px;
+        }
+        @media (max-width: 1024px) {
+          .testimonials-luxury-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 680px) {
+          .testimonials-luxury-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        .testimonial-dark-tile:hover {
+          transform: translateY(-6px) !important;
+          border-color: #00B4D8 !important;
+          box-shadow: 0 20px 45px rgba(7, 25, 45, 0.5), 0 0 25px rgba(0, 180, 216, 0.25) !important;
+        }
+    
         .top-departments-2x2 {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
