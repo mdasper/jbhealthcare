@@ -35,23 +35,6 @@ const chiefDoctorSummary = {
   ]
 };
 
-const casualtyEmergencyTeam = {
-  _id: 'emg-casualty',
-  name: '24/7 Casualty & Medical Duty Team',
-  degree: 'MBBS Duty Medical Officers',
-  categoryHeader: '24/7 CASUALTY & ACUTE EMERGENCY CARE',
-  department: 'Emergency & Trauma Center',
-  category: 'Emergency',
-  schedule: '24 Hours • Every Day (Mon–Sun)',
-  timing: 'Round-The-Clock (24/7 Live)',
-  availableDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-  focusAreas: [
-    'Immediate trauma resuscitation',
-    'Accident & surgical emergency care',
-    'Computerized lab & digital ECG',
-    '24/7 emergency admissions'
-  ]
-};
 
 const visitingSpecialists = [
   {
@@ -323,9 +306,6 @@ const Doctors = () => {
       if (sang) list.push(sang);
     }
 
-    // Always 24/7 Casualty & Medical Duty Team
-    list.push(casualtyEmergencyTeam);
-
     return list;
   };
 
@@ -342,7 +322,6 @@ const Doctors = () => {
   // All doctors combined
   const allDoctors = [
     chiefDoctorSummary,
-    casualtyEmergencyTeam,
     ...visitingSpecialists
   ];
 
