@@ -1317,3 +1317,313 @@ body, html {
     gap: 12px !important;
   }
 }
+
+/* -------------------------------------------------------------
+   MODERN NAVBAR & MOBILE RESPONSIVE ENHANCEMENTS
+   ------------------------------------------------------------- */
+.navbar-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.navbar-logo-img {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 2px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.navbar-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-logo-title {
+  display: block;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+  color: #0A2540;
+  line-height: 1.2;
+}
+
+.navbar-logo-tagline {
+  display: block;
+  font-size: 0.72rem;
+  color: #003852;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-call-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #0A2540;
+  background-color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0, 35, 60, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.25s ease;
+}
+
+.nav-call-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 35, 60, 0.25);
+}
+
+.nav-appointment-btn {
+  padding: 10px 22px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 30px;
+  background-color: #0A2540;
+  color: #FFFFFF;
+  border: 1px solid rgba(10, 37, 64, 0.4);
+  box-shadow: 0 4px 15px rgba(10, 37, 64, 0.3);
+  transition: all 0.25s ease;
+}
+
+.nav-appointment-btn:hover {
+  background-color: #00B4D8;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+}
+
+.hero-slide-content {
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 0 !important;
+  }
+  .navbar-container {
+    padding: 0 16px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  .logo {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+    margin-right: 6px !important;
+  }
+  .navbar-logo-link {
+    gap: 8px !important;
+  }
+  .navbar-logo-img {
+    height: 40px !important;
+    width: 40px !important;
+  }
+  .navbar-logo-title {
+    font-size: 1.12rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .navbar-logo-tagline {
+    font-size: 0.65rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .mobile-menu-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.35) !important;
+    flex-shrink: 0 !important;
+    transition: background 0.2s ease;
+  }
+  .mobile-menu-icon:hover {
+    background: rgba(255, 255, 255, 0.65) !important;
+  }
+  
+  /* Mobile Menu Drawer (Starts strictly below the navbar) */
+  .nav-wrapper.mobile-open {
+    display: flex !important;
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - 60px) !important;
+    overflow-y: auto !important;
+    background: #FFFFFF !important;
+    flex-direction: column !important;
+    padding: 24px 20px 60px !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    z-index: 9999 !important;
+    align-items: center !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* Mobile Tab Links */
+  .nav-wrapper.mobile-open .nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 22px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+  
+  .nav-wrapper.mobile-open .nav-links a {
+    color: #0A2540 !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    padding: 11px 20px !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    text-align: center !important;
+    transition: all 0.25s ease !important;
+    letter-spacing: 0.8px !important;
+    box-sizing: border-box !important;
+    text-shadow: none !important;
+  }
+  
+  .nav-wrapper.mobile-open .nav-links a:hover {
+    background: #F1F5F9 !important;
+    color: #0077B6 !important;
+  }
+  
+  /* Active Tab Highlight: Luxury Medical Gradient Pill */
+  .nav-wrapper.mobile-open .nav-links a.active {
+    background: linear-gradient(135deg, #0A2540 0%, #0077B6 100%) !important;
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 15px rgba(0, 119, 182, 0.28) !important;
+    text-shadow: none !important;
+  }
+  
+  .nav-wrapper.mobile-open .nav-links a::after {
+    display: none !important;
+  }
+  
+  /* Mobile Action Buttons: Stacked Vertically One-by-One */
+  .nav-wrapper.mobile-open .nav-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+  
+  .nav-wrapper.mobile-open .nav-actions .nav-call-btn,
+  .nav-wrapper.mobile-open .nav-actions .nav-appointment-btn {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 13px 20px !important;
+    font-size: 0.95rem !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    border-radius: 30px !important;
+  }
+  
+  .nav-wrapper.mobile-open .nav-actions .nav-call-btn {
+    border: 1.5px solid #00B4D8 !important;
+    background-color: #F0F9FF !important;
+    color: #0A2540 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 2px 10px rgba(0, 180, 216, 0.15) !important;
+  }
+  
+  .nav-wrapper.mobile-open .nav-actions .nav-appointment-btn {
+    background: linear-gradient(135deg, #0A2540 0%, #0077B6 100%) !important;
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(10, 37, 64, 0.25) !important;
+  }
+  
+  /* Hero Slider Mobile Arrow Overlap Fix */
+  .hero-slide-content {
+    padding: 0 54px !important;
+  }
+  
+  .slider-nav {
+    width: 38px !important;
+    height: 38px !important;
+    background: rgba(4, 16, 32, 0.5) !important;
+    backdrop-filter: blur(4px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  }
+  
+  .slider-nav svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  
+  .slider-nav.prev {
+    left: 8px !important;
+  }
+  
+  .slider-nav.next {
+    right: 8px !important;
+  }
+  
+  .slide-title {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+  }
+  
+  .slide-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-slide-content {
+    padding: 0 46px !important;
+  }
+  .slider-nav {
+    width: 34px !important;
+    height: 34px !important;
+  }
+  .slider-nav svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .slider-nav.prev {
+    left: 5px !important;
+  }
+  .slider-nav.next {
+    right: 5px !important;
+  }
+  .slide-title {
+    font-size: 1.55rem !important;
+  }
+  .slide-subtitle {
+    font-size: 0.88rem !important;
+  }
+}

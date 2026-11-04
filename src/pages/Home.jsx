@@ -68,7 +68,7 @@ const Home = () => {
               backgroundPosition: 'center'
             }}
           >
-            <div className="container" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px' }}>
+            <div className="container hero-slide-content" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
               <h1 className="slide-title">{slide.title}</h1>
               <p className="slide-subtitle" style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.6', fontSize: '1.25rem' }}>{slide.subtitle}</p>
               <div style={{ display: 'flex', gap: '16px', marginTop: '35px', flexWrap: 'wrap', justifyContent: 'center' }}>
