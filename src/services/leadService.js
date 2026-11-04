@@ -1,8 +1,9 @@
 // Service to submit appointments and enquiries directly to Sanity CMS database
 
-const PROJECT_ID = import.meta.env.VITE_SANITY_PROJECT_ID || 'qoi5yrg2';
-const DATASET = import.meta.env.VITE_SANITY_DATASET || 'production';
-const WRITE_TOKEN = import.meta.env.VITE_SANITY_WRITE_TOKEN || 'skkyHygxOoPBODtE2n5sdHYgObfOCUUPcPxNHDGftUZufddEObopZLVLPPrxm7rVAr5JiiyKdSsVpfgyplGRJoBFLU9kU6mVQx8R0zTg5j0iGMykCS4uqtpkMSNwnKZ0vx0K9fxdtR2LuWjHH043msWy0PtunZf41uIWx6uRNuDc8ophUjlm';
+const env = (typeof import.meta !== 'undefined' && import.meta.env) ? import.meta.env : {};
+const PROJECT_ID = env.VITE_SANITY_PROJECT_ID || 'qoi5yrg2';
+const DATASET = env.VITE_SANITY_DATASET || 'production';
+const WRITE_TOKEN = env.VITE_SANITY_WRITE_TOKEN || 'skkyHygxOoPBODtE2n5sdHYgObfOCUUPcPxNHDGftUZufddEObopZLVLPPrxm7rVAr5JiiyKdSsVpfgyplGRJoBFLU9kU6mVQx8R0zTg5j0iGMykCS4uqtpkMSNwnKZ0vx0K9fxdtR2LuWjHH043msWy0PtunZf41uIWx6uRNuDc8ophUjlm';
 
 /**
  * Save an appointment booking to Sanity
@@ -35,7 +36,7 @@ export async function saveAppointmentToSanity(appointmentData) {
     });
 
     const result = await response.json();
-    console.log('Sanity appointment saved:', result);
+    console.log('Sanity appointment saved successfully:', result);
     return { success: true, result };
   } catch (error) {
     console.error('Failed to save appointment to Sanity:', error);
@@ -71,7 +72,7 @@ export async function saveEnquiryToSanity(enquiryData) {
     });
 
     const result = await response.json();
-    console.log('Sanity enquiry saved:', result);
+    console.log('Sanity enquiry saved successfully:', result);
     return { success: true, result };
   } catch (error) {
     console.error('Failed to save enquiry to Sanity:', error);
