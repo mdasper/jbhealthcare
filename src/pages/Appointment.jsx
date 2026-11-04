@@ -1,3 +1,4 @@
+import { saveAppointmentToSanity } from '../services/leadService';
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Calendar, Clock, User, Phone, Stethoscope, MessageSquare, CheckCircle, Shield } from 'lucide-react';
@@ -44,6 +45,9 @@ const Appointment = () => {
     e.preventDefault();
     if (!agreed) return;
     
+    // Save to Sanity database in background
+    saveAppointmentToSanity(formData);
+
     const whatsappNumber = '919345510905';
     let text = `*🏥 JB Healthcare - Appointment Booking*\n\n`;
     text += `*Patient Name:* ${formData.name}\n`;
