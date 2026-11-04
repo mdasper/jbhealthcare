@@ -356,6 +356,73 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Co-Founder & Managing Director Section - Content Left, Image Right */}
+      <section className="section cofounder-message" style={{ overflow: 'hidden', backgroundColor: 'var(--primary)', color: 'var(--white)', borderTop: '2px solid rgba(255, 255, 255, 0.22)' }}>
+        <div className="container cofounder-container">
+          
+          {/* Content on the Left */}
+          <div className="doctor-content" data-aos="fade-right">
+            <div style={{ display: 'inline-block', backgroundColor: '#061D38', color: '#FFFFFF', padding: '6px 16px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>
+              Co-Founder & Managing Director
+            </div>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '8px', color: '#FFFFFF', fontWeight: '800' }}>V. Suganya Sailesh</h2>
+            <h4 style={{ color: '#061D38', fontSize: '1.18rem', fontWeight: '800', marginBottom: '15px' }}>
+              B.Tech (IT) — Thiagarajar College of Engineering
+            </h4>
+            
+            <div className="quote" style={{ marginBottom: '18px', fontSize: '1.05rem', lineHeight: '1.6', color: '#FFFFFF', fontStyle: 'italic' }}>
+              "Fostering a welcoming, patient-focused environment where every individual and family feels respected, cared for, and truly supported."
+            </div>
+            
+            {/* Highlights Pillars - Matching Founder's Dark Navy Cards */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '14px', marginBottom: '22px' }}>
+              <div style={{ backgroundColor: '#061D38', padding: '12px 16px', borderRadius: '12px', borderLeft: '4px solid #38BDF8', boxShadow: '0 6px 18px rgba(0,0,0,0.18)' }}>
+                <span style={{ fontSize: '1.15rem', fontWeight: '800', color: '#38BDF8', display: 'block', lineHeight: '1.3' }}>B.Tech (IT)</span>
+                <span style={{ fontSize: '0.82rem', color: '#FFFFFF', fontWeight: '600' }}>Thiagarajar College of Engg</span>
+              </div>
+              <div style={{ backgroundColor: '#061D38', padding: '12px 16px', borderRadius: '12px', borderLeft: '4px solid #38BDF8', boxShadow: '0 6px 18px rgba(0,0,0,0.18)' }}>
+                <span style={{ fontSize: '1.15rem', fontWeight: '800', color: '#38BDF8', display: 'block', lineHeight: '1.3' }}>Hospital Administration</span>
+                <span style={{ fontSize: '0.82rem', color: '#FFFFFF', fontWeight: '600' }}>Leadership & Operations</span>
+              </div>
+              <div style={{ backgroundColor: '#061D38', padding: '12px 16px', borderRadius: '12px', borderLeft: '4px solid #38BDF8', boxShadow: '0 6px 18px rgba(0,0,0,0.18)' }}>
+                <span style={{ fontSize: '1.15rem', fontWeight: '800', color: '#38BDF8', display: 'block', lineHeight: '1.3' }}>Certified Life Coach</span>
+                <span style={{ fontSize: '0.82rem', color: '#FFFFFF', fontWeight: '600' }}>Parenting & Wellbeing Mentor</span>
+              </div>
+            </div>
+
+            <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <p style={{ color: '#FFFFFF', lineHeight: '1.65', fontSize: '0.95rem', margin: 0, fontWeight: '500' }}>
+                Suganya Sailesh is an engineering graduate with two years of corporate experience. As Co-founder and Managing Director, she plays an active role in the leadership, administration, and ongoing development of the hospital.
+              </p>
+              <p style={{ color: '#FFFFFF', lineHeight: '1.65', fontSize: '0.95rem', margin: 0, fontWeight: '500' }}>
+                Her background in engineering and corporate work brings a structured, organized, and problem-solving approach to hospital management. She is also a Certified Parenting Coach and Certified Life Coach, with a strong interest in communication, wellbeing, and supportive relationships.
+              </p>
+              <p style={{ color: '#FFFFFF', lineHeight: '1.65', fontSize: '0.95rem', margin: 0, fontWeight: '500' }}>
+                Beyond her hospital responsibilities, she is committed to strengthening healthcare services and passionate about building supportive communities that encourage healthier lifestyles, personal growth, and mutual wellbeing.
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', gap: '15px', marginTop: '18px', flexWrap: 'wrap' }}>
+              <Link to="/about" className="btn btn-accent" style={{ padding: '12px 26px', fontSize: '0.95rem', fontWeight: '700', backgroundColor: '#061D38', color: '#FFFFFF', border: 'none' }}>About Hospital Leadership</Link>
+              <Link to="/contact" className="btn btn-outline" style={{ padding: '12px 26px', fontSize: '0.95rem', fontWeight: '700', borderColor: '#FFFFFF', color: '#FFFFFF' }}>Contact Administration</Link>
+            </div>
+          </div>
+
+                    {/* Image on the Right - Perfect Square matching Founder */}
+          <div className="doctor-image" data-aos="fade-left" style={{ maxWidth: '460px', width: '100%', alignSelf: 'center', margin: '0 auto' }}>
+            <img 
+              src="/cofounder.png" 
+              alt="V. Suganya Sailesh - Co-founder & Managing Director" 
+              onError={(e) => { 
+                e.target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; 
+              }} 
+              style={{ width: '100%', aspectRatio: '1 / 1', borderRadius: '12px', display: 'block', objectFit: 'cover', objectPosition: 'top center', boxShadow: '0 10px 30px rgba(0,0,0,0.22)' }}
+            />
+          </div>
+
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="section" style={{ backgroundColor: 'var(--secondary)', padding: '80px 0' }}>
         <div className="container">

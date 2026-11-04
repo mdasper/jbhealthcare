@@ -1638,3 +1638,22 @@ body, html {
     font-size: 0.88rem !important;
   }
 }
+
+/* Co-Founder Section Styling (Exact Match with Founder Section) */
+.cofounder-message {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.cofounder-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+@media (max-width: 768px) {
+  .cofounder-container {
+    flex-direction: column-reverse !important;
+    gap: 30px !important;
+  }
+}
