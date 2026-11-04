@@ -243,7 +243,7 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-13',
-    name: 'Dr. Roshan',
+    name: 'Sowdambika @ Reethika M',
     degree: 'M.Sc., M.Phil.',
     categoryHeader: 'CLINICAL PSYCHOLOGY & COUNSELLING',
     department: 'Clinical Psychology & Counselling',

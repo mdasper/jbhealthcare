@@ -44,7 +44,7 @@ const Footer = () => {
       
       {/* Main Full-Width Luxury Footer Body */}
       <div className="footer-main-body">
-        <div style={{ width: '100%', maxWidth: 'none', margin: '0', padding: '60px 50px 30px' }}>
+        <div className="footer-inner-wrapper">
           <div className="footer-luxury-grid">
             
             {/* Column 1: Hospital Identity */}
@@ -140,7 +140,7 @@ const Footer = () => {
 
                   <div className="footer-schedule-row">
                     <span className="sched-label">Doctor OPD Timings:</span>
-                    <span className="sched-val">10:00 AM – 01:00 PM | 06:00 PM – 09:00 PM</span>
+                    <span className="sched-val">10:00 AM – 01:00 PM <span className="sched-sep">•</span> 06:00 PM – 09:00 PM</span>
                   </div>
 
                   <div className="footer-schedule-row">

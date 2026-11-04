@@ -229,7 +229,7 @@ const realDepartments = [
     tamilTitle: 'மனநலம் & உளவியல் ஆலோசனை பிரிவு',
     category: 'Clinical & Emergency',
     icon: 'Brain',
-    doctor: 'Dr. Roshan',
+    doctor: 'Sowdambika @ Reethika M',
     doctorRole: 'Consultant Psychologist & Counsellor',
     degree: 'M.Sc., M.Phil. (Clinical Psychology)',
     badge: 'Every Wednesday • 10:00 AM – 12:00 PM',
@@ -312,7 +312,7 @@ const doctorOverrideMap = {
   'anaesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'D.A. / M.D. / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
   'anesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'D.A. / M.D. / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
   'ent': { doctor: 'Dr. Sivaram', degree: 'MBBS, DNB (ENT)', doctorRole: 'Consultant ENT Specialist' },
-  'psychol': { doctor: 'Dr. Roshan', degree: 'M.Sc., M.Phil. (Clinical Psychology)', doctorRole: 'Consultant Psychologist & Counsellor' },
+  'psychol': { doctor: 'Sowdambika @ Reethika M', degree: 'M.Sc., M.Phil. (Clinical Psychology)', doctorRole: 'Consultant Psychologist & Counsellor' },
   'gastro': { doctor: 'Dr. A.C. Arun', degree: 'M.D., D.M. (Gastroenterology)', doctorRole: 'Visiting Medical Gastroenterologist' }
 };
 

@@ -91,7 +91,7 @@ const Appointment = () => {
           <div className="appointment-grid">
             
             {/* Left Side: Information & Trust */}
-            <div style={{ backgroundColor: 'var(--primary)', padding: '60px 40px', color: 'var(--white)', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+            <div className="appointment-info-col" style={{ backgroundColor: "var(--primary)", color: "var(--white)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
               
               {/* Decorative Circle */}
               <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(255,255,255,0.25), transparent)' }}></div>
@@ -134,7 +134,7 @@ const Appointment = () => {
               </div>
 
               {/* Emergency Contact Box to fill the bottom space */}
-              <div style={{ marginTop: 'auto', backgroundColor: 'rgba(255,255,255,0.2)', padding: '25px', borderRadius: '16px', border: '1.5px solid rgba(6, 29, 56, 0.2)', position: 'relative', zIndex: 1, paddingTop: '25px' }}>
+              <div className="appointment-urgent-box" style={{ backgroundColor: "rgba(255,255,255,0.2)", padding: "25px", borderRadius: "16px", border: "1.5px solid rgba(6, 29, 56, 0.2)", position: "relative", zIndex: 1 }}>
                 <h4 style={{ color: '#061D38', fontSize: '1.2rem', marginBottom: '16px', fontWeight: '800' }}>Need Urgent Help?</h4>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '12px' }}>
                   <Phone size={22} color="#061D38" />
@@ -159,7 +159,7 @@ const Appointment = () => {
             </div>
 
             {/* Right Side: The Premium Form */}
-            <div style={{ padding: '60px 50px', backgroundColor: 'var(--white)' }}>
+            <div className="appointment-form-col" style={{ backgroundColor: "var(--white)" }}>
               <h3 style={{ color: 'var(--primary)', fontSize: '1.8rem', marginBottom: '5px' }}>Patient Details</h3>
               <p style={{ color: '#666', marginBottom: '40px' }}>Please fill out the information below to request a consultation.</p>
               
@@ -184,20 +184,20 @@ const Appointment = () => {
                   <label style={{ display: 'block', color: 'var(--primary)', fontWeight: '600', marginBottom: '12px', fontSize: '0.95rem' }}>
                     Consultation Type
                   </label>
-                  <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                    <label style={{ flex: '1', display: 'flex', alignItems: 'center', gap: '12px', padding: '18px', border: formData.type === 'In-Person' ? '2px solid #0077B6' : '1px solid #e1e8ed', borderRadius: '12px', cursor: 'pointer', backgroundColor: formData.type === 'In-Person' ? '#f0f9ff' : '#f9fafb', transition: 'all 0.3s' }}>
-                      <input type="radio" name="type" value="In-Person" checked={formData.type === 'In-Person'} onChange={handleChange} style={{ width: '20px', height: '20px', accentColor: '#0077B6' }} />
-                      <div>
-                        <span style={{ fontWeight: '600', color: 'var(--primary)', display: 'block' }}>Clinic Visit</span>
-                        <span style={{ fontSize: '0.85rem', color: '#666' }}>In-person at Hospital</span>
+                  <div className="consultation-type-group">
+                    <label className={`consultation-type-option ${formData.type === 'In-Person' ? 'selected' : ''}`}>
+                      <input type="radio" name="type" value="In-Person" checked={formData.type === 'In-Person'} onChange={handleChange} />
+                      <div className="consult-option-content">
+                        <span className="consult-option-title">Clinic Visit</span>
+                        <span className="consult-option-sub">In-person at Hospital</span>
                       </div>
                     </label>
                     
-                    <label style={{ flex: '1', display: 'flex', alignItems: 'center', gap: '12px', padding: '18px', border: formData.type === 'Online Consultation' ? '2px solid #0077B6' : '1px solid #e1e8ed', borderRadius: '12px', cursor: 'pointer', backgroundColor: formData.type === 'Online Consultation' ? '#f0f9ff' : '#f9fafb', transition: 'all 0.3s' }}>
-                      <input type="radio" name="type" value="Online Consultation" checked={formData.type === 'Online Consultation'} onChange={handleChange} style={{ width: '20px', height: '20px', accentColor: '#0077B6' }} />
-                      <div>
-                        <span style={{ fontWeight: '600', color: 'var(--primary)', display: 'block' }}>Video Call</span>
-                        <span style={{ fontSize: '0.85rem', color: '#666' }}>Exclusive 12:00-12:30 PM</span>
+                    <label className={`consultation-type-option ${formData.type === 'Online Consultation' ? 'selected' : ''}`}>
+                      <input type="radio" name="type" value="Online Consultation" checked={formData.type === 'Online Consultation'} onChange={handleChange} />
+                      <div className="consult-option-content">
+                        <span className="consult-option-title">Video Call</span>
+                        <span className="consult-option-sub">Exclusive 12:00-12:30 PM</span>
                       </div>
                     </label>
                   </div>

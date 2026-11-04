@@ -1200,3 +1200,120 @@ body, html {
 .tilt-card-wrapper {
   transition: box-shadow 0.3s ease;
 }
+
+/* -------------------------------------------------------------
+   RESPONSIVE APPOINTMENT & FOOTER STYLING (MOBILE ENHANCEMENTS)
+   ------------------------------------------------------------- */
+.footer-inner-wrapper {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 60px 50px 30px;
+}
+
+.sched-sep {
+  color: #00B4D8;
+  margin: 0 4px;
+}
+
+.appointment-info-col {
+  padding: 60px 40px;
+}
+
+.appointment-form-col {
+  padding: 60px 50px;
+}
+
+.appointment-urgent-box {
+  margin-top: auto;
+}
+
+.consultation-type-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.consultation-type-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1.5px solid #e1e8ed;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #f9fafb;
+  transition: all 0.25s ease;
+}
+
+.consultation-type-option:hover {
+  border-color: #00B4D8;
+}
+
+.consultation-type-option.selected {
+  border: 2px solid #0077B6 !important;
+  background-color: #f0f9ff !important;
+  box-shadow: 0 4px 15px rgba(0, 119, 182, 0.12);
+}
+
+.consultation-type-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #0077B6;
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.consult-option-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.consult-option-title {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.consult-option-sub {
+  font-size: 0.82rem;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .footer-inner-wrapper {
+    padding: 35px 20px 95px !important;
+  }
+  .footer-schedule-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    padding: 8px 0 !important;
+  }
+  .sched-label {
+    white-space: normal !important;
+    font-size: 0.85rem !important;
+  }
+  .sched-val {
+    white-space: normal !important;
+    word-break: break-word !important;
+    font-size: 0.84rem !important;
+    line-height: 1.4 !important;
+  }
+  .appointment-info-col {
+    padding: 40px 20px !important;
+  }
+  .appointment-form-col {
+    padding: 35px 20px !important;
+  }
+  .appointment-urgent-box {
+    margin-top: 36px !important;
+  }
+  .consultation-type-group {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
