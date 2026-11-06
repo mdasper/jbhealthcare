@@ -5,7 +5,7 @@ const FloatingWhatsApp = () => {
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
   
   const instagramUrl = "https://www.instagram.com/jb.healthcare.sivakasi/";
-  const facebookUrl = "https://www.facebook.com/100095190337849/";
+  const facebookUrl = "https://www.facebook.com/share/18zPnpA2tz/";
 
   return (
     <div className="floating-social-container">

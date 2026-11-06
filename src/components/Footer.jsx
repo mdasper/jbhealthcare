@@ -68,7 +68,7 @@ const Footer = () => {
               {/* Social Media Links */}
               <div className="footer-social-row">
                 <a 
-                  href="https://www.facebook.com/100095190337849/" 
+                  href="https://www.facebook.com/share/18zPnpA2tz/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="footer-social-icon fb"
