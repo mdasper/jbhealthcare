@@ -10,6 +10,39 @@ const Appointment = () => {
 
   const [settings, setSettings] = useState(null);
   const [agreed, setAgreed] = useState(false);
+  const [dateError, setDateError] = useState('');
+
+  // Local date formatter for accurate IST dates
+  const getLocalDateString = (d) => {
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  const todayObj = new Date();
+  const minDate = getLocalDateString(todayObj);
+  const maxDateObj = new Date(todayObj);
+  maxDateObj.setDate(todayObj.getDate() + 3);
+  const maxDate = getLocalDateString(maxDateObj);
+
+  // Available selectable days (Today + Next 3 days)
+  const availableDates = [0, 1, 2, 3].map(offset => {
+    const d = new Date(todayObj);
+    d.setDate(todayObj.getDate() + offset);
+    const dateStr = getLocalDateString(d);
+    let label = '';
+    if (offset === 0) label = 'Today';
+    else if (offset === 1) label = 'Tomorrow';
+    else label = d.toLocaleDateString('en-IN', { weekday: 'short' });
+
+    return {
+      dateStr,
+      label,
+      displayDate: d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })
+    };
+  });
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -38,12 +71,25 @@ const Appointment = () => {
   }, []);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === 'date') {
+      if (value && (value < minDate || value > maxDate)) {
+        setDateError('Appointments can only be booked for today and the next 3 days.');
+      } else {
+        setDateError('');
+      }
+    }
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!agreed) return;
+
+    if (formData.date < minDate || formData.date > maxDate) {
+      setDateError('Please choose a date within the next 3 days.');
+      return;
+    }
     
     // Save to Sanity database in background
     saveAppointmentToSanity(formData);
@@ -251,10 +297,78 @@ const Appointment = () => {
                   </div>
                   
                   <div className="form-group" style={{ margin: 0 }}>
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--primary)', fontWeight: '600', marginBottom: '8px', fontSize: '0.95rem' }}>
-                      <Calendar size={16} /> Preferred Date
-                    </label>
-                    <input type="date" name="date" required value={formData.date} onChange={handleChange} min={new Date().toISOString().split('T')[0]} style={{ width: '100%', padding: '16px', border: '1px solid #e1e8ed', borderRadius: '8px', fontSize: '1rem', backgroundColor: '#f9fafb', color: 'var(--primary)' }} />
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--primary)', fontWeight: '600', fontSize: '0.95rem', margin: 0 }}>
+                        <Calendar size={16} /> Preferred Date
+                      </label>
+                      <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#00B4D8', backgroundColor: 'rgba(0, 180, 216, 0.1)', padding: '2px 8px', borderRadius: '12px' }}>
+                        Next 3 Days Only
+                      </span>
+                    </div>
+
+                    <input 
+                      type="date" 
+                      name="date" 
+                      required 
+                      value={formData.date} 
+                      onChange={handleChange} 
+                      min={minDate}
+                      max={maxDate}
+                      style={{ 
+                        width: '100%', 
+                        padding: '16px', 
+                        border: dateError ? '1.5px solid #e63946' : '1px solid #e1e8ed', 
+                        borderRadius: '8px', 
+                        fontSize: '1rem', 
+                        backgroundColor: '#f9fafb', 
+                        color: 'var(--primary)' 
+                      }} 
+                    />
+
+                    {/* Quick Selection Date Chips */}
+                    <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '10px' }}>
+                      {availableDates.map(item => {
+                        const isSelected = formData.date === item.dateStr;
+                        return (
+                          <button
+                            key={item.dateStr}
+                            type="button"
+                            onClick={() => {
+                              setFormData(prev => ({ ...prev, date: item.dateStr }));
+                              setDateError('');
+                            }}
+                            style={{
+                              padding: '6px 12px',
+                              borderRadius: '20px',
+                              fontSize: '0.82rem',
+                              fontWeight: '700',
+                              border: isSelected ? '1.5px solid #00B4D8' : '1px solid #d0d7de',
+                              backgroundColor: isSelected ? '#00B4D8' : '#ffffff',
+                              color: isSelected ? '#ffffff' : '#0A2540',
+                              cursor: 'pointer',
+                              transition: 'all 0.2s ease',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '4px',
+                              boxShadow: isSelected ? '0 2px 8px rgba(0, 180, 216, 0.3)' : 'none'
+                            }}
+                          >
+                            <span>{item.label}</span>
+                            <span style={{ opacity: isSelected ? 0.95 : 0.65, fontSize: '0.75rem' }}>• {item.displayDate}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {dateError ? (
+                      <p style={{ margin: '6px 0 0 2px', fontSize: '0.8rem', color: '#e63946', fontWeight: '700' }}>
+                        ⚠️ {dateError}
+                      </p>
+                    ) : (
+                      <p style={{ margin: '6px 0 0 2px', fontSize: '0.78rem', color: '#57606a', fontWeight: '500' }}>
+                        🗓️ Booking is restricted to today and the next 3 days. All subsequent dates are disabled.
+                      </p>
+                    )}
                   </div>
                 </div>
 
