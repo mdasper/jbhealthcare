@@ -39,7 +39,7 @@ const About = () => {
   const mission = aboutData?.mission || "We strive to deliver comprehensive, high-quality, and affordable healthcare services under one roof. Our mission is to continuously upgrade our medical technology, empower our staff through regular training, and provide a healing environment that consistently exceeds patient expectations.";
   const labHeading = aboutData?.labHeading || "In-House Diagnostic Center";
   const labDescription = aboutData?.labDescription || "At JB Healthcare, we know that waiting for test results can be stressful for you and your family. That's why we've set up our own fully equipped diagnostic center right here inside our hospital.";
-  const aboutImage = aboutData?.aboutImage ? urlFor(aboutData.aboutImage).url() : "/legacy_of_care.jpg";
+  const aboutImage = aboutData?.aboutImage ? urlFor(aboutData.aboutImage).url() : "/hospital_photos/jb_hospital_full_team.jpg";
 
   return (
     <div className="page-transition" style={{ paddingTop: '80px' }}>
@@ -161,7 +161,7 @@ const About = () => {
                   src={aboutImage} 
                   alt="JB Healthcare Compassionate Patient Care" 
                   style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
-                  onError={(e) => { e.target.src = "/legacy_of_care.jpg"; }}
+                  onError={(e) => { e.target.src = "/hospital_photos/jb_hospital_full_team.jpg"; }}
                 />
 
                 {/* Floating Heart & Slogan Banner */}
@@ -301,20 +301,20 @@ const About = () => {
               
               {/* Vision Card */}
               <div style={{ background: 'var(--primary)', padding: '40px 30px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderTop: '4px solid #061D38', textAlign: 'center' }} data-aos="zoom-in" data-aos-delay="100">
-                <h4 style={{ color: '#061D38', marginBottom: '20px', fontSize: '1.8rem', fontWeight: '800' }}>
+                <h4 style={{ color: '#FFFFFF', marginBottom: '20px', fontSize: '1.8rem', fontWeight: '800' }}>
                   Our Vision
                 </h4>
-                <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#061D38', fontWeight: '500', margin: 0 }}>
+                <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#FFFFFF', fontWeight: '500', margin: 0 }}>
                   {vision}
                 </p>
               </div>
               
               {/* Mission Card */}
               <div style={{ background: 'var(--primary)', padding: '40px 30px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderTop: '4px solid #061D38', textAlign: 'center' }} data-aos="zoom-in" data-aos-delay="200">
-                <h4 style={{ color: '#061D38', marginBottom: '20px', fontSize: '1.8rem', fontWeight: '800' }}>
+                <h4 style={{ color: '#FFFFFF', marginBottom: '20px', fontSize: '1.8rem', fontWeight: '800' }}>
                   Our Mission
                 </h4>
-                <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#061D38', fontWeight: '500', margin: 0 }}>
+                <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#FFFFFF', fontWeight: '500', margin: 0 }}>
                   {mission}
                 </p>
               </div>
@@ -349,7 +349,7 @@ const About = () => {
                 backgroundColor: '#061D38'
               }}>
                 <img 
-                  src="/lab.png" 
+                  src="/hospital_photos/hospital_lab_technician.jpg" 
                   alt="JB Healthcare In-House Diagnostic Lab" 
                   style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
                 />

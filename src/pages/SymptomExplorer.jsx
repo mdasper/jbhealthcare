@@ -38,8 +38,8 @@ const bodyHotspots = [
     ],
     department: 'General Medicine & Diabetology',
     deptTa: 'பொது மருத்துவம் & நரம்பியல் பரிசோதனை',
-    doctor: 'Dr. Sivaram',
-    degrees: 'MBBS, DNB (Internal Medicine)',
+    doctor: 'Dr. B. Saileshkumar',
+    degrees: 'MBBS, M.S., FIAGES, FALS',
     techHighlight: 'Comprehensive neuro-vascular workup, in-house emergency stabilization, and rapid clinical triage.',
     severityNote: 'Sudden severe headache with speech difficulty requires immediate 24/7 Casualty triage.',
     badge: 'Same-Day Diagnostics Available'
@@ -62,7 +62,7 @@ const bodyHotspots = [
     department: 'Surgical Oncology (Cancer Surgery)',
     deptTa: 'புற்றுநோய் அறுவை சிகிச்சை & கட்டிகள் பிரிவு',
     doctor: 'Dr. Gurumoorthi & Dr. Manikandan',
-    degrees: 'M.S., M.Ch. (Surgical Oncology)',
+    degrees: 'MBBS, M.S., M.Ch. (Surgical Oncology)',
     techHighlight: 'Fine-needle biopsy (FNAC), head & neck tumor clinical staging, and precision thyroid resections.',
     severityNote: 'Progressive painless swelling in the neck should be clinically staged without delay.',
     badge: 'Visiting Super-Specialists'
@@ -84,8 +84,8 @@ const bodyHotspots = [
     ],
     department: 'In-House Diagnostics & Digital ECG',
     deptTa: 'டிஜிட்டல் ECG & இதய பரிசோதனை மையம்',
-    doctor: 'Dr. Sivaram & Critical Care Team',
-    degrees: 'MBBS, DNB (Internal Medicine)',
+    doctor: 'Dr. B. Saileshkumar & Critical Care Team',
+    degrees: 'MBBS, M.S., FIAGES, FALS',
     techHighlight: 'Computerized 3-lead digital ECG testing, cardiac biomarker profiling (Troponin/CPK), and 24/7 oxygenation therapy.',
     severityNote: 'Chest pain radiating to the jaw, back or left arm is an emergency. Contact our 24/7 Casualty immediately.',
     badge: 'Instant 3-Lead Digital ECG'
@@ -154,7 +154,7 @@ const bodyHotspots = [
     department: 'Urology & Laser Stone Care',
     deptTa: 'சிறுநீரக & லேசர் கல் அறுவை சிகிச்சை துறை',
     doctor: 'Dr. G. Sankar',
-    degrees: 'M.S., M.Ch. (Urology)',
+    degrees: 'MBBS, M.S., M.Ch. (Urology)',
     techHighlight: 'Minimally invasive laser lithotripsy (URS/PCNL) for kidney and ureteric stones without open cuts, plus prostate BPH assessment.',
     severityNote: 'Hydronephrosis caused by an impacted urinary stone requires urgent stenting or laser dissolution.',
     badge: 'Modern Endoscopic Laser Care'
@@ -176,7 +176,7 @@ const bodyHotspots = [
     ],
     department: 'Gynaecology & Women’s Health',
     deptTa: 'மகளிர் நலம் & லேப்ராஸ்கோபிக் சிகிச்சை',
-    doctor: 'Dr. Sangeetha & Surgical Team',
+    doctor: 'Dr. Sangeetha',
     degrees: 'MBBS, DGO (Gynaecology & Women Health)',
     techHighlight: 'Advanced 4K Laparoscopic Hysterectomy (கருப்பை நீக்கம்), cystectomy, and minimally invasive procedures.',
     severityNote: 'Severe acute pelvic pain or heavy abnormal bleeding requires prompt medical consultation.',
@@ -200,7 +200,7 @@ const bodyHotspots = [
     department: 'Orthopaedics & Plastic Reconstruction',
     deptTa: 'எலும்பு முறிவு & ஒட்டுறுப்பு அறுவை சிகிச்சை',
     doctor: 'Dr. Deepan Ramkumar & Dr. R. Arunkumar',
-    degrees: 'M.S. Ortho / M.Ch. Plastic Surgery',
+    degrees: 'MBBS, M.S. Ortho / MBBS, M.S., M.Ch. Plastic Surgery',
     techHighlight: 'Tendon repairs, microvascular reconstruction for deep accidental cuts, and C-arm fluoroscopy guided fracture plating.',
     severityNote: 'Deep lacerations with active arterial bleeding must be stabilized under 24/7 casualty protocol.',
     badge: 'Trauma & Microsurgery Experts'
@@ -223,7 +223,7 @@ const bodyHotspots = [
     department: 'Orthopaedics & Fracture Trauma',
     deptTa: 'எலும்பு முறிவு & மூட்டு அறுவை சிகிச்சை துறை',
     doctor: 'Dr. Deepan Ramkumar',
-    degrees: 'M.S. Ortho (Orthopaedic Surgeon)',
+    degrees: 'MBBS, M.S. Ortho (Orthopaedic Surgeon)',
     techHighlight: 'Intra-articular therapeutic injections, closed fracture reduction, dynamic compression plating, and arthritis management.',
     severityNote: 'Inability to move the limb after an accident indicates an acute fracture requiring immediate X-ray splinting.',
     badge: 'Precision C-Arm Guided Surgery'
@@ -246,7 +246,7 @@ const bodyHotspots = [
     department: 'Plastic & Cosmetic Reconstructive Surgery',
     deptTa: 'ஒட்டுறுப்பு & பிளாஸ்டிக் அறுவை சிகிச்சை',
     doctor: 'Dr. R. Arunkumar',
-    degrees: 'M.S., M.Ch. (Plastic Surgery)',
+    degrees: 'MBBS, M.S., M.Ch. (Plastic Surgery)',
     techHighlight: 'Diabetic foot limb-salvage wound debridement, split skin grafting (SSG), burn contracture release, and aesthetic scar revision.',
     severityNote: 'Spreading redness or foul smell from a diabetic foot wound requires urgent debridement to prevent amputation.',
     badge: 'Limb Salvage & Aesthetics'
@@ -271,7 +271,7 @@ const bodyHotspots = [
     department: 'Orthopaedics & Trauma Surgery',
     deptTa: 'தண்டுவடம் & எலும்பு மூட்டு சிகிச்சை',
     doctor: 'Dr. Deepan Ramkumar',
-    degrees: 'M.S. Ortho',
+    degrees: 'MBBS, M.S. Ortho',
     techHighlight: 'Cervical spondylosis clinical evaluation, cervical collar protocol, targeted nerve analgesia, and physio-rehabilitation.',
     severityNote: 'Arm weakness or sudden grip loss indicates severe cervical nerve root compression.',
     badge: 'Spine & Joint Assessment'
@@ -294,7 +294,7 @@ const bodyHotspots = [
     department: 'Orthopaedics & Trauma Surgery',
     deptTa: 'இடுப்பு தண்டுவட சிகிச்சை பிரிவு',
     doctor: 'Dr. Deepan Ramkumar',
-    degrees: 'M.S. Ortho',
+    degrees: 'MBBS, M.S. Ortho',
     techHighlight: 'Lumbar disc decompressive therapies, ergonomic postural rehabilitation, and localized targeted spinal intervention.',
     severityNote: 'Loss of bladder control combined with lower back pain is a surgical emergency (Cauda Equina Syndrome).',
     badge: 'Spine & Trauma Center'
@@ -317,7 +317,7 @@ const bodyHotspots = [
     department: 'Urology & Laser Stone Care',
     deptTa: 'சிறுநீரக & லேசர் கல் அறுவை சிகிச்சை',
     doctor: 'Dr. G. Sankar',
-    degrees: 'M.S., M.Ch. (Urology)',
+    degrees: 'MBBS, M.S., M.Ch. (Urology)',
     techHighlight: 'Endoscopic retrograde laser stone disintegration, emergency ureteric double-J stenting, and metabolic stone prevention.',
     severityNote: 'Kidney infection with high fever and obstructed stone requires urgent decompression.',
     badge: 'Laser Stone Specialists'

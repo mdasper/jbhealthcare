@@ -6,12 +6,13 @@ import TiltCard from '../components/TiltCard';
 
 const slides = [
   {
-    image: '/hero_welcome.jpg',
+    image: '/hospital_photos/hospital_building_exterior.jpg',
+    position: 'center center',
     title: 'Your Health, Our Greatest Priority',
     subtitle: 'At JB Healthcare, we bring world-class medical excellence right to Sivakasi. From routine check-ups to complex procedures, we are dedicated to providing compassionate, holistic care that focuses on healing your body and mind in a warm, welcoming environment.'
   },
   {
-    image: '/hero_laparoscopic.jpg',
+    image: '/hospital_photos/surgical_team_perspective.jpg',
     title: 'Premier Centre for Advanced Laparoscopic Surgery',
     subtitle: 'Led by Dr. B. Saileshkumar (MBBS, MS, FIAGES, FALS), our surgical team delivers world-class minimally invasive keyhole procedures — minimal pain, zero ugly scars, and rapid same-day recovery.'
   },
@@ -21,12 +22,13 @@ const slides = [
     subtitle: 'Emergencies don\'t wait, and neither do we. Our multi-disciplinary team of highly experienced doctors, surgeons, and nurses are available round the clock, ensuring rapid, expert response whenever you need us most.'
   },
   {
-    image: '/hero_doctors.jpg',
+    image: '/hospital_photos/dr_sailesh_xray_consultation.jpg',
     title: 'Specialists You Can Trust',
-    subtitle: 'Our panel of distinguished visiting consultants and resident specialists brings together decades of expertise across Surgery, Medicine, Orthopaedics, Ophthalmology, ENT, and more — all under one roof for your convenience.'
+    subtitle: 'Our panel of distinguished visiting consultants and resident specialists brings together decades of expertise across Surgery, Medicine, Orthopaedics, ENT, and more — all under one roof for your convenience.'
   },
   {
-    image: '/hero_diagnostics.jpg',
+    image: '/hospital_photos/hospital_lab_technician.jpg',
+    position: 'center top',
     title: 'Accurate Diagnostics. Swift Results.',
     subtitle: 'Our fully automated laboratory and advanced diagnostic centre delivers fast, precise results — from routine blood work to complex pathology — enabling our doctors to make the right decisions for your health, faster.'
   }
@@ -65,7 +67,7 @@ const Home = () => {
             style={{ 
               backgroundImage: `linear-gradient(135deg, rgba(4, 16, 32, 0.68) 0%, rgba(0, 90, 140, 0.55) 100%), url(${slide.image})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundPosition: slide.position || 'center'
             }}
           >
             <div className="container hero-slide-content" style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
@@ -375,18 +377,18 @@ const Home = () => {
             </div>
             
             {/* Highlights Pillars - Matching Founder's Dark Navy Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '14px', marginBottom: '22px' }}>
-              <div style={{ backgroundColor: '#061D38', padding: '12px 16px', borderRadius: '12px', borderLeft: '4px solid #38BDF8', boxShadow: '0 6px 18px rgba(0,0,0,0.18)' }}>
-                <span style={{ fontSize: '1.15rem', fontWeight: '800', color: '#38BDF8', display: 'block', lineHeight: '1.3' }}>B.Tech (IT)</span>
-                <span style={{ fontSize: '0.82rem', color: '#FFFFFF', fontWeight: '600' }}>Thiagarajar College of Engg</span>
+            <div className="cofounder-badges-grid">
+              <div style={{ backgroundColor: '#061D38', padding: '12px 10px', borderRadius: '12px', borderLeft: '4px solid #38BDF8', boxShadow: '0 6px 18px rgba(0,0,0,0.18)', display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '70px' }}>
+                <span style={{ fontSize: 'clamp(0.8rem, 0.9vw, 0.95rem)', fontWeight: '800', color: '#38BDF8', display: 'block', lineHeight: '1.25', whiteSpace: 'nowrap', marginBottom: '3px' }}>B.Tech (IT)</span>
+                <span style={{ fontSize: 'clamp(0.68rem, 0.76vw, 0.76rem)', color: '#FFFFFF', fontWeight: '600', whiteSpace: 'nowrap', display: 'block', lineHeight: '1.2' }}>Thiagarajar College of Engg</span>
               </div>
-              <div style={{ backgroundColor: '#061D38', padding: '12px 16px', borderRadius: '12px', borderLeft: '4px solid #38BDF8', boxShadow: '0 6px 18px rgba(0,0,0,0.18)' }}>
-                <span style={{ fontSize: '1.15rem', fontWeight: '800', color: '#38BDF8', display: 'block', lineHeight: '1.3' }}>Hospital Administration</span>
-                <span style={{ fontSize: '0.82rem', color: '#FFFFFF', fontWeight: '600' }}>Leadership & Operations</span>
+              <div style={{ backgroundColor: '#061D38', padding: '12px 10px', borderRadius: '12px', borderLeft: '4px solid #38BDF8', boxShadow: '0 6px 18px rgba(0,0,0,0.18)', display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '70px' }}>
+                <span style={{ fontSize: 'clamp(0.8rem, 0.9vw, 0.95rem)', fontWeight: '800', color: '#38BDF8', display: 'block', lineHeight: '1.25', whiteSpace: 'nowrap', marginBottom: '3px' }}>Hospital Administration</span>
+                <span style={{ fontSize: 'clamp(0.68rem, 0.76vw, 0.76rem)', color: '#FFFFFF', fontWeight: '600', whiteSpace: 'nowrap', display: 'block', lineHeight: '1.2' }}>Leadership & Operations</span>
               </div>
-              <div style={{ backgroundColor: '#061D38', padding: '12px 16px', borderRadius: '12px', borderLeft: '4px solid #38BDF8', boxShadow: '0 6px 18px rgba(0,0,0,0.18)' }}>
-                <span style={{ fontSize: '1.15rem', fontWeight: '800', color: '#38BDF8', display: 'block', lineHeight: '1.3' }}>Certified Life Coach</span>
-                <span style={{ fontSize: '0.82rem', color: '#FFFFFF', fontWeight: '600' }}>Parenting & Wellbeing Mentor</span>
+              <div style={{ backgroundColor: '#061D38', padding: '12px 10px', borderRadius: '12px', borderLeft: '4px solid #38BDF8', boxShadow: '0 6px 18px rgba(0,0,0,0.18)', display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '70px' }}>
+                <span style={{ fontSize: 'clamp(0.8rem, 0.9vw, 0.95rem)', fontWeight: '800', color: '#38BDF8', display: 'block', lineHeight: '1.25', whiteSpace: 'nowrap', marginBottom: '3px' }}>Certified Life Coach</span>
+                <span style={{ fontSize: 'clamp(0.68rem, 0.76vw, 0.76rem)', color: '#FFFFFF', fontWeight: '600', whiteSpace: 'nowrap', display: 'block', lineHeight: '1.2' }}>Parenting & Wellbeing Mentor</span>
               </div>
             </div>
 

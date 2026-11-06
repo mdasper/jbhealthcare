@@ -1657,3 +1657,17 @@ body, html {
     gap: 30px !important;
   }
 }
+
+.cofounder-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+@media (max-width: 640px) {
+  .cofounder-badges-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}

@@ -111,6 +111,19 @@ const Contact = () => {
                   <p style={{ color: '#555', fontSize: '0.95rem', margin: 0 }}><a href="mailto:jbhealthcare.sivakasi@gmail.com" style={{ color: '#0077B6', textDecoration: 'none', fontWeight: '600' }}>jbhealthcare.sivakasi@gmail.com</a></p>
                 </div>
               </div>
+
+              {/* Real Hospital Exterior Photo */}
+              <div style={{ marginTop: '25px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.12)', border: '2px solid rgba(0, 180, 216, 0.3)' }}>
+                <img 
+                  src="/hospital_photos/hospital_building_exterior.jpg" 
+                  alt="JB Healthcare Sivakasi Hospital Building & Chermaa Pharmacy" 
+                  style={{ width: '100%', height: '210px', objectFit: 'cover', display: 'block' }}
+                />
+                <div style={{ backgroundColor: '#061D38', color: '#FFFFFF', padding: '10px 16px', fontSize: '0.85rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <MapPin size={16} color="#38BDF8" />
+                  <span>JB Healthcare & Chermaa Pharmacy (Bharathi Nagar, Sivakasi)</span>
+                </div>
+              </div>
             </div>
 
             <div className="contact-form" data-aos="fade-left" style={{ backgroundColor: 'var(--white)', padding: '40px', borderRadius: '16px', boxShadow: '0 15px 40px rgba(0,0,0,0.12)' }}>

@@ -40,7 +40,7 @@ const visitingSpecialists = [
   {
     _id: 'v-1',
     name: 'Dr. Jaganatha Prabhu',
-    degree: 'D.A.',
+    degree: 'MBBS, MD',
     categoryHeader: 'ANAESTHESIOLOGY & PERIOPERATIVE CARE',
     department: 'Anaesthesiology & Critical Care',
     category: 'Anaesthesiology',
@@ -57,7 +57,7 @@ const visitingSpecialists = [
   {
     _id: 'v-2',
     name: 'Dr. Kishore Ganesh',
-    degree: 'M.D.',
+    degree: 'MBBS, DA',
     categoryHeader: 'ANAESTHESIOLOGY & CRITICAL CARE',
     department: 'Anaesthesiology & Critical Care',
     category: 'Anaesthesiology',
@@ -91,12 +91,12 @@ const visitingSpecialists = [
   {
     _id: 'v-4',
     name: 'Dr. A.C. Arun',
-    degree: 'M.D., D.M.',
+    degree: 'MBBS, M.D., D.M.',
     categoryHeader: 'MEDICAL GASTROENTEROLOGY & HEPATOLOGY',
     department: 'Medical Gastroenterology & Hepatology',
     category: 'Gastroenterology',
     schedule: 'Every Friday',
-    timing: '09:00 PM (Night)',
+    timing: '09:00 AM (Morning)',
     availableDays: ['All', 'Friday'],
     focusAreas: [
       'Diagnostic endoscopy',
@@ -142,7 +142,7 @@ const visitingSpecialists = [
   {
     _id: 'v-7',
     name: 'Dr. Gurumoorthi',
-    degree: 'M.S., M.Ch.',
+    degree: 'MBBS, M.S., M.Ch.',
     categoryHeader: 'SURGICAL ONCOLOGY',
     department: 'Surgical Oncology',
     category: 'Surgical Oncology',
@@ -159,7 +159,7 @@ const visitingSpecialists = [
   {
     _id: 'v-8',
     name: 'Dr. Manikandan',
-    degree: 'M.S., M.Ch.',
+    degree: 'MBBS, M.S., M.Ch.',
     categoryHeader: 'SURGICAL ONCOLOGY',
     department: 'Surgical Oncology',
     category: 'Surgical Oncology',
@@ -176,7 +176,7 @@ const visitingSpecialists = [
   {
     _id: 'v-9',
     name: 'Dr. Arun Kumar',
-    degree: 'M.S., M.Ch.',
+    degree: 'MBBS, M.S., M.Ch.',
     categoryHeader: 'PLASTIC & RECONSTRUCTIVE SURGERY',
     department: 'Plastic, Cosmetic & Reconstructive Surgery',
     category: 'Plastic Surgery',
@@ -193,7 +193,7 @@ const visitingSpecialists = [
   {
     _id: 'v-10',
     name: 'Dr. Arun Kumar',
-    degree: 'M.S., M.Ch.',
+    degree: 'MBBS, M.S., M.Ch.',
     categoryHeader: 'PAEDIATRIC SURGERY',
     department: 'Paediatrics & Neonatal Surgery',
     category: 'Paediatric Surgery',
@@ -209,8 +209,8 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-11',
-    name: 'Dr. Shankar',
-    degree: 'M.S., M.Ch.',
+    name: 'Dr. Sankar',
+    degree: 'MBBS, M.S., M.Ch.',
     categoryHeader: 'UROLOGY & ANDROLOGY',
     department: 'Urology & Andrology',
     category: 'Urology',
@@ -226,8 +226,8 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-12',
-    name: 'Dr. Dheepan',
-    degree: 'M.S. Ortho',
+    name: 'Dr. Deepan',
+    degree: 'MBBS, M.S. Ortho',
     categoryHeader: 'ORTHOPAEDIC & TRAUMA SURGERY',
     department: 'Orthopaedics & Trauma Surgery',
     category: 'Orthopaedics',

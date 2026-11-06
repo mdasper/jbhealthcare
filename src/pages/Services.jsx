@@ -49,7 +49,7 @@ const realDepartments = [
     tamilTitle: 'பொது மருத்துவம் & நீரிழிவு சிறப்பு சிகிச்சை',
     category: 'Clinical & Emergency',
     icon: 'Stethoscope',
-    doctor: 'Dr. Shailesh Kumar',
+    doctor: 'Dr. B. Saileshkumar',
     doctorRole: 'Chief Physician & Surgeon',
     degree: 'MBBS, M.S., FIAGES, FALS',
     badge: 'Holistic Adult Wellness & Chronic Care',
@@ -69,7 +69,12 @@ const realDepartments = [
     icon: 'Syringe',
     doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan',
     doctorRole: 'Consultant Anaesthesiologists',
-    degree: 'D.A. / M.D. / MBBS, MD',
+    degree: 'MBBS, DA / MBBS, MD',
+    doctorsList: [
+      { name: 'Dr. Kishore Ganesh', degree: 'MBBS, DA' },
+      { name: 'Dr. Jaganatha Prabhu', degree: 'MBBS, MD' },
+      { name: 'Dr. Karthikeyan', degree: 'MBBS, MD' }
+    ],
     badge: 'All Surgical Days • As per OT Schedule',
     description: 'Round-the-clock perioperative vigilance ensuring total pain-free surgical procedures, state-of-the-art epidural labour analgesia, and intensive post-operative critical care monitoring.',
     keyProcedures: [
@@ -81,14 +86,14 @@ const realDepartments = [
   },
   {
     _id: 'dept-4',
-    title: 'Medical & Surgical Gastroenterology',
+    title: 'Medical Gastroenterology',
     tamilTitle: 'குடல் மற்றும் கல்லீரல் சிறப்பு சிகிச்சை',
     category: 'Super-Specialties',
     icon: 'Activity',
     doctor: 'Dr. A.C. Arun',
     doctorRole: 'Visiting Medical Gastroenterologist',
-    degree: 'M.D., D.M. (Gastroenterology)',
-    badge: 'Every Friday • 9:00 PM',
+    degree: 'MBBS, M.D., D.M. (Gastroenterology)',
+    badge: 'Every Friday • 9:00 AM',
     description: 'Specialized diagnosis and expert therapeutic management of complex digestive disorders, liver cirrhosis, chronic hepatitis, acid reflux, peptic ulcers, and bowel conditions.',
     keyProcedures: [
       'Diagnostic & Therapeutic Endoscopy',
@@ -105,7 +110,7 @@ const realDepartments = [
     icon: 'Sparkles',
     doctor: 'Dr. Arun Kumar',
     doctorRole: 'Visiting Plastic & Reconstructive Surgeon',
-    degree: 'M.S., M.Ch. (Plastic Surgery)',
+    degree: 'MBBS, M.S., M.Ch. (Plastic Surgery)',
     badge: 'On Surgery Days • Based on Cases',
     description: 'Fine microsurgical interventions for accidental trauma, deep soft tissue injuries, burn contracture releases, aesthetic contouring, and diabetic foot limb-salvage reconstruction.',
     keyProcedures: [
@@ -121,9 +126,9 @@ const realDepartments = [
     tamilTitle: 'சிறுநீரக & ஆண்மைக்குறைவு சிறப்பு சிகிச்சை',
     category: 'Super-Specialties',
     icon: 'Activity',
-    doctor: 'Dr. Shankar',
+    doctor: 'Dr. Sankar',
     doctorRole: 'Visiting Urologist & Andrologist',
-    degree: 'M.S., M.Ch. (Urology)',
+    degree: 'MBBS, M.S., M.Ch. (Urology)',
     badge: 'On Surgery Days • Based on Cases',
     description: 'Comprehensive treatment for urinary tract, kidney disorders, and andrological wellness. Advanced minimally invasive laser stone dissolution, prostate enlargement therapies, and male health care.',
     keyProcedures: [
@@ -137,11 +142,11 @@ const realDepartments = [
     _id: 'dept-7',
     title: 'Paediatrics & Neonatal Surgery',
     tamilTitle: 'குழந்தைகள் அறுவை சிகிச்சை துறை',
-    category: 'Women & Child',
+    category: 'Super-Specialties',
     icon: 'Baby',
     doctor: 'Dr. Arun Kumar',
     doctorRole: 'Visiting Paediatric Surgeon',
-    degree: 'M.S., M.Ch. (Paediatric Surgery)',
+    degree: 'MBBS, M.S., M.Ch. (Paediatric Surgery)',
     badge: 'On Surgery Days • Based on Cases',
     description: 'Specialized operative care tailored exclusively for newborns, infants, and growing children, ensuring gentle surgical handling, pediatric safety, and warm bedside care.',
     keyProcedures: [
@@ -157,9 +162,9 @@ const realDepartments = [
     tamilTitle: 'எலும்பு முறிவு & விபத்து அறுவை சிகிச்சை',
     category: 'Surgical Excellence',
     icon: 'Activity',
-    doctor: 'Dr. Dheepan',
+    doctor: 'Dr. Deepan',
     doctorRole: 'Visiting Orthopaedic Surgeon',
-    degree: 'M.S. Ortho',
+    degree: 'MBBS, M.S. Ortho',
     badge: 'On Surgery Days • 24/7 Fracture Emergency',
     description: 'Fast-track emergency fracture care, road accident trauma resuscitation, bone fixation with modern plates and nails, joint arthritis management, and spine pain rehabilitation.',
     keyProcedures: [
@@ -193,7 +198,7 @@ const realDepartments = [
     tamilTitle: 'மகளிர் நல மருத்துவம் & லேப்ராஸ்கோபிக் சிகிச்சை',
     category: 'Women & Child',
     icon: 'Activity',
-    doctor: 'Dr. Sangeetha & Surgical Team',
+    doctor: 'Dr. Sangeetha',
     doctorRole: 'Consultant Gynaecologist & Surgeon',
     degree: 'MBBS, DGO',
     badge: 'Wed & Sat • 4:00 PM – 5:00 PM',
@@ -213,7 +218,7 @@ const realDepartments = [
     icon: 'ShieldAlert',
     doctor: 'Dr. Gurumoorthi & Dr. Manikandan',
     doctorRole: 'Visiting Surgical Oncologists',
-    degree: 'M.S., M.Ch. (Surgical Oncology)',
+    degree: 'MBBS, M.S., M.Ch. (Surgical Oncology)',
     badge: 'On Surgery Days • Based on Cases',
     description: 'Advanced surgical oncological care bringing tertiary-tier cancer resection, staging, and comprehensive oncological multidisciplinary surgical expertise directly to patients in Sivakasi.',
     keyProcedures: [
@@ -247,9 +252,9 @@ const realDepartments = [
     tamilTitle: '24 மணி நேர அவசர விபத்து சிகிச்சை பிரிவு',
     category: 'Clinical & Emergency',
     icon: 'Activity',
-    doctor: 'Emergency Medical Officers & On-Call Surgeons',
-    doctorRole: 'Round-the-Clock Emergency Team',
-    degree: 'Emergency Triage & Surgical Support',
+    doctor: 'Dr. B. Saileshkumar & Emergency Team',
+    doctorRole: 'Chief Surgeon & 24/7 Trauma Team',
+    degree: 'MBBS, M.S., FIAGES, FALS',
     badge: 'Always Open • 24/7 Emergency',
     description: 'Equipped with multi-parameter cardiac monitors, oxygen delivery units, emergency trauma resuscitation kits, and an on-call surgical theatre ready to respond immediately to critical emergencies.',
     keyProcedures: [
@@ -302,18 +307,20 @@ const IconMapper = ({ name, size = 32, color = 'var(--accent)' }) => {
 };
 
 const doctorOverrideMap = {
-  'plastic': { doctor: 'Dr. Arun Kumar', degree: 'M.S., M.Ch. (Plastic Surgery)', doctorRole: 'Visiting Plastic & Reconstructive Surgeon' },
-  'urology': { doctor: 'Dr. Shankar', degree: 'M.S., M.Ch. (Urology)', doctorRole: 'Visiting Urologist & Andrologist' },
-  'paediatric': { doctor: 'Dr. Arun Kumar', degree: 'M.S., M.Ch. (Paediatric Surgery)', doctorRole: 'Visiting Paediatric Surgeon' },
-  'pediatric': { doctor: 'Dr. Arun Kumar', degree: 'M.S., M.Ch. (Paediatric Surgery)', doctorRole: 'Visiting Paediatric Surgeon' },
-  'ortho': { doctor: 'Dr. Dheepan', degree: 'M.S. Ortho', doctorRole: 'Visiting Orthopaedic Surgeon' },
-  'general medicine': { doctor: 'Dr. Shailesh Kumar', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Physician & Surgeon' },
-  'diabetology': { doctor: 'Dr. Shailesh Kumar', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Physician & Surgeon' },
-  'anaesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'D.A. / M.D. / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
-  'anesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'D.A. / M.D. / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
+  'casualty': { doctor: 'Dr. B. Saileshkumar & Emergency Team', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Surgeon & 24/7 Trauma Team' },
+  'trauma': { doctor: 'Dr. B. Saileshkumar & Emergency Team', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Surgeon & 24/7 Trauma Team' },
+  'plastic': { doctor: 'Dr. Arun Kumar', degree: 'MBBS, M.S., M.Ch. (Plastic Surgery)', doctorRole: 'Visiting Plastic & Reconstructive Surgeon' },
+  'urology': { doctor: 'Dr. Sankar', degree: 'MBBS, M.S., M.Ch. (Urology)', doctorRole: 'Visiting Urologist & Andrologist' },
+  'paediatric': { doctor: 'Dr. Arun Kumar', degree: 'MBBS, M.S., M.Ch. (Paediatric Surgery)', doctorRole: 'Visiting Paediatric Surgeon' },
+  'pediatric': { doctor: 'Dr. Arun Kumar', degree: 'MBBS, M.S., M.Ch. (Paediatric Surgery)', doctorRole: 'Visiting Paediatric Surgeon' },
+  'ortho': { doctor: 'Dr. Deepan', degree: 'MBBS, M.S. Ortho', doctorRole: 'Visiting Orthopaedic Surgeon' },
+  'general medicine': { doctor: 'Dr. B. Saileshkumar', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Physician & Surgeon' },
+  'diabetology': { doctor: 'Dr. B. Saileshkumar', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Physician & Surgeon' },
+  'anaesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'MBBS, DA / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
+  'anesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'MBBS, DA / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
   'ent': { doctor: 'Dr. Sivaram', degree: 'MBBS, DNB (ENT)', doctorRole: 'Consultant ENT Specialist' },
   'psychol': { doctor: 'Sowdambika @ Reethika M', degree: 'M.Sc., M.Phil. (Clinical Psychology)', doctorRole: 'Consultant Psychologist & Counsellor' },
-  'gastro': { doctor: 'Dr. A.C. Arun', degree: 'M.D., D.M. (Gastroenterology)', doctorRole: 'Visiting Medical Gastroenterologist' }
+  'gastro': { doctor: 'Dr. A.C. Arun', degree: 'MBBS, M.D., D.M. (Gastroenterology)', doctorRole: 'Visiting Medical Gastroenterologist' }
 };
 
 const sanitizeDepartmentDoctors = (deptList) => {
@@ -323,7 +330,9 @@ const sanitizeDepartmentDoctors = (deptList) => {
     let role = dept.doctorRole;
     const titleLower = (dept.title || '').toLowerCase();
     for (const key of Object.keys(doctorOverrideMap)) {
-      if (titleLower.includes(key)) {
+      // Use word boundary check so "ent" does not match within "center"
+      const regex = new RegExp(`(^|\\W)${key}(\\W|$)`, 'i');
+      if (regex.test(titleLower)) {
         doc = doctorOverrideMap[key].doctor;
         deg = doctorOverrideMap[key].degree || deg;
         role = doctorOverrideMap[key].doctorRole || role;
@@ -548,10 +557,20 @@ const Services = () => {
                       <div className="dept-doc-role">
                         {dept.doctorRole}
                       </div>
-                      <div className="dept-doc-name-wrap">
-                        <span className="dept-doc-name">{dept.doctor}</span>
-                        <span className="dept-doc-degree">• {dept.degree}</span>
-                      </div>
+                      {dept.doctorsList ? (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '6px' }}>
+                          {dept.doctorsList.map((d, dIdx) => (
+                            <div key={dIdx} style={{ fontSize: '0.9rem', color: 'var(--white)', fontWeight: '700' }}>
+                              • {d.name} <span style={{ opacity: 0.85, fontSize: '0.8rem', fontWeight: '500' }}>({d.degree})</span>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="dept-doc-name-wrap">
+                          <span className="dept-doc-name">{dept.doctor}</span>
+                          {dept.degree && <span className="dept-doc-degree">• {dept.degree}</span>}
+                        </div>
+                      )}
                     </div>
 
                     {/* Department Description */}
@@ -684,8 +703,8 @@ const Services = () => {
             <div data-aos="fade-left" style={{ flex: '1 1 400px' }}>
               <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.35)', border: '2px solid rgba(0, 180, 216, 0.3)' }}>
                 <img 
-                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="JB Healthcare Health Packages" 
+                  src="/hospital_photos/master_health_checkup.jpg" 
+                  alt="JB Healthcare Master Health Checkup Packages" 
                   style={{ width: '100%', height: '420px', objectFit: 'cover', display: 'block' }} 
                 />
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '40px 30px 25px', background: 'linear-gradient(to top, rgba(10, 43, 78, 0.98) 0%, rgba(10, 43, 78, 0.7) 65%, transparent 100%)' }}>
@@ -693,7 +712,7 @@ const Services = () => {
                     Special Offer
                   </span>
                   <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginTop: '8px', marginBottom: '4px' }}>Master Health Checkup</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.85)', margin: 0, fontSize: '0.95rem' }}>Packages starting from ₹1,999/- only</p>
+                  <p style={{ color: 'rgba(255,255,255,0.85)', margin: 0, fontSize: '0.95rem' }}>Packages starting from ₹999/- only</p>
                 </div>
               </div>
             </div>

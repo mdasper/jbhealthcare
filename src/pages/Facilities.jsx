@@ -9,7 +9,7 @@ const facilitiesData = [
     subtitle: "Immediate Trauma Care & OT Response",
     description: "Round-the-clock emergency casualty, trauma care, and fully equipped surgical theatres ready for immediate surgical interventions at any time of day or night.",
     icon: <ShieldPlus size={40} color="var(--accent)" />,
-    image: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/hospital_photos/dr_sailesh_ot_team.jpg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const facilitiesData = [
     subtitle: "Automated In-House Laboratory",
     description: "Fast-track computerized laboratory delivering quick blood test results, biochemistry, and 3-lead digital ECG to initiate accurate medical treatment without delay.",
     icon: <Microscope size={40} color="var(--accent)" />,
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/hospital_photos/hospital_lab_technician.jpg"
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const facilitiesData = [
     subtitle: "Leading Superspecialist Doctors",
     description: "Regular outpatient visits, second opinions, and multi-disciplinary treatment planning by top consulting specialists from major medical centers.",
     icon: <Stethoscope size={40} color="var(--accent)" />,
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/hospital_photos/visiting_specialists_consultation.jpg"
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const facilitiesData = [
     subtitle: "Spacious & Clean Patient Rooms",
     description: "Hygienic, comfortable inpatient recovery rooms, patient monitoring suites, and a patient-friendly outpatient consultation wing.",
     icon: <HeartPulse size={40} color="var(--accent)" />,
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/hospital_photos/inpatient_outpatient_ward.jpg"
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ const facilitiesData = [
     subtitle: "Sterile Modern Surgical Suites",
     description: "Fully equipped modern surgical theatre custom-fitted with high-definition laparoscopic towers, advanced electrocautery, and comprehensive patient monitoring for laparoscopic, general, and emergency procedures.",
     icon: <Activity size={40} color="var(--accent)" />,
-    image: "/ot_photos/1I8A0785.JPG"
+    image: "/hospital_photos/operation_theatre_bright.jpg"
   },
   {
     id: 6,
@@ -49,7 +49,7 @@ const facilitiesData = [
     subtitle: "Essential & Emergency Medicines",
     description: "Fully stocked pharmacy on hospital premises ensuring round-the-clock availability of critical emergency drugs, surgical supplies, and patient prescriptions.",
     icon: <Pill size={40} color="var(--accent)" />,
-    image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "/hospital_photos/hospital_pharmacy_counter.jpg"
   }
 ];
 
