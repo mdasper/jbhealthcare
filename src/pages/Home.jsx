@@ -392,7 +392,7 @@ const Home = () => {
 
             <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <p style={{ color: '#FFFFFF', lineHeight: '1.65', fontSize: '0.95rem', margin: 0, fontWeight: '500' }}>
-                Suganya Sailesh is an engineering graduate with two years of corporate experience. As Co-founder and Managing Director, she plays an active role in the leadership, administration, and ongoing development of the hospital.
+                Suganya Sailesh is an engineering graduate with a strong professional background and extensive experience in the corporate sector. As Co-founder and Managing Director, she plays an active role in the leadership, administration, and ongoing development of the hospital.
               </p>
               <p style={{ color: '#FFFFFF', lineHeight: '1.65', fontSize: '0.95rem', margin: 0, fontWeight: '500' }}>
                 Her background in engineering and corporate work brings a structured, organized, and problem-solving approach to hospital management. She is also a Certified Parenting Coach and Certified Life Coach, with a strong interest in communication, wellbeing, and supportive relationships.
