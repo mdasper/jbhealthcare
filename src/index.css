@@ -1324,18 +1324,20 @@ body, html {
 .navbar-logo-link {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
 }
 
 .navbar-logo-img {
-  height: 48px;
-  width: 48px;
+  height: 54px;
+  width: 54px;
   border-radius: 50%;
   background-color: white;
   padding: 2px;
   flex-shrink: 0;
   object-fit: cover;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
 }
 
 .navbar-logo-text {
@@ -1345,20 +1347,23 @@ body, html {
 
 .navbar-logo-title {
   display: block;
-  font-weight: 800;
-  font-size: 1.25rem;
-  letter-spacing: 0.5px;
-  color: #0A2540;
-  line-height: 1.2;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  letter-spacing: 0.2px;
+  color: #041E34;
+  line-height: 1.15;
 }
 
 .navbar-logo-tagline {
   display: block;
-  font-size: 0.72rem;
-  color: #003852;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.84rem;
+  color: #062842;
   font-weight: 700;
   letter-spacing: 0.5px;
   line-height: 1.2;
+  margin-top: 2px;
 }
 
 .mobile-menu-icon {
@@ -1443,20 +1448,23 @@ body, html {
     margin-right: 6px !important;
   }
   .navbar-logo-link {
-    gap: 8px !important;
+    gap: 10px !important;
   }
   .navbar-logo-img {
-    height: 40px !important;
-    width: 40px !important;
+    height: 46px !important;
+    width: 46px !important;
+    border-radius: 50% !important;
   }
   .navbar-logo-title {
-    font-size: 1.12rem !important;
+    font-size: 1.3rem !important;
+    font-weight: 900 !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
   }
   .navbar-logo-tagline {
-    font-size: 0.65rem !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
