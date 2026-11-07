@@ -97,7 +97,10 @@ const Events = () => {
 
   const openGallery = (event) => {
     setSelectedEvent(event);
-    setCurrentPhotoIndex(0);
+    const initialIdx = (event?.gallery && event?.thumbnailUrl) 
+      ? Math.max(0, event.gallery.indexOf(event.thumbnailUrl)) 
+      : 0;
+    setCurrentPhotoIndex(initialIdx);
     document.body.style.overflow = 'hidden';
   };
 
@@ -437,13 +440,13 @@ const Events = () => {
                   <div>
                     {/* Top Media Container */}
                     <div 
-                      style={{ position: 'relative', height: '220px', overflow: 'hidden', cursor: isUpcoming ? 'default' : 'pointer' }}
+                      style={{ position: 'relative', height: '240px', overflow: 'hidden', cursor: isUpcoming ? 'default' : 'pointer' }}
                       onClick={() => !isUpcoming && openGallery(eventItem)}
                     >
                       <img 
                         src={eventItem.thumbnailUrl} 
                         alt={eventItem.title}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', transition: 'transform 0.6s ease' }}
                         className="clean-card-img"
                       />
 
@@ -472,19 +475,19 @@ const Events = () => {
                           position: 'absolute',
                           bottom: '12px',
                           right: '12px',
-                          backgroundColor: 'rgba(0,0,0,0.65)',
+                          backgroundColor: 'rgba(0,0,0,0.72)',
                           backdropFilter: 'blur(4px)',
                           color: '#FFFFFF',
-                          fontSize: '0.72rem',
+                          fontSize: '0.75rem',
                           fontWeight: '700',
-                          padding: '3px 10px',
+                          padding: '4px 11px',
                           borderRadius: '12px',
                           display: 'flex',
                           alignItems: 'center',
                           gap: '5px'
                         }}>
-                          <ImageIcon size={12} color="#00B4D8" />
-                          <span>{activeGallery.length} Photos</span>
+                          <ImageIcon size={13} color="#00B4D8" />
+                          <span>{eventItem.gallery?.length || 0} Photos</span>
                         </div>
                       )}
                     </div>
@@ -831,9 +834,13 @@ const Events = () => {
         }
         .events-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(320px, 360px));
           gap: 28px;
           width: 100%;
+        }
+        .clean-event-card {
+          width: 100%;
+          max-width: 360px;
         }
 
         @media (max-width: 768px) {
@@ -849,6 +856,9 @@ const Events = () => {
           .events-grid {
             grid-template-columns: 1fr !important;
             gap: 20px !important;
+          }
+          .clean-event-card {
+            max-width: 100% !important;
           }
         }
 
