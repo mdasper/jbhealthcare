@@ -771,19 +771,30 @@ const Events = () => {
 
             {/* Bottom thumbnail indicator pills if multiple photos */}
             {activeGallery.length > 1 && (
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', paddingTop: '10px' }}>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: activeGallery.length > 18 ? 'flex-start' : 'center', 
+                gap: '6px', 
+                paddingTop: '10px',
+                overflowX: 'auto',
+                maxWidth: '100%',
+                paddingBottom: '4px',
+                scrollbarWidth: 'none'
+              }}>
                 {activeGallery.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentPhotoIndex(idx)}
                     style={{
-                      width: idx === currentPhotoIndex ? '24px' : '8px',
-                      height: '8px',
+                      width: idx === currentPhotoIndex ? '24px' : '7px',
+                      height: '7px',
                       borderRadius: '4px',
                       backgroundColor: idx === currentPhotoIndex ? '#00B4D8' : 'rgba(255, 255, 255, 0.3)',
                       border: 'none',
                       cursor: 'pointer',
                       padding: 0,
+                      flexShrink: 0,
                       transition: 'all 0.25s ease'
                     }}
                     aria-label={`Go to photo ${idx + 1}`}
