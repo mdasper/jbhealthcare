@@ -32,37 +32,7 @@ const galleryCollection = [
 
 // Rich, authentic curated events with generated relatable imagery
 const initialEvents = [
-  // 1. Upcoming Events
-  {
-    _id: 'up-1',
-    category: 'upcoming',
-    title: 'Advanced Laparoscopic & Hernia Consultation Camp',
-    subtitle: 'லேப்ரோஸ்கோபிக் & குடல் இறக்கம் சிறப்பு முகாம்',
-    date: '2026-11-20',
-    time: '09:00 AM – 03:00 PM',
-    location: 'JB Healthcare Main Campus, Sivakasi',
-    badge: 'Registration Open',
-    description: 'Expert surgical consultation camp led by Chief Laparoscopic Surgeon Dr. B. Saileshkumar. Comprehensive clinical assessment and ultrasound guidance for hernia, gallstones, and keyhole abdominal surgery.',
-    highlights: ['Free Expert Consultation', 'Discounted Ultrasound Guidance'],
-    thumbnailUrl: '/events/camp_laparoscopic_consult.jpg',
-    isUpcoming: true
-  },
-  {
-    _id: 'up-2',
-    category: 'upcoming',
-    title: 'Community Cardiac & Diabetic Health Screening',
-    subtitle: 'இதயம் & சர்க்கரை நோய் தடுப்பு பரிசோதனை முகாம்',
-    date: '2026-12-08',
-    time: '08:30 AM – 02:00 PM',
-    location: 'JB Healthcare Outpatient Wing',
-    badge: 'Limited Slots',
-    description: 'Comprehensive screening for hypertension, cardiac risk factors, and diabetic complications with immediate on-site diagnostic reporting.',
-    highlights: ['Free Blood Sugar & BP', 'Discounted ECG & Physician Review'],
-    thumbnailUrl: '/events/camp_cardiac_diabetes.jpg',
-    isUpcoming: true
-  },
-
-  // 2. Medical Camps
+  // 1. Medical Camps
   {
     _id: 'camp-1',
     category: 'camps',
@@ -153,7 +123,7 @@ const initialEvents = [
 
 const Events = () => {
   const [sanityEvents, setSanityEvents] = useState([]);
-  const [activeTab, setActiveTab] = useState('upcoming');
+  const [activeTab, setActiveTab] = useState('camps');
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
@@ -214,8 +184,9 @@ const Events = () => {
     const hasUpcoming = processedSanity.some(e => e.category === 'upcoming');
     const upcomingSupplements = hasUpcoming ? [] : initialEvents.filter(d => d.category === 'upcoming');
     const campsSupplements = processedSanity.some(e => e.category === 'camps') ? [] : initialEvents.filter(d => d.category === 'camps');
+    const completedSupplements = processedSanity.some(e => e.category === 'completed') ? [] : initialEvents.filter(d => d.category === 'completed');
 
-    return [...upcomingSupplements, ...campsSupplements, ...processedSanity];
+    return [...upcomingSupplements, ...campsSupplements, ...completedSupplements, ...processedSanity];
   })();
 
   const upcomingList = allEvents.filter(e => e.category === 'upcoming');
@@ -470,7 +441,79 @@ const Events = () => {
 
           {/* Clean 2/3 Column Grid Cards (Ultra Neat, Modern, Premium) */}
           <div className="events-grid">
-            {currentDisplayList.map((eventItem, index) => {
+            {currentDisplayList.length === 0 ? (
+              <div 
+                style={{
+                  gridColumn: '1 / -1',
+                  textAlign: 'center',
+                  padding: '70px 24px',
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '16px',
+                  border: '1.5px dashed #CBD5E1',
+                  boxShadow: '0 4px 18px rgba(0,0,0,0.02)'
+                }}
+                data-aos="fade-up"
+              >
+                <div style={{
+                  width: '64px',
+                  height: '64px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(0, 180, 216, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 16px',
+                  color: '#00B4D8'
+                }}>
+                  <Calendar size={32} />
+                </div>
+                <h3 style={{ color: '#0A2540', fontSize: '1.35rem', fontWeight: '800', marginBottom: '8px' }}>
+                  No Upcoming Events at the Moment
+                </h3>
+                <p style={{ color: '#64748B', fontSize: '0.95rem', maxWidth: '500px', margin: '0 auto 24px', lineHeight: '1.6' }}>
+                  We are currently organizing our upcoming healthcare consultation camps. Please check back soon or browse our community medical camps and achievements!
+                </p>
+                <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <button
+                    onClick={() => setActiveTab('camps')}
+                    style={{
+                      padding: '10px 22px',
+                      borderRadius: '25px',
+                      border: 'none',
+                      backgroundColor: 'var(--primary)',
+                      color: '#FFFFFF',
+                      fontSize: '0.9rem',
+                      fontWeight: '700',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px'
+                    }}
+                  >
+                    <Tent size={16} /> Explore Medical Camps
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('completed')}
+                    style={{
+                      padding: '10px 22px',
+                      borderRadius: '25px',
+                      border: '1px solid #CBD5E1',
+                      backgroundColor: '#FFFFFF',
+                      color: '#0A2540',
+                      fontSize: '0.9rem',
+                      fontWeight: '700',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px'
+                    }}
+                  >
+                    <Award size={16} /> Completed Events
+                  </button>
+                </div>
+              </div>
+            ) : (
+              currentDisplayList.map((eventItem, index) => {
               const dateObj = formatDate(eventItem.date);
               const isUpcoming = eventItem.category === 'upcoming';
               const isCamp = eventItem.category === 'camps';
@@ -623,7 +666,7 @@ const Events = () => {
 
                 </div>
               );
-            })}
+            }))}
           </div>
 
         </div>
