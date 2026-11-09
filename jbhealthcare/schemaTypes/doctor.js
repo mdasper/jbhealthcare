@@ -96,16 +96,25 @@ export default {
       initialValue: 1
     }
   ],
+  orderings: [
+    {
+      title: 'Display Order (வரிசைப்படி 1-14)',
+      name: 'orderAsc',
+      by: [{ field: 'order', direction: 'asc' }]
+    }
+  ],
   preview: {
     select: {
+      order: 'order',
       title: 'name',
       subtitle: 'categoryHeader',
       timing: 'timing',
       media: 'image'
     },
-    prepare({ title, subtitle, timing, media }) {
+    prepare({ order, title, subtitle, timing, media }) {
+      const numPrefix = order ? `${order}. ` : '';
       return {
-        title: title || 'Unnamed Doctor',
+        title: `${numPrefix}${title || 'Unnamed Doctor'}`,
         subtitle: `${subtitle || 'Specialist'} • ${timing || ''}`,
         media
       }

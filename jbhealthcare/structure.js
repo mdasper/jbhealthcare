@@ -52,8 +52,29 @@ export const myStructure = (S) =>
       // 4. DOCTORS
       S.listItem()
         .title('4. 👨‍⚕️ DOCTORS (மருத்துவர்கள்)')
-        .schemaType('doctor')
-        .child(S.documentTypeList('doctor').title('All Doctors (மருத்துவர்கள் குழு)')),
+        .child(
+          S.list()
+            .title('👨‍⚕️ Doctors Management (மருத்துவர்கள் மேலாண்மை)')
+            .items([
+              S.listItem()
+                .title('1. 📌 Page Content & Guidelines (பக்கத் தலைப்பு & அமைப்புகள்)')
+                .child(
+                  S.document()
+                    .schemaType('doctorsPage')
+                    .documentId('doctorsPage')
+                    .title('Doctors Page Content & Guidelines')
+                ),
+              S.listItem()
+                .title('2. 📋 All Doctors List (14 மருத்துவர்கள் - வரிசைப்படி 1 to 14)')
+                .child(
+                  S.documentList()
+                    .title('All Doctors (1 முதல் 14 வரிசையில்)')
+                    .schemaType('doctor')
+                    .filter('_type == "doctor"')
+                    .defaultOrdering([{ field: 'order', direction: 'asc' }])
+                )
+            ])
+        ),
 
       // 5. SURGERIES
       S.listItem()

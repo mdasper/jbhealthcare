@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { client } from '../sanity';
+import { client, urlFor } from '../sanity';
 import TiltCard from '../components/TiltCard';
 import { 
   Calendar, 
@@ -266,8 +266,13 @@ const Doctors = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [sanityDoctors, setSanityDoctors] = useState(null);
+  const [pageData, setPageData] = useState(null);
 
   useEffect(() => {
+    client.fetch(`*[_type == "doctorsPage" && _id == "doctorsPage"][0]`).then((data) => {
+      if (data) setPageData(data);
+    }).catch(console.error);
+
     client.fetch(`*[_type == "doctor"] | order(order asc)`).then((data) => {
       if (Array.isArray(data) && data.length > 0) {
         setSanityDoctors(data);
@@ -276,6 +281,49 @@ const Doctors = () => {
       console.warn('Using offline doctors fallback:', err);
     });
   }, []);
+
+  const chiefSpotlight = pageData?.chiefDoctorSpotlight;
+  const defaultChiefStats = [
+    { value: '10,000+', label: 'அறுவை சிகிச்சைகள்' },
+    { value: '2,000+', label: 'லேப்ரோஸ்கோபிக்' },
+    { value: '3,000+', label: 'சிசேரியன்' },
+    { value: '100+', label: 'புற்றுநோய் அறுவை' },
+    { value: '50+', label: 'COVID நோயாளிகள்' }
+  ];
+  const chiefStats = (chiefSpotlight?.stats && chiefSpotlight.stats.length > 0) ? chiefSpotlight.stats : defaultChiefStats;
+
+  const defaultEduItems = [
+    { degree: 'MBBS', institution: 'மெட்ராஸ் மருத்துவக் கல்லூரி' },
+    { degree: 'M.S.', institution: 'மதுரை மருத்துவக் கல்லூரி' },
+    { degree: 'லேப்ரோஸ்கோப்பி பயிற்சி', institution: 'VG மருத்துவமனை, கோயம்புத்தூர்' },
+    { degree: 'FIAGES / FALS', institution: 'இந்திய குடலியல் எண்டோ சர்ஜன் சங்கத்தின் சிறப்புப் பங்காளர் (Fellowship) சான்றிதழ்' }
+  ];
+  const eduItems = (chiefSpotlight?.educationItems && chiefSpotlight.educationItems.length > 0) ? chiefSpotlight.educationItems : defaultEduItems;
+
+  const defaultServiceItems = [
+    { role: 'IMA சிவகாசி கிளை', detail: 'செயலாளர், 2016–2017', icon: Building2 },
+    { role: 'அரசு மருத்துவ சேவை', detail: '7 ஆண்டுகள் (2014–2021)', icon: Stethoscope },
+    { role: 'விருதுநகர் மாவட்டம்', detail: 'அனைத்து முதன்மை சுகாதார மையங்களிலும் சிறப்பான பணி', icon: MapPin }
+  ];
+  const serviceItems = (chiefSpotlight?.serviceItems && chiefSpotlight.serviceItems.length > 0) ? chiefSpotlight.serviceItems : defaultServiceItems;
+
+  const defaultGuidelines = [
+    {
+      title: '📌 Prior Appointment Recommended',
+      description: 'Visiting consultants visit on specific days of the week and for scheduled surgeries. Patients are kindly requested to register their appointment in advance.'
+    },
+    {
+      title: '📞 Direct Helpline & Schedule Confirmation',
+      description: 'Call our reception at +91 93455 10905 for the exact consultation timings for the current week.'
+    },
+    {
+      title: '🚨 24/7 Casualty & On-Call Emergency',
+      description: 'Emergency surgical, trauma, and anaesthetic backup are accessible 24 hours a day with our dedicated medical duty officers.'
+    }
+  ];
+  const guidelinesList = (pageData?.guidelinesSection?.guidelinesList && pageData.guidelinesSection.guidelinesList.length > 0)
+    ? pageData.guidelinesSection.guidelinesList
+    : defaultGuidelines;
 
   const activeChief = sanityDoctors 
     ? (sanityDoctors.find(d => d.order === 1 || d.name?.includes('Saileshkumar')) || chiefDoctorSummary) 
@@ -491,13 +539,13 @@ const Doctors = () => {
       }}>
         <div className="container" data-aos="fade-up">
           <h1 style={{ color: '#FFFFFF', fontSize: '3.3rem', marginBottom: '15px', letterSpacing: '0.5px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>
-            Meet Our Medical Team & Specialists
+            {pageData?.heroHeading || "Meet Our Medical Team & Specialists"}
           </h1>
           <p style={{ fontSize: '1.25rem', color: '#061D38', fontWeight: '800', marginBottom: '15px' }}>
-            சிறப்பு மருத்துவர்கள் குழு • Leading Surgeons & Consultants
+            {pageData?.heroTag || "சிறப்பு மருத்துவர்கள் குழு • Leading Surgeons & Consultants"}
           </p>
           <p style={{ fontSize: '1.1rem', maxWidth: '820px', margin: '0 auto', color: '#FFFFFF', lineHeight: '1.7', fontWeight: '500', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
-            Led by award-winning laparoscopic surgeon <strong>Dr. B. Saileshkumar</strong>, our multidisciplinary team of visiting super-specialists brings premier clinical expertise in cancer surgery, gastroenterology, plastic surgery, urology, paediatrics, and orthopaedics to Sivakasi.
+            {pageData?.heroDescription || "Led by award-winning laparoscopic surgeon Dr. B. Saileshkumar, our multidisciplinary team of visiting super-specialists brings premier clinical expertise in cancer surgery, gastroenterology, plastic surgery, urology, paediatrics, and orthopaedics to Sivakasi."}
           </p>
         </div>
       </section>
@@ -543,8 +591,8 @@ const Doctors = () => {
                 flexShrink: 0
               }}>
                 <img 
-                  src="/doctor.png" 
-                  alt="Dr. B. Saileshkumar" 
+                  src={(chiefSpotlight?.image ? urlFor(chiefSpotlight.image).url() : null) || "/doctor.png"} 
+                  alt={chiefSpotlight?.name || "Dr. B. Saileshkumar"} 
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
                   onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; }}
                 />
@@ -577,7 +625,7 @@ const Doctors = () => {
                   textTransform: 'uppercase',
                   marginBottom: '6px'
                 }}>
-                  JB Health Care • Head of surgery
+                  {chiefSpotlight?.tag || "JB Health Care • Head of surgery"}
                 </div>
 
                 <h2 style={{
@@ -587,12 +635,12 @@ const Doctors = () => {
                   margin: '0 0 16px',
                   lineHeight: '1.2'
                 }}>
-                  Dr. B. சைலேஷ்குமார்
+                  {chiefSpotlight?.name || "Dr. B. சைலேஷ்குமார்"}
                 </h2>
 
                 {/* Degree Pills */}
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                  {['MBBS', 'M.S.', 'FIAGES', 'FALS'].map((deg) => (
+                  {(chiefSpotlight?.degrees || ['MBBS', 'M.S.', 'FIAGES', 'FALS']).map((deg) => (
                     <span 
                       key={deg} 
                       style={{
@@ -615,14 +663,8 @@ const Doctors = () => {
 
             {/* Tier 2: 5-Column Milestone Stats Bar */}
             <div className="chief-doctor-stats-bar">
-              {[
-                { value: '10,000+', label: 'அறுவை சிகிச்சைகள்' },
-                { value: '2,000+', label: 'லேப்ரோஸ்கோபிக்' },
-                { value: '3,000+', label: 'சிசேரியன்' },
-                { value: '100+', label: 'புற்றுநோய் அறுவை' },
-                { value: '50+', label: 'COVID நோயாளிகள்' }
-              ].map((stat, idx) => (
-                <div key={idx} className="chief-doctor-stat-item">
+              {chiefStats.map((stat, idx) => (
+                <div key={stat._key || idx} className="chief-doctor-stat-item">
                   <div style={{
                     color: '#ffffff',
                     fontSize: 'clamp(1.3rem, 2.2vw, 1.65rem)',
@@ -677,67 +719,21 @@ const Doctors = () => {
                     flexDirection: 'column',
                     gap: '20px'
                   }}>
-                    {/* Item 1 */}
-                    <div style={{ position: 'relative' }}>
-                      <div style={{
-                        position: 'absolute',
-                        left: '-30px',
-                        top: '5px',
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        backgroundColor: '#00B4D8'
-                      }} />
-                      <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>MBBS</div>
-                      <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px' }}>மெட்ராஸ் மருத்துவக் கல்லூரி</div>
-                    </div>
-
-                    {/* Item 2 */}
-                    <div style={{ position: 'relative' }}>
-                      <div style={{
-                        position: 'absolute',
-                        left: '-30px',
-                        top: '5px',
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        backgroundColor: '#00B4D8'
-                      }} />
-                      <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>M.S.</div>
-                      <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px' }}>மதுரை மருத்துவக் கல்லூரி</div>
-                    </div>
-
-                    {/* Item 3 */}
-                    <div style={{ position: 'relative' }}>
-                      <div style={{
-                        position: 'absolute',
-                        left: '-30px',
-                        top: '5px',
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        backgroundColor: '#00B4D8'
-                      }} />
-                      <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>லேப்ரோஸ்கோப்பி பயிற்சி</div>
-                      <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px' }}>VG மருத்துவமனை, கோயம்புத்தூர்</div>
-                    </div>
-
-                    {/* Item 4 */}
-                    <div style={{ position: 'relative' }}>
-                      <div style={{
-                        position: 'absolute',
-                        left: '-30px',
-                        top: '5px',
-                        width: '10px',
-                        height: '10px',
-                        borderRadius: '50%',
-                        backgroundColor: '#00B4D8'
-                      }} />
-                      <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>FIAGES / FALS</div>
-                      <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px', lineHeight: '1.5' }}>
-                        இந்திய குடலியல் எண்டோ சர்ஜன் சங்கத்தின் சிறப்புப் பங்காளர் (Fellowship) சான்றிதழ்
+                    {eduItems.map((item, idx) => (
+                      <div key={item._key || idx} style={{ position: 'relative' }}>
+                        <div style={{
+                          position: 'absolute',
+                          left: '-30px',
+                          top: '5px',
+                          width: '10px',
+                          height: '10px',
+                          borderRadius: '50%',
+                          backgroundColor: '#00B4D8'
+                        }} />
+                        <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>{item.degree}</div>
+                        <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px', lineHeight: '1.5' }}>{item.institution}</div>
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
 
@@ -764,83 +760,36 @@ const Doctors = () => {
 
                   {/* Service Items */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-                    {/* Service 1 */}
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                      <div style={{
-                        width: '44px',
-                        height: '44px',
-                        borderRadius: '12px',
-                        backgroundColor: 'rgba(0, 180, 216, 0.1)',
-                        border: '1.5px solid rgba(0, 180, 216, 0.3)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#0077B6',
-                        flexShrink: 0
-                      }}>
-                        <Building2 size={22} />
-                      </div>
-                      <div>
-                        <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>
-                          IMA சிவகாசி கிளை
+                    {serviceItems.map((item, idx) => {
+                      const icons = [Building2, Stethoscope, MapPin];
+                      const ItemIcon = icons[idx % icons.length];
+                      return (
+                        <div key={item._key || idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+                          <div style={{
+                            width: '44px',
+                            height: '44px',
+                            borderRadius: '12px',
+                            backgroundColor: 'rgba(0, 180, 216, 0.1)',
+                            border: '1.5px solid rgba(0, 180, 216, 0.3)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: '#0077B6',
+                            flexShrink: 0
+                          }}>
+                            <ItemIcon size={22} />
+                          </div>
+                          <div>
+                            <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>
+                              {item.role}
+                            </div>
+                            <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px' }}>
+                              {item.detail}
+                            </div>
+                          </div>
                         </div>
-                        <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px' }}>
-                          செயலாளர், <strong>2016–2017</strong>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Service 2 */}
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                      <div style={{
-                        width: '44px',
-                        height: '44px',
-                        borderRadius: '12px',
-                        backgroundColor: 'rgba(0, 180, 216, 0.1)',
-                        border: '1.5px solid rgba(0, 180, 216, 0.3)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#0077B6',
-                        flexShrink: 0
-                      }}>
-                        <Stethoscope size={22} />
-                      </div>
-                      <div>
-                        <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>
-                          அரசு மருத்துவ சேவை
-                        </div>
-                        <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px' }}>
-                          <strong>7 ஆண்டுகள்</strong> (2014–2021)
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Service 3 */}
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                      <div style={{
-                        width: '44px',
-                        height: '44px',
-                        borderRadius: '12px',
-                        backgroundColor: 'rgba(0, 180, 216, 0.1)',
-                        border: '1.5px solid rgba(0, 180, 216, 0.3)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#0077B6',
-                        flexShrink: 0
-                      }}>
-                        <MapPin size={22} />
-                      </div>
-                      <div>
-                        <div style={{ color: '#0A2540', fontWeight: '800', fontSize: '0.98rem' }}>
-                          விருதுநகர் மாவட்டம்
-                        </div>
-                        <div style={{ color: '#64748b', fontSize: '0.88rem', marginTop: '2px', lineHeight: '1.5' }}>
-                          அனைத்து முதன்மை சுகாதார மையங்களிலும் சிறப்பான பணி
-                        </div>
-                      </div>
-                    </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -872,10 +821,10 @@ const Doctors = () => {
                 </div>
                 <div>
                   <div style={{ color: '#8C5B24', fontWeight: '800', fontSize: '1.05rem', marginBottom: '3px' }}>
-                    Best Doctor Award • 2017 மற்றும் 2018
+                    {chiefSpotlight?.awardTitle || "Best Doctor Award • 2017 மற்றும் 2018"}
                   </div>
                   <div style={{ color: '#6C5539', fontSize: '0.9rem', lineHeight: '1.5' }}>
-                    தொடர்ச்சியாக இரண்டு ஆண்டுகள் மாவட்ட ஆட்சியரால் வழங்கப்பட்ட சிறந்த மருத்துவர் விருது
+                    {chiefSpotlight?.awardDescription || "தொடர்ச்சியாக இரண்டு ஆண்டுகள் மாவட்ட ஆட்சியரால் வழங்கப்பட்ட சிறந்த மருத்துவர் விருது"}
                   </div>
                 </div>
               </div>
@@ -902,7 +851,7 @@ const Doctors = () => {
                   letterSpacing: '0.8px',
                   marginBottom: '3px'
                 }}>
-                  OP consultation hours
+                  {chiefSpotlight?.opHoursLabel || "OP consultation hours"}
                 </div>
                 <div style={{
                   color: '#ffffff',
@@ -910,7 +859,7 @@ const Doctors = () => {
                   fontSize: '1.05rem',
                   letterSpacing: '0.3px'
                 }}>
-                  10:00 AM – 01:00 PM • 06:00 PM – 09:00 PM
+                  {chiefSpotlight?.opHours || "10:00 AM – 01:00 PM • 06:00 PM – 09:00 PM"}
                 </div>
               </div>
 
@@ -996,7 +945,7 @@ const Doctors = () => {
               letterSpacing: '1.5px',
               marginBottom: '8px'
             }}>
-              Our Doctors
+              {pageData?.consultantsHeaderSection?.tag || "Our Doctors"}
             </span>
             <h2 style={{
               fontSize: 'clamp(2.1rem, 3.8vw, 2.85rem)',
@@ -1005,7 +954,7 @@ const Doctors = () => {
               margin: '0 0 14px',
               letterSpacing: '-0.3px'
             }}>
-              Meet Our Consultants
+              {pageData?.consultantsHeaderSection?.heading || "Meet Our Consultants"}
             </h2>
             <div style={{
               width: '52px',
@@ -1022,7 +971,7 @@ const Doctors = () => {
               margin: '0 auto',
               lineHeight: '1.6'
             }}>
-              Find the right specialist for you.
+              {pageData?.consultantsHeaderSection?.subtitle || "Find the right specialist for you."}
             </p>
           </div>
 
@@ -1550,32 +1499,22 @@ const Doctors = () => {
               </div>
               <div>
                 <h3 style={{ color: 'var(--primary)', fontSize: '1.25rem', margin: 0 }}>
-                  Visiting Specialist Consultation Guidelines • முன்பதிவு விவரங்கள்
+                  {pageData?.guidelinesSection?.title || "Visiting Specialist Consultation Guidelines • முன்பதிவு விவரங்கள்"}
                 </h3>
                 <p style={{ color: '#666', fontSize: '0.9rem', margin: '3px 0 0' }}>
-                  Please read before planning your hospital visit
+                  {pageData?.guidelinesSection?.subtitle || "Please read before planning your hospital visit"}
                 </p>
               </div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', color: '#475569', fontSize: '0.92rem', lineHeight: '1.6' }}>
-              <div>
-                <strong style={{ color: 'var(--primary)', display: 'block', marginBottom: '4px' }}>
-                  📌 Prior Appointment Recommended
-                </strong>
-                Visiting consultants visit on specific days of the week and for scheduled surgeries. Patients are kindly requested to register their appointment in advance.
-              </div>
-              <div>
-                <strong style={{ color: 'var(--primary)', display: 'block', marginBottom: '4px' }}>
-                  📞 Direct Helpline & Schedule Confirmation
-                </strong>
-                Call our reception at <strong>+91 93455 10905</strong> for the exact consultation timings for the current week.
-              </div>
-              <div>
-                <strong style={{ color: 'var(--primary)', display: 'block', marginBottom: '4px' }}>
-                  🚨 24/7 Casualty & On-Call Emergency
-                </strong>
-                Emergency surgical, trauma, and anaesthetic backup are accessible 24 hours a day with our dedicated medical duty officers.
-              </div>
+              {guidelinesList.map((g, idx) => (
+                <div key={g._key || idx}>
+                  <strong style={{ color: 'var(--primary)', display: 'block', marginBottom: '4px' }}>
+                    {g.title}
+                  </strong>
+                  {g.description}
+                </div>
+              ))}
             </div>
           </div>
 
@@ -1586,17 +1525,17 @@ const Doctors = () => {
       <section style={{ backgroundColor: '#071A2E', padding: '50px 0', borderTop: '1px solid rgba(255,255,255,0.08)', textAlign: 'center' }}>
         <div className="container" data-aos="fade-up">
           <h2 style={{ color: 'var(--white)', fontSize: '2.2rem', marginBottom: '12px' }}>
-            Need Immediate Assistance or Surgery Consultation?
+            {pageData?.calloutSection?.heading || "Need Immediate Assistance or Surgery Consultation?"}
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', maxWidth: '700px', margin: '0 auto 30px' }}>
-            Our hospital front desk is available 24/7 to connect you with our medical team and schedule priority appointments.
+            {pageData?.calloutSection?.subtitle || "Our hospital front desk is available 24/7 to connect you with our medical team and schedule priority appointments."}
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
             <Link to="/appointment" className="btn btn-accent" style={{ padding: '12px 32px', fontSize: '1rem', borderRadius: '30px', fontWeight: 'bold' }}>
-              Book an Appointment
+              {pageData?.calloutSection?.buttonText || "Book an Appointment"}
             </Link>
-            <a href="tel:+919345510905" className="btn btn-outline" style={{ padding: '12px 32px', fontSize: '1rem', borderRadius: '30px', borderColor: 'var(--white)', color: 'var(--white)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-              <Phone size={18} /> Call +91 93455 10905
+            <a href={`tel:${pageData?.calloutSection?.phoneNumber || "919345510905"}`} className="btn btn-outline" style={{ padding: '12px 32px', fontSize: '1rem', borderRadius: '30px', borderColor: 'var(--white)', color: 'var(--white)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <Phone size={18} /> {pageData?.calloutSection?.phoneText || "Call +91 93455 10905"}
             </a>
           </div>
         </div>
