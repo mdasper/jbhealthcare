@@ -25,7 +25,7 @@ const facilitiesData = [
     subtitle: "Leading Superspecialist Doctors",
     description: "Regular outpatient visits, second opinions, and multi-disciplinary treatment planning by top consulting specialists from major medical centers.",
     icon: <Stethoscope size={40} color="var(--accent)" />,
-    image: "/hospital_photos/visiting_specialists_consultation.jpg"
+    image: "/hospital_photos/jb_hospital_full_team.jpg"
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const facilitiesData = [
     subtitle: "Spacious & Clean Patient Rooms",
     description: "Hygienic, comfortable inpatient recovery rooms, patient monitoring suites, and a patient-friendly outpatient consultation wing.",
     icon: <HeartPulse size={40} color="var(--accent)" />,
-    image: "/hospital_photos/inpatient_outpatient_ward.jpg"
+    image: "/hospital_photos/hospital_building_exterior.jpg"
   },
   {
     id: 5,

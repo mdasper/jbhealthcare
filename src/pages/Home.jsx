@@ -17,7 +17,7 @@ const slides = [
     subtitle: 'Led by Dr. B. Saileshkumar (MBBS, MS, FIAGES, FALS), our surgical team delivers world-class minimally invasive keyhole procedures — minimal pain, zero ugly scars, and rapid same-day recovery.'
   },
   {
-    image: '/hero_emergency.jpg',
+    image: '/hospital_photos/dr_sailesh_ot_team.jpg',
     title: '24/7 Expert Emergency Care',
     subtitle: 'Emergencies don\'t wait, and neither do we. Our multi-disciplinary team of highly experienced doctors, surgeons, and nurses are available round the clock, ensuring rapid, expert response whenever you need us most.'
   },

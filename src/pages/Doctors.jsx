@@ -96,7 +96,7 @@ const visitingSpecialists = [
     department: 'Medical Gastroenterology & Hepatology',
     category: 'Gastroenterology',
     schedule: 'Every Friday',
-    timing: '09:00 AM (Morning)',
+    timing: '09:00 PM (Night)',
     availableDays: ['All', 'Friday'],
     focusAreas: [
       'Diagnostic endoscopy',
@@ -226,7 +226,7 @@ const visitingSpecialists = [
   },
   {
     _id: 'v-12',
-    name: 'Dr. Deepan',
+    name: 'Dr. Deepan Ramkumar',
     degree: 'MBBS, M.S. Ortho',
     categoryHeader: 'ORTHOPAEDIC & TRAUMA SURGERY',
     department: 'Orthopaedics & Trauma Surgery',

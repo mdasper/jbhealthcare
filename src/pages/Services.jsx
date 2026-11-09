@@ -93,7 +93,7 @@ const realDepartments = [
     doctor: 'Dr. A.C. Arun',
     doctorRole: 'Visiting Medical Gastroenterologist',
     degree: 'MBBS, M.D., D.M. (Gastroenterology)',
-    badge: 'Every Friday • 9:00 AM',
+    badge: 'Every Friday • 9:00 PM (Night)',
     description: 'Specialized diagnosis and expert therapeutic management of complex digestive disorders, liver cirrhosis, chronic hepatitis, acid reflux, peptic ulcers, and bowel conditions.',
     keyProcedures: [
       'Diagnostic & Therapeutic Endoscopy',
@@ -162,7 +162,7 @@ const realDepartments = [
     tamilTitle: 'எலும்பு முறிவு & விபத்து அறுவை சிகிச்சை',
     category: 'Surgical Excellence',
     icon: 'Activity',
-    doctor: 'Dr. Deepan',
+    doctor: 'Dr. Deepan Ramkumar',
     doctorRole: 'Visiting Orthopaedic Surgeon',
     degree: 'MBBS, M.S. Ortho',
     badge: 'On Surgery Days • 24/7 Fracture Emergency',
@@ -307,13 +307,13 @@ const IconMapper = ({ name, size = 32, color = 'var(--accent)' }) => {
 };
 
 const doctorOverrideMap = {
+  'ortho': { doctor: 'Dr. Deepan Ramkumar', degree: 'MBBS, M.S. Ortho', doctorRole: 'Visiting Orthopaedic Surgeon' },
   'casualty': { doctor: 'Dr. B. Saileshkumar & Emergency Team', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Surgeon & 24/7 Trauma Team' },
   'trauma': { doctor: 'Dr. B. Saileshkumar & Emergency Team', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Surgeon & 24/7 Trauma Team' },
   'plastic': { doctor: 'Dr. Arun Kumar', degree: 'MBBS, M.S., M.Ch. (Plastic Surgery)', doctorRole: 'Visiting Plastic & Reconstructive Surgeon' },
   'urology': { doctor: 'Dr. Sankar', degree: 'MBBS, M.S., M.Ch. (Urology)', doctorRole: 'Visiting Urologist & Andrologist' },
   'paediatric': { doctor: 'Dr. Arun Kumar', degree: 'MBBS, M.S., M.Ch. (Paediatric Surgery)', doctorRole: 'Visiting Paediatric Surgeon' },
   'pediatric': { doctor: 'Dr. Arun Kumar', degree: 'MBBS, M.S., M.Ch. (Paediatric Surgery)', doctorRole: 'Visiting Paediatric Surgeon' },
-  'ortho': { doctor: 'Dr. Deepan', degree: 'MBBS, M.S. Ortho', doctorRole: 'Visiting Orthopaedic Surgeon' },
   'general medicine': { doctor: 'Dr. B. Saileshkumar', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Physician & Surgeon' },
   'diabetology': { doctor: 'Dr. B. Saileshkumar', degree: 'MBBS, M.S., FIAGES, FALS', doctorRole: 'Chief Physician & Surgeon' },
   'anaesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'MBBS, DA / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
@@ -703,7 +703,7 @@ const Services = () => {
             <div data-aos="fade-left" style={{ flex: '1 1 400px' }}>
               <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.35)', border: '2px solid rgba(0, 180, 216, 0.3)' }}>
                 <img 
-                  src="/hospital_photos/master_health_checkup.jpg" 
+                  src="/hospital_photos/dr_sailesh_xray_consultation.jpg" 
                   alt="JB Healthcare Master Health Checkup Packages" 
                   style={{ width: '100%', height: '420px', objectFit: 'cover', display: 'block' }} 
                 />
