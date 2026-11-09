@@ -110,3 +110,4 @@ uploadAll().catch(err => {
   console.error('Failed to upload images:', err);
   process.exit(1);
 });
+
