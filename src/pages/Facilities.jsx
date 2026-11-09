@@ -33,7 +33,7 @@ const facilitiesData = [
     subtitle: "Spacious & Clean Patient Rooms",
     description: "Hygienic, comfortable inpatient recovery rooms, patient monitoring suites, and a patient-friendly outpatient consultation wing.",
     icon: <HeartPulse size={40} color="var(--accent)" />,
-    image: "/hospital_photos/hospital_building_exterior.jpg"
+    image: "/hospital_photos/inpatient_outpatient_ward.jpg"
   },
   {
     id: 5,
