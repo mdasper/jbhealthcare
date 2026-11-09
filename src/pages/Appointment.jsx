@@ -12,6 +12,8 @@ const Appointment = () => {
   const [pageData, setPageData] = useState(null);
   const [agreed, setAgreed] = useState(false);
   const [dateError, setDateError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Local date formatter for accurate IST dates
   const getLocalDateString = (d) => {
@@ -70,38 +72,49 @@ const Appointment = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!agreed) return;
+    if (!agreed || isSubmitting) return;
 
     if (formData.date < minDate || formData.date > maxDate) {
       setDateError('Please choose a date within the next 3 days.');
       return;
     }
-    
-    // Save to Sanity database in background
-    saveAppointmentToSanity(formData);
 
-    const whatsappNumber = '919345510905';
-    let text = `*🏥 JB Healthcare - Appointment Booking*\n\n`;
-    text += `*Patient Name:* ${formData.name}\n`;
-    text += `*Phone:* ${formData.phone}\n`;
-    text += `*Consultation Type:* ${formData.type}\n`;
-    text += `*Department:* ${formData.department}\n`;
-    if (formData.doctor) {
-      text += `*Preferred Doctor:* ${formData.doctor}\n`;
+    setIsSubmitting(true);
+
+    try {
+      // 1. Instantly save to Sanity CMS database
+      await saveAppointmentToSanity(formData);
+
+      setIsSubmitted(true);
+
+      // 2. Open WhatsApp confirmation for the patient
+      const whatsappNumber = '919345510905';
+      let text = `*🏥 JB Healthcare - Appointment Booking*\n\n`;
+      text += `*Patient Name:* ${formData.name}\n`;
+      text += `*Phone:* ${formData.phone}\n`;
+      text += `*Consultation Type:* ${formData.type}\n`;
+      text += `*Department:* ${formData.department}\n`;
+      if (formData.doctor) {
+        text += `*Preferred Doctor:* ${formData.doctor}\n`;
+      }
+      text += `*Preferred Date:* ${formData.date}\n`;
+      
+      if (formData.type === 'Online Consultation') {
+        text += `*Preferred Time:* 12:00 PM - 12:30 PM (Fixed)\n`;
+      }
+      
+      if (formData.message) {
+        text += `*Notes:* ${formData.message}\n`;
+      }
+      
+      window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(text)}`, '_blank');
+    } catch (err) {
+      console.error('Submission error:', err);
+    } finally {
+      setIsSubmitting(false);
     }
-    text += `*Preferred Date:* ${formData.date}\n`;
-    
-    if (formData.type === 'Online Consultation') {
-      text += `*Preferred Time:* 12:00 PM - 12:30 PM (Fixed)\n`;
-    }
-    
-    if (formData.message) {
-      text += `*Notes:* ${formData.message}\n`;
-    }
-    
-    window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
@@ -201,7 +214,44 @@ const Appointment = () => {
               <h3 style={{ color: 'var(--primary)', fontSize: '1.8rem', marginBottom: '5px' }}>{pageData?.formHeaderTitle || 'Patient Details'}</h3>
               <p style={{ color: '#666', marginBottom: '40px' }}>{pageData?.formHeaderSubtitle || 'Please fill out the information below to request a consultation.'}</p>
               
-              <form onSubmit={handleSubmit}>
+              {isSubmitted ? (
+                <div style={{ textAlign: 'center', padding: '40px 20px', backgroundColor: '#F0FDF4', border: '2px solid #86EFAC', borderRadius: '16px' }} data-aos="zoom-in">
+                  <div style={{ width: '70px', height: '70px', borderRadius: '50%', backgroundColor: '#22C55E', color: '#FFF', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px auto', boxShadow: '0 8px 24px rgba(34, 197, 94, 0.35)' }}>
+                    <CheckCircle size={38} />
+                  </div>
+                  <h3 style={{ color: '#15803D', fontSize: '1.8rem', fontWeight: '800', marginBottom: '10px' }}>
+                    Appointment Request Stored in Database!
+                  </h3>
+                  <div style={{ color: '#166534', fontSize: '1rem', fontWeight: '700', marginBottom: '14px' }}>
+                    முன்பதிவு மருத்துவமனை அமைப்பில் வெற்றிகரமாகப் பதிவு செய்யப்பட்டது!
+                  </div>
+                  <p style={{ color: '#374151', fontSize: '1rem', maxWidth: '520px', margin: '0 auto 24px auto', lineHeight: '1.6' }}>
+                    Thank you <strong>{formData.name}</strong>. Your consultation details for <strong>{formData.department || 'General'}</strong> have been saved in our hospital database. Our team will contact you at <strong>{formData.phone}</strong> shortly to confirm your time slot.
+                  </p>
+                  <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsSubmitted(false);
+                        setFormData({
+                          name: '',
+                          phone: '',
+                          department: '',
+                          doctor: '',
+                          type: 'In-Person',
+                          date: '',
+                          message: ''
+                        });
+                      }}
+                      className="btn btn-primary"
+                      style={{ padding: '12px 24px', borderRadius: '25px', fontWeight: '700' }}
+                    >
+                      Book Another Appointment
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
                 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '25px', marginBottom: '25px' }}>
                   <div className="form-group" style={{ margin: 0 }}>
@@ -401,11 +451,12 @@ const Appointment = () => {
                       opacity: agreed ? 1 : 0.7
                     }}
                   >
-                    Submit Appointment Request
+                    {isSubmitting ? 'Saving to Database...' : 'Submit Appointment Request'}
                   </button>
                 </div>
 
               </form>
+              )}
             </div>
 
           </div>
