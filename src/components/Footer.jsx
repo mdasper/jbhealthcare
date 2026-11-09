@@ -12,12 +12,12 @@ const Footer = () => {
     }).catch(console.error);
   }, []);
 
-  const hospitalName = "JB Healthcare";
-  const phone = "+91 93455 10905";
-  const landline = "04562-299920";
-  const whatsappNumber = "919345510905";
-  const email = "jbhealthcare.sivakasi@gmail.com";
-  const address = "2/571A, Bharathi Nagar, Reserve line, Vasantham Nagar, Rengapa Shyam Nagar, Sivakasi, Tamil Nadu 626124";
+  const hospitalName = settings?.hospitalName || "JB Healthcare";
+  const phone = settings?.phone || "+91 93455 10905";
+  const landline = settings?.landline || "04562-299920";
+  const whatsappNumber = settings?.whatsappNumber || "919345510905";
+  const email = settings?.email || "jbhealthcare.sivakasi@gmail.com";
+  const address = settings?.address || "2/571A, Bharathi Nagar, Reserve line, Vasantham Nagar, Rengapa Shyam Nagar, Sivakasi, Tamil Nadu 626124";
   
   // Format WhatsApp number to remove non-numeric chars for the URL
   let whatsappClean = whatsappNumber.replace(/\D/g, '');

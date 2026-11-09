@@ -1,6 +1,7 @@
 import React from 'react';
 import { Activity, ShieldPlus, HeartPulse, Stethoscope, Microscope, Pill } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { client, urlFor } from '../sanity';
 
 const facilitiesData = [
   {
@@ -59,6 +60,41 @@ const facilitiesData = [
 
 const Facilities = () => {
   const [activeWardIdx, setActiveWardIdx] = React.useState(0);
+  const [facilities, setFacilities] = React.useState(facilitiesData);
+
+  React.useEffect(() => {
+    client.fetch(`*[_type == "facility"] | order(order asc)`).then((data) => {
+      if (Array.isArray(data) && data.length > 0) {
+        // Merge Sanity facility data with icon components and image fallbacks
+        const merged = data.map((item, idx) => {
+          const fallback = facilitiesData[idx] || facilitiesData[0];
+          let img = fallback.image;
+          if (item.image) {
+            try { img = urlFor(item.image).url(); } catch (e) { /* use fallback */ }
+          }
+          let gal = fallback.gallery;
+          if (item.gallery && Array.isArray(item.gallery) && item.gallery.length > 0) {
+            gal = item.gallery.map((g) => ({
+              label: g.label || 'View',
+              image: g.image ? urlFor(g.image).url() : fallback.image
+            }));
+          }
+          return {
+            id: item._id || item.id || idx,
+            title: item.title || fallback.title,
+            subtitle: item.subtitle || fallback.subtitle,
+            description: item.description || fallback.description,
+            icon: fallback.icon,
+            image: img,
+            gallery: gal
+          };
+        });
+        setFacilities(merged);
+      }
+    }).catch((err) => {
+      console.warn('Using offline facilities fallback:', err);
+    });
+  }, []);
 
   // Auto-switch between IP and OP every 4.5 seconds so both are highlighted
   React.useEffect(() => {
@@ -86,8 +122,10 @@ const Facilities = () => {
         <div className="container">
           <div className="facilities-grid">
             
-            {facilitiesData.map((facility, index) => {
-              const currentImage = facility.gallery ? facility.gallery[activeWardIdx].image : facility.image;
+            {facilities.map((facility, index) => {
+              const currentImage = (facility.gallery && facility.gallery[activeWardIdx]) 
+                ? facility.gallery[activeWardIdx].image 
+                : facility.image;
 
               return (
               <div 

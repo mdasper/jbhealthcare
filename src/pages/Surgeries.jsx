@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { Calendar, Phone, CheckCircle, ShieldCheck, X } from 'lucide-react';
+import { client } from '../sanity';
 
 const laparoscopicSurgeries = [
   {
@@ -56,6 +57,17 @@ const laparoscopicSurgeries = [
 
 const Surgeries = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [surgeries, setSurgeries] = useState(laparoscopicSurgeries);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "surgery"] | order(order asc)`).then((data) => {
+      if (Array.isArray(data) && data.length > 0) {
+        setSurgeries(data);
+      }
+    }).catch((err) => {
+      console.warn('Using offline surgeries fallback:', err);
+    });
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -104,9 +116,9 @@ const Surgeries = () => {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
-            {laparoscopicSurgeries.map((item, index) => (
+            {surgeries.map((item, index) => (
               <div 
-                key={item.id} 
+                key={item._id || item.id} 
                 data-aos="fade-up" 
                 data-aos-delay={`${(index + 1) * 100}`}
                 style={{ 

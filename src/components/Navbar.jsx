@@ -77,13 +77,13 @@ const Navbar = () => {
           
           <div className="nav-actions">
             <a 
-              href="tel:+919345510905" 
+              href={`tel:${(settings?.phone || "+91 93455 10905").replace(/\s+/g, "")}`} 
               className="btn-magnetic nav-call-btn"
               title="Call Emergency / Appointments"
             >
               <span className="live-casualty-beacon" />
               <Phone size={15} color="#00B4D8" />
-              <span>+91 93455 10905</span>
+              <span>{settings?.phone || "+91 93455 10905"}</span>
             </a>
 
             <Link 

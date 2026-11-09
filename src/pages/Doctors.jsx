@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { client } from '../sanity';
 import TiltCard from '../components/TiltCard';
 import { 
   Calendar, 
@@ -264,6 +265,24 @@ const Doctors = () => {
   const [activeTab, setActiveTab] = useState('today');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [sanityDoctors, setSanityDoctors] = useState(null);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "doctor"] | order(order asc)`).then((data) => {
+      if (Array.isArray(data) && data.length > 0) {
+        setSanityDoctors(data);
+      }
+    }).catch((err) => {
+      console.warn('Using offline doctors fallback:', err);
+    });
+  }, []);
+
+  const activeChief = sanityDoctors 
+    ? (sanityDoctors.find(d => d.order === 1 || d.name?.includes('Saileshkumar')) || chiefDoctorSummary) 
+    : chiefDoctorSummary;
+  const activeVisitingSpecialists = sanityDoctors 
+    ? sanityDoctors.filter(d => d._id !== activeChief._id && !d.name?.includes('Saileshkumar')) 
+    : visitingSpecialists;
 
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const currentDayIndex = new Date().getDay();
@@ -275,15 +294,12 @@ const Doctors = () => {
     
     // Chief Doctor Monday to Saturday
     if (currentDayIndex !== 0) {
-      list.push(chiefDoctorSummary);
+      list.push(activeChief);
     } else {
       list.push({
+        ...activeChief,
         _id: 'chief-sun',
-        name: 'Dr. B. Saileshkumar',
-        degree: 'MBBS, M.S., FIAGES, FALS',
         categoryHeader: 'EMERGENCY SURGERY & ON-CALL OT',
-        department: 'Founder & Chief Laparoscopic Surgeon',
-        category: 'General Surgery',
         schedule: 'Sunday Emergency & On-Call',
         timing: 'Emergency & OT Available',
         focusAreas: ['Emergency laparoscopy', 'Acute abdominal surgery', '24/7 on-call surgical backup']
@@ -292,17 +308,17 @@ const Doctors = () => {
 
     // Visiting specialists on specific days
     if (currentDayIndex === 5) {
-      const arun = visitingSpecialists.find(d => d._id === 'v-4');
+      const arun = activeVisitingSpecialists.find(d => d.name?.includes('A.C. Arun') || d._id === 'v-4' || d._id === 'doc-arun-ent');
       if (arun) list.push(arun);
     }
     if (currentDayIndex === 3) {
-      const sang = visitingSpecialists.find(d => d._id === 'v-5');
-      const psych = visitingSpecialists.find(d => d._id === 'v-13');
+      const sang = activeVisitingSpecialists.find(d => d.name?.includes('Sangeetha') || d._id === 'v-5' || d._id === 'doc-sangeetha');
+      const psych = activeVisitingSpecialists.find(d => d.name?.includes('Sowdambika') || d._id === 'v-13' || d._id === 'doc-sowdambika');
       if (sang) list.push(sang);
       if (psych) list.push(psych);
     }
     if (currentDayIndex === 6) {
-      const sang = visitingSpecialists.find(d => d._id === 'v-5');
+      const sang = activeVisitingSpecialists.find(d => d.name?.includes('Sangeetha') || d._id === 'v-5' || d._id === 'doc-sangeetha');
       if (sang) list.push(sang);
     }
 
@@ -312,17 +328,19 @@ const Doctors = () => {
   const todayDoctors = getTodayDoctors();
 
   // Visiting Consultants (Fixed weekly OPD)
-  const visitingDoctors = visitingSpecialists.filter(d => ['v-4', 'v-5', 'v-13'].includes(d._id));
+  const visitingDoctors = activeVisitingSpecialists.filter(d => 
+    d.name?.includes('A.C. Arun') || d.name?.includes('Sangeetha') || d.name?.includes('Sowdambika') || ['v-4', 'v-5', 'v-13', 'doc-arun-ent', 'doc-sangeetha', 'doc-sowdambika'].includes(d._id)
+  );
 
   // Surgical Team (Anaesthesiologists + On-call super-specialists)
-  const surgicalTeam = visitingSpecialists.filter(d => 
-    ['v-1', 'v-2', 'v-3', 'v-7', 'v-8', 'v-9', 'v-10', 'v-11', 'v-12', 'v-6'].includes(d._id)
+  const surgicalTeam = activeVisitingSpecialists.filter(d => 
+    !visitingDoctors.some(vd => vd._id === d._id)
   );
 
   // All doctors combined
   const allDoctors = [
-    chiefDoctorSummary,
-    ...visitingSpecialists
+    activeChief,
+    ...activeVisitingSpecialists
   ];
 
   const categories = [

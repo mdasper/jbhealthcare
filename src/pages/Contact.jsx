@@ -21,9 +21,9 @@ const Contact = () => {
     }).catch(console.error);
   }, []);
 
-  const address = "2/571A, Bharathi Nagar, Reserve line, Sivakasi, Tamil Nadu 626124";
-  const phone = "+91 93455 10905";
-  const email = "jbhealthcare.sivakasi@gmail.com";
+  const address = settings?.address || "2/571A, Bharathi Nagar, Reserve line, Sivakasi, Tamil Nadu 626124";
+  const phone = settings?.phone || "+91 93455 10905";
+  const email = settings?.email || "jbhealthcare.sivakasi@gmail.com";
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
