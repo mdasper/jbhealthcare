@@ -329,6 +329,17 @@ const sanitizeDepartmentDoctors = (deptList) => {
     let deg = dept.degree;
     let role = dept.doctorRole;
     const titleLower = (dept.title || '').toLowerCase();
+
+    // Explicitly guarantee Orthopaedics & Trauma Surgery is assigned to Dr. Deepan Ramkumar
+    if (titleLower.includes('ortho')) {
+      return {
+        ...dept,
+        doctor: 'Dr. Deepan Ramkumar',
+        degree: 'MBBS, M.S. Ortho',
+        doctorRole: 'Visiting Orthopaedic Surgeon'
+      };
+    }
+
     for (const key of Object.keys(doctorOverrideMap)) {
       // Use word boundary check so "ent" does not match within "center"
       const regex = new RegExp(`(^|\\W)${key}(\\W|$)`, 'i');
