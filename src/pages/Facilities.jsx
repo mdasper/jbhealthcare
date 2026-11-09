@@ -33,7 +33,11 @@ const facilitiesData = [
     subtitle: "Spacious & Clean Patient Rooms",
     description: "Hygienic, comfortable inpatient recovery rooms, patient monitoring suites, and a patient-friendly outpatient consultation wing.",
     icon: <HeartPulse size={40} color="var(--accent)" />,
-    image: "/hospital_photos/inpatient_outpatient_ward.jpg"
+    image: "/hospital_photos/ip_ward_room.jpg",
+    gallery: [
+      { label: 'Inpatient (IP) Ward', image: '/hospital_photos/ip_ward_room.jpg' },
+      { label: 'Outpatient (OP) Lounge', image: '/hospital_photos/op_lounge.jpg' }
+    ]
   },
   {
     id: 5,
@@ -54,6 +58,16 @@ const facilitiesData = [
 ];
 
 const Facilities = () => {
+  const [activeWardIdx, setActiveWardIdx] = React.useState(0);
+
+  // Auto-switch between IP and OP every 4.5 seconds so both are highlighted
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveWardIdx((prev) => (prev === 0 ? 1 : 0));
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="page-transition" style={{ paddingTop: '80px' }}>
       
@@ -72,7 +86,10 @@ const Facilities = () => {
         <div className="container">
           <div className="facilities-grid">
             
-            {facilitiesData.map((facility, index) => (
+            {facilitiesData.map((facility, index) => {
+              const currentImage = facility.gallery ? facility.gallery[activeWardIdx].image : facility.image;
+
+              return (
               <div 
                 key={facility.id} 
                 className="facility-card" 
@@ -82,12 +99,48 @@ const Facilities = () => {
               >
                 <div style={{ height: '250px', overflow: 'hidden', position: 'relative' }}>
                   <img 
-                    src={facility.image} 
+                    src={currentImage} 
                     alt={facility.title} 
                     style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }}
                     className="facility-img-hover"
                   />
-                  <div style={{ position: 'absolute', bottom: '-1px', left: '0', width: '100%', height: '50px', background: 'linear-gradient(to top, var(--primary), transparent)' }}></div>
+
+                  {/* Interactive IP/OP Toggle Badges */}
+                  {facility.gallery && (
+                    <div style={{
+                      position: 'absolute',
+                      top: '12px',
+                      left: '12px',
+                      display: 'flex',
+                      gap: '6px',
+                      zIndex: 3
+                    }}>
+                      {facility.gallery.map((g, gIdx) => (
+                        <button
+                          key={gIdx}
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); setActiveWardIdx(gIdx); }}
+                          style={{
+                            backgroundColor: activeWardIdx === gIdx ? '#00B4D8' : 'rgba(6, 29, 56, 0.88)',
+                            color: activeWardIdx === gIdx ? '#061D38' : '#FFFFFF',
+                            border: activeWardIdx === gIdx ? '1.5px solid #FFFFFF' : '1px solid rgba(255, 255, 255, 0.25)',
+                            padding: '4px 10px',
+                            borderRadius: '16px',
+                            fontSize: '0.74rem',
+                            fontWeight: '800',
+                            cursor: 'pointer',
+                            backdropFilter: 'blur(6px)',
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                            transition: 'all 0.25s ease'
+                          }}
+                        >
+                          {g.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  <div style={{ position: 'absolute', bottom: '-1px', left: '0', width: '100%', height: '50px', background: 'linear-gradient(to top, var(--primary), transparent)', pointerEvents: 'none' }}></div>
                 </div>
                 
                 <div style={{ padding: '30px', position: 'relative', flex: '1', display: 'flex', flexDirection: 'column' }}>
@@ -102,7 +155,8 @@ const Facilities = () => {
                   <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '0', flex: '1' }}>{facility.description}</p>
                 </div>
               </div>
-            ))}
+            );
+          })}
             
           </div>
         </div>
