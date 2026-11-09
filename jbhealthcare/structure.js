@@ -146,13 +146,13 @@ export const myStructure = (S) =>
                     .title('Events Page Content & Guidelines')
                 ),
               S.listItem()
-                .title('2. 📋 All Events & Photo Albums (நிகழ்வுகள் & புகைப்பட ஆல்பங்கள்)')
+                .title('2. 📋 All Events & Photo Albums (6 நிகழ்வுகள் - வரிசைப்படி 1 to 6)')
                 .child(
                   S.documentList()
-                    .title('All Events & Camps (தேதி வாரியாக)')
+                    .title('All Events & Camps (1 முதல் 6 வரிசையில்)')
                     .schemaType('event')
                     .filter('_type == "event"')
-                    .defaultOrdering([{ field: 'date', direction: 'desc' }])
+                    .defaultOrdering([{ field: 'order', direction: 'asc' }])
                 )
             ])
         ),

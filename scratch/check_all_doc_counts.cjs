@@ -16,3 +16,4 @@ async function checkAllDocTypes() {
 }
 
 checkAllDocTypes().catch(console.error);
+

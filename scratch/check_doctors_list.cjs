@@ -13,3 +13,4 @@ async function checkDoctors() {
 }
 
 checkDoctors().catch(console.error);
+
