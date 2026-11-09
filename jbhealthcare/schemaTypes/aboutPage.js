@@ -7,7 +7,9 @@ export default {
     { name: 'founder', title: '2. Founder Spotlight (டாக்டர் சைலேஷ்)' },
     { name: 'legacy', title: '3. Our Legacy of Care (வரலாறு & குழு)' },
     { name: 'visionMission', title: '4. Vision & Mission (நோக்கம் & இலக்கு)' },
-    { name: 'lab', title: '5. Diagnostic Lab (ஆய்வகம்)' }
+    { name: 'lab', title: '5. Diagnostic Lab (ஆய்வகம் & 4 வசதிகள்)' },
+    { name: 'coreValues', title: '6. Core Values (3 நற்பண்புகள்)' },
+    { name: 'whyDifferent', title: '7. Why We Are Different (3 சிறப்புகள்)' }
   ],
   fields: [
     // 1. Header & Stats
@@ -122,10 +124,10 @@ export default {
       rows: 4
     },
 
-    // 5. In-House Diagnostic Lab
+    // 5. In-House Diagnostic Lab (with 4 Lab Feature Cards)
     {
       name: 'labSection',
-      title: 'In-House Diagnostic Lab Section (ஆய்வகம்)',
+      title: 'In-House Diagnostic Lab Section (ஆய்வகம் & 4 வசதிகள்)',
       type: 'object',
       group: 'lab',
       fields: [
@@ -133,7 +135,77 @@ export default {
         { name: 'subheading', title: 'Subheading / Tagline', type: 'string', initialValue: 'Automated Pathology, Biochemistry & 3-Lead Digital ECG' },
         { name: 'description', title: 'Primary Description (விளக்கம்)', type: 'text', rows: 4 },
         { name: 'reliabilityText', title: 'Reliability & Emergency Paragraph', type: 'text', rows: 3 },
-        { name: 'image', title: 'Lab Photo (ஆய்வகப் புகைப்படம்)', type: 'image', options: { hotspot: true } }
+        { name: 'image', title: 'Lab Photo (ஆய்வகப் புகைப்படம்)', type: 'image', options: { hotspot: true } },
+        {
+          name: 'labFeatures',
+          title: '4 Lab Diagnostic Cards (4 பரிசோதனை சிறப்பம்சங்கள்)',
+          type: 'array',
+          description: 'Fast & Accurate Results, 24/7 Emergency Lab, Sterile & Safe Testing, Digital ECG & Biochemistry',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                { name: 'title', title: 'Feature Title (தலைப்பு)', type: 'string' },
+                { name: 'desc', title: 'Description (விளக்கம்)', type: 'text', rows: 2 }
+              ],
+              preview: { select: { title: 'title', subtitle: 'desc' } }
+            }
+          ]
+        }
+      ]
+    },
+
+    // 6. Our Core Values
+    {
+      name: 'coreValuesSection',
+      title: 'Our Core Values (நற்பண்புகள் - Compassion, Excellence, Integrity)',
+      type: 'object',
+      group: 'coreValues',
+      fields: [
+        { name: 'heading', title: 'Section Heading', type: 'string', initialValue: 'Our Core Values' },
+        { name: 'subtitle', title: 'Section Subtitle', type: 'text', rows: 2, initialValue: 'The foundation of JB Healthcare is built upon strong ethical principles that guide our every action, decision, and interaction with our patients.' },
+        {
+          name: 'values',
+          title: '3 Core Value Cards',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                { name: 'title', title: 'Value Title (e.g. Compassion / Excellence / Integrity)', type: 'string' },
+                { name: 'description', title: 'Description', type: 'text', rows: 3 }
+              ],
+              preview: { select: { title: 'title', subtitle: 'description' } }
+            }
+          ]
+        }
+      ]
+    },
+
+    // 7. Why We Are Different
+    {
+      name: 'whyDifferentSection',
+      title: 'Why We Are Different (நாம் ஏன் தனித்துவமானவர்கள்?)',
+      type: 'object',
+      group: 'whyDifferent',
+      fields: [
+        { name: 'heading', title: 'Section Heading', type: 'string', initialValue: 'Why We Are Different' },
+        { name: 'subtitle', title: 'Section Subtitle', type: 'text', rows: 2, initialValue: "We don't just treat symptoms; we treat the person. At JB Healthcare, every protocol, every ward, and every consultation is designed with patient safety, comfort, and quick recovery at its core." },
+        {
+          name: 'features',
+          title: '3 Differentiator Cards',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                { name: 'title', title: 'Card Title (e.g. Patient-First Approach)', type: 'string' },
+                { name: 'description', title: 'Description', type: 'text', rows: 3 }
+              ],
+              preview: { select: { title: 'title', subtitle: 'description' } }
+            }
+          ]
+        }
       ]
     }
   ],
