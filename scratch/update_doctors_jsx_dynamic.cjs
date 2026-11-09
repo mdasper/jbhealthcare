@@ -820,3 +820,4 @@ norm = norm.replace(normalize(targetCalloutBar), normalize(newCalloutBar));
 
 fs.writeFileSync(filePath, norm.replace(/\n/g, '\r\n'), 'utf8');
 console.log('Successfully updated src/pages/Doctors.jsx with dynamic doctorsPage data!');
+

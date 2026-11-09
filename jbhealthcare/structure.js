@@ -79,20 +79,83 @@ export const myStructure = (S) =>
       // 5. SURGERIES
       S.listItem()
         .title('5. 🔪 SURGERIES (அறுவை சிகிச்சைகள்)')
-        .schemaType('surgery')
-        .child(S.documentTypeList('surgery').title('Laparoscopic Surgeries (அறுவை சிகிச்சைகள்)')),
+        .child(
+          S.list()
+            .title('🔪 Surgeries Management (அறுவை சிகிச்சைகள் மேலாண்மை)')
+            .items([
+              S.listItem()
+                .title('1. 📌 Page Content & Gallery (பக்கத் தலைப்பு, அரங்க படங்கள் & பிரிவுகள்)')
+                .child(
+                  S.document()
+                    .schemaType('surgeriesPage')
+                    .documentId('surgeriesPage')
+                    .title('Surgeries Page Content & Gallery')
+                ),
+              S.listItem()
+                .title('2. 📋 All Laparoscopic Surgeries (6 அறுவை சிகிச்சைகள் - வரிசைப்படி 1 to 6)')
+                .child(
+                  S.documentList()
+                    .title('All Surgeries (1 முதல் 6 வரிசையில்)')
+                    .schemaType('surgery')
+                    .filter('_type == "surgery"')
+                    .defaultOrdering([{ field: 'order', direction: 'asc' }])
+                )
+            ])
+        ),
 
       // 6. FACILITIES
       S.listItem()
         .title('6. 🏢 FACILITIES (மருத்துவமனை வசதிகள்)')
-        .schemaType('facility')
-        .child(S.documentTypeList('facility').title('Hospital Facilities (வசதிகள்)')),
+        .child(
+          S.list()
+            .title('🏢 Facilities Management (வசதிகள் மேலாண்மை)')
+            .items([
+              S.listItem()
+                .title('1. 📌 Page Content & Banner (பக்கத் தலைப்பு & அவசர உதவி)')
+                .child(
+                  S.document()
+                    .schemaType('facilitiesPage')
+                    .documentId('facilitiesPage')
+                    .title('Facilities Page Content & Banner')
+                ),
+              S.listItem()
+                .title('2. 📋 All Hospital Facilities (6 வசதிகள் - வரிசைப்படி 1 to 6)')
+                .child(
+                  S.documentList()
+                    .title('All Facilities (1 முதல் 6 வரிசையில்)')
+                    .schemaType('facility')
+                    .filter('_type == "facility"')
+                    .defaultOrdering([{ field: 'order', direction: 'asc' }])
+                )
+            ])
+        ),
 
       // 7. EVENTS
       S.listItem()
         .title('7. 🎪 EVENTS (நிகழ்வுகள் & மருத்துவ முகாம்கள்)')
-        .schemaType('event')
-        .child(S.documentTypeList('event').title('Events & Medical Camps (முகாம்கள் & விழாக்கள்)')),
+        .child(
+          S.list()
+            .title('🎪 Events Management (நிகழ்வுகள் மேலாண்மை)')
+            .items([
+              S.listItem()
+                .title('1. 📌 Page Content & Guidelines (பக்கத் தலைப்பு & பிரிவுகள்)')
+                .child(
+                  S.document()
+                    .schemaType('eventsPage')
+                    .documentId('eventsPage')
+                    .title('Events Page Content & Guidelines')
+                ),
+              S.listItem()
+                .title('2. 📋 All Events & Photo Albums (நிகழ்வுகள் & புகைப்பட ஆல்பங்கள்)')
+                .child(
+                  S.documentList()
+                    .title('All Events & Camps (தேதி வாரியாக)')
+                    .schemaType('event')
+                    .filter('_type == "event"')
+                    .defaultOrdering([{ field: 'date', direction: 'desc' }])
+                )
+            ])
+        ),
 
       // 8. CONTACT
       S.listItem()
@@ -106,14 +169,31 @@ export const myStructure = (S) =>
 
       S.divider(),
 
-      // 9. APPOINTMENT (LEADS DATABASE)
+      // 9. APPOINTMENT (CONTENT + LEADS DATABASE)
       S.listItem()
-        .title('9. 📋 APPOINTMENT (நோயாளி முன்பதிவுகள் - Live DB)')
-        .schemaType('appointment')
+        .title('9. 📋 APPOINTMENT (முன்பதிவு பக்கம் & லீட்ஸ்)')
         .child(
-          S.documentTypeList('appointment')
-            .title('Patient Appointments (முன்பதிவுகள்)')
-            .defaultOrdering([{ field: 'createdAt', direction: 'desc' }])
+          S.list()
+            .title('📋 Appointment Management (முன்பதிவு மேலாண்மை)')
+            .items([
+              S.listItem()
+                .title('1. 📌 Page Content & Instructions (பக்கத் தலைப்பு & அமைப்புகள்)')
+                .child(
+                  S.document()
+                    .schemaType('appointmentPage')
+                    .documentId('appointmentPage')
+                    .title('Appointment Page Content')
+                ),
+              S.listItem()
+                .title('2. 📋 Patient Bookings Database (நோயாளி முன்பதிவுகள் - Live DB)')
+                .child(
+                  S.documentList()
+                    .title('Patient Appointments (முன்பதிவுகள்)')
+                    .schemaType('appointment')
+                    .filter('_type == "appointment"')
+                    .defaultOrdering([{ field: 'createdAt', direction: 'desc' }])
+                )
+            ])
         ),
 
       // 10. ENQUIRIES (LEADS DATABASE)
@@ -132,4 +212,3 @@ export const myStructure = (S) =>
         .schemaType('testimonial')
         .child(S.documentTypeList('testimonial').title('Patient Reviews & Ratings'))
     ])
-

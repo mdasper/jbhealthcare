@@ -9,6 +9,7 @@ const Appointment = () => {
   const passedState = location.state || {};
 
   const [settings, setSettings] = useState(null);
+  const [pageData, setPageData] = useState(null);
   const [agreed, setAgreed] = useState(false);
   const [dateError, setDateError] = useState('');
 
@@ -50,6 +51,10 @@ const Appointment = () => {
   useEffect(() => {
     client.fetch(`*[_type == "siteSettings"][0]`).then((data) => {
       setSettings(data);
+    }).catch(console.error);
+
+    client.fetch(`*[_type == "appointmentPage"][0]`).then((data) => {
+      if (data) setPageData(data);
     }).catch(console.error);
   }, []);
 
@@ -111,9 +116,9 @@ const Appointment = () => {
         color: 'var(--white)'
       }}>
         <div className="container text-center" data-aos="fade-up">
-          <h1 style={{ color: '#FFFFFF', fontSize: '3.5rem', marginBottom: '20px', letterSpacing: '1px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>Book Your Consultation</h1>
+          <h1 style={{ color: '#FFFFFF', fontSize: '3.5rem', marginBottom: '20px', letterSpacing: '1px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>{pageData?.heroHeading || 'Book Your Consultation'}</h1>
           <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#FFFFFF', fontWeight: '500', lineHeight: '1.7', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
-            Experience world-class healthcare. Schedule an in-person visit or an exclusive online video consultation from the comfort of your home.
+            {pageData?.heroSubtitle || 'Experience world-class healthcare. Schedule an in-person visit or an exclusive online video consultation from the comfort of your home.'}
           </p>
         </div>
       </section>
@@ -129,9 +134,9 @@ const Appointment = () => {
               {/* Decorative Circle */}
               <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(255,255,255,0.25), transparent)' }}></div>
 
-              <h2 style={{ color: '#061D38', fontSize: '2.2rem', marginBottom: '20px', position: 'relative', zIndex: 1, fontWeight: '800' }}>Why Choose JB Healthcare?</h2>
+              <h2 style={{ color: '#061D38', fontSize: '2.2rem', marginBottom: '20px', position: 'relative', zIndex: 1, fontWeight: '800' }}>{pageData?.whyChooseHeading || 'Why Choose JB Healthcare?'}</h2>
               <p style={{ color: '#061D38', opacity: 0.95, fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '40px', position: 'relative', zIndex: 1, fontWeight: '500' }}>
-                Our commitment to your well-being goes beyond treatments. We offer compassionate care backed by cutting-edge technology.
+                {pageData?.whyChooseSubtitle || 'Our commitment to your well-being goes beyond treatments. We offer compassionate care backed by cutting-edge technology.'}
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '25px', position: 'relative', zIndex: 1 }}>
@@ -168,24 +173,24 @@ const Appointment = () => {
 
               {/* Emergency Contact Box to fill the bottom space */}
               <div className="appointment-urgent-box" style={{ backgroundColor: "rgba(255,255,255,0.2)", padding: "25px", borderRadius: "16px", border: "1.5px solid rgba(6, 29, 56, 0.2)", position: "relative", zIndex: 1 }}>
-                <h4 style={{ color: '#061D38', fontSize: '1.2rem', marginBottom: '16px', fontWeight: '800' }}>Need Urgent Help?</h4>
+                <h4 style={{ color: '#061D38', fontSize: '1.2rem', marginBottom: '16px', fontWeight: '800' }}>{pageData?.urgentHeading || 'Need Urgent Help?'}</h4>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '12px' }}>
                   <Phone size={22} color="#061D38" />
                   <div>
                     <span style={{ color: '#061D38', fontSize: '1.1rem', fontWeight: '800', display: 'block' }}>+91 93455 10905</span>
-                    <span style={{ color: '#061D38', opacity: 0.9, fontSize: '0.85rem', fontWeight: '600' }}>Hospital Front Desk</span>
+                    <span style={{ color: '#061D38', opacity: 0.9, fontSize: '0.85rem', fontWeight: '600' }}>{pageData?.frontDeskLabel || 'Hospital Front Desk'}</span>
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '12px' }}>
                   <Phone size={22} color="#061D38" />
                   <div>
                     <span style={{ color: '#061D38', fontSize: '1.05rem', fontWeight: '800', display: 'block' }}>+91 93455 10905</span>
-                    <span style={{ color: '#061D38', opacity: 0.9, fontSize: '0.85rem', fontWeight: '600' }}>Appointments & WhatsApp</span>
+                    <span style={{ color: '#061D38', opacity: 0.9, fontSize: '0.85rem', fontWeight: '600' }}>{pageData?.appointmentLabel || 'Appointments & WhatsApp'}</span>
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                   <MessageSquare size={22} color="#061D38" />
-                  <span style={{ color: '#061D38', fontSize: '0.95rem', fontWeight: '800' }}>24/7 Casualty & Emergency Available</span>
+                  <span style={{ color: '#061D38', fontSize: '0.95rem', fontWeight: '800' }}>{pageData?.emergencyAvailabilityText || '24/7 Casualty & Emergency Available'}</span>
                 </div>
               </div>
 
@@ -193,8 +198,8 @@ const Appointment = () => {
 
             {/* Right Side: The Premium Form */}
             <div className="appointment-form-col" style={{ backgroundColor: "var(--white)" }}>
-              <h3 style={{ color: 'var(--primary)', fontSize: '1.8rem', marginBottom: '5px' }}>Patient Details</h3>
-              <p style={{ color: '#666', marginBottom: '40px' }}>Please fill out the information below to request a consultation.</p>
+              <h3 style={{ color: 'var(--primary)', fontSize: '1.8rem', marginBottom: '5px' }}>{pageData?.formHeaderTitle || 'Patient Details'}</h3>
+              <p style={{ color: '#666', marginBottom: '40px' }}>{pageData?.formHeaderSubtitle || 'Please fill out the information below to request a consultation.'}</p>
               
               <form onSubmit={handleSubmit}>
                 
@@ -237,7 +242,7 @@ const Appointment = () => {
                   {formData.type === 'Online Consultation' && (
                     <div style={{ backgroundColor: '#fff3cd', borderLeft: '4px solid #ffc107', padding: '12px 16px', borderRadius: '0 8px 8px 0', marginTop: '15px' }}>
                       <p style={{ color: '#856404', fontSize: '0.9rem', margin: 0, fontWeight: '500', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Clock size={16} /> Note: Online video consultations are strictly allocated between 12:00 PM and 12:30 PM daily.
+                        <Clock size={16} /> {pageData?.onlineConsultNotice || 'Note: Online video consultations are strictly allocated between 12:00 PM and 12:30 PM daily.'}
                       </p>
                     </div>
                   )}

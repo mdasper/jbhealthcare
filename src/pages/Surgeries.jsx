@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { Calendar, Phone, CheckCircle, ShieldCheck, X } from 'lucide-react';
-import { client } from '../sanity';
+import { client, urlFor } from '../sanity';
 
-const laparoscopicSurgeries = [
+const fallbackSurgeries = [
   {
     id: 'lap-1',
     englishTitle: "Laparoscopic Hysterectomy",
@@ -55,17 +55,61 @@ const laparoscopicSurgeries = [
   }
 ];
 
+const fallbackCoreSpecialties = [
+  {
+    title: 'Open Surgery',
+    subtitle: 'அறுவை சிகிச்சை',
+    img: '/ot_photos/1I8A0815.JPG',
+    desc: 'Traditional open surgical procedures performed with precision for complex abdominal, gastrointestinal, and trauma cases requiring direct operative access.',
+    tags: ['Complex Abdominal', 'GI Surgery', 'Trauma Care', 'Emergency Procedures']
+  },
+  {
+    title: 'Laparoscopic Surgery',
+    subtitle: 'குறைந்த வலி • விரைவு மீட்சி',
+    img: '/ot_photos/1I8A0841.JPG',
+    desc: 'Minimally invasive keyhole surgery using HD camera systems. Tiny incisions, zero visible scarring, minimal pain, and same-day or next-day discharge.',
+    tags: ['Keyhole Incision', 'Faster Recovery', 'Minimal Scarring', '2,000+ Done']
+  },
+  {
+    title: 'Cancer Surgery',
+    subtitle: 'புற்றுநோய் அறுவை சிகிச்சை',
+    img: '/ot_photos/1I8A0850.JPG',
+    desc: 'Dedicated surgical oncology services with visiting M.Ch. oncological surgeons for tumor resection, staging, breast cancer, GI cancer, and comprehensive chemotherapy care.',
+    tags: ['Tumor Resection', 'Oncology Specialists', 'Chemotherapy Care', 'Breast Cancer', 'GI Oncology']
+  }
+];
+
+const fallbackOtPhotos = [
+  '/ot_photos/1I8A0815.JPG',
+  '/ot_photos/1I8A0841.JPG',
+  '/ot_photos/1I8A0850.JPG',
+  '/ot_photos/1I8A0785.JPG',
+  '/ot_photos/1I8A0797.JPG',
+  '/ot_photos/1I8A0835.JPG'
+];
+
 const Surgeries = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const [surgeries, setSurgeries] = useState(laparoscopicSurgeries);
+  const [surgeries, setSurgeries] = useState(fallbackSurgeries);
+  const [pageData, setPageData] = useState(null);
 
   useEffect(() => {
+    // 1. Fetch surgery list
     client.fetch(`*[_type == "surgery"] | order(order asc)`).then((data) => {
       if (Array.isArray(data) && data.length > 0) {
         setSurgeries(data);
       }
     }).catch((err) => {
       console.warn('Using offline surgeries fallback:', err);
+    });
+
+    // 2. Fetch surgeriesPage content
+    client.fetch(`*[_type == "surgeriesPage"][0]`).then((data) => {
+      if (data) {
+        setPageData(data);
+      }
+    }).catch((err) => {
+      console.warn('Using offline surgeriesPage fallback:', err);
     });
   }, []);
 
@@ -85,33 +129,63 @@ const Surgeries = () => {
     };
   }, [selectedPhoto]);
 
+  // Core Specialties resolution
+  const coreSpecialties = (pageData?.coreSpecialtiesList && pageData.coreSpecialtiesList.length > 0)
+    ? pageData.coreSpecialtiesList.map((item, idx) => ({
+        title: item.title,
+        subtitle: item.subtitle,
+        desc: item.desc,
+        tags: item.tags || [],
+        img: item.image ? urlFor(item.image).url() : (fallbackCoreSpecialties[idx]?.img || fallbackCoreSpecialties[0].img)
+      }))
+    : fallbackCoreSpecialties;
+
+  // OT Photos resolution
+  const otPhotos = (pageData?.otPhotos && pageData.otPhotos.length > 0)
+    ? pageData.otPhotos.map((photo, idx) => {
+        try {
+          return urlFor(photo).url();
+        } catch (e) {
+          return fallbackOtPhotos[idx] || fallbackOtPhotos[0];
+        }
+      })
+    : fallbackOtPhotos;
+
+  // Why choose image resolution
+  let whyChooseImg = '/ot_photos/1I8A0785.JPG';
+  if (pageData?.whyChooseImage) {
+    try {
+      whyChooseImg = urlFor(pageData.whyChooseImage).url();
+    } catch (e) { /* use fallback */ }
+  }
+
   return (
     <div className="page-transition" style={{ paddingTop: '80px' }}>
       
-      {/* Hero Section */}
+      {/* 1. Hero Section */}
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 80px' }}>
         <div className="container text-center" data-aos="fade-up">
           <h1 style={{ color: '#FFFFFF', fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>
-            Surgeries & Advanced Laparoscopy
+            {pageData?.heroHeading || "Surgeries & Advanced Laparoscopy"}
           </h1>
           <p style={{ fontSize: '1.2rem', maxWidth: '850px', margin: '0 auto', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.8' }}>
-            JB Healthcare is a premier surgical center of excellence in Sivakasi & Virudhunagar district. Under the expertise of Dr. B. Saileshkumar (10,000+ Surgeries), we specialize in world-class minimally invasive laparoscopic procedures.
+            {pageData?.heroSubtitle || "JB Healthcare is a premier surgical center of excellence in Sivakasi & Virudhunagar district. Under the expertise of Dr. B. Saileshkumar (10,000+ Surgeries), we specialize in world-class minimally invasive laparoscopic procedures."}
           </p>
         </div>
       </section>
 
-      {/* 6 Key Laparoscopic Surgeries Highlighted Directly from Client Banner */}
+      {/* 2. 6 Key Laparoscopic Surgeries */}
       <section className="section" style={{ backgroundColor: 'var(--white)', padding: '70px 0' }}>
         <div className="container">
           <div className="text-center" style={{ marginBottom: '50px' }} data-aos="fade-up">
             <span style={{ backgroundColor: '#0077B6', color: '#FFFFFF', padding: '6px 18px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
-              Speciality Highlight
+              {pageData?.lapSectionBadge || "Speciality Highlight"}
             </span>
             <h2 style={{ color: 'var(--primary)', fontSize: '2.4rem', marginTop: '15px', marginBottom: '10px' }}>
-              Advanced Laparoscopic Surgeries
+              {pageData?.lapSectionTitle || "Advanced Laparoscopic Surgeries"}
             </h2>
             <p style={{ color: '#666', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto' }}>
-              Keyhole Minimally Invasive Surgeries Performed with Advanced High-Definition Medical Systems
+              {pageData?.lapSectionDescription || "Keyhole Minimally Invasive Surgeries Performed with Advanced High-Definition Medical Systems"}
             </p>
           </div>
 
@@ -135,7 +209,6 @@ const Surgeries = () => {
                 className="lap-card-hover"
               >
                 <div>
-
                   <h3 style={{ color: 'var(--primary)', fontSize: '1.45rem', marginBottom: '6px', lineHeight: '1.3' }}>
                     {item.englishTitle}
                   </h3>
@@ -155,7 +228,7 @@ const Surgeries = () => {
 
                 <div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '20px' }}>
-                    {item.features.map((feat, fIdx) => (
+                    {(item.features || []).map((feat, fIdx) => (
                       <span key={fIdx} style={{ backgroundColor: '#fff', color: 'var(--primary)', fontSize: '0.75rem', fontWeight: '600', padding: '4px 10px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
                         ✓ {feat}
                       </span>
@@ -178,45 +251,23 @@ const Surgeries = () => {
         </div>
       </section>
 
-      {/* Core Surgery Services Section */}
+      {/* 3. Core Surgery Services Section */}
       <section className="section" style={{ backgroundColor: '#04101e', padding: '80px 0' }}>
         <div className="container">
           <div className="text-center" style={{ marginBottom: '50px' }} data-aos="fade-up">
             <span style={{ backgroundColor: 'rgba(0, 180, 216, 0.18)', color: '#00B4D8', border: '1px solid rgba(0, 180, 216, 0.4)', padding: '6px 18px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
-              Surgical Services
+              {pageData?.coreSectionBadge || "Surgical Services"}
             </span>
             <h2 style={{ color: '#FFFFFF', fontSize: '2.4rem', marginTop: '15px', marginBottom: '10px' }}>
-              Our Core Surgery Specialties
+              {pageData?.coreSectionTitle || "Our Core Surgery Specialties"}
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto' }}>
-              State-of-the-art operative care across three key surgical domains — every procedure performed with precision, care, and the highest safety standards.
+              {pageData?.coreSectionDescription || "State-of-the-art operative care across three key surgical domains — every procedure performed with precision, care, and the highest safety standards."}
             </p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '28px' }}>
-            {[
-              {
-                title: 'Open Surgery',
-                subtitle: 'அறுவை சிகிச்சை',
-                img: '/ot_photos/1I8A0815.JPG',
-                desc: 'Traditional open surgical procedures performed with precision for complex abdominal, gastrointestinal, and trauma cases requiring direct operative access.',
-                tags: ['Complex Abdominal', 'GI Surgery', 'Trauma Care', 'Emergency Procedures']
-              },
-              {
-                title: 'Laparoscopic Surgery',
-                subtitle: 'குறைந்த வலி • விரைவு மீட்சி',
-                img: '/ot_photos/1I8A0841.JPG',
-                desc: 'Minimally invasive keyhole surgery using HD camera systems. Tiny incisions, zero visible scarring, minimal pain, and same-day or next-day discharge.',
-                tags: ['Keyhole Incision', 'Faster Recovery', 'Minimal Scarring', '2,000+ Done']
-              },
-              {
-                title: 'Cancer Surgery',
-                subtitle: 'புற்றுநோய் அறுவை சிகிச்சை',
-                img: '/ot_photos/1I8A0850.JPG',
-                desc: 'Dedicated surgical oncology services with visiting M.Ch. oncological surgeons for tumor resection, staging, breast cancer, GI cancer, and comprehensive chemotherapy care.',
-                tags: ['Tumor Resection', 'Oncology Specialists', 'Chemotherapy Care', 'Breast Cancer', 'GI Oncology']
-              }
-            ].map((svc, i) => (
+            {coreSpecialties.map((svc, i) => (
               <div
                 key={i}
                 data-aos="fade-up"
@@ -244,7 +295,7 @@ const Surgeries = () => {
                   <p style={{ color: '#00B4D8', fontSize: '0.85rem', fontWeight: '600', marginBottom: '12px' }}>{svc.subtitle}</p>
                   <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '18px' }}>{svc.desc}</p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                    {svc.tags.map((t, ti) => (
+                    {(svc.tags || []).map((t, ti) => (
                       <span key={ti} style={{ backgroundColor: 'rgba(0, 180, 216, 0.12)', color: '#00B4D8', border: '1px solid rgba(0, 180, 216, 0.3)', padding: '3px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>✓ {t}</span>
                     ))}
                   </div>
@@ -255,64 +306,56 @@ const Surgeries = () => {
         </div>
       </section>
 
-      {/* Featured: Center for Laparoscopic Surgery Highlight */}
+      {/* 4. Center of Surgical Excellence Card */}
       <section className="section" style={{ backgroundColor: '#f4f7fb', padding: '80px 0' }}>
         <div className="container">
           <div className="why-choose-surgery-card" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', borderRadius: '24px', padding: '50px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '40px', boxShadow: '0 20px 40px rgba(10,43,78,0.2)' }}>
             <div className="why-choose-content" style={{ flex: '1', minWidth: '280px' }} data-aos="fade-right">
               <span className="surgery-excellence-pill">
-                Center of Surgical Excellence
+                {pageData?.whyChooseBadge || "Center of Surgical Excellence"}
               </span>
               <h2 className="why-choose-surgery-title" style={{ color: 'var(--white)', fontSize: '2.5rem', marginTop: '16px', marginBottom: '16px', lineHeight: '1.2' }}>
-                Why Choose JB Healthcare for Laparoscopy?
+                {pageData?.whyChooseTitle || "Why Choose JB Healthcare for Laparoscopy?"}
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '25px' }}>
                 <span className="lead-doctor-title">
-                  Under the lead of Dr. B. Saileshkumar (MBBS, MS, FIAGES, FALS),
+                  {pageData?.whyChooseLeadDoctor || "Under the lead of Dr. B. Saileshkumar (MBBS, MS, FIAGES, FALS),"}
                 </span>{' '}
-                JB Healthcare has performed over <strong>2,000+ laparoscopic surgeries</strong> and <strong>10,000+ total surgical procedures</strong>. With high-resolution camera towers, ultra-fine instrumentation, and advanced anesthesia protocols, patients experience less pain, zero ugly stitches, and prompt return to home.
+                {pageData?.whyChooseDescription || "JB Healthcare has performed over 2,000+ laparoscopic surgeries and 10,000+ total surgical procedures. With high-resolution camera towers, ultra-fine instrumentation, and advanced anesthesia protocols, patients experience less pain, zero ugly stitches, and prompt return to home."}
               </p>
               <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
                 <Link to="/appointment" state={{ doctorName: "Dr. B. Saileshkumar", department: "Laparoscopic & General Surgery" }} className="btn btn-accent" style={{ padding: '12px 28px', fontSize: '1rem' }}>
-                  Book Surgical Consultation
+                  {pageData?.whyChoosePrimaryCtaText || "Book Surgical Consultation"}
                 </Link>
-                <a href="tel:+919345510905" className="btn btn-outline" style={{ padding: '12px 28px', fontSize: '1rem', borderColor: 'var(--white)', color: 'var(--white)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                  <Phone size={18} /> Call: +91 93455 10905
+                <a href={`tel:${(pageData?.whyChoosePhone || '+91 93455 10905').replace(/[^0-9+]/g, '')}`} className="btn btn-outline" style={{ padding: '12px 28px', fontSize: '1rem', borderColor: 'var(--white)', color: 'var(--white)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                  <Phone size={18} /> Call: {pageData?.whyChoosePhone || "+91 93455 10905"}
                 </a>
               </div>
             </div>
             <div className="why-choose-image" style={{ flex: '1', minWidth: '280px', height: '360px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 16px 36px rgba(0,0,0,0.35)' }} data-aos="fade-left">
-              <img src="/ot_photos/1I8A0785.JPG" alt="Laparoscopic Surgery OT" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={whyChooseImg} alt="Laparoscopic Surgery OT" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Real Operation Theatre & Surgery Photo Gallery */}
+      {/* 5. Real Operation Theatre Photo Gallery */}
       <section className="section" style={{ backgroundColor: '#030c17', padding: '70px 0' }}>
         <div className="container">
           <div className="text-center" style={{ marginBottom: '40px' }} data-aos="fade-up">
             <span style={{ backgroundColor: 'rgba(0, 180, 216, 0.15)', color: '#38BDF8', border: '1px solid rgba(0, 180, 216, 0.35)', padding: '6px 18px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
-              Real Surgical Facility
+              {pageData?.otGalleryBadge || "Real Surgical Facility"}
             </span>
             <h2 style={{ color: '#FFFFFF', fontSize: '2.4rem', marginTop: '14px', marginBottom: '10px', fontWeight: '800' }}>
-              Inside Our Well-Equipped Operation Theatre
+              {pageData?.otGalleryTitle || "Inside Our Well-Equipped Operation Theatre"}
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.02rem', maxWidth: '720px', margin: '0 auto' }}>
-              Real-time surgical procedures led by Chief Laparoscopic Surgeon Dr. B. Saileshkumar alongside specialized anesthesia and sterile nursing teams.
+              {pageData?.otGalleryDescription || "Real-time surgical procedures led by Chief Laparoscopic Surgeon Dr. B. Saileshkumar alongside specialized anesthesia and sterile nursing teams."}
             </p>
           </div>
 
-          {/* Clean 6-Photo Grid - Pictures Only with Click-to-Popup */}
           <div className="ot-photo-grid">
-            {[
-              '/ot_photos/1I8A0815.JPG',
-              '/ot_photos/1I8A0841.JPG',
-              '/ot_photos/1I8A0850.JPG',
-              '/ot_photos/1I8A0785.JPG',
-              '/ot_photos/1I8A0797.JPG',
-              '/ot_photos/1I8A0835.JPG'
-            ].map((imgSrc, pIdx) => (
+            {otPhotos.map((imgSrc, pIdx) => (
               <div 
                 key={pIdx}
                 onClick={() => setSelectedPhoto(imgSrc)}
@@ -338,25 +381,25 @@ const Surgeries = () => {
         </div>
       </section>
 
-      {/* Visiting Specialists Quick Link Banner */}
+      {/* 6. Visiting Specialists CTA Banner */}
       <section style={{ backgroundColor: '#071A2E', padding: '50px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div className="container text-center" data-aos="fade-up">
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <span style={{ color: '#38BDF8', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
-              Multidisciplinary Surgical Care
+              {pageData?.visitingBadge || "Multidisciplinary Surgical Care"}
             </span>
             <h2 style={{ color: 'var(--white)', fontSize: '2.2rem', marginTop: '10px', marginBottom: '15px' }}>
-              Visiting Super-Specialists & Second Opinions
+              {pageData?.visitingTitle || "Visiting Super-Specialists & Second Opinions"}
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', lineHeight: '1.6', marginBottom: '30px' }}>
-              Beyond general and laparoscopic surgery, JB Healthcare hosts top visiting consultants in Cancer Surgery, Gastroenterology, Plastic Surgery, Urology, Paediatrics, and Orthopaedics.
+              {pageData?.visitingDescription || "Beyond general and laparoscopic surgery, JB Healthcare hosts top visiting consultants in Cancer Surgery, Gastroenterology, Plastic Surgery, Urology, Paediatrics, and Orthopaedics."}
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
               <Link to="/doctors" className="btn btn-accent" style={{ padding: '12px 32px', fontSize: '1rem', borderRadius: '30px', fontWeight: 'bold' }}>
-                View Visiting Specialists
+                {pageData?.visitingButton1Text || "View Visiting Specialists"}
               </Link>
               <Link to="/appointment" className="btn btn-outline" style={{ padding: '12px 32px', fontSize: '1rem', borderRadius: '30px', borderColor: 'var(--white)', color: 'var(--white)', fontWeight: 'bold' }}>
-                Schedule Consultation
+                {pageData?.visitingButton2Text || "Schedule Consultation"}
               </Link>
             </div>
           </div>
@@ -373,7 +416,6 @@ const Surgeries = () => {
             className="ot-modal-popup"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header Bar with Close X Button */}
             <div className="ot-modal-header">
               <span style={{ color: '#38BDF8', fontSize: '0.88rem', fontWeight: '700', letterSpacing: '0.5px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#00B4D8', display: 'inline-block' }}></span>
@@ -389,7 +431,6 @@ const Surgeries = () => {
               </button>
             </div>
 
-            {/* Modal Image Box */}
             <div className="ot-modal-image-box">
               <img 
                 src={selectedPhoto} 
@@ -448,155 +489,69 @@ const Surgeries = () => {
         .ot-photo-zoom-hint {
           position: absolute;
           inset: 0;
-          background: rgba(4, 16, 30, 0.3);
           display: flex;
           align-items: center;
           justify-content: center;
+          background: rgba(0,0,0,0.4);
           opacity: 0;
-          transition: opacity 0.25s ease;
+          transition: opacity 0.3s ease;
         }
         .ot-photo-card:hover .ot-photo-zoom-hint {
           opacity: 1;
         }
-
-        /* Modal Pop-up Styling */
         .ot-modal-backdrop {
           position: fixed;
           inset: 0;
-          background-color: rgba(3, 12, 23, 0.82);
+          background-color: rgba(3, 12, 23, 0.85);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
-          z-index: 99999;
+          z-index: 999999;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 16px;
-          animation: modalFadeIn 0.2s ease-out;
+          padding: 20px;
         }
         .ot-modal-popup {
-          position: relative;
-          max-width: 880px;
-          width: 100%;
-          background: #071A2E;
-          border: 1.5px solid rgba(0, 180, 216, 0.45);
+          background-color: #04101e;
+          border: 1.5px solid rgba(0, 180, 216, 0.4);
           border-radius: 20px;
-          padding: 12px 14px 14px;
-          box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 35px rgba(0, 180, 216, 0.25);
-          display: flex;
-          flex-direction: column;
-          animation: modalPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+          max-width: 950px;
+          width: 100%;
+          overflow: hidden;
+          box-shadow: 0 25px 60px rgba(0,0,0,0.6);
         }
         .ot-modal-header {
           display: flex;
-          align-items: center;
           justify-content: space-between;
-          padding: 4px 6px 10px;
+          align-items: center;
+          padding: 14px 20px;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         .ot-modal-close-btn {
-          width: 36px;
-          height: 36px;
+          background: rgba(255,255,255,0.1);
+          border: none;
+          color: #FFF;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
-          background-color: rgba(255, 255, 255, 0.1);
-          border: 1px solid rgba(255, 255, 255, 0.25);
-          color: #FFFFFF;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: all 0.2s ease;
-        }
-        .ot-modal-close-btn:hover {
-          background-color: #EF4444;
-          border-color: #EF4444;
-          transform: scale(1.08);
         }
         .ot-modal-image-box {
-          border-radius: 12px;
-          overflow: hidden;
-          background-color: #020813;
-          display: flex;
-          justify-content: center;
-          align-items: center;
           max-height: 75vh;
+          overflow: hidden;
+          background-color: #000;
         }
         .ot-modal-img {
           width: 100%;
+          height: 100%;
           max-height: 75vh;
           object-fit: contain;
           display: block;
         }
-        @keyframes modalFadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes modalPopIn {
-          from { opacity: 0; transform: scale(0.92) translateY(10px); }
-          to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        .lap-card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important; border-color: var(--accent) !important; }
-        .svc-card-hover:hover { transform: translateY(-10px); box-shadow: 0 24px 50px rgba(0,0,0,0.45) !important; border-color: rgba(0, 180, 216, 0.6) !important; }
-        .svc-card-hover:hover img { transform: scale(1.07); }
-
-        /* Why Choose Us Excellence Badge & Layout Responsive */
-        .surgery-excellence-pill {
-          display: inline-flex;
-          align-items: center;
-          background-color: #FFFFFF;
-          color: #061D38;
-          padding: 7px 18px;
-          border-radius: 30px;
-          font-size: 0.85rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 0.8px;
-          box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-          line-height: 1.2;
-          white-space: nowrap;
-        }
-
-        @media (max-width: 768px) {
-          .why-choose-surgery-card {
-            padding: 24px 18px !important;
-            gap: 22px !important;
-            border-radius: 18px !important;
-          }
-          .why-choose-content {
-            min-width: 100% !important;
-            flex: 1 1 100% !important;
-          }
-          .why-choose-image {
-            min-width: 100% !important;
-            flex: 1 1 100% !important;
-            height: 230px !important;
-          }
-          .why-choose-surgery-title {
-            font-size: 1.65rem !important;
-            line-height: 1.25 !important;
-            margin-top: 14px !important;
-            margin-bottom: 14px !important;
-          }
-          .lead-doctor-title { 
-            white-space: normal !important; 
-            display: inline !important;
-          }
-          .section { padding: 45px 0 !important; }
-        }
-
-        @media (max-width: 480px) {
-          .surgery-excellence-pill {
-            font-size: 0.72rem !important;
-            padding: 6px 12px !important;
-            letter-spacing: 0.4px !important;
-            white-space: normal !important;
-            text-align: center !important;
-          }
-          .ot-photo-card { height: 210px; }
-          .ot-modal-popup { padding: 10px; border-radius: 14px; }
-          .ot-modal-img { max-height: 65vh; }
-        }
       `}</style>
-      
     </div>
   );
 };

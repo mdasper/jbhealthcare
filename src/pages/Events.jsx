@@ -24,8 +24,13 @@ const Events = () => {
   const [activeTab, setActiveTab] = useState('camps');
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const [pageData, setPageData] = useState(null);
 
   useEffect(() => {
+    client.fetch(`*[_type == "eventsPage"][0]`).then((data) => {
+      if (data) setPageData(data);
+    }).catch(console.error);
+
     client.fetch(`*[_type == "event"] | order(date desc)`).then((data) => {
       if (data && data.length > 0) {
         setSanityEvents(data);
@@ -166,10 +171,10 @@ const Events = () => {
       <section className="events-hero-section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)' }}>
         <div className="container text-center" data-aos="fade-up">
           <h1 className="events-hero-title" style={{ color: '#FFFFFF', marginBottom: '14px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)', letterSpacing: '0.3px' }}>
-            Events & Medical Camps
+            {pageData?.heroHeading || 'Events & Medical Camps'}
           </h1>
           <p className="events-hero-sub" style={{ maxWidth: '760px', margin: '0 auto', color: '#FFFFFF', fontWeight: '500', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.65' }}>
-            Explore our specialized health screening camps, upcoming hospital consultations, and community welfare programs in Sivakasi.
+            {pageData?.heroSubtitle || 'Explore our specialized health screening camps, upcoming hospital consultations, and community welfare programs in Sivakasi.'}
           </p>
         </div>
       </section>
@@ -315,14 +320,14 @@ const Events = () => {
               </div>
               <div>
                 <h2 style={{ fontSize: '1.35rem', fontWeight: '800', color: 'var(--primary)', margin: 0 }}>
-                  {activeTab === 'upcoming' && 'Upcoming Events & Consultations'}
-                  {activeTab === 'camps' && 'Free Community Medical Camps'}
-                  {activeTab === 'completed' && 'Hospital Milestones & Concluded Events'}
+                  {activeTab === 'upcoming' && (pageData?.upcomingTabTitle || 'Upcoming Events & Consultations')}
+                  {activeTab === 'camps' && (pageData?.campsTabTitle || 'Free Community Medical Camps')}
+                  {activeTab === 'completed' && (pageData?.completedTabTitle || 'Hospital Milestones & Concluded Events')}
                 </h2>
                 <p style={{ color: '#64748B', fontSize: '0.88rem', margin: '3px 0 0' }}>
-                  {activeTab === 'upcoming' && 'Scheduled hospital health screening, consultations, and medical drives.'}
-                  {activeTab === 'camps' && 'Rural and community outreach providing free doctor consultations and basic tests.'}
-                  {activeTab === 'completed' && 'Retrospective archive of past health awareness seminars and hospital milestones.'}
+                  {activeTab === 'upcoming' && (pageData?.upcomingTabSubtitle || 'Scheduled hospital health screening, consultations, and medical drives.')}
+                  {activeTab === 'camps' && (pageData?.campsTabSubtitle || 'Rural and community outreach providing free doctor consultations and basic tests.')}
+                  {activeTab === 'completed' && (pageData?.completedTabSubtitle || 'Retrospective archive of past health awareness seminars and hospital milestones.')}
                 </p>
               </div>
             </div>
@@ -369,10 +374,10 @@ const Events = () => {
                   <Calendar size={32} />
                 </div>
                 <h3 style={{ color: '#0A2540', fontSize: '1.35rem', fontWeight: '800', marginBottom: '8px' }}>
-                  No Upcoming Events at the Moment
+                  {pageData?.emptyUpcomingHeading || 'No Upcoming Events at the Moment'}
                 </h3>
                 <p style={{ color: '#64748B', fontSize: '0.95rem', maxWidth: '500px', margin: '0 auto 24px', lineHeight: '1.6' }}>
-                  We are currently organizing our upcoming healthcare consultation camps. Please check back soon or browse our community medical camps and achievements!
+                  {pageData?.emptyUpcomingDescription || 'We are currently organizing our upcoming healthcare consultation camps. Please check back soon or browse our community medical camps and achievements!'}
                 </p>
                 <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
                   <button

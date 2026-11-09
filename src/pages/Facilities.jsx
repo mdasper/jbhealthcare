@@ -61,11 +61,12 @@ const facilitiesData = [
 const Facilities = () => {
   const [activeWardIdx, setActiveWardIdx] = React.useState(0);
   const [facilities, setFacilities] = React.useState(facilitiesData);
+  const [pageData, setPageData] = React.useState(null);
 
   React.useEffect(() => {
+    // 1. Fetch facilities list
     client.fetch(`*[_type == "facility"] | order(order asc)`).then((data) => {
       if (Array.isArray(data) && data.length > 0) {
-        // Merge Sanity facility data with icon components and image fallbacks
         const merged = data.map((item, idx) => {
           const fallback = facilitiesData[idx] || facilitiesData[0];
           let img = fallback.image;
@@ -94,6 +95,13 @@ const Facilities = () => {
     }).catch((err) => {
       console.warn('Using offline facilities fallback:', err);
     });
+
+    // 2. Fetch facilitiesPage
+    client.fetch(`*[_type == "facilitiesPage"][0]`).then((data) => {
+      if (data) setPageData(data);
+    }).catch((err) => {
+      console.warn('Using offline facilitiesPage fallback:', err);
+    });
   }, []);
 
   // Auto-switch between IP and OP every 4.5 seconds so both are highlighted
@@ -110,9 +118,11 @@ const Facilities = () => {
       {/* Hero Section */}
       <section className="section" style={{ backgroundColor: 'var(--primary)', color: 'var(--white)', padding: '140px 0 100px' }}>
         <div className="container text-center" data-aos="fade-up">
-          <h1 style={{ color: '#FFFFFF', fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>24/7 Hospital Facilities</h1>
+          <h1 style={{ color: '#FFFFFF', fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>
+            {pageData?.heroHeading || "24/7 Hospital Facilities"}
+          </h1>
           <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)', lineHeight: '1.8' }}>
-            At JB Healthcare, we provide round-the-clock emergency medical services, rapid diagnostics, and comfortable inpatient care with the highest standards of clinical safety.
+            {pageData?.heroSubtitle || "At JB Healthcare, we provide round-the-clock emergency medical services, rapid diagnostics, and comfortable inpatient care with the highest standards of clinical safety."}
           </p>
         </div>
       </section>
@@ -204,13 +214,15 @@ const Facilities = () => {
       {/* CTA Section */}
       <section style={{ backgroundColor: '#071A2E', padding: '50px 0', borderTop: '1px solid rgba(255,255,255,0.08)', textAlign: 'center' }}>
         <div className="container" data-aos="zoom-in">
-          <h2 style={{ color: 'var(--white)', fontSize: '2.2rem', marginBottom: '12px' }}>Need Immediate Medical Assistance?</h2>
+          <h2 style={{ color: 'var(--white)', fontSize: '2.2rem', marginBottom: '12px' }}>
+            {pageData?.ctaHeading || "Need Immediate Medical Assistance?"}
+          </h2>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', marginBottom: '30px', maxWidth: '650px', margin: '0 auto 30px auto' }}>
-            Our emergency and critical care departments are operational 24/7. Contact us immediately for swift response and expert care.
+            {pageData?.ctaDescription || "Our emergency and critical care departments are operational 24/7. Contact us immediately for swift response and expert care."}
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
             <Link to="/contact" className="btn btn-accent" style={{ padding: '12px 32px', fontSize: '1rem', borderRadius: '30px', fontWeight: 'bold' }}>
-              Contact Emergency Services
+              {pageData?.ctaButtonText || "Contact Emergency Services"}
             </Link>
           </div>
         </div>
