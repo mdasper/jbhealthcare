@@ -566,3 +566,4 @@ export default Surgeries;
 
 fs.writeFileSync(targetPath, fileContent, 'utf8');
 console.log('✓ Successfully updated Surgeries.jsx with dynamic Sanity integration!');
+

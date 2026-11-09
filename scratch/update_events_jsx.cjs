@@ -64,3 +64,4 @@ content = content.replace(
 
 fs.writeFileSync(targetPath, content, 'utf8');
 console.log('✓ Successfully updated Events.jsx with dynamic Sanity integration!');
+

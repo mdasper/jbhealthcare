@@ -69,11 +69,18 @@ export default {
       description: 'Key takeaways or services offered in this camp (bullet points)'
     },
     {
-      name: 'thumbnail',
-      title: 'Card Thumbnail Cover (கார்டின் முகப்புப் படம்)',
+      name: 'image',
+      title: 'Card Cover Photo (கார்டின் முகப்புப் படம்)',
       type: 'image',
       options: { hotspot: true },
       description: 'The main landscape photo shown on the event card'
+    },
+    {
+      name: 'thumbnail',
+      title: 'Thumbnail Image (படம்)',
+      type: 'image',
+      options: { hotspot: true },
+      hidden: true
     },
     {
       name: 'gallery',
@@ -99,7 +106,7 @@ export default {
       title: 'title',
       category: 'category',
       date: 'date',
-      media: 'thumbnail'
+      media: 'image'
     },
     prepare({ title, category, date, media }) {
       const catLabel = category === 'upcoming' ? '📅 Upcoming' : (category === 'camps' ? '⛺ Medical Camp' : '🏆 Completed');

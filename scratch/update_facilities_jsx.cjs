@@ -258,3 +258,4 @@ export default Facilities;
 
 fs.writeFileSync(targetPath, fileContent, 'utf8');
 console.log('✓ Successfully updated Facilities.jsx with dynamic Sanity integration!');
+
