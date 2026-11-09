@@ -103,6 +103,7 @@ const Facilities = () => {
                     alt={facility.title} 
                     style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }}
                     className="facility-img-hover"
+                    onError={(e) => { e.target.src = '/hospital_photos/inpatient_outpatient_ward.jpg'; }}
                   />
 
                   {/* Interactive IP/OP Toggle Badges */}
