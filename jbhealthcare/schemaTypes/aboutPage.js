@@ -3,107 +3,144 @@ export default {
   title: '2. ABOUT US (மருத்துவமனை அறிமுகம்)',
   type: 'document',
   groups: [
-    { name: 'hero', title: '1. Header & Overview', default: true },
-    { name: 'history', title: '2. Story & Background' },
-    { name: 'visionMission', title: '3. Vision & Mission' },
-    { name: 'awards', title: '4. Awards & Milestones' },
-    { name: 'lab', title: '5. Diagnostic Lab Section' }
+    { name: 'header', title: '1. Header & Stats (தலைப்பு & சாதனைகள்)', default: true },
+    { name: 'founder', title: '2. Founder Spotlight (டாக்டர் சைலேஷ்)' },
+    { name: 'legacy', title: '3. Our Legacy of Care (வரலாறு & குழு)' },
+    { name: 'visionMission', title: '4. Vision & Mission (நோக்கம் & இலக்கு)' },
+    { name: 'lab', title: '5. Diagnostic Lab (ஆய்வகம்)' }
   ],
   fields: [
+    // 1. Header & Stats
     {
-      name: 'heroTitle',
-      title: 'Hero Heading (தலைப்பு)',
+      name: 'mainHeading',
+      title: 'Main Heading (முக்கிய தலைப்பு)',
       type: 'string',
-      group: 'hero',
-      initialValue: 'A Legacy of Clinical Excellence & Compassionate Healing'
+      group: 'header',
+      initialValue: 'About JB Healthcare'
     },
     {
-      name: 'heroSubtitle',
-      title: 'Hero Subtitle (துணைத் தலைப்பு)',
+      name: 'subHeading',
+      title: 'Header Subtitle (துணை வாசகம்)',
       type: 'text',
-      group: 'hero',
-      rows: 2,
-      initialValue: 'Founded with a vision to deliver world-class surgical precision and community-first medical care in Sivakasi.'
+      group: 'header',
+      rows: 3,
+      initialValue: 'Committed to providing world-class medical facilities, innovative treatments, and compassionate care to our community. We believe in treating the whole person, not just the disease.'
     },
     {
-      name: 'legacyHeading',
-      title: 'Hospital Legacy Heading',
-      type: 'string',
-      group: 'history',
-      initialValue: 'Our Story & Medical Journey'
+      name: 'milestones',
+      title: 'Key Milestones Strip (5 சாதனைகள் - Navy Banner)',
+      type: 'array',
+      group: 'header',
+      description: 'The 5 statistics shown below the header (10,000+ Surgeries, 2,000+ Laparoscopies, 3,000+ C-Sections, 100+ Cancer, 7 Yrs Govt Service)',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'number', title: 'Number / Metric (எண்)', type: 'string' },
+            { name: 'label', title: 'Label (பெயர்)', type: 'string' }
+          ],
+          preview: { select: { title: 'number', subtitle: 'label' } }
+        }
+      ]
     },
+
+    // 2. Founder Spotlight
     {
-      name: 'legacyText',
-      title: 'Hospital History & Background (வரலாறு)',
-      type: 'text',
-      group: 'history',
-      rows: 5
+      name: 'founderSpotlight',
+      title: 'Founder & Chief Doctor Spotlight (டாக்டர் சைலேஷ் குமார்)',
+      type: 'object',
+      group: 'founder',
+      fields: [
+        { name: 'badge', title: 'Top Category Tag', type: 'string', initialValue: 'Leadership & Clinical Vision' },
+        { name: 'name', title: 'Doctor Name (பெயர்)', type: 'string', initialValue: 'Dr. B. Saileshkumar' },
+        { name: 'degree', title: 'Degrees & Role', type: 'string', initialValue: 'MBBS., M.S., FIAGES., FALS — Founder & Chief Surgeon' },
+        { name: 'awardTag', title: 'Award Badge (விருது பேட்ஜ்)', type: 'string', initialValue: '★ Best Doctor Award (2017 & 2018)' },
+        { name: 'bio', title: 'Bio / Clinical Vision', type: 'text', rows: 3 },
+        {
+          name: 'infoCards',
+          title: '2 Highlight Cards (கல்வி & அரசுப்பணி)',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                { name: 'title', title: 'Card Title', type: 'string' },
+                { name: 'description', title: 'Card Description', type: 'text', rows: 3 }
+              ],
+              preview: { select: { title: 'title', subtitle: 'description' } }
+            }
+          ]
+        },
+        { name: 'image', title: 'Doctor Photo', type: 'image', options: { hotspot: true } }
+      ]
     },
+
+    // 3. Our Legacy of Care
+    {
+      name: 'legacySection',
+      title: 'Our Legacy of Care (மருத்துவமனை வரலாறு & குழு)',
+      type: 'object',
+      group: 'legacy',
+      fields: [
+        { name: 'heading', title: 'Section Heading', type: 'string', initialValue: 'Our Legacy of Care' },
+        { name: 'historyText', title: 'Hospital History Paragraph (வரலாறு)', type: 'text', rows: 4 },
+        { name: 'infrastructureText', title: 'Infrastructure & Care Paragraph', type: 'text', rows: 4 },
+        { name: 'floatingTitle', title: 'Floating Banner Title', type: 'string', initialValue: 'Healing Hands, Caring Hearts' },
+        { name: 'floatingSubtitle', title: 'Floating Banner Subtitle', type: 'string', initialValue: 'Every patient is treated with deep empathy like family' },
+        { name: 'aboutImage', title: 'Hospital Team Photo (முழு குழு படம்)', type: 'image', options: { hotspot: true } },
+        {
+          name: 'features',
+          title: '4 Feature Cards (4 சிறப்பம்சங்கள்)',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                { name: 'title', title: 'Card Title', type: 'string' },
+                { name: 'description', title: 'Description', type: 'string' }
+              ],
+              preview: { select: { title: 'title', subtitle: 'description' } }
+            }
+          ]
+        }
+      ]
+    },
+
+    // 4. Vision & Mission
     {
       name: 'vision',
       title: 'Our Vision (தொலைநோக்குப் பார்வை)',
       type: 'text',
       group: 'visionMission',
-      rows: 3
+      rows: 4
     },
     {
       name: 'mission',
       title: 'Our Mission (மருத்துவமனை இலக்கு)',
       type: 'text',
       group: 'visionMission',
-      rows: 3
+      rows: 4
     },
+
+    // 5. In-House Diagnostic Lab
     {
-      name: 'awards',
-      title: 'Awards & Recognitions (பெற்ற விருதுகள்)',
-      type: 'array',
-      group: 'awards',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            { name: 'title', title: 'Award Title', type: 'string' },
-            { name: 'year', title: 'Year', type: 'string' },
-            { name: 'conferredBy', title: 'Conferred By', type: 'string' },
-            { name: 'description', title: 'Short Description', type: 'string' }
-          ],
-          preview: {
-            select: { title: 'title', subtitle: 'year' }
-          }
-        }
-      ]
-    },
-    {
-      name: 'coreValues',
-      title: 'Core Values (மருத்துவமனையின் நற்பண்புகள்)',
-      type: 'array',
-      group: 'visionMission',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            { name: 'title', title: 'Value Title (e.g. Clinical Excellence, Compassion, Integrity)', type: 'string' },
-            { name: 'description', title: 'Description', type: 'text', rows: 2 }
-          ]
-        }
-      ]
-    },
-    {
-      name: 'labFeature',
-      title: 'In-House Diagnostic Lab Section',
+      name: 'labSection',
+      title: 'In-House Diagnostic Lab Section (ஆய்வகம்)',
       type: 'object',
       group: 'lab',
       fields: [
-        { name: 'heading', title: 'Lab Heading', type: 'string', initialValue: 'State-of-the-Art In-House Diagnostic Lab' },
-        { name: 'description', title: 'Description', type: 'text', rows: 3 },
-        { name: 'image', title: 'Lab Technician / Analyzer Photo', type: 'image', options: { hotspot: true } }
+        { name: 'heading', title: 'Lab Heading (தலைப்பு)', type: 'string', initialValue: 'In-House Diagnostic Center' },
+        { name: 'subheading', title: 'Subheading / Tagline', type: 'string', initialValue: 'Automated Pathology, Biochemistry & 3-Lead Digital ECG' },
+        { name: 'description', title: 'Primary Description (விளக்கம்)', type: 'text', rows: 4 },
+        { name: 'reliabilityText', title: 'Reliability & Emergency Paragraph', type: 'text', rows: 3 },
+        { name: 'image', title: 'Lab Photo (ஆய்வகப் புகைப்படம்)', type: 'image', options: { hotspot: true } }
       ]
     }
   ],
   preview: {
     prepare() {
       return {
-        title: 'ℹ️ About Us Content (மருத்துவமனை அறிமுகப் பக்கம்)'
+        title: 'ℹ️ ABOUT US (மருத்துவமனை அறிமுகம்)'
       }
     }
   }

@@ -197,3 +197,4 @@ code = code.replace(oldCtaRegex, newCta);
 
 fs.writeFileSync(homePath, code, 'utf8');
 console.log('✅ Home.jsx updated with all dynamic sections and safe fallbacks!');
+

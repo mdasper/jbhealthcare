@@ -33,13 +33,13 @@ const About = () => {
 
   // Use fallback text if data is still loading
   const mainHeading = aboutData?.mainHeading || "About JB Healthcare";
-  const rawHistoryText = aboutData?.historyText || "Established with a bold vision to make premium, international-standard healthcare accessible to everyone, JB Healthcare has grown into a trusted name in Sivakasi, Tamil Nadu. Over the years, we have built a reputation based on trust, clinical excellence, and deep-rooted empathy.";
+  const rawHistoryText = aboutData?.legacySection?.historyText || aboutData?.historyText || "Established with a bold vision to make premium, international-standard healthcare accessible to everyone, JB Healthcare has grown into a trusted name in Sivakasi, Tamil Nadu. Over the years, we have built a reputation based on trust, clinical excellence, and deep-rooted empathy.";
   const historyText = rawHistoryText.replace(/Anaiyur/gi, 'Sivakasi');
   const vision = aboutData?.vision || "To be the most trusted and respected healthcare partner in the region, recognized globally for our clinical excellence, compassionate care, and unwavering commitment to community wellness and health education.";
   const mission = aboutData?.mission || "We strive to deliver comprehensive, high-quality, and affordable healthcare services under one roof. Our mission is to continuously upgrade our medical technology, empower our staff through regular training, and provide a healing environment that consistently exceeds patient expectations.";
-  const labHeading = aboutData?.labHeading || "In-House Diagnostic Center";
-  const labDescription = aboutData?.labDescription || "At JB Healthcare, we know that waiting for test results can be stressful for you and your family. That's why we've set up our own fully equipped diagnostic center right here inside our hospital.";
-  const aboutImage = aboutData?.aboutImage ? urlFor(aboutData.aboutImage).url() : "/hospital_photos/jb_hospital_full_team.jpg";
+  const labHeading = aboutData?.labSection?.heading || aboutData?.labHeading || "In-House Diagnostic Center";
+  const labDescription = aboutData?.labSection?.description || aboutData?.labDescription || "At JB Healthcare, we know that waiting for test results can be stressful for you and your family. That's why we've set up our own fully equipped diagnostic center right here inside our hospital.";
+  const aboutImage = (aboutData?.legacySection?.aboutImage ? urlFor(aboutData.legacySection.aboutImage).url() : null) || (aboutData?.aboutImage ? urlFor(aboutData.aboutImage).url() : "/hospital_photos/jb_hospital_full_team.jpg");
 
   return (
     <div className="page-transition" style={{ paddingTop: '80px' }}>
@@ -49,7 +49,7 @@ const About = () => {
         <div className="container text-center" data-aos="fade-up">
           <h1 style={{ color: '#FFFFFF', fontSize: '3.5rem', marginBottom: '20px', fontWeight: '800', textShadow: '0 2px 4px rgba(0, 30, 60, 0.25)' }}>{mainHeading}</h1>
           <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: '#FFFFFF', fontWeight: '600', textShadow: '0 1px 2px rgba(0, 30, 60, 0.25)' }}>
-            Committed to providing world-class medical facilities, innovative treatments, and compassionate care to our community. We believe in treating the whole person, not just the disease.
+            {aboutData?.subHeading || "Committed to providing world-class medical facilities, innovative treatments, and compassionate care to our community. We believe in treating the whole person, not just the disease."}
           </p>
         </div>
       </section>
