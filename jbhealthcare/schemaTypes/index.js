@@ -1,5 +1,6 @@
 import homePage from './homePage'
 import aboutPage from './aboutPage'
+import departmentsPage from './departmentsPage'
 import service from './service'
 import doctor from './doctor'
 import surgery from './surgery'
@@ -13,6 +14,7 @@ import testimonial from './testimonial'
 export const schemaTypes = [
   homePage,
   aboutPage,
+  departmentsPage,
   service,
   doctor,
   surgery,

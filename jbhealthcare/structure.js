@@ -25,8 +25,28 @@ export const myStructure = (S) =>
       // 3. DEPARTMENTS
       S.listItem()
         .title('3. 🩺 DEPARTMENTS (மருத்துவத் துறைகள்)')
-        .schemaType('service')
-        .child(S.documentTypeList('service').title('All Departments (14 துறைகள்)')),
+        .child(
+          S.list()
+            .title('🩺 Departments Management (துறைகள் மேலாண்மை)')
+            .items([
+              S.listItem()
+                .title('1. 📌 Page Header & Overview (பக்கத் தலைப்பு & அறிமுகம்)')
+                .child(
+                  S.document()
+                    .schemaType('departmentsPage')
+                    .documentId('departmentsPage')
+                    .title('Departments Page Header & Overview')
+                ),
+              S.listItem()
+                .title('2. 📋 All Departments List (14 துறைகள் - தனித்தனி விவரங்கள்)')
+                .schemaType('service')
+                .child(
+                  S.documentTypeList('service')
+                    .title('All Departments (14 துறைகள்)')
+                    .defaultOrdering([{ field: 'order', direction: 'asc' }])
+                )
+            ])
+        ),
 
       // 4. DOCTORS
       S.listItem()
