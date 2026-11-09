@@ -169,13 +169,14 @@ export const myStructure = (S) =>
 
       S.divider(),
 
-      // 9. APPOINTMENT (CONTENT + LEADS DATABASE)
+      // 9. APPOINTMENT (CONTENT + LEADS DASHBOARD)
       S.listItem()
-        .title('9. 📋 APPOINTMENT (முன்பதிவு பக்கம் & லீட்ஸ்)')
+        .title('9. 📋 APPOINTMENT (முன்பதிவு மேலாண்மை)')
         .child(
           S.list()
             .title('📋 Appointment Management (முன்பதிவு மேலாண்மை)')
             .items([
+              // 1. Page Content
               S.listItem()
                 .title('1. 📌 Page Content & Instructions (பக்கத் தலைப்பு & அமைப்புகள்)')
                 .child(
@@ -184,11 +185,120 @@ export const myStructure = (S) =>
                     .documentId('appointmentPage')
                     .title('Appointment Page Content')
                 ),
+
+              S.divider(),
+
+              // 2. New / Pending Appointments (Highest Priority)
               S.listItem()
-                .title('2. 📋 Patient Bookings Database (நோயாளி முன்பதிவுகள் - Live DB)')
+                .title('2. 🔴 NEW / PENDING REVIEW (புதிய முன்பதிவுகள் - உடனடி கவனிப்பிற்கு)')
                 .child(
                   S.documentList()
-                    .title('Patient Appointments (முன்பதிவுகள்)')
+                    .title('New Appointments (உறுதி செய்ய வேண்டியவை)')
+                    .schemaType('appointment')
+                    .filter('_type == "appointment" && (status == "new" || !defined(status))')
+                    .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                ),
+
+              // 3. Month-wise Folders
+              S.listItem()
+                .title('3. 🗓️ MONTH-WISE BOOKINGS (மாத வாரியாக)')
+                .child(
+                  S.list()
+                    .title('Month-wise Appointments (மாத வாரியாக)')
+                    .items([
+                      S.listItem()
+                        .title('📅 November 2026')
+                        .child(
+                          S.documentList()
+                            .title('November 2026 Bookings')
+                            .schemaType('appointment')
+                            .filter('_type == "appointment" && (preferredDate match "2026-11*" || _createdAt match "2026-11*")')
+                            .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                        ),
+                      S.listItem()
+                        .title('📅 December 2026')
+                        .child(
+                          S.documentList()
+                            .title('December 2026 Bookings')
+                            .schemaType('appointment')
+                            .filter('_type == "appointment" && (preferredDate match "2026-12*" || _createdAt match "2026-12*")')
+                            .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                        ),
+                      S.listItem()
+                        .title('📅 January 2027')
+                        .child(
+                          S.documentList()
+                            .title('January 2027 Bookings')
+                            .schemaType('appointment')
+                            .filter('_type == "appointment" && (preferredDate match "2027-01*" || _createdAt match "2027-01*")')
+                            .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                        ),
+                      S.listItem()
+                        .title('📅 February 2027')
+                        .child(
+                          S.documentList()
+                            .title('February 2027 Bookings')
+                            .schemaType('appointment')
+                            .filter('_type == "appointment" && (preferredDate match "2027-02*" || _createdAt match "2027-02*")')
+                            .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                        ),
+                      S.listItem()
+                        .title('📅 March 2027')
+                        .child(
+                          S.documentList()
+                            .title('March 2027 Bookings')
+                            .schemaType('appointment')
+                            .filter('_type == "appointment" && (preferredDate match "2027-03*" || _createdAt match "2027-03*")')
+                            .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                        )
+                    ])
+                ),
+
+              // 4. By Consultation Type
+              S.listItem()
+                .title('4. ⏰ BY CONSULTATION TYPE (வகை வாரியாக)')
+                .child(
+                  S.list()
+                    .title('Consultation Type (வகை வாரியாக)')
+                    .items([
+                      S.listItem()
+                        .title('🏥 Clinic Visits (நேரடி மருத்துவமனை வருகை)')
+                        .child(
+                          S.documentList()
+                            .title('In-Person Clinic Visits')
+                            .schemaType('appointment')
+                            .filter('_type == "appointment" && consultationType == "In-Person"')
+                            .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                        ),
+                      S.listItem()
+                        .title('💻 Online Video Consultations (12:00-12:30 PM)')
+                        .child(
+                          S.documentList()
+                            .title('Online Video Calls')
+                            .schemaType('appointment')
+                            .filter('_type == "appointment" && consultationType == "Online Consultation"')
+                            .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                        )
+                    ])
+                ),
+
+              // 5. Confirmed & Completed
+              S.listItem()
+                .title('5. 🟢 CONFIRMED & COMPLETED (உறுதி செய்யப்பட்டவை & முடிந்தவை)')
+                .child(
+                  S.documentList()
+                    .title('Confirmed & Completed Appointments')
+                    .schemaType('appointment')
+                    .filter('_type == "appointment" && (status == "confirmed" || status == "completed")')
+                    .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                ),
+
+              // 6. All Patient Bookings (Complete Database)
+              S.listItem()
+                .title('6. 📋 ALL PATIENT BOOKINGS (முழு முன்பதிவு பட்டியல் - Newest First)')
+                .child(
+                  S.documentList()
+                    .title('All Patient Bookings (புதியது முதல் பழையது வரை)')
                     .schemaType('appointment')
                     .filter('_type == "appointment"')
                     .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
