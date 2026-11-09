@@ -38,11 +38,12 @@ export const myStructure = (S) =>
                     .title('Departments Page Header & Overview')
                 ),
               S.listItem()
-                .title('2. 📋 All Departments List (14 துறைகள் - தனித்தனி விவரங்கள்)')
-                .schemaType('service')
+                .title('2. 📋 All Departments List (14 துறைகள் - வரிசைப்படி 1 to 14)')
                 .child(
-                  S.documentTypeList('service')
-                    .title('All Departments (14 துறைகள்)')
+                  S.documentList()
+                    .title('All Departments (1 முதல் 14 வரிசையில்)')
+                    .schemaType('service')
+                    .filter('_type == "service"')
                     .defaultOrdering([{ field: 'order', direction: 'asc' }])
                 )
             ])

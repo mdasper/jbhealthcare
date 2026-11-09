@@ -98,16 +98,25 @@ export default {
       initialValue: 1
     }
   ],
+  orderings: [
+    {
+      title: 'Display Order (வரிசைப்படி 1-14)',
+      name: 'orderAsc',
+      by: [{ field: 'order', direction: 'asc' }]
+    }
+  ],
   preview: {
     select: {
+      order: 'order',
       title: 'title',
       tamil: 'tamilTitle',
       doctor: 'doctor',
       featured: 'isFeaturedOnHome'
     },
-    prepare({ title, tamil, doctor, featured }) {
+    prepare({ order, title, tamil, doctor, featured }) {
+      const numPrefix = order ? `${order}. ` : '';
       return {
-        title: `${featured ? '⭐ ' : ''}${title || 'Untitled Department'}`,
+        title: `${numPrefix}${featured ? '⭐ ' : ''}${title || 'Untitled Department'}`,
         subtitle: `${tamil ? tamil + ' • ' : ''}${doctor || 'No doctor assigned'}`
       }
     }
