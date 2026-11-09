@@ -26,7 +26,7 @@ const About = () => {
   const [aboutData, setAboutData] = useState(null);
 
   useEffect(() => {
-    client.fetch(`*[_type == "aboutPage"][0]`).then((data) => {
+    client.fetch(`*[_type == "aboutPage" && _id == "aboutPage"][0]`).then((data) => {
       setAboutData(data);
     }).catch(console.error);
   }, []);
