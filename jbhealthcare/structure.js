@@ -191,7 +191,7 @@ export const myStructure = (S) =>
                     .title('Patient Appointments (முன்பதிவுகள்)')
                     .schemaType('appointment')
                     .filter('_type == "appointment"')
-                    .defaultOrdering([{ field: 'createdAt', direction: 'desc' }])
+                    .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
                 )
             ])
         ),
