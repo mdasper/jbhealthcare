@@ -36,3 +36,4 @@ code = code.replace(
 
 fs.writeFileSync(aboutPath, code, 'utf8');
 console.log('✅ About.jsx updated with dynamic Sanity integration and safe fallbacks!');
+
