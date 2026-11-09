@@ -58,8 +58,9 @@ const Home = () => {
   }, []);
 
   // Use Sanity slides if configured, otherwise fallback to verified local slides
-  const displaySlides = (homeData?.heroSlides && homeData.heroSlides.length > 0)
-    ? homeData.heroSlides.map((s, idx) => {
+  const sanitySliders = homeData?.heroSliders || homeData?.heroSlides;
+  const displaySlides = (sanitySliders && sanitySliders.length > 0)
+    ? sanitySliders.map((s, idx) => {
         let img = slides[idx % slides.length]?.image || slides[0].image;
         if (s.image) {
           try {
