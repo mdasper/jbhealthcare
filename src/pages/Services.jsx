@@ -230,13 +230,13 @@ const realDepartments = [
   },
   {
     _id: 'dept-12',
-    title: 'Clinical Psychology & Counselling',
+    title: 'Counselling & Psychotherapy',
     tamilTitle: 'மனநலம் & உளவியல் ஆலோசனை பிரிவு',
     category: 'Clinical & Emergency',
     icon: 'Brain',
     doctor: 'Sowdambika @ Reethika M',
-    doctorRole: 'Consultant Psychologist & Counsellor',
-    degree: 'M.Sc., M.Phil. (Clinical Psychology)',
+    doctorRole: 'Consultant Psychotherapist & Counsellor',
+    degree: 'M.Sc. (Counselling & Psychotherapy)',
     badge: 'Every Wednesday • 10:00 AM – 12:00 PM',
     description: 'Professional, confidential mental wellness support, cognitive behavioral therapy, stress management, adolescent counseling, and family emotional health guidance.',
     keyProcedures: [
@@ -319,7 +319,9 @@ const doctorOverrideMap = {
   'anaesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'MBBS, DA / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
   'anesthes': { doctor: 'Dr. Kishore Ganesh, Dr. Jaganatha Prabhu, Dr. Karthikeyan', degree: 'MBBS, DA / MBBS, MD', doctorRole: 'Consultant Anaesthesiologists' },
   'ent': { doctor: 'Dr. Sivaram', degree: 'MBBS, DNB (ENT)', doctorRole: 'Consultant ENT Specialist' },
-  'psychol': { doctor: 'Sowdambika @ Reethika M', degree: 'M.Sc., M.Phil. (Clinical Psychology)', doctorRole: 'Consultant Psychologist & Counsellor' },
+  'psychol': { doctor: 'Sowdambika @ Reethika M', degree: 'M.Sc. (Counselling & Psychotherapy)', doctorRole: 'Consultant Psychotherapist & Counsellor' },
+  'psychotherap': { doctor: 'Sowdambika @ Reethika M', degree: 'M.Sc. (Counselling & Psychotherapy)', doctorRole: 'Consultant Psychotherapist & Counsellor' },
+  'counselling': { doctor: 'Sowdambika @ Reethika M', degree: 'M.Sc. (Counselling & Psychotherapy)', doctorRole: 'Consultant Psychotherapist & Counsellor' },
   'gastro': { doctor: 'Dr. A.C. Arun', degree: 'MBBS, M.D., D.M. (Gastroenterology)', doctorRole: 'Visiting Medical Gastroenterologist' }
 };
 

@@ -245,9 +245,9 @@ const visitingSpecialists = [
   {
     _id: 'v-13',
     name: 'Sowdambika @ Reethika M',
-    degree: 'M.Sc., M.Phil.',
-    categoryHeader: 'CLINICAL PSYCHOLOGY & COUNSELLING',
-    department: 'Clinical Psychology & Counselling',
+    degree: 'M.Sc. (Counselling & Psychotherapy)',
+    categoryHeader: 'PSYCHOTHERAPY & COUNSELLING',
+    department: 'Counselling & Psychotherapy',
     category: 'Psychology',
     schedule: 'Every Wednesday',
     timing: '10:00 AM – 12:00 PM',
